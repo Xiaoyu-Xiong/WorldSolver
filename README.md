@@ -40,9 +40,6 @@ WorldSolver/
 │       └── assets/                   # task assets, when required
 ├── result/
 │   └── <task-id>/<model>.py          # generated solver for each model
-├── evaluation/
-│   └── <task-id>/<model>/
-│       └── evaluation.json           # published evaluation result
 ├── scripts/
 │   ├── evaluate.py                    # evaluation entry point
 │   └── ...                            # runtime, rendering, and evaluation code
