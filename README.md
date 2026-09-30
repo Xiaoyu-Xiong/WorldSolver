@@ -64,14 +64,14 @@ Visual evaluation uses an OpenAI-compatible multimodal Chat Completions endpoint
 
 ```yaml
 model: your-vision-model
-base_url: https://your-endpoint.example/v1
+base_url: https://your-endpoint.example
 api_key: your-api-key
 ```
 
 Run one published solver by specifying its task ID and model name:
 
 ```bash
-python scripts/evaluate.py --task-id 001_2d_dam_break --model gpt-5.6-sol
+python scripts/evaluate.py --task-id <task-id> --model <model>
 ```
 
 Task IDs are the directory names under `task/`. Model names are the filenames under `result/<task-id>/`, without the `.py` extension.
