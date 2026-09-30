@@ -1,0 +1,30 @@
+id: 157_curtain_ball_flip_and_unravel
+title: Curtain Ball Flip and Unravel
+category: cloth_and_shells
+source:
+  title: Robust Treatment of Collisions, Contact and Friction for Cloth Animation
+  url: https://graphics.stanford.edu/papers/cloth-sig02/cloth.pdf
+  anchor: Figure 1
+goal: >-
+  Recreate the paper's clearly visible curtain ball flip and unravel phenomenon. The implementation method is unrestricted;
+  evaluation targets thin-material motion, folds or tears, contact response, and the characteristic outcome.
+scene_requirements:
+  required_elements:
+  - Pinned hanging curtain
+  - Rigid ball initially wrapped by cloth
+  - Gravity
+  - Cloth self-contact and ball contact
+  initial_state:
+  - A hanging curtain is pinned along its top edge and arranged around a rigid ball.
+  required_events:
+  - The ball moves or falls, pulling the surrounding cloth into a flipping fold.
+  - Multiple layers collide and slide as the cloth turns over the ball without passing through itself.
+  - The cloth unwraps and hangs freely again while the ball separates and all folds remain coherent.
+  - Motion remains temporally coherent and all non-tearing regions preserve sheet connectivity.
+camera_requirements:
+- Use a three-quarter view showing pins, ball path, layered flip, and final curtain.
+- Use lighting and material contrast that make folds, wrinkles, contacts, and any crack tip readable.
+parameter_notes:
+- Match the qualitative geometry, stiffness regime, and event ordering shown in Figure 1; mesh resolution may be adapted.
+- Export cloth mass, position, velocity, external force, surface deformation gradients, and signed contact distances.
+

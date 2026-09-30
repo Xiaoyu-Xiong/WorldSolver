@@ -1,0 +1,14 @@
+schema_version: 2
+profile: fiber_rods
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - object_id: upper_clamp
+    method: rigid_mesh
+    material: clamp_metal
+    color_rgb: [0.30, 0.33, 0.37]
+  - object_id: curved_rod
+    method: curve_tubes
+    material: rod_elastomer
+    color_rgb: [0.25, 0.78, 0.70]
+    subdivision: 2

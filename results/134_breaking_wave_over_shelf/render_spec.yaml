@@ -1,0 +1,17 @@
+schema_version: 2
+profile: liquid_in_container
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: ground, method: rigid_mesh, material: matte, color_rgb: [0.22, 0.25, 0.30]}
+  - {object_id: tank_side_left, method: rigid_mesh, material: matte, color_rgb: [0.28, 0.31, 0.36], opacity: 0.35}
+  - {object_id: tank_side_right, method: rigid_mesh, material: matte, color_rgb: [0.28, 0.31, 0.36], opacity: 0.35}
+  - {object_id: tank_end_wall, method: rigid_mesh, material: matte, color_rgb: [0.28, 0.31, 0.36], opacity: 0.35}
+  - {object_id: submerged_shelf, method: rigid_mesh, material: matte, color_rgb: [0.52, 0.45, 0.35]}
+  - {object_id: dam_gate, method: rigid_mesh, material: gate, color_rgb: [0.66, 0.48, 0.22], opacity: 0.75}
+  - object_id: subject
+    method: reconstructed_surface
+    material: default
+    color_rgb: [0.06, 0.42, 0.88]
+    surface_pitch: 0.10
+    surface_smoothing: 1.0

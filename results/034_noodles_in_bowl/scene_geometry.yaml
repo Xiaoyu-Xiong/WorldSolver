@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "units": "meters",
+  "up_axis": "z",
+  "objects": [
+    {
+      "id": "bowl",
+      "semantic": "boundary",
+      "motion": "static",
+      "geometry": {
+        "type": "axisymmetric_container",
+        "inner_profile": [
+          [
+            0.12,
+            0
+          ],
+          [
+            0.38,
+            0.08
+          ],
+          [
+            0.66,
+            0.34
+          ],
+          [
+            0.72,
+            0.48
+          ]
+        ],
+        "wall_thickness": 0.025
+      },
+      "transform": {
+        "translation": [
+          0,
+          0,
+          0
+        ]
+      },
+      "material_id": "porcelain",
+      "collision_enabled": true
+    },
+    {
+      "id": "noodles",
+      "semantic": "fiber",
+      "motion": "dynamic",
+      "geometry": {
+        "type": "curve_network",
+        "topology_asset": "assets/noodle_topology.json",
+        "radius": 0.006
+      },
+      "state_binding": {
+        "selector": "all"
+      },
+      "material_id": "noodle_gold",
+      "collision_enabled": true
+    }
+  ]
+}

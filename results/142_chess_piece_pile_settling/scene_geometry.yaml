@@ -1,0 +1,139 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [3.2, 2.2, 0.05]}
+    transform: {translation: [0.0, 0.0, -0.05]}
+    material_id: floor
+    collision_enabled: true
+  - id: piece_0
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/pawn.obj}
+    transform: {translation: [-1.2,-0.6,0.45], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 0}
+    material_id: accent_a
+    collision_enabled: true
+  - id: piece_1
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/rook.obj}
+    transform: {translation: [-0.3999999999999999,-0.6,0.45], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 1}
+    material_id: accent_b
+    collision_enabled: true
+  - id: piece_2
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/knight.obj}
+    transform: {translation: [0.40000000000000013,-0.6,0.45], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 2}
+    material_id: accent_a
+    collision_enabled: true
+  - id: piece_3
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/bishop.obj}
+    transform: {translation: [1.2000000000000004,-0.6,0.45], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 3}
+    material_id: accent_b
+    collision_enabled: true
+  - id: piece_4
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/queen.obj}
+    transform: {translation: [-1.2,0.6,0.45], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 4}
+    material_id: accent_a
+    collision_enabled: true
+  - id: piece_5
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/king.obj}
+    transform: {translation: [-0.3999999999999999,0.6,0.45], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 5}
+    material_id: accent_b
+    collision_enabled: true
+  - id: piece_6
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/pawn.obj}
+    transform: {translation: [0.40000000000000013,0.6,0.45], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 6}
+    material_id: accent_a
+    collision_enabled: true
+  - id: piece_7
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/rook.obj}
+    transform: {translation: [1.2000000000000004,0.6,0.45], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 7}
+    material_id: accent_b
+    collision_enabled: true
+  - id: piece_8
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/knight.obj}
+    transform: {translation: [-1.2,-0.6,1.25], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 8}
+    material_id: accent_a
+    collision_enabled: true
+  - id: piece_9
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/bishop.obj}
+    transform: {translation: [-0.3999999999999999,-0.6,1.25], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 9}
+    material_id: accent_b
+    collision_enabled: true
+  - id: piece_10
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/queen.obj}
+    transform: {translation: [0.40000000000000013,-0.6,1.25], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 10}
+    material_id: accent_a
+    collision_enabled: true
+  - id: piece_11
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/king.obj}
+    transform: {translation: [1.2000000000000004,-0.6,1.25], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 11}
+    material_id: accent_b
+    collision_enabled: true
+  - id: piece_12
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/pawn.obj}
+    transform: {translation: [-1.2,0.6,1.25], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 12}
+    material_id: accent_a
+    collision_enabled: true
+  - id: piece_13
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/rook.obj}
+    transform: {translation: [-0.3999999999999999,0.6,1.25], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 13}
+    material_id: accent_b
+    collision_enabled: true
+  - id: piece_14
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/bishop.obj}
+    transform: {translation: [0.40000000000000013,0.6,1.25], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 14}
+    material_id: accent_a
+    collision_enabled: true
+  - id: piece_15
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/king.obj}
+    transform: {translation: [1.2000000000000004,0.6,1.25], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 15}
+    material_id: accent_b
+    collision_enabled: true

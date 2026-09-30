@@ -1,0 +1,129 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 2188803029,
+          "trajectory_frames": 401,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "For the smoke scalar, the mass change equals the cumulative prescribed inflow, outflow, or phase-transfer source; internal motion and contact do not create or delete mass.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "initial_quantity": [
+            0.04874321831015671
+          ],
+          "sample_count": 401,
+          "worst_frame_index": 400
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 1.1903044685636408,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.8331219504636707
+      },
+      {
+        "calculator": "field.divergence.v1",
+        "criterion": "In the active incompressible region of the carrier flow, the velocity field is approximately divergence free.",
+        "criterion_id": "incompressible_velocity_constraint",
+        "details": {
+          "sample_count": 401,
+          "worst_frame_index": 0
+        },
+        "dimension": "field_constraints",
+        "domain": "physics",
+        "metric": "divergence_relative_l2",
+        "normalized_error": 5.674639822555433,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 14.982081828905983
+      },
+      {
+        "calculator": "field.scalar_transport.v1",
+        "criterion": "The exported smoke density in rising smoke evolves consistently with its collocated velocity and prescribed local source.",
+        "criterion_id": "transported_scalar_consistency",
+        "details": {
+          "sample_count": 401,
+          "worst_frame_index": 0
+        },
+        "dimension": "transport_equation_consistency",
+        "domain": "physics",
+        "metric": "transport_relative_l2",
+        "normalized_error": 0.46946565192360806,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 53.0534348076392
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.009797958971132666,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.942
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.014696938456699067,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.068
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.026381811916545834,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.072
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.008000000000000007,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.9640000000000001
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "007_rising_smoke",
+  "visual_score": 0.5115,
+  "visual_fidelity_score": 51.15,
+  "physical_plausibility_score": 22.956212862336287,
+  "total_score": 37.053106431168146
+}

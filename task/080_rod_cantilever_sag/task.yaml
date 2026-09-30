@@ -1,0 +1,27 @@
+id: 080_rod_cantilever_sag
+title: Elastic Rod Cantilever Sag
+category: rods_and_strands
+source:
+  title: 'Physical validation of simulators in Computer Graphics: A new framework dedicated to slender elastic
+    structures and frictional contact'
+  url: https://rcharron.github.io/Papers/Siggraph2021.pdf
+  anchor: Figure 2; Section 4.2; PDF pages 4-5
+goal: 'Recreate the source experiment: The rod forms a smooth downward cantilever curve, with no extra support
+  under its free end. Use elastic rods or strands; the numerical implementation is unrestricted.'
+scene_requirements:
+  required_elements:
+  - One homogeneous, naturally straight, inextensible elastic rod with a circular cross-section.
+  - A clamp fixing the position and horizontal tangent at one end, with the other end free.
+  - Uniform downward gravity.
+  - Use quasi-static equilibria to reproduce the cantilever test; the source does not specify a measured release
+    transient.
+  initial_state:
+  - The reference rod is straight and horizontal; only its root is supported.
+  required_events:
+  - Under gravity, the free part of the horizontally clamped rod bends downward.
+  - The root stays horizontal while the free end drops farther than the nearby root region.
+  - The rod forms a smooth downward cantilever curve, with no extra support under its free end.
+camera_requirements:
+- Use a fixed side view of the full rod and clamp, with gravity vertical in the image.
+- Keep the relevant objects visible before loading or contact, during the strongest response, and through the
+  stated outcome.

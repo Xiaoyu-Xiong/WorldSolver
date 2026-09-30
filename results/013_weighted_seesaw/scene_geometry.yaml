@@ -1,0 +1,64 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: ground
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [4.0, 3.0, 0.05]
+    transform:
+      translation: [0.0, 0.0, -0.05]
+    material_id: ground
+    collision_enabled: true
+  - id: pivot
+    semantic: rigid
+    motion: static
+    geometry:
+      type: cylinder
+      radius: 0.22
+      height: 0.7
+    transform:
+      translation: [0.0, 0.0, 0.35]
+    material_id: pivot
+    collision_enabled: true
+  - id: seesaw_board
+    semantic: rigid
+    motion: dynamic
+    geometry:
+      type: box
+      half_extents: [1.8, 0.28, 0.07]
+    transform:
+      translation: [0.0, 0.0, 0.78]
+    state_binding:
+      selector: body_id
+      value: 0
+    material_id: board
+    collision_enabled: true
+  - id: heavy_block
+    semantic: rigid
+    motion: dynamic
+    geometry:
+      type: box
+      half_extents: [0.28, 0.28, 0.28]
+    transform:
+      translation: [1.05, 0.0, 1.13]
+    state_binding:
+      selector: body_id
+      value: 1
+    material_id: heavy
+    collision_enabled: true
+  - id: light_block
+    semantic: rigid
+    motion: dynamic
+    geometry:
+      type: box
+      half_extents: [0.22, 0.22, 0.22]
+    transform:
+      translation: [-1.0, 0.0, 1.07]
+    state_binding:
+      selector: body_id
+      value: 2
+    material_id: light
+    collision_enabled: true

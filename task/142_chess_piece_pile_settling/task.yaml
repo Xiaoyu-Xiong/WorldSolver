@@ -1,0 +1,30 @@
+id: 142_chess_piece_pile_settling
+title: Chess Piece Pile Settling
+category: rigid_body_dynamics
+source:
+  title: Fast Frictional Dynamics for Rigid Bodies
+  url: https://graphics.stanford.edu/courses/cs468-05-fall/Papers/p946-kaufman.pdf
+  anchor: Figure 1(a-b)
+goal: >-
+  Recreate the paper's clearly visible chess piece pile settling phenomenon. The implementation method is unrestricted;
+  evaluation targets rigid motion, contact response, event propagation, and the characteristic outcome.
+scene_requirements:
+  required_elements:
+  - Many nonconvex chess pieces
+  - Rigid container or floor
+  - Gravity
+  - Frictional contact
+  initial_state:
+  - A collection of separated chess pieces begins above or loosely inside a rigid container.
+  required_events:
+  - Pieces fall and begin making multiple simultaneous contacts.
+  - Nonconvex pieces tumble, interlock, and transmit impulses through the growing pile.
+  - The assembly loses energy and reaches a stable dense pile without persistent jitter or penetration.
+  - All bodies preserve rigid shape and contacts remain free of persistent overlap.
+camera_requirements:
+- Use a three-quarter view showing individual piece orientations and the full pile.
+- Keep the complete interaction chain in frame and use contrasting colors for neighboring bodies.
+parameter_notes:
+- Match the qualitative geometry, loading, and event ordering shown in Figure 1(a-b); object count may be reduced within resource limits.
+- Export body IDs, mass, position, velocity, external forces, interaction-force pairs, and signed contact distances.
+

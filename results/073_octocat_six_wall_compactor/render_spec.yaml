@@ -1,0 +1,12 @@
+schema_version: 2
+profile: deformable_surface
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - {object_id: octocat, method: deformed_mesh, material: octocat_elastic, color_rgb: [0.56, 0.12, 0.62], subdivision: 1}
+  - {object_id: wall_left, method: rigid_mesh, material: transparent_wall, color_rgb: [0.72, 0.82, 0.86], opacity: 0.20}
+  - {object_id: wall_right, method: rigid_mesh, material: transparent_wall, color_rgb: [0.72, 0.82, 0.86], opacity: 0.20}
+  - {object_id: wall_front, method: rigid_mesh, material: transparent_wall, color_rgb: [0.72, 0.82, 0.86], opacity: 0.13}
+  - {object_id: wall_back, method: rigid_mesh, material: transparent_wall, color_rgb: [0.72, 0.82, 0.86], opacity: 0.20}
+  - {object_id: wall_bottom, method: rigid_mesh, material: transparent_wall, color_rgb: [0.72, 0.82, 0.86], opacity: 0.20}
+  - {object_id: wall_top, method: rigid_mesh, material: transparent_wall, color_rgb: [0.72, 0.82, 0.86], opacity: 0.13}

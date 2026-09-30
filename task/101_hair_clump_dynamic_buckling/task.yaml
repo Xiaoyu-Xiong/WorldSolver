@@ -1,0 +1,25 @@
+id: 101_hair_clump_dynamic_buckling
+title: Dynamic Buckling of a Vertically Shaken Hair Clump
+category: rods_and_strands
+source:
+  title: Super-Helices for Predicting the Dynamics of Natural Hair
+  url: https://evasion.inrialpes.fr/Publications/2006/BACQLL06/sigFinalHair06.pdf
+  anchor: Figure 7, left; Section 4.3; PDF page 6
+goal: 'Recreate the source experiment: A conspicuous local bend or bulge develops along the clump during the
+  oscillation. Use elastic rods or strands; the numerical implementation is unrestricted.'
+scene_requirements:
+  required_elements:
+  - An elastic hair clump with effectively inextensible material length, matching Figure 7 left.
+  - A vertically oscillating root attachment and free tips.
+  - Gravity and explicit hair damping and drag.
+  - Use the dynamic buckling example in Figure 7 left, not the curly-clump span measurement of Figure 6.
+  initial_state:
+  - Start from the hanging clump before the fast vertical root motion.
+  required_events:
+  - Fast vertical root motion starts while the free lower part of the clump lags behind.
+  - The lower clump moves sideways instead of simply translating with the root.
+  - A conspicuous local bend or bulge develops along the clump during the oscillation.
+camera_requirements:
+- Use a fixed side view showing the entire clump and enough lateral space for the buckled shape.
+- Keep the relevant objects visible before loading or contact, during the strongest response, and through the
+  stated outcome.

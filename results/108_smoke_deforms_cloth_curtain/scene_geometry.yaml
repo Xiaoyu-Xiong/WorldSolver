@@ -1,0 +1,53 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [3.6, 2.0, 0.025]}
+    transform: {translation: [0.4, 0.0, -0.025]}
+    material_id: floor_dark
+    collision_enabled: true
+  - id: support_bar
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 0.055, height: 2.9}
+    transform: {translation: [0.0, 0.0, 3.48], rotation_xyzw: [0.70710678, 0.0, 0.0, 0.70710678]}
+    material_id: metal
+    collision_enabled: true
+  - id: left_clamp
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.09, 0.10, 0.13]}
+    transform: {translation: [0.0, -1.2, 3.37]}
+    material_id: metal
+    collision_enabled: true
+  - id: right_clamp
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.09, 0.10, 0.13]}
+    transform: {translation: [0.0, 1.2, 3.37]}
+    material_id: metal
+    collision_enabled: true
+  - id: curtain
+    semantic: cloth
+    motion: dynamic
+    geometry: {type: triangle_mesh, topology_asset: assets/curtain_topology.json}
+    state_binding: {selector: body_id, value: 1}
+    material_id: red_cloth
+    collision_enabled: true
+  - id: smoke_volume
+    semantic: gas
+    motion: field
+    geometry: {type: voxel_grid, grid_shape: [126, 70, 70], bounds_min: [-3.2, -2.0, 0.0], bounds_max: [4.0, 2.0, 4.0]}
+    state_binding: {selector: field, attribute_name: smoke_density}
+    material_id: white_smoke
+    collision_enabled: false
+  - id: jet_nozzle
+    semantic: emitter
+    motion: static
+    geometry: {type: cylinder, radius: 0.52, height: 0.5}
+    transform: {translation: [-2.95, 0.0, 1.85], rotation_xyzw: [0.0, 0.70710678, 0.0, 0.70710678]}
+    material_id: nozzle_dark
+    collision_enabled: false

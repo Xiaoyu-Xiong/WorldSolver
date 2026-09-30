@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scene_id": "034_noodles_in_bowl",
+  "seed": 34,
+  "duration": 3,
+  "sample_dt": 0.03333333333333333,
+  "visual_judge_frame_count": 20,
+  "gravity": [
+    0,
+    0,
+    -9.81
+  ],
+  "camera": {
+    "position": [
+      2.6,
+      -3.3,
+      2.35
+    ],
+    "look_at": [
+      0,
+      0,
+      0.58
+    ],
+    "up": [
+      0,
+      0,
+      1
+    ],
+    "width": 960,
+    "height": 640,
+    "fps": 50,
+    "yfov_degrees": 42,
+    "background_rgb": [
+      0.9,
+      0.92,
+      0.94
+    ]
+  },
+  "noodle_count": 625,
+  "nodes_per_noodle": 2,
+  "noodle_length": 0.4,
+  "radius": 0.006,
+  "bowl": {
+    "rim_radius": 0.72,
+    "height": 0.48
+  },
+  "visual_judge_frame_count": 20
+}

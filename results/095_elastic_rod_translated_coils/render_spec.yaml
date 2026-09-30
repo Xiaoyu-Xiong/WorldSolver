@@ -1,0 +1,18 @@
+schema_version: 2
+profile: fiber_rods
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - object_id: moving_belt
+    method: rigid_mesh
+    material: belt_rubber
+    color_rgb: [0.10, 0.12, 0.13]
+  - object_id: injector
+    method: rigid_mesh
+    material: injector_metal
+    color_rgb: [0.58, 0.62, 0.66]
+  - object_id: elastic_rod
+    method: curve_tubes
+    material: green_elastomer
+    color_rgb: [0.30, 0.86, 0.22]
+    subdivision: 2

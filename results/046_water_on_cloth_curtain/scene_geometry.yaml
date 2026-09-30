@@ -1,0 +1,68 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: catch_tank_floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [1.9, 1.45, 0.06]}
+    transform: {translation: [0.25, 0.0, -0.06]}
+    material_id: dark_tank
+    collision_enabled: true
+  - id: catch_tank_back
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [1.9, 0.035, 1.05]}
+    transform: {translation: [0.25, 1.415, 1.05]}
+    material_id: glass_tank
+    collision_enabled: true
+  - id: catch_tank_front
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [1.9, 0.035, 1.05]}
+    transform: {translation: [0.25, -1.415, 1.05]}
+    material_id: glass_tank
+    collision_enabled: true
+  - id: catch_tank_left
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.035, 1.45, 1.05]}
+    transform: {translation: [-1.615, 0.0, 1.05]}
+    material_id: glass_tank
+    collision_enabled: true
+  - id: catch_tank_right
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.035, 1.45, 1.05]}
+    transform: {translation: [2.115, 0.0, 1.05]}
+    material_id: glass_tank
+    collision_enabled: true
+  - id: inflow_nozzle
+    semantic: emitter
+    motion: static
+    geometry: {type: cylinder, radius: 0.24, height: 1.05}
+    transform:
+      translation: [-1.78, 0.0, 1.72]
+      rotation_xyzw: [0.0, 0.70710678, 0.0, 0.70710678]
+    material_id: brushed_metal
+    collision_enabled: true
+  - id: cloth_curtain
+    semantic: cloth
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      topology_asset: assets/curtain_topology.npz
+      grid_shape: [31, 41]
+    state_binding: {selector: body_id, value: 0}
+    material_id: red_cloth
+    collision_enabled: true
+  - id: water_stream_and_pool
+    semantic: liquid
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [-1.35, -1.36, 0.05]
+      bounds_max: [2.02, 1.36, 2.05]
+    state_binding: {selector: body_id, value: 1}
+    material_id: clear_water
+    collision_enabled: true

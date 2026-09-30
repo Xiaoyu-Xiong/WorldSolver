@@ -1,0 +1,96 @@
+schema_version: 4
+task_id: 020_hardening_bunny_metal_bar
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The submitted solver runs to the frozen end time, produces a complete finite trajectory
+      with every required evaluation field, and produces a readable platform render without exceeding
+      the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: The bunny visibly falls onto the metal bar and develops a localized large deformation at
+      impact.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: The strongly deformed region subsequently behaves more stiffly instead of continuing to
+      collapse without bound.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: Post-impact rebound or jiggle is visible while some permanent deformation remains.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: The deforming surface evolves continuously without bar penetration, tearing, explosive
+      elements, or frame-to-frame shape popping.
+  physics:
+  - id: material_mass_balance
+    profile: deformable_solids
+    dimension: conservation_and_source_balance
+    criterion: For hardening bunny metal bar, the mass change equals the cumulative prescribed inflow,
+      outflow, or phase-transfer source; internal motion and contact do not create or delete mass.
+    applicability:
+      requires:
+      - prescribed sources and sinks are exported
+      - Per-sample mass contributions are exported for every evaluated material.
+      excludes:
+      - Unreported particle deletion or remeshing loss.
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: orientation_preserving_deformation
+    profile: deformable_solids
+    dimension: deformation_validity
+    criterion: Material elements in hardening bunny metal bar retain a positive deformation Jacobian except
+      where the case explicitly performs a represented topology change.
+    applicability:
+      requires:
+      - A deformation gradient is exported for every active material element.
+      excludes:
+      - Elements at an explicitly modeled cut, tear, merge, or deletion event after they cease to exist.
+    numeric_binding:
+      calculator: deformation.jacobian.v1
+      inputs:
+        deformation_gradient: attributes.deformation_gradient
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: nonpenetrating_contact
+    profile: deformable_solids
+    dimension: contact_and_interface_conditions
+    criterion: During hardening bunny metal bar, solid-solid and solid-boundary contacts maintain nonnegative
+      geometric gaps up to the contact tolerance and do not permit persistent interpenetration.
+    applicability:
+      requires:
+      - Signed geometric gaps are exported for active and near-contact pairs.
+      excludes:
+      - Pairs intentionally allowed to pass through or merge.
+    numeric_binding:
+      calculator: contact.penetration.v1
+      inputs:
+        signed_distance: fields.contact_signed_distance
+        length_scale: scalars.contact_length_scale
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: internal_interaction_force_balance
+    profile: coupled_contact_systems
+    dimension: conservation_and_force_balance
+    criterion: Exported paired internal contact or coupling forces are equal and opposite in aggregate,
+      so they do not create net system momentum.
+    applicability:
+      requires:
+      - Both sides of every internal contact or coupling force pair are exported.
+      excludes:
+      - External actuator, gravity, prescribed boundary, or one-sided environment reaction forces.
+    numeric_binding:
+      calculator: coupling.force_balance.v1
+      inputs:
+        interaction_force: fields.interaction_force
+      parameters: {}
+      reduction:
+        type: maximum

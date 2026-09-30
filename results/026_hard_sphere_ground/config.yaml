@@ -1,0 +1,40 @@
+schema_version: 1
+scene_id: 026_hard_sphere_ground
+seed: 19027
+duration: 2.9
+sample_dt: 0.03333333333333333
+camera:
+  position:
+  - 3.0
+  - -4.1
+  - 2.35
+  look_at:
+  - 0.0
+  - 0.0
+  - 0.78
+  up:
+  - 0.0
+  - 0.0
+  - 1.0
+  width: 960
+  height: 640
+  fps: 50
+subject_asset: assets/subject.npz
+gravity:
+- 0.0
+- 0.0
+- -9.81
+initial_velocity:
+- 0.0
+- 0.0
+- -2.5
+contact_length_scale: 0.04
+ground_z: 0.0
+scenario: hard_sphere_ground
+subject_mass: 2.0
+stiffness: 44.0
+damping: 0.75
+restitution: 0.62
+friction: 0.42
+sphere_radius: 0.42
+visual_judge_frame_count: 20

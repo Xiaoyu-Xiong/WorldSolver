@@ -1,0 +1,29 @@
+id: 028_wilberforce_pendulum
+title: Wilberforce Pendulum
+category: rods_and_strands
+source:
+  title: Discrete Elastic Rods
+  url: https://ddg.math.uni-goettingen.de/pub/Discrete_Elastic_Rods.pdf
+  anchor: Figure 11; PDF page 11
+goal: Recreate the observable physical phenomenon in which a stretched helical spring oscillates vertically
+  while weak bending-twist coupling transfers energy back and forth between translational and torsional
+  modes. The implementation method is unrestricted; the target is the scene's visible motion, interaction,
+  and outcome.
+scene_requirements:
+  required_elements:
+  - Fixed upper attachment
+  - Helical elastic spring
+  - Suspended cylindrical rigid weight
+  - Gravity
+  - Elastic and rigid bodies named by the scene
+  - Spring-body attachment
+  initial_state:
+  - A stretched helical spring oscillates vertically while weak bending-twist coupling transfers energy
+    back and forth between translational and torsional modes.
+  required_events:
+  - Phase and period of translational/torsional energy exchange and total-energy drift
+camera_requirements:
+- Use a three-quarter view showing attachments, folds or bends, self-contact and external contact regions,
+  and the final drape or configuration without occlusion.
+parameter_notes:
+- 'Original paper parameters/configuration: Wilberforce pendulum configuration shown in Figure 11.'

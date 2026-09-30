@@ -1,0 +1,35 @@
+id: 041_spinning_granular_drum
+title: Spinning Granular Drum
+category: plastic_and_complex_materials
+source:
+  title: 'Hybrid Grains: Adaptive Coupling of Discrete and Continuum Simulations of Granular Media'
+  url: https://peterchencyc.com/files/hybrid_grains/a283-yue.pdf
+  anchor: Fig.17; Section 5.8
+goal: Recreate the observable physical phenomenon in which a half-filled cylindrical drum rotates,
+  lifting granular material along the wall until grains avalanche down the free surface. The implementation
+  method is unrestricted; the target is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Half-filled rotating drum
+  - Discrete granular particles
+  - Gravity
+  - Visible drum wall or rim
+  - High-contrast dry grains on a neutral background
+  initial_state:
+  - A drum is initially half filled with grains and begins rotating at a prescribed angular speed.
+  - Grains near the wall are carried upward while the free surface remains visible.
+  required_events:
+  - Drum rotation is visible from the moving rim or marked wall.
+  - Grains are lifted by wall friction instead of remaining static.
+  - Lifted grains slide or avalanche down the free surface.
+  - A persistent flowing layer or repeated avalanche forms inside the drum.
+  - Grains do not leak through the drum wall and the whole bed must not rotate as a rigid block.
+camera_requirements:
+- Use a three-quarter view into the open face of the drum so the circular wall, free surface,
+  lifted grains, and avalanche layer are visible without major occlusion.
+- Avoid low-contrast all-blue rendering; use tan/gold grains, a dark gray drum, and colored tracer grains.
+parameter_notes:
+- 'Original paper parameters/configuration: Hybrid Grains spinning drum example from Fig.17 and Section 5.8.'
+- This case replaces the earlier Drucker-Prager sand-column scaffold because the previous scaffold did
+  not provide a visually obvious event chain. The optimization target is scaffold completeness and visual
+  observability, not blaming solver physics.

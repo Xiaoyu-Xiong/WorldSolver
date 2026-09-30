@@ -1,0 +1,22 @@
+schema_version: 1
+scene_id: 014_inclined_chair_stick_slip
+seed: 14014
+duration: 4.0
+sample_dt: 0.01
+camera:
+  position:
+  - 4.2
+  - 4.0
+  - 3.0
+  look_at:
+  - 0.0
+  - 0.0
+  - 0.8
+  up:
+  - 0.0
+  - 0.0
+  - 1.0
+  width: 960
+  height: 640
+  fps: 50
+visual_judge_frame_count: 20

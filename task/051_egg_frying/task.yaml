@@ -1,0 +1,32 @@
+id: 051_egg_frying
+title: Egg Frying
+category: multiphysics_coupling
+source:
+  title: A Unified Particle System Framework for Multi-Phase, Multi-Material Visual Simulations
+  url: https://cg.cs.tsinghua.edu.cn/papers/SIGASIA-2017_fluid.pdf
+  anchor: Figure 1; PDF page 1
+goal: Recreate the observable physical phenomenon in which an egg fries on a hot pan as material phases
+  diffuse while concentrations remain unmixed. The implementation method is unrestricted; the target is
+  the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Egg Frying
+  - Coupled materials named by the scene
+  - Interface/contact region
+  - Domain or support boundaries
+  - Visually distinct pan, yolk, raw egg white, cooked egg white, and eggshell pieces
+  initial_state:
+  - An egg fries on a hot pan as material phases diffuse while concentrations remain unmixed.
+  required_events:
+  - Qualitative/quantitative - phase-front evolution
+  - Mass/concentration conservation
+  - Spreading
+  - Thermal response
+camera_requirements:
+- Use a three-quarter view that simultaneously exposes each coupled phase or body, their interface, the
+  main transfer or contact region, and the final distribution.
+- Use separate colors/materials for black/dark pan, yellow yolk, translucent raw white, opaque cooked white,
+  and pale eggshell so phase-front evolution is visually readable.
+parameter_notes:
+- 'Original paper parameters/configuration: Phase diffusion enabled; concentration diffusion disabled;
+  hot-pan boundary.'

@@ -1,0 +1,54 @@
+schema_version: 1
+scene_id: 041_spinning_granular_drum
+seed: 41137
+duration: 5.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+initial_conditions:
+  phenomenon: spinning_granular_drum_from_hybrid_grains_fig17
+  drum:
+    center: [0.0, 0.0, 0.86]
+    radius: 0.82
+    depth: 0.42
+    fill_fraction: 0.50
+    angular_velocity_rad_s: 1.25
+    rotation_axis: [0.0, 1.0, 0.0]
+    open_front: true
+    visible_rim_markers: true
+  grains:
+    radius: 0.025
+    spacing: 0.052
+    bulk_density: 1550.0
+    color: golden_tan
+    tracer_fraction: 0.06
+  visual_requirements:
+    avoid_all_blue_rendering: true
+    drum_color: dark_neutral_gray
+    grain_color: tan_gold
+    tracer_color: saturated_red_or_teal
+    free_surface_must_be_visible: true
+    avalanche_layer_must_be_visible: true
+event_sequence:
+  - time_range: [0.0, 0.8]
+    event: The marked drum wall starts rotating and grains near the lower wall begin to move.
+  - time_range: [0.8, 2.5]
+    event: Wall friction lifts grains up one side while the upper free surface steepens.
+  - time_range: [2.0, 5.0]
+    event: Grains avalanche down the free surface and form a persistent flowing layer without leaking.
+diagnostics:
+  track:
+    - drum_angle
+    - lifted_grain_height
+    - free_surface_slope
+    - avalanche_layer_speed
+    - escaped_particle_count
+camera:
+  position: [2.55, -3.35, 1.85]
+  look_at: [0.0, 0.0, 0.82]
+  up: [0.0, 0.0, 1.0]
+  projection: perspective
+  focal_length_mm: 48
+  width: 960
+  height: 640
+  fps: 50

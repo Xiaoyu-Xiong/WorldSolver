@@ -1,0 +1,152 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 4716197,
+          "trajectory_frames": 501,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "contact.penetration.v1",
+        "criterion": "During wrecking ball box stack impact, box-box, ball-box, chain-link, and rigid-floor contacts maintain nonnegative geometric gaps up to the contact tolerance and do not permit persistent interpenetration.",
+        "criterion_id": "nonpenetrating_contact",
+        "details": {
+          "sample_count": 501,
+          "worst_frame_index": 2
+        },
+        "dimension": "contact_and_interface_conditions",
+        "domain": "physics",
+        "metric": "penetration_relative_max",
+        "normalized_error": 1.6348893652693646,
+        "profile": "rigid_bodies_and_contact",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 2.967553895861077
+      },
+      {
+        "calculator": "dynamics.linear_momentum_balance.v1",
+        "criterion": "For the complete wrecking-ball, chain, and box system, the time rate of total linear momentum is consistent with the exported external forces; internal contact and joint forces cancel in aggregate.",
+        "criterion_id": "linear_momentum_balance",
+        "details": {
+          "sample_count": 501,
+          "worst_frame_index": 240
+        },
+        "dimension": "momentum_and_force_balance",
+        "domain": "physics",
+        "metric": "momentum_balance_relative_l2",
+        "normalized_error": 0.9999989488144241,
+        "profile": "rigid_bodies_and_contact",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.0001051185575917657
+      },
+      {
+        "calculator": "trajectory.center_of_mass_consistency.v1",
+        "criterion": "Each rigid body's mass-weighted center displacement agrees with the time integral of its mass-weighted velocity, using trapezoidal quadrature between exported frames.",
+        "criterion_id": "center_of_mass_consistency",
+        "details": {
+          "body_count": 37,
+          "body_reduction": "maximum",
+          "displacement_floor_meters": 1e-08,
+          "initial_frame_error": "zero (no preceding interval)",
+          "interval_count": 500,
+          "maximum_position_residual_meters": 0.2575034369603223,
+          "quadrature": "trapezoidal",
+          "sample_count": 501,
+          "worst_frame_index": 29
+        },
+        "dimension": "kinematic_consistency",
+        "domain": "physics",
+        "metric": "center_of_mass_kinematic_relative_residual",
+        "normalized_error": 0.2557762317968737,
+        "profile": "rigid_bodies",
+        "reduction": {
+          "type": "rms"
+        },
+        "unit": "dimensionless",
+        "score": 87.21118841015631
+      },
+      {
+        "calculator": "coupling.force_balance.v1",
+        "criterion": "Exported paired forces from box-box, ball-box, and chain-link interactions are equal and opposite in aggregate, so internal contact and joint forces do not create net system momentum.",
+        "criterion_id": "internal_interaction_force_balance",
+        "details": {
+          "sample_count": 501,
+          "worst_frame_index": 1
+        },
+        "dimension": "conservation_and_force_balance",
+        "domain": "physics",
+        "metric": "interaction_force_relative_residual",
+        "normalized_error": 0.8430556726600896,
+        "profile": "coupled_contact_systems",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 15.694432733991038
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.10488088481701516,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.25
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.12083045973594572,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.32999999999999996
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.060000000000000005,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.13
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.09273618495495704,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.27999999999999997
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "124_wrecking_ball_box_stack",
+  "visual_score": 0.2475,
+  "visual_fidelity_score": 24.75,
+  "physical_plausibility_score": 26.468320039641505,
+  "total_score": 25.609160019820752
+}

@@ -1,0 +1,148 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 20147230,
+          "trajectory_frames": 115,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "For hardening bunny metal bar, the mass change equals the cumulative prescribed inflow, outflow, or phase-transfer source; internal motion and contact do not create or delete mass.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "initial_quantity": [
+            2.4
+          ],
+          "sample_count": 115,
+          "worst_frame_index": 0
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.0,
+        "profile": "deformable_solids",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "deformation.jacobian.v1",
+        "criterion": "Material elements in hardening bunny metal bar retain a positive deformation Jacobian except where the case explicitly performs a represented topology change.",
+        "criterion_id": "orientation_preserving_deformation",
+        "details": {
+          "sample_count": 115,
+          "worst_frame_index": 91
+        },
+        "dimension": "deformation_validity",
+        "domain": "physics",
+        "metric": "nonpositive_jacobian_fraction",
+        "normalized_error": 0.22981366459627328,
+        "profile": "deformable_solids",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 77.01863354037268
+      },
+      {
+        "calculator": "contact.penetration.v1",
+        "criterion": "During hardening bunny metal bar, solid-solid and solid-boundary contacts maintain nonnegative geometric gaps up to the contact tolerance and do not permit persistent interpenetration.",
+        "criterion_id": "nonpenetrating_contact",
+        "details": {
+          "sample_count": 115,
+          "worst_frame_index": 0
+        },
+        "dimension": "contact_and_interface_conditions",
+        "domain": "physics",
+        "metric": "penetration_relative_max",
+        "normalized_error": 0.0,
+        "profile": "deformable_solids",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "coupling.force_balance.v1",
+        "criterion": "Exported paired internal contact or coupling forces are equal and opposite in aggregate, so they do not create net system momentum.",
+        "criterion_id": "internal_interaction_force_balance",
+        "details": {
+          "sample_count": 115,
+          "worst_frame_index": 0
+        },
+        "dimension": "conservation_and_force_balance",
+        "domain": "physics",
+        "metric": "interaction_force_relative_residual",
+        "normalized_error": 0.0,
+        "profile": "coupled_contact_systems",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0316227766016838,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.05
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.05099019513592785,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.08
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.024494897427831782,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.030000000000000006
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.058309518948452994,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.26
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "020_hardening_bunny_metal_bar",
+  "visual_score": 0.10500000000000001,
+  "visual_fidelity_score": 10.500000000000002,
+  "physical_plausibility_score": 94.25465838509317,
+  "total_score": 52.37732919254658
+}

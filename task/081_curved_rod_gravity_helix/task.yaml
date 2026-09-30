@@ -1,0 +1,30 @@
+id: 081_curved_rod_gravity_helix
+title: Gravity-Induced Spatial Curling of a Curved Rod
+category: rods_and_strands
+source:
+  title: 'Physical validation of simulators in Computer Graphics: A new framework dedicated to slender elastic
+    structures and frictional contact'
+  url: https://rcharron.github.io/Papers/Siggraph2021.pdf
+  anchor: Figure 3; Section 4.3; PDF pages 5-6
+goal: 'Recreate the source experiment: The final centerline forms a spatial curl with visible depth, rather
+  than remaining a flat hook. Use elastic rods or strands; the numerical implementation is unrestricted.'
+scene_requirements:
+  required_elements:
+  - One inextensible elastic rod whose natural shape is a planar circular arc, with circular cross-section
+    and no imposed natural twist.
+  - A fixed upper clamp with the root tangent pointing downward.
+  - Uniform downward gravity.
+  - Reproduce the three-dimensional branch of the quasi-static bend-twist test, not an imposed rotation of
+    the clamp.
+  initial_state:
+  - Start from the source natural circular arc and select a documented three-dimensional equilibrium regime
+    in Figure 3.
+  - The lower end is free; there are no guides or extra supports along the rod.
+  required_events:
+  - The curved rod hangs from its fixed upper end under gravity.
+  - The hanging rod leaves the plane of its natural circular arc.
+  - The final centerline forms a spatial curl with visible depth, rather than remaining a flat hook.
+camera_requirements:
+- Use a fixed oblique view that reveals out-of-plane displacement and the entire hanging rod.
+- Keep the relevant objects visible before loading or contact, during the strongest response, and through the
+  stated outcome.

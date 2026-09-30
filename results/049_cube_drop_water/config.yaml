@@ -1,0 +1,43 @@
+schema_version: 1
+scene_id: 049_cube_drop_water
+seed: 4907
+duration: 4.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+domain:
+  bounds_min: [-1.5, -1.2, 0.0]
+  bounds_max: [1.5, 1.2, 2.5]
+  boundary_condition: closed_floor_and_side_walls_open_top
+initial_conditions:
+  water:
+    rest_density: 1000.0
+    fill_bounds_min: [-1.35, -1.05, 0.12]
+    fill_bounds_max: [1.35, 1.05, 1.05]
+    initial_velocity: [0.0, 0.0, 0.0]
+  cube:
+    density: 400.0
+    side_length: 0.62
+    initial_position: [-0.18, -0.36, 2.02]
+    initial_velocity: [0.0, 0.0, -1.25]
+    initial_orientation_xyzw: [0.1392, -0.1981, 0.0282, 0.9697]
+visual_requirements:
+  cube_must_be_visible_above_tank_before_impact: true
+  front_wall_transparent_or_cutaway: true
+  cube_color: bright_yellow_or_orange
+  water_color: transparent_blue
+  splash_and_wake_must_not_be_hidden_by_tank: true
+observables:
+  - cube_trajectory
+  - interface_pressure
+  - boundary_sticking
+  - boundary_penetration
+  - displaced_water_volume
+camera:
+  position: [3.65, -4.35, 3.15]
+  look_at: [0.0, -0.10, 1.12]
+  up: [0.0, 0.0, 1.0]
+  focal_length_mm: 48
+  width: 960
+  height: 640
+  fps: 50

@@ -1,0 +1,60 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: tank_floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [1.65, 0.75, 0.04]}
+    transform: {translation: [0.0, 0.0, -0.04]}
+    material_id: glass
+    collision_enabled: true
+  - id: tank_back
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [1.65, 0.025, 0.75]}
+    transform: {translation: [0.0, 0.775, 0.75]}
+    material_id: glass
+    collision_enabled: true
+  - id: tank_front
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [1.65, 0.025, 0.75]}
+    transform: {translation: [0.0, -0.775, 0.75]}
+    material_id: glass
+    collision_enabled: true
+  - id: tank_left
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.025, 0.75, 0.75]}
+    transform: {translation: [-1.675, 0.0, 0.75]}
+    material_id: glass
+    collision_enabled: true
+  - id: tank_right
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.025, 0.75, 0.75]}
+    transform: {translation: [1.675, 0.0, 0.75]}
+    material_id: glass
+    collision_enabled: true
+  - id: porous_duck
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/duck.obj, topology_asset: assets/duck.obj}
+    state_binding: {selector: body_id, value: 1}
+    material_id: duck_wetness
+    collision_enabled: true
+  - id: duck_porous_interior
+    semantic: granular
+    motion: dynamic
+    geometry: {type: particle_domain, bounds_min: [-0.72, -0.24, 0.70], bounds_max: [0.70, 0.24, 1.65]}
+    state_binding: {selector: body_id, value: 3}
+    material_id: duck_wetness
+    collision_enabled: false
+  - id: water
+    semantic: liquid
+    motion: dynamic
+    geometry: {type: particle_domain, bounds_min: [-1.60, -0.70, 0.03], bounds_max: [1.60, 0.70, 0.82]}
+    state_binding: {selector: body_id, value: 2}
+    material_id: water
+    collision_enabled: true

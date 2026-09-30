@@ -1,0 +1,114 @@
+﻿schema_version: 4
+task_id: 001_2d_dam_break
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The submitted solver runs to the frozen end time, produces a complete finite trajectory
+      with every required evaluation field, and produces a readable platform render without exceeding
+      the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: After release, the initially resting liquid column visibly collapses and forms a leading
+      front that advances along the tank floor.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: The advancing liquid strikes the opposite wall and runs upward along it rather than stopping
+      short or passing through the boundary.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: After wall impact, visible returning flow or recirculation develops and the liquid begins
+      to settle.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: The liquid region and free surface evolve continuously without popping, teleportation,
+      flicker, or disconnected liquid appearing away from the flow.
+  physics:
+  - id: closed_tank_liquid_mass_balance
+    profile: fluids_and_gases
+    dimension: conservation_and_source_balance
+    criterion: In the closed tank with no liquid source, sink, phase change, or open liquid boundary,
+      total liquid mass remains equal to its initial value.
+    applicability:
+      requires:
+      - The tank is closed to liquid mass flux.
+      - No liquid source, sink, phase change, or particle deletion is active.
+      excludes:
+      - Prescribed liquid inflow or outflow.
+    numeric_binding:
+      calculator: balance.extensive_quantity.v1
+      inputs:
+        mass: state.mass
+        phase_id: attributes.phase_id
+        selected_phase_id: scalars.liquid_phase_id
+      parameters:
+        source_mode: none
+      reduction:
+        type: maximum
+  - id: interior_incompressibility
+    profile: fluids_and_gases
+    dimension: field_constraints
+    criterion: Under the frozen incompressible-liquid condition, the velocity field is approximately divergence
+      free in the exported liquid-interior region.
+    applicability:
+      requires:
+      - The frozen liquid model is incompressible.
+      - A collocated diagnostic velocity grid and interior mask are exported.
+      excludes:
+      - Compressible or weakly compressible liquid configurations.
+    numeric_binding:
+      calculator: field.divergence.v1
+      inputs:
+        velocity_field: fields.velocity_field
+        active_mask: fields.liquid_interior_mask
+        grid_spacing: scalars.grid_spacing
+        characteristic_length: scalars.characteristic_length
+      parameters:
+        spatial_dimensions: 2
+      reduction:
+        type: maximum
+  - id: impermeable_tank_walls
+    profile: fluids_and_gases
+    dimension: boundary_and_interface_conditions
+    criterion: On the stationary impermeable tank floor and side walls, the exported liquid boundary velocity
+      has zero relative normal component.
+    applicability:
+      requires:
+      - The tank floor and side walls are stationary and impermeable.
+      - Collocated boundary velocity, target velocity, and normal samples are exported.
+      excludes:
+      - Open, porous, moving, or prescribed-flux wall segments.
+    numeric_binding:
+      calculator: boundary.velocity_residual.v1
+      inputs:
+        boundary_velocity: fields.boundary_velocity
+        boundary_target_velocity: fields.boundary_target_velocity
+        boundary_normal: fields.boundary_normal
+        reference_velocity: scalars.reference_velocity
+      parameters:
+        condition: no_penetration
+        spatial_dimensions: 2
+      reduction:
+        type: maximum
+  - id: free_surface_kinematic_consistency
+    profile: fluids_and_gases
+    dimension: transport_equation_consistency
+    criterion: With no interfacial mass transfer, the exported liquid-air level set is transported consistently
+      by the collocated liquid velocity field.
+    applicability:
+      requires:
+      - No evaporation, condensation, or prescribed interfacial mass flux is active.
+      - A signed level set and collocated velocity grid are exported every frame.
+      excludes:
+      - Phase change or prescribed interfacial mass flux.
+    numeric_binding:
+      calculator: interface.level_set_kinematic.v1
+      inputs:
+        level_set: fields.liquid_level_set
+        velocity_field: fields.velocity_field
+        grid_spacing: scalars.grid_spacing
+      parameters:
+        spatial_dimensions: 2
+        interface_band_cells: 1.5
+      reduction:
+        type: maximum

@@ -1,0 +1,14 @@
+schema_version: 2
+profile: deformable_surface
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - object_id: impact_plate
+    method: rigid_mesh
+    material: brushed_steel
+    color_rgb: [0.42, 0.47, 0.52]
+  - object_id: foam_ball
+    method: deformed_mesh
+    material: white_foam
+    color_rgb: [0.92, 0.90, 0.80]
+    subdivision: 2

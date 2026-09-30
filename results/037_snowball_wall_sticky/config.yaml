@@ -1,0 +1,27 @@
+schema_version: 1
+scene_id: 037_snowball_wall_sticky
+seed: 37037
+duration: 2.8
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+snowball:
+  center: [-1.65, 0.0, 1.18]
+  radius: 0.42
+  particle_spacing: 0.065
+  total_mass: 38.0
+  initial_velocity: [7.5, 0.0, 0.15]
+  nominal_density: 520.0
+contact:
+  mode: sticky
+  wall_inner_x: 0.0
+  floor_z: 0.0
+  contact_length_scale: 0.065
+  description: Particles contacting the wall attach locally; separated material remains free to rebound, break up, and fall.
+camera:
+  position: [-3.8, -5.2, 2.75]
+  look_at: [-0.25, 0.0, 1.05]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

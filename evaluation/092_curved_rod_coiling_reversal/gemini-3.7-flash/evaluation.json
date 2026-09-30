@@ -1,0 +1,148 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 29907596,
+          "trajectory_frames": 2751,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "The deployed rod mass equals its initial deployed mass plus actual material entering the injector outlet minus material leaving the evaluation domain.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "initial_quantity": [
+            0.006326455931132292
+          ],
+          "sample_count": 2751,
+          "worst_frame_index": 814
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 157.13534688755584,
+        "profile": "elastic_rods",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.006363535540861687
+      },
+      {
+        "calculator": "constraint.target.v1",
+        "criterion": "Every evaluated material interval preserves its reference arc length. Changing the rod shape, coil pitch, or endpoint span must not be achieved by stretching its material.",
+        "criterion_id": "local_material_inextensibility",
+        "details": {
+          "sample_count": 2751,
+          "worst_frame_index": 2693
+        },
+        "dimension": "material_kinematic_constraints",
+        "domain": "physics",
+        "metric": "constraint_relative_rms",
+        "normalized_error": 32.04906769273668,
+        "profile": "elastic_rods",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.31105101073457453
+      },
+      {
+        "calculator": "dynamics.momentum_budget.v1",
+        "criterion": "At each equilibrium sample, actual elastic cut forces and external loads sum to zero on every evaluated rod subdomain, not merely on the rod as a whole.",
+        "criterion_id": "local_static_force_balance",
+        "details": {
+          "error": "reference_force must remain frozen across frames"
+        },
+        "dimension": "momentum_and_force_balance",
+        "domain": "physics",
+        "metric": "linear_momentum_budget_residual",
+        "normalized_error": null,
+        "profile": "elastic_rods",
+        "reduction": {
+          "type": "maximum"
+        },
+        "status": "measurement_error",
+        "unit": "dimensionless",
+        "score": 0.0
+      },
+      {
+        "calculator": "dynamics.angular_momentum_budget.v1",
+        "criterion": "At each equilibrium sample, force moments and free couples balance on every evaluated rod subdomain, including internal sections hidden from the camera.",
+        "criterion_id": "local_static_moment_balance",
+        "details": {
+          "error": "reference_torque must remain frozen across frames"
+        },
+        "dimension": "angular_momentum_and_torque_balance",
+        "domain": "physics",
+        "metric": "angular_momentum_budget_residual",
+        "normalized_error": null,
+        "profile": "elastic_rods",
+        "reduction": {
+          "type": "maximum"
+        },
+        "status": "measurement_error",
+        "unit": "dimensionless",
+        "score": 0.0
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.01959591794226542,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.11400000000000002
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.019595917942265426,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.036
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.0
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.0
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "physics_measurement_error",
+  "task_id": "092_curved_rod_coiling_reversal",
+  "visual_score": 0.037500000000000006,
+  "visual_fidelity_score": 3.7500000000000004,
+  "physical_plausibility_score": 0.07935363656885905,
+  "total_score": 1.9146768182844298
+}

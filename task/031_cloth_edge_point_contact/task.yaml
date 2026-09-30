@@ -1,0 +1,35 @@
+id: 031_cloth_edge_point_contact
+title: Cloth Edge Point Contact
+category: cloth_and_shells
+source:
+  title: An Implicit Frictional Contact Solver for Adaptive Cloth Simulation
+  url: https://www-users.cselabs.umn.edu/~lixx4611/files/clothNodalContactSolver.pdf
+  anchor: Figure 10 bottom row; PDF page 11
+goal: Recreate the observable physical phenomenon in which a square cloth sheet falls onto a sharp edge
+  and point, bends and drapes around both contacts, and avoids missed collision or visible penetration.
+  The implementation method is unrestricted; the target is the scene's visible motion, interaction, and
+  outcome.
+scene_requirements:
+  required_elements:
+  - Square cloth sheet
+  - Straight sharp edge
+  - Isolated sharp point
+  - Gravity
+  - Cloth named by the scene
+  - Edge and point contact surfaces
+  initial_state:
+  - A square cloth sheet falls onto a sharp edge and point, bends and drapes around both contacts, and
+    avoids missed collision or visible penetration.
+  required_events:
+  - Qualitative/quantitative - contact detection
+  - Mesh refinement
+  - Snagging/penetration
+  - Final resting geometry
+camera_requirements:
+- Use a three-quarter view showing attachments, folds or bends, self-contact and external contact regions,
+  and the final drape or configuration without occlusion.
+parameter_notes:
+- 'Merged source variants (cloth_edge_point_metric_legacy, cloth_edge_point_metric_improved). Original
+  paper parameters/configurations: Proximity metric: existing obstacle proximity metric; identical falling-cloth
+  initial state. | Proximity metric: paper''s improved proximity metric; identical falling-cloth initial
+  state.'

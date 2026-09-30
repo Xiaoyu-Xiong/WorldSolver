@@ -1,0 +1,23 @@
+schema_version: 2
+profile: rigid_contact
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: floor, method: rigid_mesh, material: matte, color_rgb: [0.18, 0.21, 0.26]}
+  - {object_id: cradle_top, method: rigid_mesh, material: frame, color_rgb: [0.34, 0.38, 0.44]}
+  - {object_id: cradle_post_left, method: rigid_mesh, material: frame, color_rgb: [0.34, 0.38, 0.44]}
+  - {object_id: cradle_post_right, method: rigid_mesh, material: frame, color_rgb: [0.34, 0.38, 0.44]}
+  - {object_id: string_0, method: rigid_mesh, material: string, color_rgb: [0.72, 0.74, 0.76]}
+  - {object_id: string_1, method: rigid_mesh, material: string, color_rgb: [0.72, 0.74, 0.76]}
+  - {object_id: string_2, method: rigid_mesh, material: string, color_rgb: [0.72, 0.74, 0.76]}
+  - {object_id: string_3, method: rigid_mesh, material: string, color_rgb: [0.72, 0.74, 0.76]}
+  - {object_id: string_4, method: rigid_mesh, material: string, color_rgb: [0.72, 0.74, 0.76]}
+  - {object_id: string_5, method: rigid_mesh, material: string, color_rgb: [0.72, 0.74, 0.76]}
+  - {object_id: string_6, method: rigid_mesh, material: string, color_rgb: [0.72, 0.74, 0.76]}
+  - {object_id: ball_0, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: ball_1, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: ball_2, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: ball_3, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: ball_4, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: ball_5, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: ball_6, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}

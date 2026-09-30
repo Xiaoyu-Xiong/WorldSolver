@@ -1,0 +1,25 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: ground_support
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [4.2, 3.5, 0.12]
+    transform:
+      translation: [0.0, 0.0, -0.12]
+    material_id: warm_ground
+    collision_enabled: true
+  - id: merging_material
+    semantic: granular
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [-3.1, -2.7, 0.0]
+      bounds_max: [3.1, 2.7, 8.6]
+    state_binding:
+      selector: all
+    material_id: multicolor_viscoplastic
+    collision_enabled: true

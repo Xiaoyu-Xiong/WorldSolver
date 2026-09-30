@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "profile": "fiber_rods",
+  "environment": "studio_neutral",
+  "camera": "frozen_config",
+  "bindings": [
+    {
+      "object_id": "bowl",
+      "method": "rigid_mesh",
+      "material": "default"
+    },
+    {
+      "object_id": "noodles",
+      "method": "curve_tubes",
+      "material": "default"
+    }
+  ]
+}

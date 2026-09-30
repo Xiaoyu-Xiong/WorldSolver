@@ -1,0 +1,41 @@
+schema_version: 1
+scene_id: 111_elastic_bag_lift_sloshing
+seed: 111
+duration: 7.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+initial_conditions:
+  pool:
+    rest_density: 1000.0
+    free_surface_z: 1.25
+    particle_spacing: 0.10
+  bag:
+    total_mass: 0.32
+    thickness: 0.0015
+    impermeable: true
+    initial_rim_z: 1.10
+boundary_conditions:
+  tank:
+    interior_min: [-1.8, -1.5, 0.0]
+    interior_max: [1.8, 1.5, 3.2]
+    open_top: true
+  rim_lift:
+    type: prescribed_vertex_trajectory
+    vertex_set: rim
+    start_time: 0.20
+    rise_duration: 0.75
+    start_center: [0.0, 0.0, 1.10]
+    end_center: [0.0, 0.0, 2.58]
+    hold_after_lift: true
+    preserve_initial_rim_shape: true
+camera:
+  position: [4.8, -6.2, 3.55]
+  look_at: [0.0, 0.0, 1.55]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50
+  yfov_degrees: 43.0
+  background_rgb: [0.025, 0.035, 0.055]
+

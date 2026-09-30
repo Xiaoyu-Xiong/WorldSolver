@@ -1,0 +1,16 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - {object_id: tank_floor, method: rigid_mesh, material: tank_glass, color_rgb: [0.62, 0.78, 0.88]}
+  - {object_id: tank_back, method: rigid_mesh, material: tank_glass, color_rgb: [0.62, 0.78, 0.88]}
+  - {object_id: tank_left, method: rigid_mesh, material: tank_glass, color_rgb: [0.62, 0.78, 0.88]}
+  - {object_id: tank_right, method: rigid_mesh, material: tank_glass, color_rgb: [0.62, 0.78, 0.88]}
+  - {object_id: marker_fluid, method: diagnostic_points, material: pale_water_markers, color_rgb: [0.18, 0.62, 0.95], particle_radius_scale: 0.38}
+  - {object_id: ultralight_black_sphere, method: rigid_mesh, material: density_ultralight, color_rgb: [0.02, 0.02, 0.025], subdivision: 2}
+  - {object_id: light_blue_body, method: rigid_mesh, material: density_light_yellow, color_rgb: [1.0, 0.84, 0.05], subdivision: 2}
+  - {object_id: buoyant_green_block, method: rigid_mesh, material: density_buoyant, color_rgb: [0.08, 0.70, 0.24]}
+  - {object_id: slightly_heavy_rock, method: rigid_mesh, material: density_heavy_orange, color_rgb: [1.0, 0.42, 0.03], subdivision: 2}
+  - {object_id: heavy_red_cube, method: rigid_mesh, material: density_very_heavy, color_rgb: [0.88, 0.02, 0.03]}
+  - {object_id: densest_white_sphere, method: rigid_mesh, material: density_densest, color_rgb: [0.98, 0.98, 0.92], subdivision: 2}

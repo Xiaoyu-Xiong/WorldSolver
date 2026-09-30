@@ -1,0 +1,27 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [3.2, 2.2, 0.05]}
+    transform: {translation: [0.0, 0.0, -0.05]}
+    material_id: floor
+    collision_enabled: true
+  - id: bolt
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/threaded_bolt.obj}
+    transform: {translation: [0,0,1.45], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 0}
+    material_id: accent_a
+    collision_enabled: true
+  - id: nut
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/threaded_nut.obj}
+    transform: {translation: [0,0,0.65], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 1}
+    material_id: accent_b
+    collision_enabled: true

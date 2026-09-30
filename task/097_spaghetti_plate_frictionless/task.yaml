@@ -1,0 +1,34 @@
+id: 097_spaghetti_plate_frictionless
+title: Frictionless Spreading of Spaghetti in a Plate
+category: rods_and_strands
+source:
+  title: A Nonsmooth Newton Solver for Capturing Exact Coulomb Friction in Fiber Assemblies
+  url: https://elan.inrialpes.fr/people/bertails/Papiers/PDF/hairContact.pdf
+  anchor: Figure 7, top row; Section 5.1.3, first experiment; author PDF page 9
+goal: Recreate the zero-friction packing of 31 flexible spaghetti strands falling into a plate. The strands
+  slide apart and spread over the plate, as shown in the top row of Figure 7. Use elastic rods or strands for
+  this benchmark; the original Figure 7 experiment used mass-spring chains. The numerical implementation is
+  otherwise unrestricted.
+scene_requirements:
+  required_elements:
+  - 31 separate flexible strands with finite thickness and resistance to bending.
+  - One stationary rigid plate with a shallow interior and a raised rim, following Figure 7.
+  - Uniform downward gravity.
+  - Zero friction for both strand-strand and strand-plate contact; static and kinetic friction coefficients
+    are both 0.
+  initial_state:
+  - The strands start at rest in a dense parallel arrangement above the plate, without initial interpenetration.
+  - Both ends of every strand are free; no strand is pinned, tethered, or attached to another strand.
+  - The plate is at rest, and no strand initially touches it.
+  required_events:
+  - The strands fall into the plate under gravity.
+  - Strands contacting the plate bend and make contact with neighboring strands as the remaining strands descend.
+  - After contact, the strands slide against the plate and one another and spread laterally into a low, dispersed
+    arrangement.
+  - The final arrangement resembles the top row of Figure 7 rather than the raised, friction-supported stack
+    in the bottom row.
+camera_requirements:
+- Use a fixed oblique view showing the plate interior, falling strands, and the lateral spread and height of
+  the final arrangement.
+- Keep the entire plate and strand assembly in view from release through the settled state.
+- Use sufficient contrast and resolution to distinguish individual strands and their contact with the plate.

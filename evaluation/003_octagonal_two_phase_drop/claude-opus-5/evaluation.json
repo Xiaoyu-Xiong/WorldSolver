@@ -1,0 +1,130 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 113688671,
+          "trajectory_frames": 401,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "For each liquid phase, the mass change equals the cumulative prescribed inflow, outflow, or phase-transfer source; internal motion and contact do not create or delete mass.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "initial_quantity": [
+            360.00000000000637,
+            49.99999999999979
+          ],
+          "sample_count": 401,
+          "worst_frame_index": 0
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.0,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "field.divergence.v1",
+        "criterion": "In the active incompressible region of octagonal two phase drop, the velocity field is approximately divergence free.",
+        "criterion_id": "incompressible_velocity_constraint",
+        "details": {
+          "sample_count": 401,
+          "worst_frame_index": 126
+        },
+        "dimension": "field_constraints",
+        "domain": "physics",
+        "metric": "divergence_relative_l2",
+        "normalized_error": 16.37344062302471,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 5.755912266881196
+      },
+      {
+        "calculator": "interface.level_set_kinematic.v1",
+        "criterion": "Where the two liquid phases has no prescribed interfacial mass transfer, its material interface is advected consistently by the collocated velocity field.",
+        "criterion_id": "material_interface_kinematics",
+        "details": {
+          "sample_count": 401,
+          "worst_frame_index": 400
+        },
+        "dimension": "boundary_and_interface_conditions",
+        "domain": "physics",
+        "metric": "kinematic_relative_l2",
+        "normalized_error": 0.9648967371304197,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 3.510326286958032
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 1.0
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.024494897427831747,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.93
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0593295878967653,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.65
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.1670449041425688,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.614
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "003_octagonal_two_phase_drop",
+  "visual_score": 0.7985,
+  "visual_fidelity_score": 79.85,
+  "physical_plausibility_score": 36.42207951794641,
+  "total_score": 58.1360397589732
+}

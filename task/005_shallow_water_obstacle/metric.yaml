@@ -1,0 +1,89 @@
+﻿schema_version: 4
+task_id: 005_shallow_water_obstacle
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The submitted solver runs to the frozen end time, produces a complete finite trajectory
+      with every required evaluation field, and produces a readable platform render without exceeding
+      the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: A visible shallow-water wavefront propagates from its initial region toward the polygonal
+      obstacle.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: On reaching the obstacle, the wave separates around its sides and produces a visibly altered
+      downstream pattern.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: Reflected waves travel back into the domain while the transmitted flow continues beyond
+      the obstacle.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: The height surface remains continuous without explosive spikes, frame-to-frame popping,
+      or water crossing the obstacle interior.
+  physics:
+  - id: material_mass_balance
+    profile: fluids_and_gases
+    dimension: conservation_and_source_balance
+    criterion: For the shallow-water layer, the mass change equals the cumulative prescribed inflow, outflow,
+      or phase-transfer source; internal motion and contact do not create or delete mass.
+    applicability:
+      requires:
+      - prescribed sources and sinks are exported
+      - Per-sample mass contributions are exported for every evaluated material.
+      excludes:
+      - Unreported particle deletion or remeshing loss.
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: continuity_equation_consistency
+    profile: fluids_and_gases
+    dimension: transport_equation_consistency
+    criterion: The density or height field in shallow water obstacle satisfies the source-aware continuity
+      equation rather than being constrained to constant volume.
+    applicability:
+      requires:
+      - Density or height, velocity, prescribed source, and active mask are exported on one grid.
+      excludes:
+      - Cells outside the modeled material or at unresolved open boundaries.
+    numeric_binding:
+      calculator: field.continuity.v1
+      inputs:
+        density_field: fields.density_field
+        velocity_field: fields.velocity_field
+        source_field: fields.continuity_source
+        active_mask: fields.active_mask
+        grid_spacing: scalars.grid_spacing
+      parameters:
+        spatial_dimensions: 2
+      reduction:
+        type: maximum
+  - id: prescribed_boundary_velocity
+    profile: fluids_and_gases
+    dimension: boundary_and_interface_conditions
+    criterion: At impermeable or moving boundaries in shallow water obstacle, the sampled material velocity
+      matches the prescribed normal boundary velocity.
+    applicability:
+      requires:
+      - Boundary velocity, target velocity, and normals are exported at collocated samples.
+      excludes:
+      - Open, porous, or prescribed-flux boundary segments.
+    numeric_binding:
+      calculator: boundary.velocity_residual.v1
+      inputs:
+        boundary_velocity: fields.boundary_velocity
+        boundary_target_velocity: fields.boundary_target_velocity
+        boundary_normal: fields.boundary_normal
+        reference_velocity: scalars.reference_velocity
+      parameters:
+        condition: no_penetration
+        spatial_dimensions: 2
+      reduction:
+        type: maximum

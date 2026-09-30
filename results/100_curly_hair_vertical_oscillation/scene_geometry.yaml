@@ -1,0 +1,30 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: curly_hair_clump
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/curly_guide_topology.json
+      radius: 0.006
+    state_binding: {selector: all}
+    material_id: dark_brown_hair
+    collision_enabled: false
+  - id: oscillating_root
+    semantic: rigid
+    motion: kinematic
+    geometry: {type: sphere, radius: 0.016}
+    transform: {translation: [0.0, 0.0, 0.34]}
+    material_id: root_marker
+    collision_enabled: false
+  - id: root_support
+    semantic: rigid
+    motion: kinematic
+    geometry: {type: cylinder, radius: 0.012, height: 0.10}
+    transform:
+      translation: [0.0, 0.0, 0.395]
+      rotation_xyzw: [0.0, 0.0, 0.0, 1.0]
+    material_id: brushed_metal
+    collision_enabled: false

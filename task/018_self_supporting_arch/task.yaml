@@ -1,0 +1,31 @@
+id: 018_self_supporting_arch
+title: Self Supporting Arch
+category: rigid_body_dynamics
+source:
+  title: Non-Smooth Newton Methods for Deformable Multi-Body Dynamics
+  url: https://arxiv.org/pdf/1907.04587
+  anchor: Figure 14 top; PDF page 15
+goal: Recreate the observable physical phenomenon in which a parabolic arch assembled from rigid blocks
+  supports itself through frictional contact and maintains a stable load path under gravity. The implementation
+  method is unrestricted; the target is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Self Supporting Arch
+  - Rigid bodies named by the scene
+  - Contact surfaces
+  - Gravity
+  initial_state:
+  - A parabolic arch assembled from rigid blocks supports itself through frictional contact and maintains
+    a stable load path under gravity.
+  required_events:
+  - Quantitative/qualitative - drift
+  - Collapse time
+  - Constraint error
+  - Contact stability
+camera_requirements:
+- Use a three-quarter view that exposes the important contact points, stack or mechanism, support surfaces,
+  and final configuration throughout the motion.
+parameter_notes:
+- 'Merged source variants (self_supporting_arch_direct_or_krylov, self_supporting_arch_relaxation). Original
+  paper parameters/configurations: Solver = direct_or_krylov; friction mu = 0.6; masses 15 to 110. | Solver
+  = relaxation; friction mu = 0.6; masses 15 to 110.'

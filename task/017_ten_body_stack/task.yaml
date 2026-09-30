@@ -1,0 +1,32 @@
+id: 017_ten_body_stack
+title: Ten Body Stack
+category: rigid_body_dynamics
+source:
+  title: Unified Particle Physics for Real-Time Applications
+  url: https://matthias-research.github.io/pages/publications/flex.pdf
+  anchor: Figure 10; PDF page 6
+goal: Recreate the observable physical phenomenon in which a ten-body rigid stack settles under gravity,
+  transfers load through successive contacts, and remains stable without visible penetration or artificial
+  collapse. The implementation method is unrestricted; the target is the scene's visible motion, interaction,
+  and outcome.
+scene_requirements:
+  required_elements:
+  - Ten Body Stack
+  - Rigid bodies named by the scene
+  - Contact surfaces
+  - Gravity
+  initial_state:
+  - A ten-body rigid stack settles under gravity, transfers load through successive contacts, and remains
+    stable without visible penetration or artificial collapse.
+  required_events:
+  - Quantitative/qualitative - oscillation decay
+  - Stack compression
+  - Penetration
+  - Settling time
+camera_requirements:
+- Use a three-quarter view that exposes the important contact points, stack or mechanism, support surfaces,
+  and final configuration throughout the motion.
+parameter_notes:
+- 'Merged source variants (ten_body_stack_mass_scaling_disabled, ten_body_stack_mass_scaling_enabled).
+  Original paper parameters/configurations: Mass scaling = disabled; 2 m high common stack. | Mass scaling
+  = enabled; 2 m high common stack.'

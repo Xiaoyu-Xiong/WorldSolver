@@ -1,0 +1,45 @@
+schema_version: 1
+scene_id: 054_thin_plate_two_chambers
+seed: 5403
+duration: 6.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+camera:
+  position: [0.0, -7.8, 1.85]
+  look_at: [0.0, 0.0, 1.75]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50
+domain:
+  bounds_min: [-3.0, -0.18, 0.0]
+  bounds_max: [3.0, 0.18, 3.6]
+  dimensionality: 2
+  shallow_extrusion_depth: 0.36
+initial_conditions:
+  ambient_density: 1.0
+  ambient_pressure: 1.0
+  ambient_velocity: [0.0, 0.0, 0.0]
+  lower_chamber: quiescent_empty_of_injected_tracer_except_inlet_core
+  upper_chamber: quiescent_empty_of_injected_tracer
+  initial_visible_injected_tracer_only_in_lower_inlet: true
+boundary_conditions:
+  jet_inlet:
+    center: [0.0, 0.0, 0.0]
+    width: 0.42
+    velocity: [0.0, 0.0, 2.4]
+    density: 1.18
+  outer_walls: impermeable
+  thin_plate: impermeable_stationary_interface
+visual_requirements:
+  render_injected_fraction_not_ambient_density: true
+  avoid_initial_full_domain_fill: true
+  no_frame_pop_from_filled_domain_to_lower_jet: true
+  jet_color: bright_cyan_or_blue
+  upper_chamber_must_remain_clear: true
+  two_dimensional_cross_section_camera: true
+diagnostics:
+  interface_height: 1.80
+  upper_chamber_threshold: 1.85
+  target_leaked_mass: 0.0
+  record: [upper_chamber_injected_mass, lower_chamber_injected_mass, pressure_jump_across_plate, maximum_speed, finite_state]

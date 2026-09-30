@@ -1,0 +1,33 @@
+id: 050_water_collapses_towers
+title: Water Collapses Towers
+category: multiphysics_coupling
+source:
+  title: Versatile Rigid-Fluid Coupling for Incompressible SPH
+  url: https://cg.informatik.uni-freiburg.de/publications/2012_SIGGRAPH_rigidFluidCoupling.pdf
+  anchor: Figure 11; PDF page 7
+goal: Recreate the observable physical phenomenon in which an approaching water mass collapses two towers
+  assembled from cylinders and cubes of differing density. The implementation method is unrestricted;
+  the target is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Visible density field
+  - Coupled materials named by the scene
+  - Interface/contact region
+  - Domain or support boundaries
+  - Two towers with clearly different colors per tower and per component density
+  - Water rendered in a distinct color from all tower components
+  initial_state:
+  - An approaching water mass collapses two towers assembled from cylinders and cubes of differing density.
+  required_events:
+  - Quantitative/qualitative - tower failure time
+  - Rigid trajectories
+  - Momentum exchange
+  - Splash
+  - Penetration
+camera_requirements:
+- Use a three-quarter view that simultaneously exposes each coupled phase or body, their interface, the
+  main transfer or contact region, and the final distribution.
+- Use high-contrast colors so left tower, right tower, light cylinders, heavy cubes, and incoming water
+  can be distinguished throughout collapse.
+parameter_notes:
+- 'Original paper parameters/configuration: Two multi-body towers and incoming water from Figure 11.'

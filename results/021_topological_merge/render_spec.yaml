@@ -1,0 +1,15 @@
+schema_version: 2
+profile: granular_particles
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: ground_support
+    method: rigid_mesh
+    material: warm_ground
+  - object_id: merging_material
+    method: reconstructed_surface
+    material: multicolor_viscoplastic
+    particle_radius_scale: 1.12
+    surface_pitch: 0.11
+    surface_smoothing: 1.15
+    subdivision: 1

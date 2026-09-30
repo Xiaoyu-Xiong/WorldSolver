@@ -1,0 +1,30 @@
+id: 117_wet_towel_lift_and_wring
+title: A Wet Towel Is Lifted and Wrung Out
+category: multiphysics_coupling
+source:
+  title: A Multi-Scale Model for Simulating Liquid-Fabric Interactions
+  url: https://www.cs.columbia.edu/cg/wetcloth/main.pdf
+  anchor: Figure 14; Figure 15 left; PDF page 14
+goal: 'Recreate the source two-way coupled experiment: Water is expelled during wringing, and some dripping
+  continues after the twisting stops. Prescribe only the stated supports and controls; the remaining solid
+  response and fluid motion must be dynamically coupled.'
+scene_requirements:
+  required_elements:
+  - A porous deformable towel initially in water, with liquid absorption and drainage.
+  - Two end controls that lift and twist the towel as in the source.
+  - A receiving water domain and gravity.
+  - Fluid forces must change the dynamic solid motion or deformation, and the evolving solid must alter the
+    resolved fluid flow. The numerical coupling method is unrestricted.
+  - Allow permeability and liquid storage. Do not impose no-penetration or enforce a linear Darcy law during
+    fast wringing.
+  initial_state:
+  - Start before the source rapid lift, with the towel carrying its physically represented water content.
+  - Only the grasped end regions are driven; the middle of the towel is free to fold and twist.
+  required_events:
+  - The towel is pulled out of the water and hangs downward while droplets fall from it.
+  - Opposite end rotations tighten and twist the middle of the towel.
+  - Water is expelled during wringing, and some dripping continues after the twisting stops.
+camera_requirements:
+- Use a fixed oblique view showing both grips, the entire towel, its narrowing middle, and the falling water.
+- Keep the onset, strongest interaction, and stated outcome visible in a continuous sequence. Passive tracer
+  or wetness colors must follow the simulated state rather than a scripted color change.

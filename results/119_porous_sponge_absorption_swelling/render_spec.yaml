@@ -1,0 +1,24 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - {object_id: support, method: rigid_mesh, material: support, color_rgb: [0.32, 0.34, 0.38]}
+  - object_id: sponge
+    method: deformed_mesh
+    material: matte
+    scalar_attribute: saturation
+    scalar_range: [0.0, 1.0]
+    scalar_color_low: [0.94, 0.74, 0.24]
+    scalar_color_high: [0.38, 0.22, 0.07]
+    subdivision: 0
+  - object_id: porous_interior
+    method: diagnostic_points
+    material: sponge_dry_wet
+    scalar_attribute: saturation
+    scalar_range: [0.0, 1.0]
+    scalar_color_low: [0.94, 0.74, 0.24]
+    scalar_color_high: [0.38, 0.22, 0.07]
+    opacity: 0.18
+    max_points: 6000
+  - {object_id: water, method: reconstructed_surface, material: default, color_rgb: [0.08, 0.42, 0.88], opacity: 0.42, particle_radius_scale: 1.0, surface_pitch: 0.075, surface_smoothing: 1.0}

@@ -1,0 +1,32 @@
+id: 092_curved_rod_coiling_reversal
+title: Coiling Reversal of a Naturally Curved Rod
+category: rods_and_strands
+source:
+  title: Coiling of elastic rods on rigid substrates
+  url: https://www.cs.columbia.edu/cg/elastic_coiling/coiling.pdf
+  anchor: Figure 2B, D, E; The Interplay Between Natural Curvature and Twist; PDF page 3; Movie S5
+goal: 'Recreate the source experiment: The direction of coiling reverses during continued injection, leaving
+  deposited turns from before and after the reversal. Use elastic rods or strands; the numerical implementation
+  is unrestricted.'
+scene_requirements:
+  required_elements:
+  - One long, inextensible elastic rod fed downward by a controlled injector.
+  - A rigid horizontal substrate below the injector and uniform downward gravity.
+  - The source sticking substrate condition for deposited material; no fluid or viscous-thread constitutive
+    model.
+  - The rod has the nonzero natural curvature of the source reversal regime; the substrate is stationary.
+  - Use the source natural-curvature regime that exhibits coiling inversion and preserve its inlet orientation
+    condition. Use the source quasi-static regime. The source neglects self-contact of the deposited rod; do
+    not add a multilayer collision requirement.
+  initial_state:
+  - The naturally curved rod begins depositing a coil with a single winding direction.
+  required_events:
+  - The naturally curved rod continues to feed onto the stationary substrate.
+  - The suspended heel changes orientation while successive coils are deposited.
+  - The direction of coiling reverses during continued injection, leaving deposited turns from before and after
+    the reversal.
+camera_requirements:
+- Use a fixed oblique view that shows the injector, suspended heel, contact point, and deposited pattern; keep
+  earlier deposited turns visible.
+- Keep the relevant objects visible before loading or contact, during the strongest response, and through the
+  stated outcome.

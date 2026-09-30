@@ -1,0 +1,59 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: drum_back_wall
+    semantic: boundary
+    motion: kinematic
+    geometry:
+      type: cylinder
+      radius: 0.84
+      height: 0.05
+    transform:
+      translation: [0.0, 0.24, 0.86]
+      rotation_xyzw: [0.7071068, 0.0, 0.0, 0.7071068]
+    material_id: dark_drum_wall
+    collision_enabled: true
+  - id: drum_outer_hint
+    semantic: boundary
+    motion: kinematic
+    geometry:
+      type: cylinder
+      radius: 0.86
+      height: 0.03
+    transform:
+      translation: [0.0, -0.22, 0.86]
+      rotation_xyzw: [0.7071068, 0.0, 0.0, 0.7071068]
+    material_id: dark_drum_rim
+    collision_enabled: true
+  - id: rim_marker_top
+    semantic: rigid
+    motion: kinematic
+    geometry:
+      type: box
+      half_extents: [0.055, 0.018, 0.16]
+    transform:
+      translation: [0.0, -0.26, 1.64]
+    material_id: bright_rim_marker
+    collision_enabled: false
+  - id: rim_marker_side
+    semantic: rigid
+    motion: kinematic
+    geometry:
+      type: box
+      half_extents: [0.16, 0.018, 0.055]
+    transform:
+      translation: [0.78, -0.26, 0.86]
+    material_id: bright_rim_marker
+    collision_enabled: false
+  - id: granular_bed
+    semantic: granular
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [-0.78, -0.18, 0.03]
+      bounds_max: [0.78, 0.18, 0.86]
+    state_binding:
+      selector: all
+    material_id: golden_tan_grains
+    collision_enabled: true

@@ -1,0 +1,16 @@
+schema_version: 2
+profile: cloth_shell
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - object_id: ground
+    method: rigid_mesh
+    material: matte
+  - object_id: fixed_sphere
+    method: rigid_mesh
+    material: ceramic
+  - object_id: draping_cloth
+    method: shell_surface
+    material: matte
+    color_rgb: [0.72, 0.34, 0.26]
+    subdivision: 1

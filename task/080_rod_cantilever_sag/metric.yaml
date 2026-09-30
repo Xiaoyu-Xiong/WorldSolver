@@ -1,0 +1,133 @@
+schema_version: 4
+task_id: 080_rod_cantilever_sag
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The solver reaches the frozen end time, exports all required finite trajectory fields, and produces
+      a readable render within the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: Under gravity, the free part of the horizontally clamped rod bends downward.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: The root stays horizontal while the free end drops farther than the nearby root region.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: The rod forms a smooth downward cantilever curve, with no extra support under its free end.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: The root does not drift or detach. The rod remains connected and develops no isolated spikes
+      or sharp breaks.
+  physics:
+  - id: material_mass_balance
+    profile: elastic_rods
+    dimension: conservation_and_source_balance
+    criterion: Each physical rod, strand, and attached rigid body retains its own initial mass. Errors on separate
+      bodies must not cancel in a combined total.
+    applicability:
+      requires:
+      - Export actual per-sample masses in attributes.mass_quantity [N,G], one fixed column per physical body
+        or deployed rod domain, with zeros outside that domain. Do not include render-only hair copies as additional
+        mass.
+      - Export fields.cumulative_mass_source as zeros [G]; include every material sample throughout the run.
+      excludes: []
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: local_material_inextensibility
+    profile: elastic_rods
+    dimension: material_kinematic_constraints
+    criterion: Every evaluated material interval preserves its reference arc length. Changing the rod shape,
+      coil pitch, or endpoint span must not be achieved by stretching its material.
+    applicability:
+      requires:
+      - Export fields.constraint_value as actual current arc length divided by reference arc length for every
+        physical material interval; fields.constraint_target contains matching ones and scalars.constraint_scale
+        is frozen to 1.
+      - Reference intervals are fixed in material coordinates and have positive length. For curved elements
+        integrate their centerline arc length; do not use endpoint chord length or solver-declared nominal
+        lengths.
+      - Include all deployed intervals. Newly injected intervals inherit the source reference length at creation;
+        evaluate each interval at the same material bounds in current and reference geometry.
+      excludes: []
+    numeric_binding:
+      calculator: rod.cantilever_inextensibility.v1
+      inputs:
+        position: state.position
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: local_static_force_balance
+    profile: elastic_rods
+    dimension: momentum_and_force_balance
+    criterion: At each equilibrium sample, actual elastic cut forces and external loads sum to zero on every
+      evaluated rod subdomain, not merely on the rod as a whole.
+    applicability:
+      requires:
+      - Use only equilibrated loading or deposition samples for the diagnostic trajectory, before and after
+        each prescribed increment. Do not include iterative solver states, inertial settling, or snap frames
+        in a static balance check.
+      - Freeze G evaluation subdomains covering the physical rod and retain their row identities across samples.
+        For deployment, fixed rows may partition the current deployed arclength into ordered fractions; all
+        cut loads must be computed at the actual current cuts.
+      - Export fields.budget_external_force [G,K,3] as actual force contributions on each evaluation subdomain,
+        including elastic cut tractions, contact, gravity, and prescribed-boundary reactions. Keep contributions
+        separate instead of exporting an already-zero resultant.
+      - Account for gravity and the clamp force and moment reactions. Never derive a missing reaction from
+        the residual being checked.
+      - Freeze a positive scalars.reference_force from material and loading scales before the run; do not normalize
+        by the nearly zero net force.
+      excludes: []
+    numeric_binding:
+      calculator: rod.cantilever_force_balance.v1
+      inputs:
+        position: state.position
+        mass: state.mass
+        external_force: fields.budget_external_force
+        force_position: fields.budget_force_position
+        external_couple: fields.budget_external_couple
+        reference_force: scalars.reference_force
+        reference_torque: scalars.reference_torque
+      reduction:
+        type: maximum
+  - id: local_static_moment_balance
+    profile: elastic_rods
+    dimension: angular_momentum_and_torque_balance
+    criterion: At each equilibrium sample, force moments and free couples balance on every evaluated rod subdomain,
+      including internal sections hidden from the camera.
+    applicability:
+      requires:
+      - Use only equilibrated loading or deposition samples for the diagnostic trajectory, before and after
+        each prescribed increment. Do not include iterative solver states, inertial settling, or snap frames
+        in a static balance check.
+      - Freeze G evaluation subdomains covering the physical rod and retain their row identities across samples.
+        For deployment, fixed rows may partition the current deployed arclength into ordered fractions; all
+        cut loads must be computed at the actual current cuts.
+      - Export fields.budget_external_force [G,K,3] as actual force contributions on each evaluation subdomain,
+        including elastic cut tractions, contact, gravity, and prescribed-boundary reactions. Keep contributions
+        separate instead of exporting an already-zero resultant.
+      - Account for gravity and the clamp force and moment reactions. Never derive a missing reaction from
+        the residual being checked.
+      - Export matching world-space force application points fields.budget_force_position [G,K,3] and free
+        couples fields.budget_external_couple [G,K,3], including transmitted elastic cut moments. Do not count
+        the same moment both as a force lever arm and a couple.
+      - Use the fixed world origin [0,0,0] and freeze a positive scalars.reference_torque from the material
+        stiffness, rod size, and loading scale before the run.
+      excludes: []
+    numeric_binding:
+      calculator: rod.cantilever_moment_balance.v1
+      inputs:
+        position: state.position
+        mass: state.mass
+        external_force: fields.budget_external_force
+        force_position: fields.budget_force_position
+        external_couple: fields.budget_external_couple
+        reference_torque: scalars.reference_torque
+      reduction:
+        type: maximum

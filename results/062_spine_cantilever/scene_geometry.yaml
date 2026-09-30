@@ -1,0 +1,26 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: wall_mount
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [0.055, 0.12, 0.25]
+    transform:
+      translation: [-0.055, 0.0, 0.42]
+    material_id: clamp_dark
+    collision_enabled: false
+  - id: spine_arm
+    semantic: deformable
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/spine_arm.obj
+    transform:
+      translation: [0.0, 0.0, 0.42]
+    state_binding:
+      selector: all
+    material_id: rubber_ivory
+    collision_enabled: false

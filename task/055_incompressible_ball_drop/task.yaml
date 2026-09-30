@@ -1,0 +1,33 @@
+id: 055_incompressible_ball_drop
+title: Incompressible Soft Ball Drop
+category: elastic_solids
+source:
+  title: Volume Conserving Finite Element Simulations of Deformable Models
+  url: https://www.cs.ucr.edu/~craigs/papers/2007-incompressible/paper.pdf
+  anchor: Figure 2, top row; PDF page 2; Section 5, PDF page 5
+goal: >-
+  Recreate a soft elastic ball falling onto a flat floor, spreading into a wide,
+  flattened shape at impact, and then becoming taller and narrower as it recovers
+  and oscillates. Use the top row of Figure 2 as the visual reference. The ball
+  must exhibit three-dimensional material deformation rather than rigid-body
+  bouncing. The numerical implementation is unrestricted.
+scene_requirements:
+  required_elements:
+    - One homogeneous, incompressible elastic ball with a closed surface and volumetric material.
+    - One stationary, horizontal rigid floor extending beyond the ball in every direction.
+    - Uniform downward gravity.
+  initial_state:
+    - The ball starts spherical, undeformed, and at rest, with a visible gap above the floor.
+    - No part of the ball initially touches the floor.
+    - The scene contains no other objects, supports, or actuators touching the ball.
+  required_events:
+    - The ball falls toward the floor and its lower surface makes first contact.
+    - After contact, the ball becomes shorter and wider, with a flattened bottom against the floor.
+    - After maximum flattening, the ball becomes taller and narrower and its upper surface rises.
+    - The ball subsequently changes height and width again as the impact-induced oscillation continues.
+camera_requirements:
+  - Keep one fixed, slightly elevated side view throughout the sequence, with the vertical axis upright.
+  - Keep the complete ball and the floor directly beneath it visible, including during maximum spreading.
+  - Use contrasting ball and floor colors and lighting that reveals the ball outline and contact patch.
+  - Do not hide the contact patch with a foreground object, tight crop, strong motion blur, or camera motion.
+  - Include judge frames before contact, during flattening, at maximum flattening, and during recovery and the following oscillation.

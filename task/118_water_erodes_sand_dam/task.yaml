@@ -1,0 +1,31 @@
+id: 118_water_erodes_sand_dam
+title: Water Infiltrates and Erodes a Sand Dam
+category: multiphysics_coupling
+source:
+  title: Multi-Species Simulation of Porous Sand and Water Mixtures
+  url: https://www.museth.org/Ken/Publications_files/Pradhana-etal_SIG17.pdf
+  anchor: Figure 1; PDF page 1; Figure 2 on page 2 provides parameter comparisons
+goal: 'Recreate the source two-way coupled experiment: The breach releases a visible sand-water debris flow
+  downstream. Prescribe only the stated supports and controls; the remaining solid response and fluid motion
+  must be dynamically coupled.'
+scene_requirements:
+  required_elements:
+  - A cohesive porous sand dam in the source reservoir-and-downstream geometry.
+  - Water loading the dam and a coupled granular skeleton whose cohesion responds to water saturation.
+  - Gravity and the source solid base and reservoir boundaries.
+  - Fluid forces must change the dynamic solid motion or deformation, and the evolving solid must alter the
+    resolved fluid flow. The numerical coupling method is unrestricted.
+  - Retain transported sand samples for the full diagnostic interval in a sufficiently large domain; do not
+    implement erosion by deleting solid mass.
+  initial_state:
+  - Begin with an intact dam before the source water supply reaches and infiltrates it.
+  - Use the source erosion and breach regime; do not pre-cut an opening or trigger collapse at a scripted time.
+  required_events:
+  - Incoming water first reaches the intact sand dam and infiltrates its upstream region.
+  - A local portion yields and the resulting opening grows as water and sand move through it.
+  - The breach releases a visible sand-water debris flow downstream.
+camera_requirements:
+- Use a fixed oblique view including the water supply, upstream dam face, breach location, and downstream debris
+  deposition.
+- Keep the onset, strongest interaction, and stated outcome visible in a continuous sequence. Passive tracer
+  or wetness colors must follow the simulated state rather than a scripted color change.

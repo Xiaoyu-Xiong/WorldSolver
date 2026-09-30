@@ -1,0 +1,10 @@
+schema_version: 2
+profile: granular_particles
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - {object_id: support_floor, method: rigid_mesh, material: dark_metal, color_rgb: [0.10, 0.10, 0.11]}
+  - {object_id: hourglass_shell, method: rigid_mesh, material: clear_glass, color_rgb: [0.74, 0.90, 1.0], subdivision: 2}
+  - {object_id: upper_flip_marker, method: rigid_mesh, material: amber_flip_marker, color_rgb: [1.0, 0.55, 0.05]}
+  - {object_id: lower_flip_marker, method: rigid_mesh, material: cyan_flip_marker, color_rgb: [0.0, 0.72, 1.0]}
+  - {object_id: sand_grains, method: particle_instances, material: warm_sand, color_rgb: [0.88, 0.62, 0.28], particle_radius_scale: 1.35}

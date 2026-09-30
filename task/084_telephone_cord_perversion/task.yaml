@@ -1,0 +1,27 @@
+id: 084_telephone_cord_perversion
+title: Telephone-Cord Helical Perversion
+category: rods_and_strands
+source:
+  title: Discrete Elastic Rods
+  url: https://www.cs.columbia.edu/cg/rods/
+  anchor: Figure 2; Section 9.3, Helical perversion; PDF pages 2 and 10-11
+goal: 'Recreate the source experiment: Two helical portions with opposite handedness meet at a persistent transition
+  along the same spring. Use elastic rods or strands; the numerical implementation is unrestricted.'
+scene_requirements:
+  required_elements:
+  - One inextensible rod with the naturally helical shape and anisotropic cross-section of the source spring.
+  - Endpoint controls that preserve the end orientations used in the flattening and release experiment.
+  - Use quasi-static endpoint motion following the preparation in Figure 2; do not freely spin the ends to
+    erase the perversion.
+  initial_state:
+  - Prepare the source nearly straight, flattened configuration by removing the writhe from the natural spring
+    while controlling its material orientation.
+  - Do not start from a straight stress-free rod.
+  required_events:
+  - The ends of the flattened spring move closer together.
+  - Coils reappear on both sides as the endpoint separation decreases.
+  - Two helical portions with opposite handedness meet at a persistent transition along the same spring.
+camera_requirements:
+- Use a fixed oblique view with sufficient depth cues to distinguish the handedness of each helix.
+- Keep the relevant objects visible before loading or contact, during the strongest response, and through the
+  stated outcome.

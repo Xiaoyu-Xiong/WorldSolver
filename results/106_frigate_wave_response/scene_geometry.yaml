@@ -1,0 +1,59 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: seabed
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [15.0, 6.0, 0.10]}
+    transform: {translation: [0.0, 0.0, -0.10]}
+    material_id: sand_dark
+    collision_enabled: true
+  - id: port_boundary
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [15.0, 0.08, 2.0]}
+    transform: {translation: [0.0, 6.08, 2.0]}
+    material_id: ocean_boundary
+    collision_enabled: true
+  - id: starboard_boundary
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [15.0, 0.08, 2.0]}
+    transform: {translation: [0.0, -6.08, 2.0]}
+    material_id: ocean_boundary
+    collision_enabled: true
+  - id: frigate_hull
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/frigate_hull.obj}
+    transform: {translation: [0.0, 0.0, 1.48]}
+    state_binding: {selector: body_id, value: 1}
+    material_id: dark_wood_hull
+    collision_enabled: true
+  - id: frigate_mastwork
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/frigate_mastwork.obj}
+    transform: {translation: [0.0, 0.0, 1.48]}
+    state_binding: {selector: attribute, attribute_name: ship_visual, value: 1}
+    material_id: mast_wood
+    collision_enabled: false
+  - id: frigate_sails
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/frigate_sails.obj}
+    transform: {translation: [0.0, 0.0, 1.48]}
+    state_binding: {selector: attribute, attribute_name: ship_visual, value: 1}
+    material_id: canvas_sail
+    collision_enabled: false
+  - id: sea_water
+    semantic: liquid
+    motion: field
+    geometry:
+      type: particle_domain
+      bounds_min: [-15.0, -6.0, 0.0]
+      bounds_max: [15.0, 6.0, 2.0]
+    state_binding: {selector: attribute, attribute_name: phase, value: 1}
+    material_id: deep_sea
+    collision_enabled: false

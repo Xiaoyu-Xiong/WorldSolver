@@ -1,0 +1,88 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: ground
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [3.2, 1.4, 0.05]}
+    transform: {translation: [0.0, 0.0, -0.05]}
+    material_id: ground
+    collision_enabled: true
+  - id: wall_row_0
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.18,0.48,0.18]}
+    transform: {translation: [0.0,-0.48,0.18]}
+    material_id: masonry
+    collision_enabled: true
+  - id: wall_row_1
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.18,0.48,0.18]}
+    transform: {translation: [0.0,0.48,0.18]}
+    material_id: masonry
+    collision_enabled: true
+  - id: wall_row_2
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.18,0.48,0.18]}
+    transform: {translation: [0.0,-0.48,0.54]}
+    material_id: masonry
+    collision_enabled: true
+  - id: wall_row_3
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.18,0.48,0.18]}
+    transform: {translation: [0.0,0.48,0.54]}
+    material_id: masonry
+    collision_enabled: true
+  - id: wall_row_4
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.18,0.48,0.18]}
+    transform: {translation: [0.0,-0.48,0.90]}
+    material_id: masonry
+    collision_enabled: true
+  - id: wall_row_5
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.18,0.48,0.18]}
+    transform: {translation: [0.0,0.48,0.90]}
+    material_id: masonry
+    collision_enabled: true
+  - id: wall_row_6
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.18,0.48,0.18]}
+    transform: {translation: [0.0,-0.48,1.26]}
+    material_id: masonry
+    collision_enabled: true
+  - id: wall_row_7
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.18,0.48,0.18]}
+    transform: {translation: [0.0,0.48,1.26]}
+    material_id: masonry
+    collision_enabled: true
+  - id: wrecking_ball
+    semantic: boundary
+    motion: kinematic
+    geometry: {type: sphere, radius: 0.48}
+    transform: {translation: [-1.75,0.0,1.35]}
+    material_id: wrecking_ball
+    collision_enabled: true
+  - id: cable
+    semantic: boundary
+    motion: static
+    geometry: {type: capsule, radius: 0.055, height: 1.8}
+    transform: {translation: [-1.75,0.0,2.45]}
+    material_id: cable
+    collision_enabled: false
+  - id: subject
+    semantic: granular
+    motion: dynamic
+    geometry: {type: particle_domain, bounds_min: [-2.2, -0.8, 0.0], bounds_max: [2.2, 0.8, 2.2], grid_shape: [24, 12, 18]}
+    state_binding: {selector: all}
+    material_id: subject
+    collision_enabled: true

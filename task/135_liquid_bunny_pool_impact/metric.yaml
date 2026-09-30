@@ -1,0 +1,99 @@
+schema_version: 4
+task_id: 135_liquid_bunny_pool_impact
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The solver reaches the frozen end time, exports every required finite trajectory field, and produces a readable render within resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: The liquid bunny falls while approximately retaining its silhouette before contact.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: Impact generates an outward splash, crown, and upward sheets while the bunny merges into the pool.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: The free surface remains volume-coherent and transitions into damped waves after the splash.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: The fluid evolves continuously without teleportation, disconnected material appearing away from the flow, boundary leakage, or numerical explosion.
+  physics:
+  - id: incompressible_velocity_constraint
+    profile: fluids_and_gases
+    dimension: field_constraints
+    criterion: The active incompressible carrier velocity is approximately divergence free.
+    applicability:
+      requires:
+      - A collocated velocity grid and active-region mask are exported.
+      excludes:
+      - Compressible regions and prescribed source cells.
+    numeric_binding:
+      calculator: field.divergence.v1
+      inputs:
+        velocity_field: fields.velocity_field
+        active_mask: fields.active_mask
+        grid_spacing: scalars.grid_spacing
+        characteristic_length: scalars.characteristic_length
+      parameters:
+        spatial_dimensions: 3
+      reduction:
+        type: maximum
+  - id: prescribed_boundary_velocity
+    profile: fluids_and_gases
+    dimension: boundary_and_interface_conditions
+    criterion: Sampled fluid velocity at impermeable rigid boundaries matches the prescribed normal boundary velocity.
+    applicability:
+      requires:
+      - Collocated boundary velocity, target velocity, normal, and reference velocity are exported.
+      excludes:
+      - Open, porous, or prescribed-flux boundary segments.
+    numeric_binding:
+      calculator: boundary.velocity_residual.v1
+      inputs:
+        boundary_velocity: fields.boundary_velocity
+        boundary_target_velocity: fields.boundary_target_velocity
+        boundary_normal: fields.boundary_normal
+        reference_velocity: scalars.reference_velocity
+      parameters:
+        condition: no_penetration
+        spatial_dimensions: 3
+      reduction:
+        type: maximum
+  - id: liquid_mass_balance
+    profile: fluids_and_gases
+    dimension: conservation_and_source_balance
+    criterion: Total represented liquid mass follows the exported cumulative source and is conserved in closed configurations.
+    applicability:
+      requires:
+      - Per-sample liquid mass and cumulative source are exported.
+      excludes:
+      - Deliberately untracked open-boundary mass flux.
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: free_surface_kinematic_consistency
+    profile: fluids_and_gases
+    dimension: transport_equation_consistency
+    criterion: The exported liquid-air level set is transported consistently by the collocated liquid velocity.
+    applicability:
+      requires:
+      - A signed level set and collocated velocity grid are exported every frame.
+      excludes:
+      - Phase change or prescribed interfacial mass flux.
+    numeric_binding:
+      calculator: interface.level_set_kinematic.v1
+      inputs:
+        level_set: fields.liquid_level_set
+        velocity_field: fields.velocity_field
+        grid_spacing: scalars.grid_spacing
+      parameters:
+        spatial_dimensions: 3
+        interface_band_cells: 1.5
+      reduction:
+        type: maximum
+

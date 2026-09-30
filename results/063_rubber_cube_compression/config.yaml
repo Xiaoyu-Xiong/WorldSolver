@@ -1,0 +1,41 @@
+schema_version: 1
+scene_id: 063_rubber_cube_compression
+seed: 6301
+duration: 2.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+
+initial_conditions:
+  rubber_cube:
+    state: undeformed_at_rest
+    dimensions_m: [0.2, 0.2, 0.2]
+    center_m: [0.0, 0.0, 0.1]
+    solid_dimension: 3
+
+boundary_conditions:
+  bottom_support:
+    object_id: support
+    cube_face: z_min
+    type: fixed_support
+    description: The entire bottom face is supported and remains at z = 0.
+  top_compressive_traction:
+    object_id: load_indicator
+    cube_face: z_max
+    type: prescribed_surface_traction
+    direction: [0.0, 0.0, -1.0]
+    peak_magnitude_pa: 50000.0
+    schedule:
+      - {time: 0.0, scale: 0.0}
+      - {time: 0.25, scale: 0.0}
+      - {time: 1.50, scale: 1.0}
+      - {time: 2.0, scale: 1.0}
+    description: Uniform downward traction ramped from zero, then held at 50 kPa.
+
+camera:
+  position: [0.42, -0.46, 0.34]
+  look_at: [0.0, 0.0, 0.09]
+  up: [0.0, 0.0, 1.0]
+  fov_y_degrees: 34.0
+  width: 960
+  height: 640
+  fps: 50

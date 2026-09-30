@@ -1,0 +1,31 @@
+id: 165_cylindrical_centrifuge_axial_particle_bands
+title: Cylindrical Centrifuge Axial Particle Bands
+category: multiphysics_coupling
+source:
+  title: Axial Segregation in a Cylindrical Centrifuge
+  url: https://doi.org/10.1103/PhysRevLett.89.104301
+  anchor: PRL 89, 104301 (2002); axial segregation mechanism and band-growth results
+goal: >-
+  Recreate the published centrifuge segregation phenomenon, from an initially mixed state through rotation-driven
+  radial organization to the characteristic axial concentration pattern. The numerical method is unrestricted.
+scene_requirements:
+  required_elements:
+  - Horizontal cylindrical centrifuge
+  - Viscous carrier fluid
+  - Non-neutrally buoyant suspended particles
+  - Prescribed rotation
+  - Particle-fluid hydrodynamic coupling
+  initial_state:
+  - Particles begin approximately uniformly suspended throughout the rotating-cylinder fluid volume.
+  required_events:
+  - Differential centrifuging moves particles radially and creates a nonuniform cross-sectional distribution.
+  - Hydrodynamic interactions amplify small axial concentration perturbations into localized particle-rich regions.
+  - The initially uniform suspension develops a sequence of distinct axial high- and low-concentration bands.
+  - Material remains confined and motion stays temporally coherent without teleportation or numerical explosion.
+camera_requirements:
+- Use a transparent wide side view showing the complete cylinder axis and particle concentration, with the wall visually subdued.
+- Keep both material species strongly color-coded so concentration changes are visible without diagnostic overlays.
+parameter_notes:
+- Preserve the paper's qualitative filling fraction, rotation regime, species contrast, and radial-to-axial event ordering.
+- Export persistent species labels, mass, velocity, applied forces, and contact or coupling diagnostics.
+

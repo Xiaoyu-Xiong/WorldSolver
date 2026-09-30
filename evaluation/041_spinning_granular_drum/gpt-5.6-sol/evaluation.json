@@ -1,0 +1,129 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 31959883,
+          "trajectory_frames": 251,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "For the spinning granular drum, the mass change equals the cumulative prescribed inflow, outflow, or phase-transfer source; internal motion and contact do not create or delete mass.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "initial_quantity": [
+            277.15392189356953
+          ],
+          "sample_count": 251,
+          "worst_frame_index": 0
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.0,
+        "profile": "particles_and_granular_materials",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "dynamics.linear_momentum_balance.v1",
+        "criterion": "For the spinning granular drum, the time rate of total linear momentum is consistent with the exported external forces, including gravity and any reported drum-wall drive forces.",
+        "criterion_id": "linear_momentum_balance",
+        "details": {
+          "sample_count": 251,
+          "worst_frame_index": 134
+        },
+        "dimension": "momentum_and_force_balance",
+        "domain": "physics",
+        "metric": "momentum_balance_relative_l2",
+        "normalized_error": 0.9999999142915155,
+        "profile": "particles_and_granular_materials",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 8.570848453182123e-06
+      },
+      {
+        "calculator": "contact.penetration.v1",
+        "criterion": "During the spinning granular drum scene, grain-wall contacts maintain nonnegative geometric gaps up to the contact tolerance and do not permit persistent interpenetration or leakage through the drum.",
+        "criterion_id": "nonpenetrating_contact",
+        "details": {
+          "sample_count": 251,
+          "worst_frame_index": 6
+        },
+        "dimension": "contact_and_interface_conditions",
+        "domain": "physics",
+        "metric": "penetration_relative_max",
+        "normalized_error": 4.440892098500626e-15,
+        "profile": "particles_and_granular_materials",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 99.99999999999112
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.01469693845669907,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.038
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.026532998322843195,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.10600000000000001
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.01624807680927192,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.026000000000000002
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.07787168933572713,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.826
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "041_spinning_granular_drum",
+  "visual_score": 0.249,
+  "visual_fidelity_score": 24.9,
+  "physical_plausibility_score": 66.6666695236132,
+  "total_score": 45.7833347618066
+}

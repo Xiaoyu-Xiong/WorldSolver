@@ -1,0 +1,148 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 54243885,
+          "trajectory_frames": 361,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "Total liquid mass remains constant because the rotating vessel has no liquid source, sink, or open material boundary.",
+        "criterion_id": "liquid_mass_balance",
+        "details": {
+          "initial_quantity": [
+            2154.818401097239
+          ],
+          "sample_count": 361,
+          "worst_frame_index": 2
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 4.2207487243927894e-16,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 99.99999999999578
+      },
+      {
+        "calculator": "field.divergence.v1",
+        "criterion": "The active liquid-interior velocity field remains approximately divergence free.",
+        "criterion_id": "interior_incompressibility",
+        "details": {
+          "sample_count": 361,
+          "worst_frame_index": 11
+        },
+        "dimension": "field_constraints",
+        "domain": "physics",
+        "metric": "divergence_relative_l2",
+        "normalized_error": 1.2735544067030653,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 43.98399251197703
+      },
+      {
+        "calculator": "boundary.velocity_residual.v1",
+        "criterion": "Liquid velocity at the driven bottom plate and stationary cylinder wall matches each boundary's prescribed normal velocity.",
+        "criterion_id": "rotating_boundary_condition",
+        "details": {
+          "sample_count": 361,
+          "worst_frame_index": 0
+        },
+        "dimension": "boundary_and_interface_conditions",
+        "domain": "physics",
+        "metric": "normal_velocity_relative_rms",
+        "normalized_error": 0.0,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "interface.level_set_kinematic.v1",
+        "criterion": "The liquid-air level set is transported consistently by the collocated liquid velocity through polygon formation and rotation.",
+        "criterion_id": "free_surface_kinematic_consistency",
+        "details": {
+          "sample_count": 361,
+          "worst_frame_index": 0
+        },
+        "dimension": "transport_equation_consistency",
+        "domain": "physics",
+        "metric": "kinematic_relative_l2",
+        "normalized_error": 1.0,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.0
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.02244994432064365,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.024
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.07227724399837061,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.11600000000000002
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.10770329614269007,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.18
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.00979795897113272,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.992
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "168_centrifugal_surface_square_mode",
+  "visual_score": 0.328,
+  "visual_fidelity_score": 32.800000000000004,
+  "physical_plausibility_score": 60.995998127993204,
+  "total_score": 46.89799906399661
+}

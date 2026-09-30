@@ -1,0 +1,12 @@
+schema_version: 2
+profile: multiphysics
+environment: outdoor_soft
+camera: frozen_config
+bindings:
+  - {object_id: seabed, method: rigid_mesh, material: sand_dark, color_rgb: [0.18, 0.16, 0.12]}
+  - {object_id: port_boundary, method: rigid_mesh, material: ocean_boundary, color_rgb: [0.16, 0.28, 0.32], opacity: 0.12}
+  - {object_id: starboard_boundary, method: rigid_mesh, material: ocean_boundary, color_rgb: [0.16, 0.28, 0.32], opacity: 0.12}
+  - {object_id: frigate_hull, method: rigid_mesh, material: dark_wood_hull, color_rgb: [0.22, 0.09, 0.035], subdivision: 1}
+  - {object_id: frigate_mastwork, method: rigid_mesh, material: mast_wood, color_rgb: [0.30, 0.13, 0.045]}
+  - {object_id: frigate_sails, method: rigid_mesh, material: canvas_sail, color_rgb: [0.84, 0.74, 0.54], opacity: 0.96}
+  - {object_id: sea_water, method: reconstructed_surface, material: deep_sea, color_rgb: [0.035, 0.30, 0.48], opacity: 0.88, surface_pitch: 0.24, surface_smoothing: 1.15}

@@ -1,0 +1,42 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: lab_base
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 1.18, height: 0.16}
+    transform: {translation: [0.0, 0.0, -0.08]}
+    material_id: lab_base
+    collision_enabled: true
+  - id: motor_housing
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 0.44, height: 0.38}
+    transform: {translation: [0.0, 0.0, -0.27]}
+    material_id: motor
+    collision_enabled: false
+  - id: stationary_tank
+    semantic: boundary
+    motion: static
+    geometry:
+      type: axisymmetric_container
+      inner_profile: [[0.95, 0.0], [0.95, 0.78], [0.95, 1.55]]
+      wall_thickness: 0.025
+    transform: {translation: [0.0, 0.0, 0.0]}
+    material_id: glass_wall
+    collision_enabled: true
+  - id: rotating_bottom_plate
+    semantic: boundary
+    motion: kinematic
+    geometry: {type: cylinder, radius: 0.94, height: 0.14}
+    transform: {translation: [0.0, 0.0, 0.07]}
+    material_id: driven_plate
+    collision_enabled: true
+  - id: liquid
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, topology_asset: assets/free_surface_topology.json}
+    state_binding: {selector: all}
+    material_id: water
+    collision_enabled: true

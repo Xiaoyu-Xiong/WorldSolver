@@ -1,0 +1,29 @@
+id: 108_smoke_deforms_cloth_curtain
+title: Smoke Flow Deforms a Hanging Cloth Curtain
+category: multiphysics_coupling
+source:
+  title: Coupling Water and Smoke to Thin Deformable and Rigid Shells
+  url: https://graphics.stanford.edu/papers/thin_shells_fluid_coupling-sig05/
+  anchor: Figure 2; PDF page 2
+goal: 'Recreate the source two-way coupled experiment: Smoke bends around the moving cloth edges, changing
+  its route as the cloth opens and closes. Prescribe only the stated supports and controls; the remaining solid
+  response and fluid motion must be dynamically coupled.'
+scene_requirements:
+  required_elements:
+  - An impermeable flexible cloth curtain suspended as in Figure 2, with free lower and side edges.
+  - An incompressible airflow carrying visible smoke toward the cloth.
+  - The source support geometry and a resolved fluid region around both cloth sides.
+  - Fluid forces must change the dynamic solid motion or deformation, and the evolving solid must alter the
+    resolved fluid flow. The numerical coupling method is unrestricted.
+  initial_state:
+  - The curtain hangs before the smoke-bearing flow reaches it.
+  - The cloth is dynamically deformable away from its supports.
+  required_events:
+  - The arriving smoke-bearing flow pushes the curtain away from the incoming jet.
+  - The cloth bows downstream while its free edges lift and folds develop.
+  - Smoke bends around the moving cloth edges, changing its route as the cloth opens and closes.
+camera_requirements:
+- Use a fixed oblique view with a high-contrast cloth and visible smoke, showing the incoming jet, free edges,
+  supports, and downstream flow.
+- Keep the onset, strongest interaction, and stated outcome visible in a continuous sequence. Passive tracer
+  or wetness colors must follow the simulated state rather than a scripted color change.

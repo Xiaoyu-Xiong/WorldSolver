@@ -1,0 +1,69 @@
+schema_version: 1
+scene_id: 121_sponge_saturation_and_wringing
+seed: 121
+duration: 12.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+initial_conditions:
+  sponge_saturation: 0.0
+  sponge_porosity: 0.72
+  sponge_temperature_c: 20.0
+  water_temperature_c: 20.0
+  ambient_pressure_pa: 101325.0
+  sponge_rest_bounds:
+    min: [-0.18, -0.08, 0.025]
+    max: [0.18, 0.08, 0.105]
+  water_source:
+    center: [-0.07, 0.04, 0.58]
+    direction: [0.0, 0.0, -1.0]
+    radius: 0.016
+    starts_at: 0.0
+    stops_at: 6.8
+    speed: 1.0
+event_sequence:
+  wetting_interval: [0.0, 5.5]
+  saturation_dwell_interval: [5.5, 6.5]
+  lift_interval: [6.5, 8.0]
+  wring_interval: [8.0, 11.0]
+  outcome_interval: [11.0, 12.0]
+controls:
+  left_end:
+    body_id: 10
+    initial_position: [-0.205, 0.0, 0.065]
+    region_x: [-0.18, -0.125]
+    active_from: 6.5
+    lift_displacement: [0.0, 0.0, 0.22]
+    twist_axis: [1.0, 0.0, 0.0]
+    twist_degrees: 150.0
+  right_end:
+    body_id: 11
+    initial_position: [0.205, 0.0, 0.065]
+    region_x: [0.125, 0.18]
+    active_from: 6.5
+    lift_displacement: [0.0, 0.0, 0.22]
+    twist_axis: [1.0, 0.0, 0.0]
+    twist_degrees: -150.0
+boundary_conditions:
+  sink: receiving_no_slip_basin_with_sponge_contact_from_t0_until_lift
+  drain: open_outflow
+  sponge_surface: permeable
+  sponge_floor_constraint: no_penetration_and_no_teleportation
+solver_invariants:
+  - Sponge vertices must remain at or above the sink floor through the wetting and dwell intervals.
+  - Grip body ids 10 and 11 must be exported in every frame and move continuously from their prior poses.
+  - Lift and opposite twist must ramp continuously over their configured intervals; no teleport at 6.5 seconds.
+  - Preserve per-sponge-vertex saturation so surface wetness remains state-based.
+coupling_requirements:
+  two_way_fluid_solid_momentum_exchange: true
+  evolving_pore_liquid_storage: true
+  evolving_solid_affects_resolved_flow: true
+  fluid_forces_affect_solid_dynamics: true
+camera:
+  position: [0.72, -0.88, 0.66]
+  look_at: [0.0, 0.0, 0.25]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50
+  point_radius: 3

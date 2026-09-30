@@ -1,0 +1,97 @@
+schema_version: 4
+task_id: 026_hard_sphere_ground
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The submitted solver runs to the frozen end time, produces a complete finite trajectory
+      with every required evaluation field, and produces a readable platform render without exceeding
+      the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: The stiff deformable sphere visibly approaches and impacts the ground at high speed.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: At impact, the sphere undergoes a finite, localized compression rather than passing through
+      the surface.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: The sphere then rebounds or settles while visibly recovering toward a rounded shape.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: The surface remains closed and continuous without ground penetration, inversion-like folding,
+      explosive deformation, or teleportation.
+  physics:
+  - id: material_mass_balance
+    profile: deformable_solids
+    dimension: conservation_and_source_balance
+    criterion: For hard sphere ground, the mass change equals the cumulative prescribed inflow, outflow,
+      or phase-transfer source; internal motion and contact do not create or delete mass.
+    applicability:
+      requires:
+      - prescribed sources and sinks are exported
+      - Per-sample mass contributions are exported for every evaluated material.
+      excludes:
+      - Unreported particle deletion or remeshing loss.
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: orientation_preserving_deformation
+    profile: deformable_solids
+    dimension: deformation_validity
+    criterion: Material elements in hard sphere ground retain a positive deformation Jacobian except where
+      the case explicitly performs a represented topology change.
+    applicability:
+      requires:
+      - A deformation gradient is exported for every active material element.
+      excludes:
+      - Elements at an explicitly modeled cut, tear, merge, or deletion event after they cease to exist.
+    numeric_binding:
+      calculator: deformation.jacobian.v1
+      inputs:
+        deformation_gradient: attributes.deformation_gradient
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: nonpenetrating_contact
+    profile: deformable_solids
+    dimension: contact_and_interface_conditions
+    criterion: During hard sphere ground, solid-solid and solid-boundary contacts maintain nonnegative
+      geometric gaps up to the contact tolerance and do not permit persistent interpenetration.
+    applicability:
+      requires:
+      - Signed geometric gaps are exported for active and near-contact pairs.
+      excludes:
+      - Pairs intentionally allowed to pass through or merge.
+    numeric_binding:
+      calculator: contact.penetration.v1
+      inputs:
+        signed_distance: fields.contact_signed_distance
+        length_scale: scalars.contact_length_scale
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: linear_momentum_balance
+    profile: deformable_solids
+    dimension: momentum_and_force_balance
+    criterion: For hard sphere ground, the time rate of total linear momentum is consistent with the exported
+      external forces; internal forces may redistribute momentum but cancel in the total balance.
+    applicability:
+      requires:
+      - Mass, velocity, and all external forces are exported at the trajectory sampling times.
+      excludes:
+      - Frames spanning an unreported impulsive external intervention.
+    numeric_binding:
+      calculator: dynamics.linear_momentum_balance.v1
+      inputs:
+        mass: state.mass
+        velocity: state.velocity
+        external_force: fields.external_force
+      parameters: {}
+      reduction:
+        type: maximum

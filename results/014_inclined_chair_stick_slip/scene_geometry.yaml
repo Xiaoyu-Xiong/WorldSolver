@@ -1,0 +1,23 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: incline
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [3.5, 2.0, 0.08]}
+    transform:
+      translation: [0.0, 0.0, 0.35]
+      rotation_xyzw: [0.0, 0.1564, 0.0, 0.9877]
+    material_id: inclined_surface
+    collision_enabled: true
+  - id: chair
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: chair.stl}
+    transform:
+      translation: [0.0354, 0.0, 1.6074]
+      rotation_xyzw: [0.0, 0.1564, 0.0, 0.9877]
+    state_binding: {selector: body_id, value: 0}
+    material_id: plastic
+    collision_enabled: true

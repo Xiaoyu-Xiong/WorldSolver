@@ -1,0 +1,61 @@
+schema_version: 1
+scene_id: 093_elastic_rod_belt_meandering
+seed: 93
+duration: 52.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+regime:
+  name: source_quasi_static_meandering_to_straight
+  quasi_static: true
+  initial_speed_mismatch: 0.1304347826
+  final_speed_mismatch: 0.0
+rod:
+  topology_asset: assets/rod_topology.json
+  radius: 0.0016
+  density: 1180.0
+  young_modulus: 1300000.0
+  poisson_ratio: 0.49
+  gravito_bending_length: 0.033
+  naturally_straight: true
+  inextensible: true
+  total_available_length: 1.75
+  initial_deployed_length: 0.503
+  self_contact_required: false
+injector:
+  center: [0.0, 0.0, 0.518]
+  axis: [0.0, 0.0, -1.0]
+  outlet_position: [0.0, 0.0, 0.503]
+  injection_speed: 0.023
+  start_time: 0.0
+  end_time: 52.0
+  inlet_position_controlled: true
+  inlet_direction_controlled: true
+belt:
+  center: [0.22, 0.0, -0.012]
+  half_extents: [0.62, 0.20, 0.012]
+  surface_z: 0.0
+  travel_direction: [1.0, 0.0, 0.0]
+  initial_speed: 0.020
+  matched_speed: 0.023
+  speed_switch_time: 24.0
+  deposited_rod_condition: sticking_to_moving_belt
+initial_conditions:
+  description: straight hanging rod with a small curved heel and only a short newly contacted seed on the already-moving belt
+  injector_and_belt_started: true
+  long_pattern_preaccumulated: false
+  deposited_nodes_move_with_belt: true
+event_sequence:
+  - continuous_downward_injection_contacts_translating_belt
+  - lateral_contact_point_oscillation_builds_continuous_meanders
+  - belt_carries_sticking_deposited_trace_in_positive_x
+  - belt_speed_switches_to_injection_speed_at_24_seconds
+  - meander_amplitude_decays_to_a_straight_trace
+camera:
+  position: [0.83, -0.92, 0.58]
+  look_at: [0.15, 0.0, 0.18]
+  up: [0.0, 0.0, 1.0]
+  focal_length_mm: 48
+  width: 960
+  height: 640
+  fps: 50

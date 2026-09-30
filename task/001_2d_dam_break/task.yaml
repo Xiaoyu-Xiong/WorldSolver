@@ -1,0 +1,37 @@
+id: 001_2d_dam_break
+title: 2D Dam Break
+category: fluid_dynamics
+
+source:
+  title: The Affine Particle-In-Cell Method
+  url: https://math.ucdavis.edu/~jteran/papers/JSSTS15.pdf
+  anchor: Figure 4 top row; energy discussion in Figure 13; PDF pages 3 and 8
+
+goal: >-
+  Recreate a two-dimensional dam-break event. A liquid column initially at
+  rest is released under gravity, collapses across a closed tank, impacts the
+  opposite wall, recirculates, and begins to settle while retaining a coherent
+  free surface. The numerical method is unrestricted; the target is the
+  observable scene, motion, and physical outcome.
+
+scene_requirements:
+  required_elements:
+    - A two-dimensional liquid column or rectangular liquid block
+    - A closed tank with a floor and two side walls
+    - A visible free surface with open air above it
+    - Downward gravity
+  initial_state:
+    - The liquid occupies one side of the tank.
+    - The liquid is initially at rest.
+    - No sustained inflow or external forcing is applied after release.
+  required_events:
+    - The liquid column collapses under gravity.
+    - The leading front propagates across the tank floor.
+    - The liquid impacts and runs up the opposite wall.
+    - Returning flow or recirculation appears after impact.
+    - The motion begins to dissipate and settle without numerical blow-up.
+
+camera_requirements:
+  - Use a fixed side view suitable for a two-dimensional scene.
+  - Keep the complete tank, initial liquid region, opposite wall, and free surface visible.
+  - Avoid occlusion or perspective distortion that prevents position measurements.

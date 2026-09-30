@@ -1,0 +1,46 @@
+schema_version: 1
+scene_id: 090_branching_rods_in_wind
+seed: 90090
+duration: 12.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+rod_network:
+  topology_asset: assets/tree_topology.json
+  vertex_count: 49
+  radius_by_level: [0.060, 0.037, 0.021]
+  linear_density_by_level: [2.8, 1.25, 0.48]
+  bending_and_twist_resistant: true
+  reference_configuration: source_figure_12_leafless_tree
+rigid_junctions:
+  vertex_indices: [0, 3, 6, 9, 13, 17, 22, 26, 31, 36, 41]
+  fixed_root_vertex: 0
+  coupled_position_and_orientation: true
+  mass_by_level: [0.32, 0.16, 0.07]
+wind:
+  direction: [0.96, 0.28, 0.0]
+  spatial_profile: height_and_branch_area_weighted
+  load_type: prescribed_body_force
+  keyframes:
+    - {time: 0.0, speed: 0.0}
+    - {time: 1.0, speed: 5.0}
+    - {time: 2.8, speed: 14.0}
+    - {time: 4.8, speed: 8.0}
+    - {time: 6.8, speed: 17.0}
+    - {time: 8.8, speed: 6.0}
+    - {time: 10.2, speed: 12.0}
+    - {time: 12.0, speed: 4.0}
+  branch_phase_offsets: [0.00, 0.18, 0.37, 0.61, 0.83]
+  gust_frequency_hz: 0.55
+initial_conditions:
+  all_junctions_attached: true
+  root_fixed: true
+  initial_velocity: [0.0, 0.0, 0.0]
+  initial_angular_velocity: [0.0, 0.0, 0.0]
+camera:
+  position: [8.8, -13.5, 6.2]
+  look_at: [0.0, 0.0, 3.45]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

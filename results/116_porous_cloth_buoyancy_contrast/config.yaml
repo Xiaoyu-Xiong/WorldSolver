@@ -1,0 +1,53 @@
+schema_version: 1
+scene_id: 116_porous_cloth_buoyancy_contrast
+seed: 116
+duration: 7.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+camera:
+  position: [4.8, -6.2, 3.5]
+  look_at: [0.0, 0.0, 1.15]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50
+tank:
+  interior_bounds_min: [-2.35, -1.0, 0.0]
+  interior_bounds_max: [2.35, 1.0, 2.45]
+  wall_thickness: 0.08
+  open_top: true
+water:
+  density: 1000.0
+  initial_bounds_min: [-2.35, -1.0, 0.0]
+  initial_bounds_max: [2.35, 1.0, 2.15]
+  initial_velocity: [0.0, 0.0, 0.0]
+  free_surface_z: 2.15
+  pressure_loading_enabled: true
+cloth:
+  grid_shape: [9, 7]
+  size: [0.95, 0.72]
+  thickness: 0.006
+  porosity: 0.72
+  permeability_m2: 2.0e-8
+  initial_centers:
+    light: [-1.35, 0.0, 1.18]
+    neutral: [0.0, 0.0, 1.18]
+    heavy: [1.35, 0.0, 1.18]
+  initial_velocity: [0.0, 0.0, 0.0]
+  regimes:
+    light:
+      body_id: 1
+      density: 250.0
+    neutral:
+      body_id: 2
+      density: 1000.0
+    heavy:
+      body_id: 3
+      density: 4000.0
+coupling_requirements:
+  two_way_momentum_exchange: true
+  liquid_can_pass_through_cloth: true
+  pressure_force_on_cloth: true
+  displaced_volume_proxy: false
+  trajectory_controls: false

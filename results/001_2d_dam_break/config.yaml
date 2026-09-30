@@ -1,0 +1,27 @@
+schema_version: 1
+scene_id: 001_2d_dam_break
+seed: 1201
+duration: 8.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+spatial_dimensions: 2
+gravity: [0.0, 0.0, -9.81]
+initial_conditions:
+  liquid_at_rest: true
+  sustained_inflow: false
+  liquid_density: 1000.0
+  liquid_region:
+    min: [-2.75, -0.025, 0.10]
+    max: [-1.25, 0.025, 2.50]
+boundary_conditions:
+  tank: closed_floor_and_side_walls
+  free_surface: open_air
+camera:
+  projection: orthographic
+  orthographic_height: 4.6
+  position: [0.0, -9.0, 1.55]
+  look_at: [0.0, 0.0, 1.55]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

@@ -1,0 +1,30 @@
+id: 139_vortex_particle_smoke_explosion
+title: Vortex-Particle Smoke Explosion
+category: fluid_dynamics
+source:
+  title: A Vortex Particle Method for Smoke, Water and Explosions
+  url: https://graphics.stanford.edu/papers/vortex_particle-sig05/vortex_particle.pdf
+  anchor: Figure 2
+goal: >-
+  Recreate the paper's clearly visible vortex-particle smoke explosion phenomenon. The implementation method is unrestricted;
+  evaluation targets the observable flow evolution, boundary interaction, signature structure, and final state.
+scene_requirements:
+  required_elements:
+  - Compact hot smoke source
+  - Open three-dimensional domain
+  - Buoyancy or radial forcing
+  - Vorticity-carrying flow
+  initial_state:
+  - A compact high-temperature smoke volume begins near the center of the domain.
+  required_events:
+  - The source expands rapidly and drives smoke outward and upward.
+  - The plume edge rolls into fine coherent vortices instead of remaining a smooth expanding blob.
+  - A mushroom-like turbulent cloud develops with persistent multiscale swirling detail.
+  - The represented fluid remains continuous and respects rigid boundaries throughout the event.
+camera_requirements:
+- Use a wide three-quarter view with enough empty space for radial expansion and plume rise.
+- Use contrasting fluid and obstacle colors and keep the complete phenomenon inside frame.
+parameter_notes:
+- Match the qualitative scale, flow regime, and event ordering shown in Figure 2; geometric simplification is allowed.
+- Export collocated velocity diagnostics, active masks, boundary samples, and transported liquid or smoke fields.
+

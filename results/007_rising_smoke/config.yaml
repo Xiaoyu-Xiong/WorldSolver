@@ -1,0 +1,33 @@
+schema_version: 1
+scene_id: 007_rising_smoke
+seed: 7007
+duration: 8.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+domain:
+  bounds_min: [-3.0, -1.2, 0.0]
+  bounds_max: [3.0, 1.2, 6.0]
+  grid_shape: [100, 40, 100]
+  reference_grid_shape: [100, 100, 40]
+  boundary_conditions: {x_min: closed_free_slip, x_max: open_outflow, y_min: closed_free_slip, y_max: closed_free_slip, z_min: closed_free_slip, z_max: open_outflow}
+initial_conditions:
+  ambient_density: 0.0
+  ambient_velocity: [0.0, 0.0, 0.0]
+  smoke_source: {center: [-2.25, 0.0, 0.32], radius: 0.38, half_height: 0.24, peak_density: 1.0, temperature_excess: 1.0, initial_velocity: [0.18, 0.0, 0.72]}
+  perturbation_amplitude: 0.025
+  density_half_life: 6.0
+forcing:
+  buoyancy_only_external_force: true
+  gravity_direction: [0.0, 0.0, -1.0]
+  buoyancy_direction: [0.0, 0.0, 1.0]
+camera:
+  projection: orthographic
+  orthographic_height: 6.8
+  position: [0.0, -10.8, 2.85]
+  look_at: [0.0, 0.0, 2.85]
+  up: [0.0, 0.0, 1.0]
+  background_rgb: [0.035, 0.045, 0.065]
+  shadows: false
+  width: 960
+  height: 640
+  fps: 50

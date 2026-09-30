@@ -1,0 +1,38 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: support
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [0.15, 0.15, 0.006]
+    transform:
+      translation: [0.0, 0.0, -0.006]
+    material_id: support_dark
+    collision_enabled: true
+
+  - id: rubber_cube
+    semantic: deformable
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/rubber_cube_mesh.npz
+      topology_asset: assets/rubber_cube_mesh.npz
+      grid_shape: [9, 9, 9]
+    state_binding:
+      selector: all
+    material_id: rubber_blue
+    collision_enabled: true
+
+  - id: load_indicator
+    semantic: sensor
+    motion: kinematic
+    geometry:
+      type: box
+      half_extents: [0.08, 0.08, 0.003]
+    transform:
+      translation: [0.0, 0.0, 0.218]
+    material_id: load_red
+    collision_enabled: false

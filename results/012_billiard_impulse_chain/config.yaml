@@ -1,0 +1,27 @@
+schema_version: 1
+scene_id: 012_billiard_impulse_chain
+seed: 12012
+duration: 3.0
+sample_dt: 0.0166666667
+gravity:
+- 0.0
+- 0.0
+- -9.81
+rolling_friction: 0.015
+camera:
+  position:
+  - 3.8
+  - -4.6
+  - 3.0
+  look_at:
+  - 0.0
+  - 0.0
+  - 0.22
+  up:
+  - 0.0
+  - 0.0
+  - 1.0
+  width: 960
+  height: 640
+  fps: 50
+visual_judge_frame_count: 20

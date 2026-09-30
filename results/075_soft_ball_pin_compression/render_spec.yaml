@@ -1,0 +1,18 @@
+schema_version: 2
+profile: deformable_surface
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: soft_ball
+    method: deformed_mesh
+    material: soft_red_rubber
+    color_rgb: [0.72, 0.16, 0.14]
+    subdivision: 2
+  - object_id: lower_pin_array
+    method: curve_tubes
+    material: brushed_steel
+    color_rgb: [0.70, 0.72, 0.68]
+  - object_id: upper_pin_array
+    method: curve_tubes
+    material: brushed_steel
+    color_rgb: [0.70, 0.72, 0.68]

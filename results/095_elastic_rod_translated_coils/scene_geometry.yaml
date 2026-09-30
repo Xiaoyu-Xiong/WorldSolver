@@ -1,0 +1,36 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: moving_belt
+    semantic: boundary
+    motion: kinematic
+    geometry:
+      type: box
+      half_extents: [0.64, 0.20, 0.018]
+    transform:
+      translation: [0.0, 0.0, 0.0]
+    material_id: belt_rubber
+    collision_enabled: true
+  - id: injector
+    semantic: emitter
+    motion: static
+    geometry:
+      type: cylinder
+      radius: 0.026
+      height: 0.075
+    transform:
+      translation: [0.0, 0.0, 0.5425]
+    material_id: injector_metal
+    collision_enabled: false
+  - id: elastic_rod
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      radius: 0.0016
+      topology_asset: assets/rod_centerline.json
+    state_binding:
+      selector: all
+    material_id: green_elastomer
+    collision_enabled: true

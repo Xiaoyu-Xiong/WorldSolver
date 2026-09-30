@@ -1,0 +1,31 @@
+id: 126_wrecking_ball_brittle_wall
+title: Wrecking Ball Brittle Wall Fracture
+category: plastic_and_complex_materials
+source:
+  title: Graphical Modeling and Animation of Brittle Fracture
+  url: https://graphics.cs.cmu.edu/?p=677
+  anchor: Figure 9
+goal: >-
+  Recreate the paper's clearly visible wrecking ball brittle wall fracture phenomenon. The implementation method is unrestricted;
+  evaluation targets the observable motion, material response, interaction sequence, and final state.
+scene_requirements:
+  required_elements:
+  - Brittle masonry wall
+  - Heavy swinging ball
+  - Suspension cable or chain
+  - Rigid floor
+  - Gravity and fracture
+  initial_state:
+  - An intact brittle wall stands at rest while a heavy ball begins displaced to one side.
+  required_events:
+  - The released ball swings into the wall and creates a localized impact zone.
+  - Cracks initiate near impact and propagate through the wall while fragments separate along newly formed surfaces.
+  - A hole and branching fracture pattern develop, followed by gravity-driven fragment fall and collisions with the floor.
+  - Material motion remains continuous, with no unexplained teleportation or numerical explosion.
+camera_requirements:
+- Use a wide oblique view that keeps the ball arc, wall face, crack growth, and debris visible.
+- Keep material and rigid obstacles visually distinct and preserve enough contrast to read deformation and contacts.
+parameter_notes:
+- Match the qualitative scale, material regime, and event ordering shown in Figure 9; geometric simplification is allowed.
+- Export per-sample mass, velocity, external force, deformation gradient, and near-contact signed distance for scoring.
+

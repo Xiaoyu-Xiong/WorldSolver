@@ -1,0 +1,152 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 3010211,
+          "trajectory_frames": 401,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "contact.penetration.v1",
+        "criterion": "During rings drop on poles, solid-solid and solid-boundary contacts maintain nonnegative geometric gaps up to the contact tolerance and do not permit persistent interpenetration.",
+        "criterion_id": "nonpenetrating_contact",
+        "details": {
+          "sample_count": 401,
+          "worst_frame_index": 25
+        },
+        "dimension": "contact_and_interface_conditions",
+        "domain": "physics",
+        "metric": "penetration_relative_max",
+        "normalized_error": 3.2500000000000013,
+        "profile": "rigid_bodies_and_contact",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 1.5151515151515147
+      },
+      {
+        "calculator": "dynamics.linear_momentum_balance.v1",
+        "criterion": "For rings drop on poles, the time rate of total linear momentum is consistent with the exported external forces; internal forces may redistribute momentum but cancel in the total balance.",
+        "criterion_id": "linear_momentum_balance",
+        "details": {
+          "sample_count": 401,
+          "worst_frame_index": 46
+        },
+        "dimension": "momentum_and_force_balance",
+        "domain": "physics",
+        "metric": "momentum_balance_relative_l2",
+        "normalized_error": 0.9999999570904544,
+        "profile": "rigid_bodies_and_contact",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 4.290954558339166e-06
+      },
+      {
+        "calculator": "trajectory.center_of_mass_consistency.v1",
+        "criterion": "Each rigid body's mass-weighted center displacement agrees with the time integral of its mass-weighted velocity, using trapezoidal quadrature between exported frames.",
+        "criterion_id": "center_of_mass_consistency",
+        "details": {
+          "body_count": 96,
+          "body_reduction": "maximum",
+          "displacement_floor_meters": 1e-08,
+          "initial_frame_error": "zero (no preceding interval)",
+          "interval_count": 400,
+          "maximum_position_residual_meters": 28.559397924515828,
+          "quadrature": "trapezoidal",
+          "sample_count": 401,
+          "worst_frame_index": 288
+        },
+        "dimension": "kinematic_consistency",
+        "domain": "physics",
+        "metric": "center_of_mass_kinematic_relative_residual",
+        "normalized_error": 0.3991000828560738,
+        "profile": "rigid_bodies",
+        "reduction": {
+          "type": "rms"
+        },
+        "unit": "dimensionless",
+        "score": 80.04499585719631
+      },
+      {
+        "calculator": "coupling.force_balance.v1",
+        "criterion": "Exported paired internal contact or coupling forces are equal and opposite in aggregate, so they do not create net system momentum.",
+        "criterion_id": "internal_interaction_force_balance",
+        "details": {
+          "sample_count": 401,
+          "worst_frame_index": 44
+        },
+        "dimension": "conservation_and_force_balance",
+        "domain": "physics",
+        "metric": "interaction_force_relative_residual",
+        "normalized_error": 1.0,
+        "profile": "coupled_contact_systems",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.0
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.12955307792561319,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.364
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.04363484845854286,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.32599999999999996
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.008000000000000002,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.044
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.010954451150103323,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.03
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "010_rings_drop_on_poles",
+  "visual_score": 0.19099999999999998,
+  "visual_fidelity_score": 19.099999999999998,
+  "physical_plausibility_score": 20.390037915825598,
+  "total_score": 19.745018957912798
+}

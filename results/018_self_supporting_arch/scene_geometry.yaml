@@ -1,0 +1,208 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: ground
+    semantic: boundary
+    motion: static
+    geometry:
+      type: plane
+      normal: [0.0, 0.0, 1.0]
+      offset: 0.0
+    material_id: matte_floor
+    collision_enabled: true
+  - id: block_00
+    semantic: rigid
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/voussoir_00.obj
+    transform:
+      translation: [-1.910879, -0.0, 0.290781]
+    state_binding:
+      selector: body_id
+      value: 0
+    material_id: stone
+    collision_enabled: true
+  - id: block_01
+    semantic: rigid
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/voussoir_01.obj
+    transform:
+      translation: [-1.725044, -0.0, 0.661629]
+    state_binding:
+      selector: body_id
+      value: 1
+    material_id: stone
+    collision_enabled: true
+  - id: block_02
+    semantic: rigid
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/voussoir_02.obj
+    transform:
+      translation: [-1.521962, -0.0, 1.023225]
+    state_binding:
+      selector: body_id
+      value: 2
+    material_id: stone
+    collision_enabled: true
+  - id: block_03
+    semantic: rigid
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/voussoir_03.obj
+    transform:
+      translation: [-1.296525, -0.0, 1.371116]
+    state_binding:
+      selector: body_id
+      value: 3
+    material_id: stone
+    collision_enabled: true
+  - id: block_04
+    semantic: rigid
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/voussoir_04.obj
+    transform:
+      translation: [-1.041099, -0.0, 1.697086]
+    state_binding:
+      selector: body_id
+      value: 4
+    material_id: stone
+    collision_enabled: true
+  - id: block_05
+    semantic: rigid
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/voussoir_05.obj
+    transform:
+      translation: [-0.744536, -0.0, 1.984451]
+    state_binding:
+      selector: body_id
+      value: 5
+    material_id: stone
+    collision_enabled: true
+  - id: block_06
+    semantic: rigid
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/voussoir_06.obj
+    transform:
+      translation: [-0.395025, -0.0, 2.197916]
+    state_binding:
+      selector: body_id
+      value: 6
+    material_id: stone
+    collision_enabled: true
+  - id: block_07
+    semantic: rigid
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/voussoir_07.obj
+    transform:
+      translation: [-0.0, -0.0, 2.280175]
+    state_binding:
+      selector: body_id
+      value: 7
+    material_id: stone
+    collision_enabled: true
+  - id: block_08
+    semantic: rigid
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/voussoir_08.obj
+    transform:
+      translation: [0.395025, -0.0, 2.197916]
+    state_binding:
+      selector: body_id
+      value: 8
+    material_id: stone
+    collision_enabled: true
+  - id: block_09
+    semantic: rigid
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/voussoir_09.obj
+    transform:
+      translation: [0.744536, -0.0, 1.984451]
+    state_binding:
+      selector: body_id
+      value: 9
+    material_id: stone
+    collision_enabled: true
+  - id: block_10
+    semantic: rigid
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/voussoir_10.obj
+    transform:
+      translation: [1.041099, -0.0, 1.697086]
+    state_binding:
+      selector: body_id
+      value: 10
+    material_id: stone
+    collision_enabled: true
+  - id: block_11
+    semantic: rigid
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/voussoir_11.obj
+    transform:
+      translation: [1.296525, -0.0, 1.371116]
+    state_binding:
+      selector: body_id
+      value: 11
+    material_id: stone
+    collision_enabled: true
+  - id: block_12
+    semantic: rigid
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/voussoir_12.obj
+    transform:
+      translation: [1.521962, -0.0, 1.023225]
+    state_binding:
+      selector: body_id
+      value: 12
+    material_id: stone
+    collision_enabled: true
+  - id: block_13
+    semantic: rigid
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/voussoir_13.obj
+    transform:
+      translation: [1.725044, -0.0, 0.661629]
+    state_binding:
+      selector: body_id
+      value: 13
+    material_id: stone
+    collision_enabled: true
+  - id: block_14
+    semantic: rigid
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/voussoir_14.obj
+    transform:
+      translation: [1.910879, -0.0, 0.290781]
+    state_binding:
+      selector: body_id
+      value: 14
+    material_id: stone
+    collision_enabled: true

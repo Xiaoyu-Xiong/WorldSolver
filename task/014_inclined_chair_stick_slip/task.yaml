@@ -1,0 +1,30 @@
+id: 014_inclined_chair_stick_slip
+title: Inclined Chair Stick Slip
+category: rigid_body_dynamics
+source:
+  title: Staggered Projections for Frictional Contact in Multibody Systems
+  url: https://www.cs.ubc.ca/labs/sensorimotor/projects/sp_sigasia08/KSJP08.pdf
+  anchor: Figure 5 right; PDF page 8
+goal: Recreate the observable physical phenomenon in which plastic chair legs slide down an inclined surface
+  and chatter as friction repeatedly switches between sticking and sliding. The implementation method
+  is unrestricted; the target is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Inclined Chair Stick Slip
+  - Rigid bodies named by the scene
+  - Contact surfaces
+  - Gravity
+  initial_state:
+  - Plastic chair legs slide down an inclined surface and chatter as friction repeatedly switches between
+    sticking and sliding.
+  required_events:
+  - Quantitative/qualitative - stick-slip frequency
+  - Tangential velocity
+  - Friction-cone residual
+  - Visible chatter without numerical drift
+camera_requirements:
+- Use a three-quarter view that exposes the important contact points, stack or mechanism, support surfaces,
+  and final configuration throughout the motion.
+parameter_notes:
+- 'Original paper parameters/configuration: Deformable plastic chair on an incline; exact material and
+  angle values are not reported in the caption.'

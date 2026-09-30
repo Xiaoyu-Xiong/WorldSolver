@@ -1,0 +1,18 @@
+schema_version: 2
+profile: liquid_in_container
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: tank_floor, method: rigid_mesh, material: matte, color_rgb: [0.18, 0.19, 0.21]}
+  - {object_id: left_wall, method: rigid_mesh, material: matte, color_rgb: [0.32, 0.34, 0.38]}
+  - {object_id: right_wall, method: rigid_mesh, material: matte, color_rgb: [0.32, 0.34, 0.38]}
+  - {object_id: lower_wall, method: rigid_mesh, material: matte, color_rgb: [0.32, 0.34, 0.38]}
+  - {object_id: upper_wall, method: rigid_mesh, material: matte, color_rgb: [0.32, 0.34, 0.38]}
+  - {object_id: octagonal_obstacle, method: rigid_mesh, material: matte, color_rgb: [0.035, 0.04, 0.05]}
+  - object_id: water_height_samples
+    method: diagnostic_points
+    material: default
+    scalar_field: density_field
+    scalar_grid: true
+    scalar_range: [0.25, 1.05]
+    field_axes: [0, 1]

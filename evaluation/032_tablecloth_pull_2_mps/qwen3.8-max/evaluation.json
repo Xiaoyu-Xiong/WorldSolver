@@ -1,0 +1,148 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 1105605,
+          "trajectory_frames": 61,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "For tablecloth pull 2 mps, the mass change equals the cumulative prescribed inflow, outflow, or phase-transfer source; internal motion and contact do not create or delete mass.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "initial_quantity": [
+            3.83
+          ],
+          "sample_count": 61,
+          "worst_frame_index": 0
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.0,
+        "profile": "cloth_thin_shells_and_fibers",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "contact.penetration.v1",
+        "criterion": "During tablecloth pull 2 mps, solid-solid and solid-boundary contacts maintain nonnegative geometric gaps up to the contact tolerance and do not permit persistent interpenetration.",
+        "criterion_id": "nonpenetrating_contact",
+        "details": {
+          "sample_count": 61,
+          "worst_frame_index": 11
+        },
+        "dimension": "contact_and_interface_conditions",
+        "domain": "physics",
+        "metric": "penetration_relative_max",
+        "normalized_error": 61.2336832601427,
+        "profile": "cloth_thin_shells_and_fibers",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.08158778542692242
+      },
+      {
+        "calculator": "constraint.target.v1",
+        "criterion": "The prescribed pull and cloth strain constraints active in tablecloth pull 2 mps is satisfied throughout the intervals where that constraint applies.",
+        "criterion_id": "case_constraint_consistency",
+        "details": {
+          "sample_count": 61,
+          "worst_frame_index": 27
+        },
+        "dimension": "kinematic_and_constitutive_constraints",
+        "domain": "physics",
+        "metric": "constraint_relative_rms",
+        "normalized_error": 2.0659111298470725e-15,
+        "profile": "cloth_thin_shells_and_fibers",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 99.99999999999794
+      },
+      {
+        "calculator": "dynamics.linear_momentum_balance.v1",
+        "criterion": "The time rate of total linear momentum is consistent with the exported external forces; internal contact forces cancel in the aggregate.",
+        "criterion_id": "linear_momentum_balance",
+        "details": {
+          "sample_count": 61,
+          "worst_frame_index": 38
+        },
+        "dimension": "conservation_and_force_balance",
+        "domain": "physics",
+        "metric": "momentum_balance_relative_l2",
+        "normalized_error": 0.9993912975416843,
+        "profile": "rigid_bodies",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.06087024583156797
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.13629380029920654,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.8220000000000001
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.042142615011410964,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.8379999999999999
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.036551333764994115,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.9219999999999999
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0438178046004133,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.24
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "032_tablecloth_pull_2_mps",
+  "visual_score": 0.7055,
+  "visual_fidelity_score": 70.55,
+  "physical_plausibility_score": 50.03561450781411,
+  "total_score": 60.29280725390706
+}

@@ -1,0 +1,32 @@
+id: 120_porous_duck_absorption_sinking
+title: A Porous Duck Absorbs Water and Sinks
+category: multiphysics_coupling
+source:
+  title: Multiphase Particle-Based Simulation of Poro-Elasto-Capillary Effects
+  url: https://webspace.science.uu.nl/~telea001/uploads/Bibtex/li25_multiphase.pdf
+  anchor: Figure 12; PDF page 10; Section 6.2 on page 7
+goal: 'Recreate the source two-way coupled experiment: The duck eventually becomes fully submerged and settles
+  on the tank bottom. Prescribe only the stated supports and controls; the remaining solid response and fluid
+  motion must be dynamically coupled.'
+scene_requirements:
+  required_elements:
+  - A porous duck-shaped solid floating in a water tank.
+  - The source initially impermeable state followed by opening permeability and allowing actual water absorption.
+  - Gravity, tank contact, and coupled free and pore liquid.
+  - Fluid forces must change the dynamic solid motion or deformation, and the evolving solid must alter the
+    resolved fluid flow. The numerical coupling method is unrestricted.
+  - Preserve the documented permeability switch. The switch changes transport properties, not mass, position,
+    or velocity by itself.
+  initial_state:
+  - The duck starts floating with permeability disabled, following the source protocol.
+  - Enable permeability later without directly changing dry-material mass or prescribing the subsequent vertical
+    motion.
+  required_events:
+  - The duck initially remains afloat at the water surface.
+  - After permeability is enabled, the waterline progressively rises along the duck body.
+  - The duck eventually becomes fully submerged and settles on the tank bottom.
+camera_requirements:
+- Use a fixed side-oblique view through transparent tank walls, keeping the initial waterline and the bottom
+  visible.
+- Keep the onset, strongest interaction, and stated outcome visible in a continuous sequence. Passive tracer
+  or wetness colors must follow the simulated state rather than a scripted color change.

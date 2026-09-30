@@ -1,0 +1,44 @@
+schema_version: 1
+scene_id: 059_pneumatic_cushion
+seed: 59059
+duration: 2.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+
+# Source experiment (Figure 6 and Table 1). These are physical inputs, not a
+# prescription of a solver or constitutive implementation.
+geometry:
+  outer_dimensions_m: [1.20, 0.80, 0.55]
+  wall_thickness_m: 0.09
+  chamber_center_m: [0.0, 0.0, 0.0]
+material_properties:
+  material: nearly_incompressible_rubber
+  young_modulus_pa: 90000.0
+  poisson_ratio: 0.499
+  density_kg_m3: 1070.0
+loading:
+  type: prescribed_uniform_internal_pressure
+  pressure_surface: inner_chamber_wall
+  external_pressure_pa: 0.0
+  initial_internal_pressure_pa: 0.0
+  target_internal_pressure_pa: 10000.0
+  ramp_start_s: 0.0
+  ramp_end_s: 1.6
+  hold_end_s: 2.0
+  quasi_static_load_steps: 10
+boundary_conditions:
+  - type: remove_rigid_body_modes
+    object_id: cushion_wall
+    description: Keep the chamber centered without restraining face inflation.
+  - type: sealed_connected_wall
+    object_id: cushion_wall
+    description: All six finite-thickness wall panels share nodes along edges and corners.
+gravity_m_s2: [0.0, 0.0, 0.0]
+
+camera:
+  position: [2.25, -2.05, 1.55]
+  look_at: [0.0, 0.0, 0.0]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

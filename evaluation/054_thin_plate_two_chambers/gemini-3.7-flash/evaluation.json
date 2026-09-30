@@ -1,0 +1,148 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 285885224,
+          "trajectory_frames": 301,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "For the jet fluid, the mass change equals the cumulative prescribed inflow, outflow, or phase-transfer source; internal motion and contact do not create or delete mass.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "initial_quantity": [
+            11.946419999999998
+          ],
+          "sample_count": 301,
+          "worst_frame_index": 300
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.16588186638059332,
+        "profile": "multiphysics_coupling",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 5.68563445782458
+      },
+      {
+        "calculator": "field.divergence.v1",
+        "criterion": "In the active incompressible region of the incompressible fluid, the velocity field is approximately divergence free.",
+        "criterion_id": "incompressible_velocity_constraint",
+        "details": {
+          "error": "active_mask must have shape [nx,ny] or [nx,ny,nz]"
+        },
+        "dimension": "field_constraints",
+        "domain": "physics",
+        "metric": "divergence_relative_l2",
+        "normalized_error": null,
+        "profile": "multiphysics_coupling",
+        "reduction": {
+          "type": "maximum"
+        },
+        "status": "measurement_error",
+        "unit": "dimensionless",
+        "score": 0.0
+      },
+      {
+        "calculator": "coupling.force_balance.v1",
+        "criterion": "The paired internal interaction forces exchanged between materials in thin plate two chambers are equal and opposite in the aggregate.",
+        "criterion_id": "internal_coupling_force_balance",
+        "details": {
+          "sample_count": 301,
+          "worst_frame_index": 1
+        },
+        "dimension": "multiphysics_exchange_balance",
+        "domain": "physics",
+        "metric": "interaction_force_relative_residual",
+        "normalized_error": 1.0,
+        "profile": "multiphysics_coupling",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.0
+      },
+      {
+        "calculator": "boundary.velocity_residual.v1",
+        "criterion": "At impermeable or moving boundaries in thin plate two chambers, the sampled material velocity matches the prescribed normal boundary velocity.",
+        "criterion_id": "prescribed_boundary_velocity",
+        "details": {
+          "sample_count": 301,
+          "worst_frame_index": 0
+        },
+        "dimension": "boundary_and_interface_conditions",
+        "domain": "physics",
+        "metric": "normal_velocity_relative_rms",
+        "normalized_error": 0.0,
+        "profile": "multiphysics_coupling",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 1.0
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0040000000000000036,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.998
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 1.1102230246251565e-16,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.9800000000000001
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0040000000000000036,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.978
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "physics_measurement_error",
+  "task_id": "054_thin_plate_two_chambers",
+  "visual_score": 0.989,
+  "visual_fidelity_score": 98.9,
+  "physical_plausibility_score": 26.421408614456144,
+  "total_score": 62.66070430722807
+}

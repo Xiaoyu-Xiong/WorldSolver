@@ -1,0 +1,36 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: contact_floor
+    semantic: boundary
+    motion: static
+    geometry:
+      type: cylinder
+      radius: 1.35
+      height: 0.08
+    transform:
+      translation: [0.0, 0.0, -0.04]
+    material_id: matte_mid_gray_floor
+    collision_enabled: true
+  - id: upper_plate
+    semantic: rigid
+    motion: static
+    geometry:
+      type: box
+      half_extents: [0.78, 0.62, 0.08]
+    transform:
+      translation: [0.0, 0.0, 1.92]
+    material_id: dark_charcoal_plate
+    collision_enabled: true
+  - id: foam_mass
+    semantic: granular
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [-0.62, -0.56, 0.0]
+      bounds_max: [0.62, 0.56, 1.84]
+    state_binding:
+      selector: all
+    material_id: bright_white_shaving_foam
+    collision_enabled: true

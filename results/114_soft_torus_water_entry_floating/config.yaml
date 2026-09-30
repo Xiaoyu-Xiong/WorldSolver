@@ -1,0 +1,31 @@
+schema_version: 1
+scene_id: 114_soft_torus_water_entry_floating
+seed: 114
+duration: 5.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+initial_conditions:
+  water:
+    density: 1000.0
+    free_surface_z: 0.40
+    velocity: [0.0, 0.0, 0.0]
+  torus:
+    density: 650.0
+    center: [0.0, 0.0, 0.66]
+    velocity: [0.0, 0.0, -0.15]
+    angular_velocity: [0.0, 0.0, 0.0]
+    deformable: true
+controls:
+  prescribed_motion: none
+  fluid_solid_coupling: two_way_required
+boundary_conditions:
+  tub_walls: impermeable_static
+  water_surface: free_surface
+camera:
+  position: [1.42, -1.62, 1.22]
+  look_at: [0.0, 0.0, 0.34]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

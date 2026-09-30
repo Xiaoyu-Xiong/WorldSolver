@@ -1,0 +1,28 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: centrifuge_drum
+    semantic: boundary
+    motion: kinematic
+    geometry:
+      type: axisymmetric_container
+      inner_profile: [[0.92, -2.4], [0.92, 0.0], [0.92, 2.4]]
+      wall_thickness: 0.035
+    transform: {translation: [0.0, 0.0, 1.05], rotation_xyzw: [0.0, 0.7071068, 0.0, 0.7071068]}
+    material_id: transparent_drum
+    collision_enabled: true
+  - id: species_a
+    semantic: granular
+    motion: dynamic
+    geometry: {type: particle_domain, bounds_min: [-2.4, -0.92, 0.13], bounds_max: [2.4, 0.92, 1.97]}
+    state_binding: {selector: attribute, attribute_name: species_id, value: 0}
+    material_id: species_a
+    collision_enabled: true
+  - id: species_b
+    semantic: granular
+    motion: dynamic
+    geometry: {type: particle_domain, bounds_min: [-2.4, -0.92, 0.13], bounds_max: [2.4, 0.92, 1.97]}
+    state_binding: {selector: attribute, attribute_name: species_id, value: 1}
+    material_id: species_b
+    collision_enabled: true

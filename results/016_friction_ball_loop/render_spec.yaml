@@ -1,0 +1,8 @@
+schema_version: 2
+profile: rigid_contact
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - {object_id: ground, method: rigid_mesh, material: matte}
+  - {object_id: loop_track, method: rigid_mesh, material: metal, subdivision: 2}
+  - {object_id: ball, method: rigid_mesh, material: rubber, subdivision: 2}

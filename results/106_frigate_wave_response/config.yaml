@@ -1,0 +1,41 @@
+schema_version: 1
+scene_id: 106_frigate_wave_response
+seed: 106031
+duration: 12.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+fluid:
+  density: 1025.0
+  domain_min: [-15.0, -6.0, 0.0]
+  domain_max: [15.0, 6.0, 4.0]
+  still_water_level: 1.55
+  marker_spacing: 0.24
+  initial_velocity: [0.55, 0.0, 0.0]
+incoming_waves:
+  boundary: x_min
+  propagation_direction: [1.0, 0.0, 0.0]
+  amplitude: 0.38
+  wavelength: 5.5
+  period: 2.65
+  phase_radians: 0.0
+  successive: true
+frigate:
+  body_id: 1
+  mass: 7200.0
+  initial_center: [0.0, 0.0, 1.48]
+  initial_orientation_xyzw: [0.0, 0.0, 0.0, 1.0]
+  initial_velocity: [0.0, 0.0, 0.0]
+  initial_angular_velocity: [0.0, 0.0, 0.0]
+  degrees_of_freedom:
+    translation: [false, false, true]
+    rotation: [false, true, false]
+  coupling_surface: hull
+  impermeable: true
+camera:
+  position: [11.8, -15.5, 7.2]
+  look_at: [-0.8, 0.0, 1.45]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

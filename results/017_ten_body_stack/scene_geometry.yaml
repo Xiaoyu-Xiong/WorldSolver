@@ -1,0 +1,74 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: ground
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [4.0, 4.0, 0.05]
+    transform:
+      translation: [0.0, 0.0, -0.05]
+    material_id: matte
+    collision_enabled: true
+  - id: body_01
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.45, 0.45, 0.10]}
+    state_binding: {selector: body_id, value: 1}
+    material_id: body
+  - id: body_02
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.45, 0.45, 0.10]}
+    state_binding: {selector: body_id, value: 2}
+    material_id: body
+  - id: body_03
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.45, 0.45, 0.10]}
+    state_binding: {selector: body_id, value: 3}
+    material_id: body
+  - id: body_04
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.45, 0.45, 0.10]}
+    state_binding: {selector: body_id, value: 4}
+    material_id: body
+  - id: body_05
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.45, 0.45, 0.10]}
+    state_binding: {selector: body_id, value: 5}
+    material_id: body
+  - id: body_06
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.45, 0.45, 0.10]}
+    state_binding: {selector: body_id, value: 6}
+    material_id: body
+  - id: body_07
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.45, 0.45, 0.10]}
+    state_binding: {selector: body_id, value: 7}
+    material_id: body
+  - id: body_08
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.45, 0.45, 0.10]}
+    state_binding: {selector: body_id, value: 8}
+    material_id: body
+  - id: body_09
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.45, 0.45, 0.10]}
+    state_binding: {selector: body_id, value: 9}
+    material_id: body
+  - id: body_10
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.45, 0.45, 0.10]}
+    state_binding: {selector: body_id, value: 10}
+    material_id: body

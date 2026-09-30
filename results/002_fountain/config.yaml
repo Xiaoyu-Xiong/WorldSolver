@@ -1,0 +1,42 @@
+schema_version: 1
+scene_id: 002_fountain
+seed: 2002
+duration: 6.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity:
+- 0.0
+- 0.0
+- -9.81
+initial_conditions:
+  liquid_density: 1000.0
+  pool_radius: 1.45
+  pool_depth: 0.34
+  pool_surface_z: 0.38
+  nozzle_radius: 0.18
+  nozzle_exit_z: 0.4
+  jet_height: 0.92
+  jet_speed: 5.2
+  particle_spacing: 0.085
+boundary_conditions:
+  basin: impermeable
+  top: open
+  fountain_source: sustained_upward_inflow
+camera:
+  position:
+  - 3.7
+  - -4.8
+  - 2.65
+  look_at:
+  - 0.0
+  - 0.0
+  - 1.05
+  up:
+  - 0.0
+  - 0.0
+  - 1.0
+  focal_length_mm: 52
+  width: 960
+  height: 640
+  fps: 50
+  yfov_degrees: 36

@@ -1,0 +1,26 @@
+id: 059_pneumatic_cushion
+title: Inflation of a Pneumatic Cushion
+category: elastic_solids
+source:
+  title: Locking-Proof Tetrahedra
+  url: https://research.chalmers.se/publication/524762/file/524762_Fulltext.pdf
+  anchor: Figure 6, left (cushion), PDF page 9; Table 1, PDF page 12 (institutional cover included)
+goal: 'Recreate the source experiment: The inflated cushion has rounded, bulging faces; it is not merely
+  a larger copy of the original box-shaped outline. The numerical implementation is unrestricted; the
+  deforming material is a three-dimensional solid.'
+scene_requirements:
+  required_elements:
+  - The cushion air-chamber geometry from Figure 6, with finite-thickness rubber walls.
+  - Prescribed internal pressure and the source geometry constraints.
+  initial_state:
+  - The cushion begins in its uninflated rest geometry; pressure is not represented by initially scaling
+    up the mesh.
+  required_events:
+  - The cushion changes from its uninflated shape to a visibly inflated shape as pressure is applied.
+  - The broad chamber faces bow outward while the adjoining edges and corners remain connected.
+  - The inflated cushion has rounded, bulging faces; it is not merely a larger copy of the original box-shaped
+    outline.
+camera_requirements:
+- Use a fixed three-quarter view showing a broad chamber face and two adjoining sides.
+- Keep the relevant objects visible before loading or contact, during the largest deformation, and during
+  the stated outcome.

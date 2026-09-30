@@ -1,0 +1,18 @@
+schema_version: 2
+profile: fiber_rods
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: anisotropic_rod
+    method: curve_tubes
+    material: ivory_ribbon_with_continuous_red_orientation_stripe
+    color_rgb: [0.86, 0.16, 0.12]
+    subdivision: 2
+  - object_id: driven_clamp
+    method: rigid_mesh
+    material: brushed_dark_metal
+    color_rgb: [0.18, 0.20, 0.23]
+  - object_id: fixed_clamp
+    method: rigid_mesh
+    material: brushed_dark_metal
+    color_rgb: [0.18, 0.20, 0.23]

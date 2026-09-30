@@ -1,0 +1,31 @@
+id: 102_hairy_ball_strand_collisions
+title: Strand Collisions on a Rapidly Rotating Hairy Ball
+category: rods_and_strands
+source:
+  title: Interactive Hair Simulation on the GPU using ADMM
+  url: https://research.nvidia.com/labs/prl/daviet23/interactivehair2023.pdf
+  anchor: Figure 3; Section 5.2, Hairy balls; PDF pages 6-7 and 10
+goal: 'Recreate the source experiment: As the motion continues, strand groups rearrange and can separate again
+  instead of remaining trapped in clumps created by missed crossings. Use elastic rods or strands; the numerical
+  implementation is unrestricted.'
+scene_requirements:
+  required_elements:
+  - A sphere with elastic hair strands rooted over its upper half, using the source slight natural curl and
+    finite stretching stiffness.
+  - The prescribed sphere rotation sequence from the source hairy-ball experiment.
+  - Gravity and hair contact friction with coefficient 0.2, using that value for static and kinetic friction.
+  - Use the continuous-contact reference rows of Figure 3. Do not impose exact material inextensibility on
+    the source finite-stretch model.
+  initial_state:
+  - Begin with strands hanging from the stationary sphere before its rotation sequence.
+  - Strands are attached only at their roots and have no artificial cross-strand bonds.
+  required_events:
+  - Rapid sphere rotations swing the rooted strands away from their hanging positions.
+  - The moving strands collide with the sphere and neighboring strands and bend around those contacts.
+  - As the motion continues, strand groups rearrange and can separate again instead of remaining trapped in
+    clumps created by missed crossings.
+camera_requirements:
+- Show the complete sphere and hair silhouette from a fixed view with enough detail to distinguish the large
+  strand groups.
+- Keep the relevant objects visible before loading or contact, during the strongest response, and through the
+  stated outcome.

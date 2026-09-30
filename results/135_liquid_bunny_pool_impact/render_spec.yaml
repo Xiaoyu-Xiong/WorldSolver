@@ -1,0 +1,20 @@
+schema_version: 2
+profile: liquid_in_container
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: ground, method: rigid_mesh, material: matte, color_rgb: [0.22, 0.25, 0.30]}
+  - {object_id: basin_back, method: rigid_mesh, material: glass, color_rgb: [0.48, 0.58, 0.70], opacity: 0.32}
+  - {object_id: basin_left, method: rigid_mesh, material: glass, color_rgb: [0.48, 0.58, 0.70], opacity: 0.32}
+  - {object_id: basin_right, method: rigid_mesh, material: glass, color_rgb: [0.48, 0.58, 0.70], opacity: 0.32}
+  - object_id: pool
+    method: reconstructed_surface
+    material: default
+    color_rgb: [0.06, 0.42, 0.88]
+    surface_pitch: 0.10
+    surface_smoothing: 1.0
+  - object_id: liquid_bunny
+    method: deformed_mesh
+    material: default
+    color_rgb: [0.08, 0.78, 1.0]
+    subdivision: 0

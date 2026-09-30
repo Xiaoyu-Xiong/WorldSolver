@@ -1,0 +1,38 @@
+schema_version: 1
+scene_id: 118_water_erodes_sand_dam
+seed: 118017
+duration: 10.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+initial_conditions:
+  sand_dam: intact_cohesive_pororous_trapezoidal_wall_at_rest
+  water: upstream_pool_with_falling_supply_not_yet_touching_dam
+  initial_sand_saturation: 0.0
+  initial_breach: none
+  initial_velocity: only_falling_supply_has_downward_velocity
+boundary_conditions:
+  flume_floor: fixed_solid_support
+  upstream_reservoir_walls: fixed_impermeable_supports
+  side_walls: fixed_impermeable_low_walls
+  downstream: closed_retention_wall_beyond_visible_runout
+  top: open
+coupling_requirements:
+  two_way_sand_water_momentum_exchange: true
+  sand_cohesion_depends_on_simulated_water_saturation: true
+  evolving_sand_changes_resolved_water_flow: true
+  water_forces_change_sand_motion_or_deformation: true
+  conserve_and_retain_sand_mass_through_full_interval: true
+  scripted_failure_time: null
+  pre_cut_breach: false
+diagnostic_attributes:
+  sand_saturation: per_sand_sample_state_in_range_0_to_1
+  material_id: 1_sand_2_water
+camera:
+  position: [5.8, -6.8, 4.3]
+  look_at: [0.55, 0.0, 0.85]
+  up: [0.0, 0.0, 1.0]
+  focal_length_mm: 48
+  width: 960
+  height: 640
+  fps: 50

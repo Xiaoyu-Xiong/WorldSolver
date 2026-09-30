@@ -1,0 +1,28 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: glass_wall
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [0.012, 0.72, 0.72]
+    transform:
+      translation: [0.012, 0.0, 0.42]
+    material_id: glass
+    collision_enabled: true
+  - id: squishy_ball
+    semantic: deformable
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/squishy_ball_surface.obj
+      topology_asset: assets/squishy_ball_volume.npz
+    transform:
+      translation: [0.0, 0.0, 0.0]
+    state_binding:
+      selector: body_id
+      value: 1
+    material_id: soft_pink_rubber
+    collision_enabled: true

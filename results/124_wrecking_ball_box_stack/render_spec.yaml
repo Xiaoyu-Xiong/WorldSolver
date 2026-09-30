@@ -1,0 +1,44 @@
+schema_version: 2
+profile: rigid_contact
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: floor, method: rigid_mesh, material: matte, color_rgb: [0.18, 0.21, 0.26]}
+  - {object_id: support_beam, method: rigid_mesh, material: steel, color_rgb: [0.36, 0.40, 0.46]}
+  - {object_id: box_0_0, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: box_0_1, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: box_0_2, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: box_0_3, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: box_0_4, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: box_0_5, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: box_1_0, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: box_1_1, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: box_1_2, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: box_1_3, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: box_1_4, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: box_1_5, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: box_2_0, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: box_2_1, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: box_2_2, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: box_2_3, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: box_2_4, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: box_2_5, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: box_3_0, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: box_3_1, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: box_3_2, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: box_3_3, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: box_3_4, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: box_3_5, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: box_4_0, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: box_4_1, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: box_4_2, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: box_4_3, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: box_4_4, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: box_4_5, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: wrecking_ball, method: rigid_mesh, material: forged_steel, color_rgb: [0.16, 0.19, 0.23]}
+  - {object_id: chain_0, method: rigid_mesh, material: chain_steel, color_rgb: [0.45, 0.49, 0.55]}
+  - {object_id: chain_1, method: rigid_mesh, material: chain_steel, color_rgb: [0.55, 0.58, 0.62]}
+  - {object_id: chain_2, method: rigid_mesh, material: chain_steel, color_rgb: [0.45, 0.49, 0.55]}
+  - {object_id: chain_3, method: rigid_mesh, material: chain_steel, color_rgb: [0.55, 0.58, 0.62]}
+  - {object_id: chain_4, method: rigid_mesh, material: chain_steel, color_rgb: [0.45, 0.49, 0.55]}
+  - {object_id: chain_5, method: rigid_mesh, material: chain_steel, color_rgb: [0.55, 0.58, 0.62]}

@@ -1,0 +1,30 @@
+id: 160_rubber_sheet_notch_tear
+title: Notched Rubber Sheet Tear
+category: cloth_and_shells
+source:
+  title: Adaptive Tearing and Cracking of Thin Sheets
+  url: https://graphics.berkeley.edu/papers/Pfaff-ATC-2014-07/Pfaff-ATC-2014-07.pdf
+  anchor: Figure 3
+goal: >-
+  Recreate the paper's clearly visible notched rubber sheet tear phenomenon. The implementation method is unrestricted;
+  evaluation targets thin-material motion, folds or tears, contact response, and the characteristic outcome.
+scene_requirements:
+  required_elements:
+  - Thin stretchable sheet with edge notch
+  - Two opposing grips
+  - Prescribed tensile loading
+  - Adaptive crack or tear
+  initial_state:
+  - A notched sheet is held along opposite boundaries before tensile loading.
+  required_events:
+  - The grips separate and stress concentrates at the notch tip.
+  - A tear initiates at the notch and propagates through the sheet along a visible crack path.
+  - The two sides separate behind the advancing tip while intact material remains coherent and conserves mass.
+  - Motion remains temporally coherent and all non-tearing regions preserve sheet connectivity.
+camera_requirements:
+- Use a front-oblique close view resolving the notch, crack tip, and separated flaps.
+- Use lighting and material contrast that make folds, wrinkles, contacts, and any crack tip readable.
+parameter_notes:
+- Match the qualitative geometry, stiffness regime, and event ordering shown in Figure 3; mesh resolution may be adapted.
+- Export cloth mass, position, velocity, external force, surface deformation gradients, and signed contact distances.
+

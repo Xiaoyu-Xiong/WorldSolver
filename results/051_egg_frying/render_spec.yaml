@@ -1,0 +1,46 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: hot_pan_base
+    method: rigid_mesh
+    material: dark_cast_iron_pan
+    color_rgb: [0.05, 0.055, 0.06]
+    subdivision: 2
+  - object_id: hot_pan_rim
+    method: rigid_mesh
+    material: dark_cast_iron_pan
+    color_rgb: [0.05, 0.055, 0.06]
+    subdivision: 2
+  - object_id: egg_white
+    method: reconstructed_surface
+    material: raw_to_cooked_egg_white
+    color_rgb: [0.96, 0.96, 0.88]
+    surface_pitch: 0.006
+    surface_smoothing: 1.15
+    subdivision: 1
+  - object_id: egg_yolk
+    method: reconstructed_surface
+    material: saturated_yellow_orange_yolk
+    color_rgb: [1.0, 0.68, 0.02]
+    surface_pitch: 0.005
+    surface_smoothing: 1.0
+    subdivision: 1
+  - object_id: left_eggshell
+    method: rigid_mesh
+    material: pale_eggshell
+    color_rgb: [0.94, 0.88, 0.72]
+    subdivision: 2
+  - object_id: right_eggshell
+    method: rigid_mesh
+    material: pale_eggshell
+    color_rgb: [0.94, 0.88, 0.72]
+    subdivision: 2
+  - object_id: egg_white_cooked_overlay
+    method: diagnostic_points
+    material: cooked_phase_scalar_overlay
+    scalar_attribute: solid_phase_fraction
+    scalar_range: [0.0, 1.0]
+    opacity: 0.95
+    max_points: 2500

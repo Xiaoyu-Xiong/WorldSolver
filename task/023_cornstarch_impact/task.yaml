@@ -1,0 +1,29 @@
+id: 023_cornstarch_impact
+title: Cornstarch Impact
+category: plastic_and_complex_materials
+source:
+  title: A Finite Element Method for Animating Large Viscoplastic Flow
+  url: https://graphics.cs.cmu.edu/projects/Bargteil-2007-AFE/Bargteil-2007-AFE.pdf
+  anchor: Figure 8; PDF page 7
+goal: Recreate the observable physical phenomenon in which a cornstarch suspension falls and impacts the
+  ground, first bouncing elastically under high stress and then yielding into a puddle as stress decreases.
+  The implementation method is unrestricted; the target is the scene's visible motion, interaction, and
+  outcome.
+scene_requirements:
+  required_elements:
+  - Cornstarch Impact
+  - Deformable object named by the scene
+  - Collision obstacles or supports
+  - Gravity
+  initial_state:
+  - A cornstarch suspension falls and impacts the ground, first bouncing elastically under high stress
+    and then yielding into a puddle as stress decreases.
+  required_events:
+  - Quantitative/qualitative - rebound timing/height and final spread error versus the physical reference
+  - Transition from elastic to flowing response
+camera_requirements:
+- Use a three-quarter view showing the full deformable body, loading or impact region, contacts, large
+  deformation, and recovered or final shape.
+parameter_notes:
+- 'Original paper parameters/configuration: Shear-thickening viscoplastic model matched to the physical
+  cornstarch experiment in Figure 8.'

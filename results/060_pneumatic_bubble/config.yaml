@@ -1,0 +1,31 @@
+schema_version: 1
+scene_id: 060_pneumatic_bubble
+seed: 60060
+duration: 4.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+loading:
+  type: prescribed_internal_pressure
+  chamber_body_id: 0
+  pressure_pa: 4000.0
+  ramp_start_s: 0.25
+  ramp_end_s: 2.5
+  hold_until_s: 4.0
+initial_conditions:
+  state: uninflated_rest_shape
+  velocity_m_s: [0.0, 0.0, 0.0]
+boundary_conditions:
+  fixed_vertex_attribute: fixed
+  fixed_regions: [base_attachment, rim_attachment]
+material_reference:
+  wall: silicone_rubber
+  density_kg_m3: 1070.0
+  youngs_modulus_pa: 100000.0
+  poisson_ratio: 0.499
+camera:
+  position: [0.48, -0.62, 0.31]
+  look_at: [0.0, 0.0, 0.145]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

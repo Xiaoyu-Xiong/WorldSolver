@@ -1,0 +1,27 @@
+id: 100_curly_hair_vertical_oscillation
+title: Vertical Oscillation of a Curly Hair Clump
+category: rods_and_strands
+source:
+  title: Super-Helices for Predicting the Dynamics of Natural Hair
+  url: https://evasion.inrialpes.fr/Publications/2006/BACQLL06/sigFinalHair06.pdf
+  anchor: Figure 6; Sections 4.2-4.3; PDF page 6
+goal: 'Recreate the source experiment: The clump repeatedly becomes longer and shorter from root to tip while
+  retaining its curly shape. Use elastic rods or strands; the numerical implementation is unrestricted.'
+scene_requirements:
+  required_elements:
+  - A naturally curly hair clump represented by inextensible elastic strands or a physical guide strand.
+  - A root attachment undergoing the vertical oscillatory motion in Figure 6.
+  - Gravity and the explicit internal damping and ambient drag used for the clump model.
+  - Measure physical material length, not root-to-tip span. Render-only hairs must not be counted as additional
+    physical mass.
+  initial_state:
+  - Start from the suspended curly clump before the root oscillation begins.
+  - The tips are free and are not assigned an animated path.
+  required_events:
+  - The root attachment moves up and down and the free tip responds with a delay.
+  - The curls open and tighten as the root reverses its motion.
+  - The clump repeatedly becomes longer and shorter from root to tip while retaining its curly shape.
+camera_requirements:
+- Use a fixed side or oblique view showing the moving root, free tip, and individual curls.
+- Keep the relevant objects visible before loading or contact, during the strongest response, and through the
+  stated outcome.

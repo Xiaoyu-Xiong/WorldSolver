@@ -1,0 +1,97 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: injected_lower_jet
+    semantic: gas
+    motion: field
+    geometry:
+      type: voxel_grid
+      grid_shape: [121, 3, 73]
+      bounds_min: [-3.0, -0.18, 0.0]
+      bounds_max: [3.0, 0.18, 3.6]
+    state_binding:
+      selector: field
+      attribute_name: injected_fraction
+    material_id: visible_injected_jet
+    collision_enabled: false
+  - id: empty_upper_chamber
+    semantic: sensor
+    motion: static
+    geometry:
+      type: box
+      half_extents: [2.75, 0.19, 0.82]
+    transform:
+      translation: [0.0, 0.0, 2.72]
+    material_id: clear_upper_chamber
+    collision_enabled: false
+  - id: separating_plate
+    semantic: rigid
+    motion: static
+    geometry:
+      type: box
+      half_extents: [2.72, 0.18, 0.025]
+    transform:
+      translation: [0.0, 0.0, 1.80]
+    material_id: coupled_thin_solid
+    collision_enabled: true
+  - id: bottom_wall
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [3.05, 0.20, 0.05]
+    transform:
+      translation: [0.0, 0.0, -0.05]
+    material_id: chamber_support
+    collision_enabled: true
+  - id: left_wall
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [0.05, 0.20, 1.85]
+    transform:
+      translation: [-3.05, 0.0, 1.75]
+    material_id: chamber_support
+    collision_enabled: true
+  - id: right_wall
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [0.05, 0.20, 1.85]
+    transform:
+      translation: [3.05, 0.0, 1.75]
+    material_id: chamber_support
+    collision_enabled: true
+  - id: jet_inlet
+    semantic: emitter
+    motion: static
+    geometry:
+      type: box
+      half_extents: [0.21, 0.17, 0.018]
+    transform:
+      translation: [0.0, 0.0, 0.018]
+    material_id: inlet_marker
+    collision_enabled: false
+  - id: interface_contact_region
+    semantic: sensor
+    motion: static
+    geometry:
+      type: box
+      half_extents: [0.55, 0.19, 0.10]
+    transform:
+      translation: [0.0, 0.0, 1.70]
+    material_id: interface_diagnostic
+    collision_enabled: false
+  - id: upper_leakage_sensor
+    semantic: sensor
+    motion: static
+    geometry:
+      type: box
+      half_extents: [2.75, 0.19, 0.04]
+    transform:
+      translation: [0.0, 0.0, 1.90]
+    material_id: leakage_diagnostic
+    collision_enabled: false

@@ -1,0 +1,24 @@
+id: 063_rubber_cube_compression
+title: Lateral Bulging of a Compressed Rubber Cube
+category: elastic_solids
+source:
+  title: Locking-Proof Tetrahedra
+  url: https://research.chalmers.se/publication/524762/file/524762_Fulltext.pdf
+  anchor: Figure 12(a-b) and Section 9; PDF page 14 (institutional cover included)
+goal: 'Recreate the source experiment: The compressed cube retains broad outward-curved sides rather than
+  becoming a uniformly smaller cube. The numerical implementation is unrestricted; the deforming material
+  is a three-dimensional solid.'
+scene_requirements:
+  required_elements:
+  - A volumetric rubber cube with the support and loaded face used in Figure 12.
+  - A prescribed vertical compressive traction.
+  initial_state:
+  - The cube starts undeformed before the compressive load is applied.
+  required_events:
+  - The loaded top face moves toward the supported bottom as the vertical load is applied.
+  - The cube becomes shorter while its free side faces bulge outward.
+  - The compressed cube retains broad outward-curved sides rather than becoming a uniformly smaller cube.
+camera_requirements:
+- Use a fixed three-quarter view showing the top face, two free side faces, and the support.
+- Keep the relevant objects visible before loading or contact, during the largest deformation, and during
+  the stated outcome.

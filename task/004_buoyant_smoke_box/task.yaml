@@ -1,0 +1,31 @@
+id: 004_buoyant_smoke_box
+title: Buoyant Smoke Box
+category: fluid_dynamics
+source:
+  title: 'Power Particles: An Incompressible Fluid Solver Based on Power Diagrams'
+  url: https://www.geometry.caltech.edu/pubs/dGWH%2B15.pdf
+  anchor: Figure 6; PDF page 7
+goal: Recreate the observable physical phenomenon in which a heat source drives buoyant flow in a closed
+  three-dimensional box while passive markers visualize the rising smoke cloud. The implementation method
+  is unrestricted; the target is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Smoke density field
+  - Velocity field
+  - Source or initial density region
+  - Simulation domain boundaries
+  initial_state:
+  - A heat source drives buoyant flow in a closed three-dimensional box while passive markers visualize
+    the rising smoke cloud.
+  required_events:
+  - Plume rise
+  - Coherent vortices
+  - Marker advection
+  - Absence of clumping
+  - Quantitative - divergence and volume error
+camera_requirements:
+- Use a three-quarter or side view that keeps the source, main interaction region, free surface or plume,
+  obstacles, and final state visible; avoid occlusion and excessive top-down views.
+parameter_notes:
+- 'Original paper parameters/configuration: 20,000 power particles and 2,000,000 passive visualization
+  markers; heat source and buoyancy enabled.'

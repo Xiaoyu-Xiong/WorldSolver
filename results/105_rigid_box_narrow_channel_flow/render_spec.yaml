@@ -1,0 +1,28 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: channel_left_wall
+    method: rigid_mesh
+    material: channel_wall
+    color_rgb: [0.25, 0.28, 0.30]
+  - object_id: channel_right_wall
+    method: rigid_mesh
+    material: channel_wall
+    color_rgb: [0.25, 0.28, 0.30]
+  - object_id: channel_floor
+    method: rigid_mesh
+    material: channel_wall
+    color_rgb: [0.25, 0.28, 0.30]
+  - object_id: coupled_box
+    method: rigid_mesh
+    material: heavy_box
+    color_rgb: [0.08, 0.09, 0.10]
+  - object_id: fluid_markers
+    method: diagnostic_points
+    material: fluid_marker
+    color_rgb: [0.38, 0.78, 0.50]
+    opacity: 0.72
+    particle_radius_scale: 0.72
+    max_points: 12000

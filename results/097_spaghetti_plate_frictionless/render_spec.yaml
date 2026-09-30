@@ -1,0 +1,15 @@
+schema_version: 2
+profile: fiber_rods
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: plate
+    method: rigid_mesh
+    material: charcoal_glazed_ceramic
+    color_rgb: [0.20, 0.23, 0.19]
+    subdivision: 2
+  - object_id: spaghetti_bundle
+    method: curve_tubes
+    material: terracotta_spaghetti
+    color_rgb: [0.78, 0.29, 0.12]
+    subdivision: 2

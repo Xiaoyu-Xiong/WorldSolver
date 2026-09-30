@@ -1,0 +1,34 @@
+id: 049_cube_drop_water
+title: Cube Drop Water
+category: multiphysics_coupling
+source:
+  title: Versatile Rigid-Fluid Coupling for Incompressible SPH
+  url: https://cg.informatik.uni-freiburg.de/publications/2012_SIGGRAPH_rigidFluidCoupling.pdf
+  anchor: Figure 7; PDF page 6
+goal: Recreate the observable physical phenomenon in which a rigid cube drops into water, creates a splash
+  and wake, exchanges momentum with the liquid, and continues with buoyancy-dependent motion. The implementation
+  method is unrestricted; the target is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Cube Drop Water
+  - Coupled materials named by the scene
+  - Interface/contact region
+  - Domain or support boundaries
+  - A bright, unobstructed cube visible before first contact with the water
+  initial_state:
+  - A rigid cube drops into water, creates a splash and wake, exchanges momentum with the liquid, and
+    continues with buoyancy-dependent motion.
+  required_events:
+  - Quantitative/qualitative - cube trajectory
+  - Pressure noise
+  - Sticking
+  - Penetration
+  - Displaced volume
+camera_requirements:
+- Use a three-quarter view that simultaneously exposes each coupled phase or body, their interface, the
+  main transfer or contact region, and the final distribution.
+- Keep the front of the tank transparent or cut away enough that the falling cube is not hidden by the box.
+parameter_notes:
+- 'Merged source variants (cube_drop_water_becker, cube_drop_water_ours). Original paper parameters/configurations:
+  Coupling method = becker; identical cube and water setup. | Coupling method = ours; identical cube and
+  water setup.'

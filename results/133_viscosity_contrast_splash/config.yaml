@@ -1,0 +1,27 @@
+schema_version: 1
+scene_id: 133_viscosity_contrast_splash
+seed: 12133
+duration: 7.0
+sample_dt: 0.03333333333333333
+visual_judge_frame_count: 20
+scene_family: liquid
+variant: viscosity_contrast_splash
+gravity: [0.0, 0.0, -9.81]
+sampling:
+  spacing: 0.14
+  density: 1000
+  blocks:
+  - [-2.2,-0.65,0.1,-0.7,0.65,0.55]
+  - [0.7,-0.65,0.1,2.2,0.65,0.55]
+  - [-1.7,-0.3,1.5,-1.1,0.3,2.1]
+  - [1.1,-0.3,1.5,1.7,0.3,2.1]
+  field_grid_shape: [24, 16, 28]
+camera:
+  position: [4.6, -6.8, 3.4]
+  look_at: [0.0, 0.0, 1.35]
+  up: [0.0, 0.0, 1.0]
+  projection: orthographic
+  orthographic_height: 3.50
+  width: 960
+  height: 640
+  fps: 50

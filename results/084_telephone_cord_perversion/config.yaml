@@ -1,0 +1,50 @@
+schema_version: 1
+scene_id: 084_telephone_cord_perversion
+seed: 8402
+duration: 8.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+camera:
+  position: [0.35, -2.65, 1.75]
+  look_at: [0.0, 0.0, 0.85]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50
+gravity: [0.0, 0.0, 0.0]
+rod:
+  vertex_count: 161
+  total_length: 3.60
+  mass: 0.085
+  inextensible: true
+  cross_section:
+    shape: rectangular
+    width: 0.018
+    thickness: 0.0045
+  natural_shape:
+    type: circular_helix
+    radius: 0.155
+    pitch_per_turn: 0.055
+    handedness: right
+  initial_preparation:
+    state: nearly_straight_unwrithed_stressed
+    material_axis: [0.0, 1.0, 0.0]
+    centerline_wave_amplitude: 0.015
+    centerline_wave_count: 2
+endpoint_controls:
+  preserve_orientation: true
+  allow_axial_spin: false
+  left:
+    initial_position: [-1.74, 0.0, 0.85]
+    final_position: [-0.94, 0.0, 0.85]
+    orientation_xyzw: [0.0, 0.0, 0.0, 1.0]
+  right:
+    initial_position: [1.74, 0.0, 0.85]
+    final_position: [0.94, 0.0, 0.85]
+    orientation_xyzw: [0.0, 0.0, 0.0, 1.0]
+  motion:
+    type: smooth_quasi_static_approach
+    hold_initial_until: 0.8
+    move_start: 0.8
+    move_end: 6.4
+    hold_final_until: 8.0

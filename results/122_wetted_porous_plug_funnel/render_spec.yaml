@@ -1,0 +1,27 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: funnel
+    method: rigid_mesh
+    material: clear_acrylic
+    color_rgb: [0.72, 0.84, 0.90]
+    opacity: 0.24
+  - object_id: porous_plug
+    method: deformed_mesh
+    material: porous_foam
+    color_rgb: [0.92, 0.68, 0.12]
+    opacity: 1.0
+    subdivision: 1
+  - object_id: water
+    method: reconstructed_surface
+    material: water
+    color_rgb: [0.16, 0.52, 0.90]
+    opacity: 0.72
+    surface_pitch: 0.04
+    surface_smoothing: 1.1
+  - object_id: catch_floor
+    method: rigid_mesh
+    material: matte_floor
+    color_rgb: [0.52, 0.54, 0.56]

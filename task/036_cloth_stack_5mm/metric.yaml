@@ -1,0 +1,82 @@
+schema_version: 4
+task_id: 036_cloth_stack_5mm
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The submitted solver runs to the frozen end time, produces a complete finite trajectory
+      with every required evaluation field, and produces a readable platform render without exceeding
+      the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: The ten cloth panels visibly fall in sequence onto the supporting board.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: Successive layer contacts produce folds, compression, and lateral adjustment within the
+      stack.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: The final configuration retains visibly distinct layers and nonzero bulk thickness rather
+      than collapsing into a single surface.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: Layers do not visibly tunnel through one another or the board, disappear, pop between configurations,
+      or jitter indefinitely after settling.
+  physics:
+  - id: material_mass_balance
+    profile: cloth_thin_shells_and_fibers
+    dimension: conservation_and_source_balance
+    criterion: For cloth stack 5mm, the mass change equals the cumulative prescribed inflow, outflow,
+      or phase-transfer source; internal motion and contact do not create or delete mass.
+    applicability:
+      requires:
+      - prescribed sources and sinks are exported
+      - Per-sample mass contributions are exported for every evaluated material.
+      excludes:
+      - Unreported particle deletion or remeshing loss.
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: nonpenetrating_contact
+    profile: cloth_thin_shells_and_fibers
+    dimension: contact_and_interface_conditions
+    criterion: During cloth stack 5mm, solid-solid and solid-boundary contacts maintain nonnegative geometric
+      gaps up to the contact tolerance and do not permit persistent interpenetration.
+    applicability:
+      requires:
+      - Signed geometric gaps are exported for active and near-contact pairs.
+      excludes:
+      - Pairs intentionally allowed to pass through or merge.
+    numeric_binding:
+      calculator: contact.penetration.v1
+      inputs:
+        signed_distance: fields.contact_signed_distance
+        length_scale: scalars.contact_length_scale
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: case_constraint_consistency
+    profile: cloth_thin_shells_and_fibers
+    dimension: kinematic_and_constitutive_constraints
+    criterion: The 5 mm thickness-offset contact condition active in cloth stack 5mm is satisfied throughout
+      the intervals where that constraint applies.
+    applicability:
+      requires:
+      - The sampled physical value and prescribed target for the 5 mm thickness-offset contact condition
+        are exported in matching coordinates and units.
+      excludes:
+      - Intervals in which the constraint is deliberately inactive.
+    numeric_binding:
+      calculator: constraint.target.v1
+      inputs:
+        value: fields.constraint_value
+        target: fields.constraint_target
+        scale: scalars.constraint_scale
+      parameters: {}
+      reduction:
+        type: maximum

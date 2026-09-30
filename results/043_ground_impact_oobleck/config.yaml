@@ -1,0 +1,48 @@
+schema_version: 1
+scene_id: 043_ground_impact_oobleck
+seed: 43013
+duration: 2.8
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+initial_conditions:
+  body_shape: sphere_pair_with_oobleck_target
+  source_figure_appearance: side_by_side_viscoplastic_left_and_oobleck_right_on_neutral_floor
+  sphere_radius: 0.34
+  center: [0.0, 0.0, 1.62]
+  comparison_centers:
+    viscoplastic_left: [-0.48, 0.0, 1.62]
+    oobleck_right: [0.48, 0.0, 1.62]
+  velocity: [0.0, 0.0, -1.35]
+  particle_spacing: 0.045
+  density: 1000.0
+  visual_requirements:
+    oobleck_color: saturated_yellow_green
+    comparison_viscoplastic_color: warm_coral_red
+    floor_color: matte_warm_gray
+    avoid_all_blue_rendering: true
+    body_silhouette_must_be_identifiable_before_impact: true
+    target_oobleck_is_right_hand_object: true
+boundary_conditions:
+  ground:
+    type: contact_floor
+    plane_z: 0.0
+event_windows:
+  first_impact: [0.30, 0.55]
+  first_rebound: [0.50, 1.15]
+  second_impact_and_flow: [1.15, 1.85]
+  final_spread: [2.10, 2.80]
+observables:
+  source_figure_layout: left_viscoplastic_flows_early_right_oobleck_rebounds_then_flows
+  first_contact_visible: true
+  rebound_gap_visible: true
+  second_impact_visible: true
+  final_spread_radius_larger_than_initial: true
+camera:
+  position: [3.05, -4.15, 2.25]
+  look_at: [0.0, 0.0, 0.70]
+  up: [0.0, 0.0, 1.0]
+  focal_length_mm: 52
+  width: 960
+  height: 640
+  fps: 50

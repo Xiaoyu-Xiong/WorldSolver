@@ -1,0 +1,30 @@
+id: 148_bolt_spins_through_nut
+title: Bolt Spins through a Nut
+category: rigid_body_dynamics
+source:
+  title: Intersection-free Rigid Body Dynamics
+  url: https://ipc-sim.github.io/rigid-ipc/assets/rigid_ipc_paper_350ppi.pdf
+  anchor: Figure 4
+goal: >-
+  Recreate the paper's clearly visible bolt spins through a nut phenomenon. The implementation method is unrestricted;
+  evaluation targets rigid motion, contact response, event propagation, and the characteristic outcome.
+scene_requirements:
+  required_elements:
+  - Threaded rigid bolt
+  - Matching rigid nut
+  - Aligned axes
+  - Prescribed bolt rotation or torque
+  initial_state:
+  - The bolt thread begins engaged with the nut without overlap.
+  required_events:
+  - Applied rotation drives sliding contact along the helical thread.
+  - The bolt translates axially as it rotates while maintaining multiple tight contacts.
+  - Several thread pitches are traversed smoothly without cross-threading, separation, or interpenetration.
+  - All bodies preserve rigid shape and contacts remain free of persistent overlap.
+camera_requirements:
+- Use a close oblique view revealing the thread engagement and axial travel.
+- Keep the complete interaction chain in frame and use contrasting colors for neighboring bodies.
+parameter_notes:
+- Match the qualitative geometry, loading, and event ordering shown in Figure 4; object count may be reduced within resource limits.
+- Export body IDs, mass, position, velocity, external forces, interaction-force pairs, and signed contact distances.
+

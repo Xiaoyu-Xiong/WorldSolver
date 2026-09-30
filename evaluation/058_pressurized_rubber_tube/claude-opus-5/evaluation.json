@@ -1,0 +1,183 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 9145393,
+          "trajectory_frames": 51,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "Each deformable body retains its initial material mass. Mass transferred numerically between bodies must not cancel in an aggregate total; this scene has no material sources or sinks.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "initial_quantity": [
+            378.63982625537926
+          ],
+          "sample_count": 51,
+          "worst_frame_index": 0
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.0,
+        "profile": "deformable_solids",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "deformation.jacobian.v1",
+        "criterion": "Every volumetric material element retains det(F) > 0. Report the maximum fraction of nonpositive determinants across frames, including elements hidden inside the material.",
+        "criterion_id": "orientation_preserving_deformation",
+        "details": {
+          "sample_count": 51,
+          "worst_frame_index": 35
+        },
+        "dimension": "deformation_validity",
+        "domain": "physics",
+        "metric": "nonpositive_jacobian_fraction",
+        "normalized_error": 0.0003255208333333333,
+        "profile": "deformable_solids",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 99.96744791666666
+      },
+      {
+        "calculator": "dynamics.momentum_budget.v1",
+        "criterion": "At every solved load or pose, each unconstrained material node has zero net force. Check nodes separately so opposite residuals cannot cancel across the object.",
+        "criterion_id": "quasistatic_nodal_force_balance",
+        "details": {
+          "mode": "quasistatic",
+          "sample_count": 51,
+          "sample_times": [
+            0.0,
+            0.02,
+            0.04,
+            0.06,
+            0.08,
+            0.1,
+            0.12,
+            0.14,
+            0.16,
+            0.18,
+            0.2,
+            0.22,
+            0.24,
+            0.26,
+            0.28,
+            0.3,
+            0.32,
+            0.34,
+            0.36,
+            0.38,
+            0.4,
+            0.42,
+            0.44,
+            0.46,
+            0.48,
+            0.5,
+            0.52,
+            0.54,
+            0.56,
+            0.58,
+            0.6,
+            0.62,
+            0.64,
+            0.66,
+            0.68,
+            0.7000000000000001,
+            0.72,
+            0.74,
+            0.76,
+            0.78,
+            0.8,
+            0.8200000000000001,
+            0.84,
+            0.86,
+            0.88,
+            0.9,
+            0.92,
+            0.9400000000000001,
+            0.96,
+            0.98,
+            1.0
+          ],
+          "worst_frame_index": 37
+        },
+        "dimension": "momentum_and_force_balance",
+        "domain": "physics",
+        "metric": "linear_momentum_budget_residual",
+        "normalized_error": 9.633155007159779,
+        "profile": "deformable_solids",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 1.0274160837512532
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.06248199740725324,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.8160000000000001
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0162480768092719,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.954
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.023323807579381187,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.9039999999999999
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.06985699678629195,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.65
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "058_pressurized_rubber_tube",
+  "visual_score": 0.831,
+  "visual_fidelity_score": 83.1,
+  "physical_plausibility_score": 66.99828800013931,
+  "total_score": 75.04914400006965
+}

@@ -1,0 +1,102 @@
+schema_version: 4
+task_id: 032_tablecloth_pull_2_mps
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The submitted solver runs to the frozen end time, produces a complete finite trajectory
+      with every required evaluation field, and produces a readable platform render without exceeding
+      the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: The tablecloth visibly accelerates horizontally and is pulled out from beneath the dinnerware.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: The heavy dinnerware responds through limited sliding or tipping rather than moving rigidly
+      with the cloth.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: For the 2 m/s case, some objects remain on the table while some are visibly displaced or
+      fall, matching the characteristic intermediate-speed outcome.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: The departing cloth forms continuous folds and clears the objects without visible cloth-object
+      penetration, teleportation, or explosive snagging.
+  physics:
+  - id: material_mass_balance
+    profile: cloth_thin_shells_and_fibers
+    dimension: conservation_and_source_balance
+    criterion: For tablecloth pull 2 mps, the mass change equals the cumulative prescribed inflow, outflow,
+      or phase-transfer source; internal motion and contact do not create or delete mass.
+    applicability:
+      requires:
+      - prescribed sources and sinks are exported
+      - Per-sample mass contributions are exported for every evaluated material.
+      excludes:
+      - Unreported particle deletion or remeshing loss.
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: nonpenetrating_contact
+    profile: cloth_thin_shells_and_fibers
+    dimension: contact_and_interface_conditions
+    criterion: During tablecloth pull 2 mps, solid-solid and solid-boundary contacts maintain nonnegative
+      geometric gaps up to the contact tolerance and do not permit persistent interpenetration.
+    applicability:
+      requires:
+      - Signed geometric gaps are exported for active and near-contact pairs.
+      excludes:
+      - Pairs intentionally allowed to pass through or merge.
+    numeric_binding:
+      calculator: contact.penetration.v1
+      inputs:
+        signed_distance: fields.contact_signed_distance
+        length_scale: scalars.contact_length_scale
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: case_constraint_consistency
+    profile: cloth_thin_shells_and_fibers
+    dimension: kinematic_and_constitutive_constraints
+    criterion: The prescribed pull and cloth strain constraints active in tablecloth pull 2 mps is satisfied
+      throughout the intervals where that constraint applies.
+    applicability:
+      requires:
+      - The sampled physical value and prescribed target for the prescribed pull and cloth strain constraints
+        are exported in matching coordinates and units.
+      excludes:
+      - Intervals in which the constraint is deliberately inactive.
+    numeric_binding:
+      calculator: constraint.target.v1
+      inputs:
+        value: fields.constraint_value
+        target: fields.constraint_target
+        scale: scalars.constraint_scale
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: linear_momentum_balance
+    profile: rigid_bodies
+    dimension: conservation_and_force_balance
+    criterion: The time rate of total linear momentum is consistent with the exported external forces;
+      internal contact forces cancel in the aggregate.
+    applicability:
+      requires:
+      - Mass, velocity, and external force are exported for every dynamic sample.
+      - External forces include gravity, actuators, and prescribed boundary reactions where applicable.
+      excludes:
+      - Runs with unreported impulses, deleted mass, or unexported external forcing.
+    numeric_binding:
+      calculator: dynamics.linear_momentum_balance.v1
+      inputs:
+        mass: state.mass
+        velocity: state.velocity
+        external_force: fields.external_force
+      parameters: {}
+      reduction:
+        type: maximum

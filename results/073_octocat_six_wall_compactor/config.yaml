@@ -1,0 +1,27 @@
+schema_version: 1
+scene_id: 073_octocat_six_wall_compactor
+seed: 73015
+duration: 8.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, 0.0]
+compactor:
+  open_inner_half_extent: 1.45
+  closed_inner_half_extent: 0.62
+  wall_thickness: 0.10
+  inward_interval: [1.0, 3.2]
+  hold_interval: [3.2, 4.2]
+  withdrawal_interval: [4.2, 6.4]
+  final_observation_interval: [6.4, 8.0]
+initial_conditions:
+  octocat_center: [0.0, 0.0, 0.0]
+  octocat_velocity: [0.0, 0.0, 0.0]
+  stress_free: true
+  tentacle_count: 8
+camera:
+  position: [3.4, -4.2, 2.8]
+  look_at: [0.0, 0.0, 0.12]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

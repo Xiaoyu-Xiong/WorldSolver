@@ -1,0 +1,30 @@
+id: 155_knit_legwarmer_deformation
+title: Knitted Legwarmer Deformation
+category: cloth_and_shells
+source:
+  title: Simulating Knitted Cloth at the Yarn Level
+  url: https://people.eecs.berkeley.edu/~sequin/CS285/PAPERS/Kaldor_Simul-Knitting.pdf
+  anchor: Figure 10
+goal: >-
+  Recreate the paper's clearly visible knitted legwarmer deformation phenomenon. The implementation method is unrestricted;
+  evaluation targets thin-material motion, folds or tears, contact response, and the characteristic outcome.
+scene_requirements:
+  required_elements:
+  - Tubular knitted sleeve
+  - Articulated leg-shaped collider
+  - Driven bending motion
+  - Yarn friction and contact
+  initial_state:
+  - A knitted tube fits around a straight articulated leg without overlap.
+  required_events:
+  - The leg bends at its joint and compresses the inside of the sleeve.
+  - Knit loops rearrange as the sleeve stretches outside the bend and bunches inside it.
+  - The sleeve follows the articulation with recoverable local deformation and no unraveling or body penetration.
+  - Motion remains temporally coherent and all non-tearing regions preserve sheet connectivity.
+camera_requirements:
+- Use a close side view showing inner compression, outer stretch, and joint motion.
+- Use lighting and material contrast that make folds, wrinkles, contacts, and any crack tip readable.
+parameter_notes:
+- Match the qualitative geometry, stiffness regime, and event ordering shown in Figure 10; mesh resolution may be adapted.
+- Export cloth mass, position, velocity, external force, surface deformation gradients, and signed contact distances.
+

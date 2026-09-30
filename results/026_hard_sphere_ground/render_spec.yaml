@@ -1,0 +1,12 @@
+schema_version: 2
+profile: deformable_surface
+environment: studio_neutral
+camera: frozen_config
+bindings:
+- object_id: ground
+  method: rigid_mesh
+  material: matte
+- object_id: subject
+  method: deformed_mesh
+  material: default
+  subdivision: 1

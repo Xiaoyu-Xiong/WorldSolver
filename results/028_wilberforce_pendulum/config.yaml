@@ -1,0 +1,22 @@
+schema_version: 1
+scene_id: 028_wilberforce_pendulum
+seed: 28028
+duration: 12.0
+sample_dt: 0.01
+camera:
+  position:
+  - 3.2
+  - 3.2
+  - 2.8
+  look_at:
+  - 0.0
+  - 0.0
+  - 1.0
+  up:
+  - 0.0
+  - 0.0
+  - 1.0
+  width: 960
+  height: 640
+  fps: 50
+visual_judge_frame_count: 20

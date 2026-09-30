@@ -1,0 +1,12 @@
+schema_version: 2
+profile: rigid_contact
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: floor, method: rigid_mesh, material: matte, color_rgb: [0.18, 0.21, 0.26]}
+  - {object_id: guide_lower, method: rigid_mesh, material: metal, color_rgb: [0.50, 0.55, 0.62]}
+  - {object_id: guide_upper, method: rigid_mesh, material: metal, color_rgb: [0.50, 0.55, 0.62]}
+  - {object_id: crank_axle, method: rigid_mesh, material: metal, color_rgb: [0.78, 0.82, 0.88]}
+  - {object_id: crank, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: rod, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: piston, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}

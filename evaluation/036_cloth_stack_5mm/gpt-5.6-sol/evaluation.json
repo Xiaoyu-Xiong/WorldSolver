@@ -1,0 +1,129 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 7072354,
+          "trajectory_frames": 91,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "For cloth stack 5mm, the mass change equals the cumulative prescribed inflow, outflow, or phase-transfer source; internal motion and contact do not create or delete mass.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "initial_quantity": [
+            1.1999999999999997
+          ],
+          "sample_count": 91,
+          "worst_frame_index": 0
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.0,
+        "profile": "cloth_thin_shells_and_fibers",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "contact.penetration.v1",
+        "criterion": "During cloth stack 5mm, solid-solid and solid-boundary contacts maintain nonnegative geometric gaps up to the contact tolerance and do not permit persistent interpenetration.",
+        "criterion_id": "nonpenetrating_contact",
+        "details": {
+          "sample_count": 91,
+          "worst_frame_index": 14
+        },
+        "dimension": "contact_and_interface_conditions",
+        "domain": "physics",
+        "metric": "penetration_relative_max",
+        "normalized_error": 0.2552104351922232,
+        "profile": "cloth_thin_shells_and_fibers",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 16.382139741883243
+      },
+      {
+        "calculator": "constraint.target.v1",
+        "criterion": "The 5 mm thickness-offset contact condition active in cloth stack 5mm is satisfied throughout the intervals where that constraint applies.",
+        "criterion_id": "case_constraint_consistency",
+        "details": {
+          "sample_count": 91,
+          "worst_frame_index": 13
+        },
+        "dimension": "kinematic_and_constitutive_constraints",
+        "domain": "physics",
+        "metric": "constraint_relative_rms",
+        "normalized_error": 7.60062507893738e-05,
+        "profile": "cloth_thin_shells_and_fibers",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 99.92405147483713
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.1840217378463751,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.296
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.1484048516727132,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.284
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.07348469228349536,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.06000000000000001
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.10295630140987001,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.27
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "036_cloth_stack_5mm",
+  "visual_score": 0.2275,
+  "visual_fidelity_score": 22.75,
+  "physical_plausibility_score": 72.10206373890679,
+  "total_score": 47.426031869453396
+}

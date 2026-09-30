@@ -1,0 +1,25 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: ground
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [2.4, 2.0, 0.05]}
+    transform: {translation: [0.0, 0.0, -0.05]}
+    material_id: ground
+    collision_enabled: true
+  - id: funnel
+    semantic: boundary
+    motion: static
+    geometry: {type: triangle_mesh, asset: assets/funnel.obj}
+    transform: {translation: [0.0, 0.0, 0.0]}
+    material_id: funnel
+    collision_enabled: true
+  - id: cloth
+    semantic: cloth
+    motion: dynamic
+    geometry: {type: triangle_mesh, topology_asset: assets/cloth_topology.json, grid_shape: [17, 17]}
+    state_binding: {selector: all}
+    material_id: cloth
+    collision_enabled: true

@@ -1,0 +1,129 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 33759605,
+          "trajectory_frames": 151,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "For the shallow-water layer, the mass change equals the cumulative prescribed inflow, outflow, or phase-transfer source; internal motion and contact do not create or delete mass.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "initial_quantity": [
+            1921.796875
+          ],
+          "sample_count": 151,
+          "worst_frame_index": 48
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 2.366261267265637e-16,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 99.99999999999764
+      },
+      {
+        "calculator": "field.continuity.v1",
+        "criterion": "The density or height field in shallow water obstacle satisfies the source-aware continuity equation rather than being constrained to constant volume.",
+        "criterion_id": "continuity_equation_consistency",
+        "details": {
+          "sample_count": 151,
+          "worst_frame_index": 0
+        },
+        "dimension": "transport_equation_consistency",
+        "domain": "physics",
+        "metric": "continuity_relative_l2",
+        "normalized_error": 1.0,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.0
+      },
+      {
+        "calculator": "boundary.velocity_residual.v1",
+        "criterion": "At impermeable or moving boundaries in shallow water obstacle, the sampled material velocity matches the prescribed normal boundary velocity.",
+        "criterion_id": "prescribed_boundary_velocity",
+        "details": {
+          "sample_count": 151,
+          "worst_frame_index": 58
+        },
+        "dimension": "boundary_and_interface_conditions",
+        "domain": "physics",
+        "metric": "normal_velocity_relative_rms",
+        "normalized_error": 1.2865920008457683e-17,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 99.99999999999999
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.00489897948556636,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.954
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.00979795897113272,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.892
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.03878143885933063,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.776
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.016248076809271882,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.9259999999999999
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "005_shallow_water_obstacle",
+  "visual_score": 0.887,
+  "visual_fidelity_score": 88.7,
+  "physical_plausibility_score": 66.66666666666588,
+  "total_score": 77.68333333333294
+}

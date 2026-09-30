@@ -1,0 +1,14 @@
+schema_version: 2
+profile: deformable_surface
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - object_id: wall_mount
+    method: rigid_mesh
+    material: clamp_dark
+    color_rgb: [0.16, 0.18, 0.21]
+  - object_id: spine_arm
+    method: deformed_mesh
+    material: rubber_ivory
+    color_rgb: [0.84, 0.86, 0.82]
+    subdivision: 1

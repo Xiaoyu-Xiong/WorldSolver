@@ -1,0 +1,26 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - object_id: catch_floor
+    method: rigid_mesh
+    material: concrete
+    color_rgb: [0.20, 0.22, 0.23]
+  - object_id: water_nozzle
+    method: rigid_mesh
+    material: brushed_metal
+    color_rgb: [0.42, 0.46, 0.50]
+  - object_id: elastic_bag
+    method: shell_surface
+    material: emerald_cloth
+    color_rgb: [0.08, 0.72, 0.43]
+    opacity: 0.82
+    subdivision: 1
+  - object_id: water
+    method: reconstructed_surface
+    material: clear_water
+    color_rgb: [0.16, 0.55, 0.90]
+    opacity: 0.78
+    surface_pitch: 0.055
+    surface_smoothing: 1.15

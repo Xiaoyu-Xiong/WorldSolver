@@ -1,0 +1,85 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: hot_pan_base
+    semantic: boundary
+    motion: static
+    geometry:
+      type: cylinder
+      radius: 0.20
+      height: 0.018
+    transform:
+      translation: [0.0, 0.0, 0.009]
+    material_id: brushed_steel
+    collision_enabled: true
+  - id: hot_pan_rim
+    semantic: boundary
+    motion: static
+    geometry:
+      type: axisymmetric_container
+      inner_profile: [[0.185, 0.016], [0.190, 0.030], [0.205, 0.052]]
+      wall_thickness: 0.010
+    transform:
+      translation: [0.0, 0.0, 0.0]
+    material_id: brushed_steel
+    collision_enabled: true
+  - id: egg_white
+    semantic: liquid
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [-0.145, -0.120, 0.018]
+      bounds_max: [0.145, 0.120, 0.070]
+    state_binding:
+      selector: body_id
+      value: 1
+    material_id: egg_white
+    collision_enabled: true
+  - id: egg_yolk
+    semantic: liquid
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [-0.070, -0.060, 0.018]
+      bounds_max: [0.030, 0.060, 0.095]
+    state_binding:
+      selector: body_id
+      value: 2
+    material_id: egg_yolk
+    collision_enabled: true
+  - id: left_eggshell
+    semantic: rigid
+    motion: static
+    geometry:
+      type: sphere
+      radius: 0.030
+    transform:
+      translation: [-0.135, -0.085, 0.052]
+      scale: [1.4, 0.7, 0.28]
+    material_id: pale_eggshell
+    collision_enabled: false
+  - id: right_eggshell
+    semantic: rigid
+    motion: static
+    geometry:
+      type: sphere
+      radius: 0.028
+    transform:
+      translation: [0.125, 0.075, 0.052]
+      scale: [1.35, 0.72, 0.25]
+    material_id: pale_eggshell
+    collision_enabled: false
+  - id: egg_white_cooked_overlay
+    semantic: liquid
+    motion: static
+    geometry:
+      type: particle_domain
+      bounds_min: [-0.145, -0.120, 0.018]
+      bounds_max: [0.145, 0.120, 0.070]
+    state_binding:
+      selector: attribute
+      attribute_name: material_label
+      value: 1
+    material_id: solid_phase_fraction_overlay
+    collision_enabled: false

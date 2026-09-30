@@ -1,0 +1,32 @@
+id: 116_porous_cloth_buoyancy_contrast
+title: Buoyancy Contrast of Porous Cloth Pieces
+category: multiphysics_coupling
+source:
+  title: A Multi-Scale Model for Simulating Liquid-Fabric Interactions
+  url: https://www.cs.columbia.edu/cg/wetcloth/main.pdf
+  anchor: Figure 4, left comparison group; PDF page 5; experimental description on page 11
+goal: 'Recreate the source two-way coupled experiment: The light cloth reaches the surface, the neutral cloth
+  drifts with the water, and the heavy cloth reaches the bottom. Prescribe only the stated supports and controls;
+  the remaining solid response and fluid motion must be dynamically coupled.'
+scene_requirements:
+  required_elements:
+  - Three dynamically deformable porous cloth pieces immersed in water.
+  - The source light, neutrally buoyant, and heavy fabric density regimes.
+  - A water tank, gravity, pressure loading, and permeable cloth-liquid interaction.
+  - Fluid forces must change the dynamic solid motion or deformation, and the evolving solid must alter the
+    resolved fluid flow. The numerical coupling method is unrestricted.
+  - Water may pass through the fabric. Do not impose an impermeable interface or use a cloth bounding box as
+    displaced-water volume.
+  initial_state:
+  - Release the three cloth pieces in the source arrangement with no trajectory controls.
+  - Use the source buoyancy test with pressure forces enabled; the right-hand pressure-disabled ablation is
+    not the target.
+  required_events:
+  - After release, the light cloth rises and the heavy cloth moves downward.
+  - The cloth pieces fold and bend while moving through the surrounding water.
+  - The light cloth reaches the surface, the neutral cloth drifts with the water, and the heavy cloth reaches
+    the bottom.
+camera_requirements:
+- Use a fixed oblique side view of the full tank and distinguish the three cloth pieces by persistent colors.
+- Keep the onset, strongest interaction, and stated outcome visible in a continuous sequence. Passive tracer
+  or wetness colors must follow the simulated state rather than a scripted color change.

@@ -1,0 +1,149 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 7935071,
+          "trajectory_frames": 601,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "For the water and boat materials, the mass change equals the cumulative prescribed inflow, outflow, or phase-transfer source; internal motion and contact do not create or delete mass.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "initial_quantity": [
+            82.0,
+            24039.50399999873
+          ],
+          "sample_count": 601,
+          "worst_frame_index": 310
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.012038609828106351,
+        "profile": "multiphysics_coupling",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 45.37491283704641
+      },
+      {
+        "calculator": "dynamics.linear_momentum_balance.v1",
+        "criterion": "For boat filled and sunk, the time rate of total linear momentum is consistent with the exported external forces; internal forces may redistribute momentum but cancel in the total balance.",
+        "criterion_id": "linear_momentum_balance",
+        "details": {
+          "sample_count": 601,
+          "worst_frame_index": 17
+        },
+        "dimension": "momentum_and_force_balance",
+        "domain": "physics",
+        "metric": "momentum_balance_relative_l2",
+        "normalized_error": 1.0,
+        "profile": "multiphysics_coupling",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.0
+      },
+      {
+        "calculator": "coupling.force_balance.v1",
+        "criterion": "The paired internal interaction forces exchanged between materials in boat filled and sunk are equal and opposite in the aggregate.",
+        "criterion_id": "internal_coupling_force_balance",
+        "details": {
+          "sample_count": 601,
+          "worst_frame_index": 0
+        },
+        "dimension": "multiphysics_exchange_balance",
+        "domain": "physics",
+        "metric": "interaction_force_relative_residual",
+        "normalized_error": 0.0,
+        "profile": "multiphysics_coupling",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "contact.penetration.v1",
+        "criterion": "During boat filled and sunk, solid-solid and solid-boundary contacts maintain nonnegative geometric gaps up to the contact tolerance and do not permit persistent interpenetration.",
+        "criterion_id": "nonpenetrating_contact",
+        "details": {
+          "sample_count": 601,
+          "worst_frame_index": 299
+        },
+        "dimension": "contact_and_interface_conditions",
+        "domain": "physics",
+        "metric": "penetration_relative_max",
+        "normalized_error": 0.3685630110500552,
+        "profile": "multiphysics_coupling",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 11.945632719566946
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.06782329983125268,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.8800000000000001
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.07735631842325486,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.636
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.12884098726725127,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.48
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0316227766016838,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.05
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "047_boat_filled_and_sunk",
+  "visual_score": 0.5115000000000001,
+  "visual_fidelity_score": 51.150000000000006,
+  "physical_plausibility_score": 39.33013638915334,
+  "total_score": 45.24006819457667
+}

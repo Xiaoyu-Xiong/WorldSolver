@@ -1,0 +1,59 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: tub_floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.56, 0.56, 0.025]}
+    transform: {translation: [0.0, 0.0, -0.025]}
+    material_id: tub_white
+    collision_enabled: true
+  - id: tub_back_wall
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.56, 0.03, 0.35]}
+    transform: {translation: [0.0, 0.53, 0.35]}
+    material_id: tub_white
+    collision_enabled: true
+  - id: tub_left_wall
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.03, 0.50, 0.35]}
+    transform: {translation: [-0.53, 0.0, 0.35]}
+    material_id: tub_white
+    collision_enabled: true
+  - id: tub_right_wall
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.03, 0.50, 0.35]}
+    transform: {translation: [0.53, 0.0, 0.35]}
+    material_id: tub_white
+    collision_enabled: true
+  - id: tub_front_wall
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.56, 0.025, 0.16]}
+    transform: {translation: [0.0, -0.525, 0.16]}
+    material_id: tub_white
+    collision_enabled: true
+  - id: water
+    semantic: liquid
+    motion: field
+    geometry:
+      type: particle_domain
+      bounds_min: [-0.50, -0.50, 0.0]
+      bounds_max: [0.50, 0.50, 0.40]
+    state_binding: {selector: body_id, value: 2}
+    material_id: clear_water
+    collision_enabled: true
+  - id: soft_torus
+    semantic: deformable
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/soft_torus.obj
+    transform: {translation: [0.0, 0.0, 0.66]}
+    state_binding: {selector: body_id, value: 1}
+    material_id: torus_orange
+    collision_enabled: true

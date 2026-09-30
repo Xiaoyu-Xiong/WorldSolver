@@ -1,0 +1,29 @@
+id: 115_soft_starfish_underwater_rocks
+title: A Soft Starfish Settles on Underwater Rocks
+category: multiphysics_coupling
+source:
+  title: Two-way Coupling of Fluids to Reduced Deformable Bodies
+  url: https://diglib.eg.org/items/f2ce3691-7af7-4387-9b9e-25487c441cad
+  anchor: Figure 2; PDF page 3; Figure 3 on page 4 provides the rigid comparison
+goal: 'Recreate the source two-way coupled experiment: The starfish settles into the uneven rock bed with a
+  visibly nonplanar arm arrangement. Prescribe only the stated supports and controls; the remaining solid response
+  and fluid motion must be dynamically coupled.'
+scene_requirements:
+  required_elements:
+  - A deformable elastic starfish above water containing a bed of irregular rigid rocks.
+  - Gravity, free-surface water, and starfish-rock contact.
+  - The source density regime in which the starfish sinks to the rocks.
+  - Fluid forces must change the dynamic solid motion or deformation, and the evolving solid must alter the
+    resolved fluid flow. The numerical coupling method is unrestricted.
+  initial_state:
+  - Release the starfish before its water entry, with arms free to deform.
+  - Keep the rock bed fixed and do not prescribe arm contacts or final arm shapes.
+  required_events:
+  - The starfish enters the water and its arms bend as it sinks.
+  - Different arms contact different rocks at different times and bend around those contacts.
+  - The starfish settles into the uneven rock bed with a visibly nonplanar arm arrangement.
+camera_requirements:
+- Use a fixed oblique view through clear water and transparent tank walls, revealing the starfish arms and
+  individual supporting rocks.
+- Keep the onset, strongest interaction, and stated outcome visible in a continuous sequence. Passive tracer
+  or wetness colors must follow the simulated state rather than a scripted color change.

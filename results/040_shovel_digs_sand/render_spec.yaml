@@ -1,0 +1,56 @@
+schema_version: 2
+profile: granular_particles
+environment: outdoor_soft
+camera: frozen_config
+bindings:
+- object_id: sandbox_floor
+  method: rigid_mesh
+  material: dark_floor
+  color_rgb:
+  - 0.21
+  - 0.25
+  - 0.29
+- object_id: sandbox_back_wall
+  method: rigid_mesh
+  material: warm_wood
+  color_rgb:
+  - 0.49
+  - 0.35
+  - 0.24
+- object_id: sandbox_front_wall
+  method: rigid_mesh
+  material: warm_wood
+  color_rgb:
+  - 0.49
+  - 0.35
+  - 0.24
+- object_id: sandbox_left_wall
+  method: rigid_mesh
+  material: warm_wood
+  color_rgb:
+  - 0.49
+  - 0.35
+  - 0.24
+- object_id: sandbox_right_wall
+  method: rigid_mesh
+  material: warm_wood
+  color_rgb:
+  - 0.49
+  - 0.35
+  - 0.24
+- object_id: sand_bed
+  method: particle_instances
+  material: golden_dry_sand
+  particle_radius_scale: 0.82
+  color_rgb:
+  - 0.84
+  - 0.6
+  - 0.28
+- object_id: shovel_blade
+  method: rigid_mesh
+  material: painted_blue_metal
+  subdivision: 1
+- object_id: shovel_shaft
+  method: rigid_mesh
+  material: painted_blue_metal
+  subdivision: 1

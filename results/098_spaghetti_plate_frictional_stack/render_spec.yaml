@@ -1,0 +1,165 @@
+schema_version: 2
+profile: fiber_rods
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: plate
+    method: rigid_mesh
+    material: dark_ceramic
+    color_rgb: [0.20, 0.23, 0.19]
+  - object_id: strand_00
+    method: curve_tubes
+    material: spaghetti_0
+    color_rgb: [0.90, 0.52, 0.10]
+    subdivision: 1
+  - object_id: strand_01
+    method: curve_tubes
+    material: spaghetti_1
+    color_rgb: [0.16, 0.58, 0.72]
+    subdivision: 1
+  - object_id: strand_02
+    method: curve_tubes
+    material: spaghetti_2
+    color_rgb: [0.73, 0.24, 0.22]
+    subdivision: 1
+  - object_id: strand_03
+    method: curve_tubes
+    material: spaghetti_3
+    color_rgb: [0.34, 0.68, 0.34]
+    subdivision: 1
+  - object_id: strand_04
+    method: curve_tubes
+    material: spaghetti_0
+    color_rgb: [0.58, 0.34, 0.72]
+    subdivision: 1
+  - object_id: strand_05
+    method: curve_tubes
+    material: spaghetti_1
+    color_rgb: [0.92, 0.74, 0.16]
+    subdivision: 1
+  - object_id: strand_06
+    method: curve_tubes
+    material: spaghetti_2
+    color_rgb: [0.20, 0.44, 0.78]
+    subdivision: 1
+  - object_id: strand_07
+    method: curve_tubes
+    material: spaghetti_3
+    color_rgb: [0.78, 0.40, 0.62]
+    subdivision: 1
+  - object_id: strand_08
+    method: curve_tubes
+    material: spaghetti_0
+    color_rgb: [0.90, 0.52, 0.10]
+    subdivision: 1
+  - object_id: strand_09
+    method: curve_tubes
+    material: spaghetti_1
+    color_rgb: [0.16, 0.58, 0.72]
+    subdivision: 1
+  - object_id: strand_10
+    method: curve_tubes
+    material: spaghetti_2
+    color_rgb: [0.73, 0.24, 0.22]
+    subdivision: 1
+  - object_id: strand_11
+    method: curve_tubes
+    material: spaghetti_3
+    color_rgb: [0.34, 0.68, 0.34]
+    subdivision: 1
+  - object_id: strand_12
+    method: curve_tubes
+    material: spaghetti_0
+    color_rgb: [0.58, 0.34, 0.72]
+    subdivision: 1
+  - object_id: strand_13
+    method: curve_tubes
+    material: spaghetti_1
+    color_rgb: [0.92, 0.74, 0.16]
+    subdivision: 1
+  - object_id: strand_14
+    method: curve_tubes
+    material: spaghetti_2
+    color_rgb: [0.20, 0.44, 0.78]
+    subdivision: 1
+  - object_id: strand_15
+    method: curve_tubes
+    material: spaghetti_3
+    color_rgb: [0.78, 0.40, 0.62]
+    subdivision: 1
+  - object_id: strand_16
+    method: curve_tubes
+    material: spaghetti_0
+    color_rgb: [0.90, 0.52, 0.10]
+    subdivision: 1
+  - object_id: strand_17
+    method: curve_tubes
+    material: spaghetti_1
+    color_rgb: [0.16, 0.58, 0.72]
+    subdivision: 1
+  - object_id: strand_18
+    method: curve_tubes
+    material: spaghetti_2
+    color_rgb: [0.73, 0.24, 0.22]
+    subdivision: 1
+  - object_id: strand_19
+    method: curve_tubes
+    material: spaghetti_3
+    color_rgb: [0.34, 0.68, 0.34]
+    subdivision: 1
+  - object_id: strand_20
+    method: curve_tubes
+    material: spaghetti_0
+    color_rgb: [0.58, 0.34, 0.72]
+    subdivision: 1
+  - object_id: strand_21
+    method: curve_tubes
+    material: spaghetti_1
+    color_rgb: [0.92, 0.74, 0.16]
+    subdivision: 1
+  - object_id: strand_22
+    method: curve_tubes
+    material: spaghetti_2
+    color_rgb: [0.20, 0.44, 0.78]
+    subdivision: 1
+  - object_id: strand_23
+    method: curve_tubes
+    material: spaghetti_3
+    color_rgb: [0.78, 0.40, 0.62]
+    subdivision: 1
+  - object_id: strand_24
+    method: curve_tubes
+    material: spaghetti_0
+    color_rgb: [0.90, 0.52, 0.10]
+    subdivision: 1
+  - object_id: strand_25
+    method: curve_tubes
+    material: spaghetti_1
+    color_rgb: [0.16, 0.58, 0.72]
+    subdivision: 1
+  - object_id: strand_26
+    method: curve_tubes
+    material: spaghetti_2
+    color_rgb: [0.73, 0.24, 0.22]
+    subdivision: 1
+  - object_id: strand_27
+    method: curve_tubes
+    material: spaghetti_3
+    color_rgb: [0.34, 0.68, 0.34]
+    subdivision: 1
+  - object_id: strand_28
+    method: curve_tubes
+    material: spaghetti_0
+    color_rgb: [0.58, 0.34, 0.72]
+    subdivision: 1
+  - object_id: strand_29
+    method: curve_tubes
+    material: spaghetti_1
+    color_rgb: [0.92, 0.74, 0.16]
+    subdivision: 1
+  - object_id: strand_30
+    method: curve_tubes
+    material: spaghetti_2
+    color_rgb: [0.20, 0.44, 0.78]
+    subdivision: 1
+

@@ -1,0 +1,107 @@
+schema_version: 4
+task_id: 014_inclined_chair_stick_slip
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The submitted solver runs to the frozen end time, produces a complete finite trajectory
+      with every required evaluation field, and produces a readable platform render without exceeding
+      the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: The chair begins moving down the incline through visibly alternating pauses and short sliding
+      advances.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: Repeated changes in the contacting chair legs produce recognizable stick-slip chatter rather
+      than smooth constant sliding.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: The chair progresses downslope while retaining a plausible overall pose and contact with
+      the surface.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: The chair does not exhibit visible surface penetration, continuous numerical drift during
+      a sticking interval, teleportation, or explosive ejection.
+  physics:
+  - id: center_of_mass_consistency
+    profile: rigid_bodies
+    dimension: kinematic_consistency
+    criterion: Each rigid body's mass-weighted center displacement agrees with the time integral
+      of its mass-weighted velocity, using trapezoidal quadrature between exported frames.
+    applicability:
+      requires:
+      - Persistent body_id values and positive total mass for every evaluated rigid body.
+      - Position, velocity, and mass samples describe the same body mass distribution.
+      - Sampling resolves the motion; unresolved impulses can introduce quadrature error.
+      excludes:
+      - Bodies with mass exchange, changing identity, or inconsistent center-of-mass samples.
+    numeric_binding:
+      calculator: trajectory.center_of_mass_consistency.v1
+      inputs:
+        position: state.position
+        velocity: state.velocity
+        mass: state.mass
+        body_id: state.body_id
+      parameters:
+        displacement_floor: 1.0e-8
+      reduction:
+        type: rms
+  - id: nonpenetrating_contact
+    profile: rigid_bodies_and_contact
+    dimension: contact_and_interface_conditions
+    criterion: During inclined chair stick slip, solid-solid and solid-boundary contacts maintain nonnegative
+      geometric gaps up to the contact tolerance and do not permit persistent interpenetration.
+    applicability:
+      requires:
+      - Signed geometric gaps are exported for active and near-contact pairs.
+      excludes:
+      - Pairs intentionally allowed to pass through or merge.
+    numeric_binding:
+      calculator: contact.penetration.v1
+      inputs:
+        signed_distance: fields.contact_signed_distance
+        length_scale: scalars.contact_length_scale
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: linear_momentum_balance
+    profile: rigid_bodies_and_contact
+    dimension: momentum_and_force_balance
+    criterion: For inclined chair stick slip, the time rate of total linear momentum is consistent with
+      the exported external forces; internal forces may redistribute momentum but cancel in the total
+      balance.
+    applicability:
+      requires:
+      - Mass, velocity, and all external forces are exported at the trajectory sampling times.
+      excludes:
+      - Frames spanning an unreported impulsive external intervention.
+    numeric_binding:
+      calculator: dynamics.linear_momentum_balance.v1
+      inputs:
+        mass: state.mass
+        velocity: state.velocity
+        external_force: fields.external_force
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: case_constraint_consistency
+    profile: rigid_bodies_and_contact
+    dimension: kinematic_and_constitutive_constraints
+    criterion: The Coulomb stick-slip condition active in inclined chair stick slip is satisfied throughout
+      the intervals where that constraint applies.
+    applicability:
+      requires:
+      - The sampled physical value and prescribed target for the Coulomb stick-slip condition are exported
+        in matching coordinates and units.
+      excludes:
+      - Intervals in which the constraint is deliberately inactive.
+    numeric_binding:
+      calculator: constraint.target.v1
+      inputs:
+        value: fields.constraint_value
+        target: fields.constraint_target
+        scale: scalars.constraint_scale
+      parameters: {}
+      reduction:
+        type: maximum

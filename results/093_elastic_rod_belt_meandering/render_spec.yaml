@@ -1,0 +1,22 @@
+schema_version: 2
+profile: fiber_rods
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - object_id: elastic_rod
+    method: curve_tubes
+    material: silicone_lime
+    color_rgb: [0.72, 0.95, 0.25]
+    subdivision: 2
+  - object_id: conveyor_belt
+    method: rigid_mesh
+    material: belt_charcoal
+    color_rgb: [0.035, 0.045, 0.050]
+  - object_id: injector
+    method: rigid_mesh
+    material: brushed_steel
+    color_rgb: [0.67, 0.70, 0.72]
+  - object_id: belt_direction_marker
+    method: rigid_mesh
+    material: direction_white
+    color_rgb: [0.82, 0.84, 0.84]

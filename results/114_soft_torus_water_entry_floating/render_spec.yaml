@@ -1,0 +1,22 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - {object_id: tub_floor, method: rigid_mesh, material: tub_white, color_rgb: [0.88, 0.89, 0.87]}
+  - {object_id: tub_back_wall, method: rigid_mesh, material: tub_white, color_rgb: [0.92, 0.93, 0.91]}
+  - {object_id: tub_left_wall, method: rigid_mesh, material: tub_white, color_rgb: [0.90, 0.91, 0.89]}
+  - {object_id: tub_right_wall, method: rigid_mesh, material: tub_white, color_rgb: [0.90, 0.91, 0.89]}
+  - {object_id: tub_front_wall, method: rigid_mesh, material: tub_white, color_rgb: [0.94, 0.94, 0.92]}
+  - object_id: water
+    method: reconstructed_surface
+    material: clear_water
+    color_rgb: [0.18, 0.58, 0.82]
+    opacity: 0.72
+    surface_pitch: 0.018
+    surface_smoothing: 1.1
+  - object_id: soft_torus
+    method: deformed_mesh
+    material: torus_orange
+    color_rgb: [1.0, 0.30, 0.07]
+    subdivision: 1

@@ -1,0 +1,33 @@
+schema_version: 1
+scene_id: 100_curly_hair_vertical_oscillation
+seed: 100
+duration: 5.5
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+physical_guide:
+  material_length: 0.50
+  radius: 0.00025
+  density: 1300.0
+  inextensible: true
+  natural_helix_radius: 0.035
+  natural_helix_pitch_per_turn: 0.070
+  internal_damping_gamma: 1.0e-10
+  ambient_drag_nu: 5.0e-6
+  tip_boundary: free
+root_motion:
+  type: vertical_sinusoid_after_hold
+  axis: [0.0, 0.0, 1.0]
+  rest_position: [0.0, 0.0, 0.34]
+  start_time: 0.5
+  amplitude: 0.075
+  frequency: 1.0
+  phase: 0.0
+  root_orientation_fixed: true
+camera:
+  position: [0.72, -1.45, 0.18]
+  look_at: [0.0, 0.0, 0.08]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

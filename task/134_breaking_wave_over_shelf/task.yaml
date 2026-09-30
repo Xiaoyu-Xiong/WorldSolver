@@ -1,0 +1,30 @@
+id: 134_breaking_wave_over_shelf
+title: Breaking Wave over a Submerged Shelf
+category: fluid_dynamics
+source:
+  title: Animation and Rendering of Complex Water Surfaces
+  url: https://graphics.stanford.edu/papers/water-sig02/water.pdf
+  anchor: Figures 5 and 8
+goal: >-
+  Recreate the paper's clearly visible breaking wave over a submerged shelf phenomenon. The implementation method is unrestricted;
+  evaluation targets the observable flow evolution, boundary interaction, signature structure, and final state.
+scene_requirements:
+  required_elements:
+  - Wave tank
+  - Submerged shelf or sloping bottom
+  - Water with a free surface
+  - Gravity
+  initial_state:
+  - A coherent incoming wave travels toward shallower water above a submerged shelf.
+  required_events:
+  - The wave steepens as its crest overtakes the slowing lower portion.
+  - The crest curls forward and impacts the water ahead, entraining a visible air cavity or spray region.
+  - A breaking bore travels onward with turbulent surface motion and reflected waves.
+  - The represented fluid remains continuous and respects rigid boundaries throughout the event.
+camera_requirements:
+- Use a side view spanning deep water, shelf transition, breaking point, and downstream runout.
+- Use contrasting fluid and obstacle colors and keep the complete phenomenon inside frame.
+parameter_notes:
+- Match the qualitative scale, flow regime, and event ordering shown in Figures 5 and 8; geometric simplification is allowed.
+- Export collocated velocity diagnostics, active masks, boundary samples, and transported liquid or smoke fields.
+

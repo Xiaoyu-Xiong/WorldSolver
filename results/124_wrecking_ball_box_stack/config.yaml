@@ -1,0 +1,165 @@
+schema_version: 1
+scene_id: 124_wrecking_ball_box_stack
+seed: 15124
+duration: 10.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+variant: wrecking_ball_box_stack
+gravity: [0.0, 0.0, -9.81]
+contact: {friction: 0.55, restitution: 0.12, length_scale: 0.02}
+bodies:
+  - id: box_0_0
+    position: [-0.9,0,0.18]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_0_1
+    position: [-0.54,0,0.18]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_0_2
+    position: [-0.18000000000000005,0,0.18]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_0_3
+    position: [0.18000000000000005,0,0.18]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_0_4
+    position: [0.5399999999999999,0,0.18]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_0_5
+    position: [0.8999999999999998,0,0.18]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_1_0
+    position: [-0.9,0,0.54]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_1_1
+    position: [-0.54,0,0.54]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_1_2
+    position: [-0.18000000000000005,0,0.54]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_1_3
+    position: [0.18000000000000005,0,0.54]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_1_4
+    position: [0.5399999999999999,0,0.54]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_1_5
+    position: [0.8999999999999998,0,0.54]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_2_0
+    position: [-0.9,0,0.8999999999999999]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_2_1
+    position: [-0.54,0,0.8999999999999999]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_2_2
+    position: [-0.18000000000000005,0,0.8999999999999999]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_2_3
+    position: [0.18000000000000005,0,0.8999999999999999]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_2_4
+    position: [0.5399999999999999,0,0.8999999999999999]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_2_5
+    position: [0.8999999999999998,0,0.8999999999999999]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_3_0
+    position: [-0.9,0,1.26]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_3_1
+    position: [-0.54,0,1.26]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_3_2
+    position: [-0.18000000000000005,0,1.26]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_3_3
+    position: [0.18000000000000005,0,1.26]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_3_4
+    position: [0.5399999999999999,0,1.26]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_3_5
+    position: [0.8999999999999998,0,1.26]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_4_0
+    position: [-0.9,0,1.6199999999999999]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_4_1
+    position: [-0.54,0,1.6199999999999999]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_4_2
+    position: [-0.18000000000000005,0,1.6199999999999999]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_4_3
+    position: [0.18000000000000005,0,1.6199999999999999]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_4_4
+    position: [0.5399999999999999,0,1.6199999999999999]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: box_4_5
+    position: [0.8999999999999998,0,1.6199999999999999]
+    orientation: [0,0,0,1]
+    mass: 0.7
+  - id: wrecking_ball
+    position: [-2.2,0,1.35]
+    orientation: [0,0,0,1]
+    mass: 8
+  - id: chain_0
+    position: [-2.2,0,1.95]
+    orientation: [0,0,0,1]
+    mass: 0.18
+  - id: chain_1
+    position: [-2.2,0,2.27]
+    orientation: [0,0,0,1]
+    mass: 0.18
+  - id: chain_2
+    position: [-2.2,0,2.59]
+    orientation: [0,0,0,1]
+    mass: 0.18
+  - id: chain_3
+    position: [-2.2,0,2.91]
+    orientation: [0,0,0,1]
+    mass: 0.18
+  - id: chain_4
+    position: [-2.2,0,3.23]
+    orientation: [0,0,0,1]
+    mass: 0.18
+  - id: chain_5
+    position: [-2.2,0,3.55]
+    orientation: [0,0,0,1]
+    mass: 0.18
+camera:
+  position: [5.6, -8.4, 4.5]
+  look_at: [0.0, 0.0, 1.75]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

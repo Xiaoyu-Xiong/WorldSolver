@@ -1,0 +1,12 @@
+schema_version: 2
+profile: cloth_shell
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: inclined_plane
+    method: rigid_mesh
+    material: ceramic
+  - object_id: inclined_cloth
+    method: shell_surface
+    material: default
+    subdivision: 1

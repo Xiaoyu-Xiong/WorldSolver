@@ -1,0 +1,17 @@
+schema_version: 2
+profile: fiber_rods
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: curly_hair_clump
+    method: curve_tubes
+    material: dark_brown_hair
+    color_rgb: [0.16, 0.055, 0.018]
+  - object_id: oscillating_root
+    method: rigid_mesh
+    material: root_marker
+    color_rgb: [0.9, 0.22, 0.08]
+  - object_id: root_support
+    method: rigid_mesh
+    material: brushed_metal
+    color_rgb: [0.25, 0.28, 0.31]

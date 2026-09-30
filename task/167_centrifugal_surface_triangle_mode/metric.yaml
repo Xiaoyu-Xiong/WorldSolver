@@ -1,0 +1,99 @@
+schema_version: 4
+task_id: 167_centrifugal_surface_triangle_mode
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The solver reaches the frozen end time, exports every required finite trajectory field, and produces a readable render within resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: Bottom-plate rotation first produces a visibly axisymmetric central free-surface depression.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: The circular depression undergoes symmetry breaking and develops 3 persistent azimuthal lobes.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: The mature free surface forms a stable rotating triangular depression with three persistent corners and rotates coherently around the cylinder axis.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: The liquid remains confined with a continuous free surface and no boundary leakage, teleportation, disconnected liquid, or numerical explosion.
+  physics:
+  - id: liquid_mass_balance
+    profile: fluids_and_gases
+    dimension: conservation_and_source_balance
+    criterion: Total liquid mass remains constant because the rotating vessel has no liquid source, sink, or open material boundary.
+    applicability:
+      requires:
+      - Per-sample liquid mass and a zero cumulative source are exported.
+      excludes:
+      - Prescribed liquid injection, drainage, or phase change.
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: interior_incompressibility
+    profile: fluids_and_gases
+    dimension: field_constraints
+    criterion: The active liquid-interior velocity field remains approximately divergence free.
+    applicability:
+      requires:
+      - A collocated three-dimensional velocity grid and liquid-interior mask are exported.
+      excludes:
+      - Compressible regions and prescribed source cells.
+    numeric_binding:
+      calculator: field.divergence.v1
+      inputs:
+        velocity_field: fields.velocity_field
+        active_mask: fields.liquid_interior_mask
+        grid_spacing: scalars.grid_spacing
+        characteristic_length: scalars.characteristic_length
+      parameters:
+        spatial_dimensions: 3
+      reduction:
+        type: maximum
+  - id: rotating_boundary_condition
+    profile: fluids_and_gases
+    dimension: boundary_and_interface_conditions
+    criterion: Liquid velocity at the driven bottom plate and stationary cylinder wall matches each boundary's prescribed normal velocity.
+    applicability:
+      requires:
+      - Collocated sampled boundary velocity, target velocity, normals, and reference velocity are exported.
+      excludes:
+      - Open or porous boundary segments.
+    numeric_binding:
+      calculator: boundary.velocity_residual.v1
+      inputs:
+        boundary_velocity: fields.boundary_velocity
+        boundary_target_velocity: fields.boundary_target_velocity
+        boundary_normal: fields.boundary_normal
+        reference_velocity: scalars.reference_velocity
+      parameters:
+        condition: no_penetration
+        spatial_dimensions: 3
+      reduction:
+        type: maximum
+  - id: free_surface_kinematic_consistency
+    profile: fluids_and_gases
+    dimension: transport_equation_consistency
+    criterion: The liquid-air level set is transported consistently by the collocated liquid velocity through polygon formation and rotation.
+    applicability:
+      requires:
+      - A signed level set and collocated velocity grid are exported each frame.
+      excludes:
+      - Phase change or prescribed interfacial mass flux.
+    numeric_binding:
+      calculator: interface.level_set_kinematic.v1
+      inputs:
+        level_set: fields.liquid_level_set
+        velocity_field: fields.velocity_field
+        grid_spacing: scalars.grid_spacing
+      parameters:
+        spatial_dimensions: 3
+        interface_band_cells: 1.5
+      reduction:
+        type: maximum
+

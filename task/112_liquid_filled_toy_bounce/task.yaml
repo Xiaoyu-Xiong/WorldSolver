@@ -1,0 +1,28 @@
+id: 112_liquid_filled_toy_bounce
+title: A Liquid-Filled Deformable Toy Bounces
+category: multiphysics_coupling
+source:
+  title: Simultaneous Coupling of Fluids and Deformable Bodies
+  url: https://graphics.berkeley.edu/papers/Chentanez-SCP-2006-08/index.html
+  anchor: Figure 2; Section 4.1; PDF pages 4-5
+goal: 'Recreate the source two-way coupled experiment: The shell recovers while liquid motion continues inside
+  the cavity. Prescribe only the stated supports and controls; the remaining solid response and fluid motion
+  must be dynamically coupled.'
+scene_requirements:
+  required_elements:
+  - The source closed deformable toy with an impermeable wall enclosing liquid.
+  - A solid floor, gravity, and two passive colored marker regions in the liquid.
+  - A transparent or cutaway rendering of the shell that does not change its physical boundary.
+  - Fluid forces must change the dynamic solid motion or deformation, and the evolving solid must alter the
+    resolved fluid flow. The numerical coupling method is unrestricted.
+  initial_state:
+  - Use the source filled cavity and drop/bounce configuration, before the first floor impact.
+  - The internal liquid is dynamic and the markers are advected by it, not attached to the shell.
+  required_events:
+  - The toy flattens against the floor and subsequently rebounds away from it.
+  - The colored liquid regions swirl and move relative to the enclosing shell during impact.
+  - The shell recovers while liquid motion continues inside the cavity.
+camera_requirements:
+- Use a fixed oblique side view with a transparent shell, visible floor, and high-contrast passive liquid markers.
+- Keep the onset, strongest interaction, and stated outcome visible in a continuous sequence. Passive tracer
+  or wetness colors must follow the simulated state rather than a scripted color change.

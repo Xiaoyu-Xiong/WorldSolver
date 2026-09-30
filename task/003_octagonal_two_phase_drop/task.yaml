@@ -1,0 +1,28 @@
+id: 003_octagonal_two_phase_drop
+title: Octagonal Two Phase Drop
+category: fluid_dynamics
+source:
+  title: 'Power Particles: An Incompressible Fluid Solver Based on Power Diagrams'
+  url: https://www.geometry.caltech.edu/pubs/dGWH%2B15.pdf
+  anchor: Figure 3; PDF page 4
+goal: Recreate the observable physical phenomenon in which a heavy blue liquid is dropped into an octagonal
+  container and a pink liquid with one quarter of its density is then dropped on top. The implementation
+  method is unrestricted; the target is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Visible density field
+  - Visible domain boundaries
+  initial_state:
+  - A heavy blue liquid is dropped into an octagonal container and a pink liquid with one quarter of its
+    density is then dropped on top.
+  required_events:
+  - Qualitative/quantitative - phase separation
+  - Buoyancy-driven rearrangement
+  - Interface continuity
+  - Per-phase volume conservation
+camera_requirements:
+- Use a three-quarter or side view that keeps the source, main interaction region, free surface or plume,
+  obstacles, and final state visible; avoid occlusion and excessive top-down views.
+parameter_notes:
+- 'Original paper parameters/configuration: 130,000 particles for the heavy phase and 70,000 for the four-times-lighter
+  phase.'

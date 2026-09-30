@@ -1,0 +1,67 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: sandbox_floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [2.65, 1.80, 0.10]}
+    transform: {translation: [0.0, 0.0, -0.10]}
+    material_id: dark_floor
+    collision_enabled: true
+  - id: sandbox_back_wall
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [2.65, 0.10, 0.38]}
+    transform: {translation: [0.0, 1.60, 0.28]}
+    material_id: warm_wood
+    collision_enabled: true
+  - id: sandbox_front_wall
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [2.65, 0.10, 0.38]}
+    transform: {translation: [0.0, -1.60, 0.28]}
+    material_id: warm_wood
+    collision_enabled: true
+  - id: sandbox_left_wall
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.10, 1.50, 0.38]}
+    transform: {translation: [-2.55, 0.0, 0.28]}
+    material_id: warm_wood
+    collision_enabled: true
+  - id: sandbox_right_wall
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.10, 1.50, 0.38]}
+    transform: {translation: [2.55, 0.0, 0.28]}
+    material_id: warm_wood
+    collision_enabled: true
+  - id: sand_bed
+    semantic: granular
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [-2.20, -1.35, 0.0]
+      bounds_max: [2.20, 1.35, 1.45]
+    state_binding: {selector: body_id, value: 1}
+    material_id: dry_sand
+    collision_enabled: true
+  - id: shovel_blade
+    semantic: rigid
+    motion: kinematic
+    geometry: {type: box, half_extents: [0.14, 0.64, 0.34]}
+    transform:
+      translation: [-2.05, 0.0, 0.38]
+      rotation_xyzw: [0.0, -0.0872, 0.0, 0.9962]
+    material_id: painted_blue_metal
+    collision_enabled: true
+  - id: shovel_shaft
+    semantic: rigid
+    motion: kinematic
+    geometry: {type: capsule, radius: 0.065, height: 2.00}
+    transform:
+      translation: [-2.76, 0.0, 1.25]
+      rotation_xyzw: [0.0, -0.3606, 0.0, 0.9327]
+    material_id: painted_blue_metal
+    collision_enabled: true

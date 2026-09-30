@@ -1,0 +1,25 @@
+id: 060_pneumatic_bubble
+title: Inflation of a Pneumatic Bubble Chamber
+category: elastic_solids
+source:
+  title: Locking-Proof Tetrahedra
+  url: https://research.chalmers.se/publication/524762/file/524762_Fulltext.pdf
+  anchor: Figure 6, middle (bubble), PDF page 9; Table 1, PDF page 12 (institutional cover included)
+goal: 'Recreate the source experiment: The final pressurized chamber has a visibly fuller, wider profile
+  than the initial chamber. The numerical implementation is unrestricted; the deforming material is a
+  three-dimensional solid.'
+scene_requirements:
+  required_elements:
+  - The bubble air-chamber geometry from Figure 6, with volumetric rubber walls.
+  - Prescribed internal pressure and the source geometry constraints.
+  initial_state:
+  - The chamber starts in its uninflated rest shape.
+  required_events:
+  - The chamber wall moves outward from the uninflated outline when pressure is applied.
+  - The flexible wall develops a rounded bulge while retaining its attachment to the chamber base and
+    rim.
+  - The final pressurized chamber has a visibly fuller, wider profile than the initial chamber.
+camera_requirements:
+- Use a fixed side or three-quarter view that exposes the bulging wall and its base attachment.
+- Keep the relevant objects visible before loading or contact, during the largest deformation, and during
+  the stated outcome.

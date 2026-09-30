@@ -1,0 +1,151 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 5103398,
+          "trajectory_frames": 211,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "Total represented sheet mass follows the exported cumulative source and remains conserved through deformation.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "error": "all input arrays must have the same shape"
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": null,
+        "profile": "cloth_thin_shells_and_fibers",
+        "reduction": {
+          "type": "maximum"
+        },
+        "status": "measurement_error",
+        "unit": "dimensionless",
+        "score": 0.0
+      },
+      {
+        "calculator": "dynamics.linear_momentum_balance.v1",
+        "criterion": "The time rate of total sheet momentum is consistent with exported external forces.",
+        "criterion_id": "linear_momentum_balance",
+        "details": {
+          "error": "Missing calculator input fields: ['fields.external_force']",
+          "missing_fields": [
+            "fields.external_force"
+          ]
+        },
+        "dimension": "momentum_and_force_balance",
+        "domain": "physics",
+        "metric": "momentum_balance_relative_l2",
+        "normalized_error": null,
+        "profile": "cloth_thin_shells_and_fibers",
+        "reduction": {
+          "type": "maximum"
+        },
+        "status": "measurement_error",
+        "unit": "dimensionless",
+        "score": 0.0
+      },
+      {
+        "calculator": "deformation.strain_limit.v1",
+        "criterion": "Principal stretches in intact sheet elements remain inside the stated broad admissible interval.",
+        "criterion_id": "controlled_surface_strain",
+        "details": {
+          "sample_count": 211,
+          "worst_frame_index": 90
+        },
+        "dimension": "deformation_constraints",
+        "domain": "physics",
+        "metric": "strain_limit_relative_max",
+        "normalized_error": 0.33301820832813583,
+        "profile": "cloth_thin_shells_and_fibers",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 23.093717094737325
+      },
+      {
+        "calculator": "contact.penetration.v1",
+        "criterion": "Cloth-solid and cloth-self contacts maintain nonnegative gaps up to the frozen thickness tolerance.",
+        "criterion_id": "nonpenetrating_contact",
+        "details": {
+          "error": "Missing calculator input fields: ['fields.contact_signed_distance']",
+          "missing_fields": [
+            "fields.contact_signed_distance"
+          ]
+        },
+        "dimension": "contact_and_interface_conditions",
+        "domain": "physics",
+        "metric": "penetration_relative_max",
+        "normalized_error": null,
+        "profile": "cloth_thin_shells_and_fibers",
+        "reduction": {
+          "type": "maximum"
+        },
+        "status": "measurement_error",
+        "unit": "dimensionless",
+        "score": 0.0
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.08,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.33999999999999997
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.130384048104053,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.7
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.06782329983125268,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.32
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.04454211490264018,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.784
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "physics_measurement_error",
+  "task_id": "151_compressed_cloth_wrinkle_band",
+  "visual_score": 0.536,
+  "visual_fidelity_score": 53.6,
+  "physical_plausibility_score": 5.773429273684331,
+  "total_score": 29.686714636842165
+}

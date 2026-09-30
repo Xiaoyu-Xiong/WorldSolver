@@ -1,0 +1,27 @@
+schema_version: 1
+scene_id: 166_rotating_drum_radial_to_axial_segregation
+seed: 22166
+duration: 14.0
+sample_dt: 0.04
+visual_judge_frame_count: 20
+family: dry_granular
+gravity: [0.0, 0.0, -9.81]
+centrifuge:
+  radius: 0.92
+  length: 4.8
+  center_height: 1.05
+  fill_fraction: 0.52
+  angular_velocity_rad_s: 5.5
+  spacing: 0.115
+  particle_density: 1600
+  species_count: 2
+  field_grid_shape: [40, 18, 18]
+camera:
+  position: [2.4, -8.8, 5.6]
+  look_at: [0.0, 0.0, 1.0]
+  up: [0.0, 0.0, 1.0]
+  projection: orthographic
+  orthographic_height: 4.0
+  width: 960
+  height: 640
+  fps: 50

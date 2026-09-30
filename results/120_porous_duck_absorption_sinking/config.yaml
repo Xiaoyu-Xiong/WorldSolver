@@ -1,0 +1,41 @@
+schema_version: 1
+scene_id: 120_porous_duck_absorption_sinking
+seed: 120
+duration: 12.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+permeability_control:
+  initially_enabled: false
+  switch_time: 2.0
+  intrinsic_permeability_after_switch_m2: 3.0e-8
+  switch_effect: transport_property_only
+  forbidden_direct_effects: [mass_change, position_change, velocity_change]
+duck:
+  dry_bulk_density_kg_m3: 640.0
+  porosity: 0.62
+  initial_saturation: 0.0
+  contact_angle_degrees: 45.0
+  dry_material_mass_is_constant: true
+fluid:
+  density_kg_m3: 1000.0
+  initial_surface_z: 0.82
+  initial_velocity: [0.0, 0.0, 0.0]
+boundaries:
+  tank: fixed_impermeable_contact_walls
+coupling:
+  free_and_pore_liquid_mass_conservative: true
+  fluid_forces_change_duck_motion_or_deformation: true
+  evolving_duck_changes_resolved_fluid_flow: true
+  subsequent_vertical_motion_prescribed: false
+state_requirements:
+  saturation: simulated_per_porous_sample_0_to_1
+  wetness_color_source: saturation
+  scripted_wetness_color: false
+camera:
+  position: [3.7, -5.6, 2.7]
+  look_at: [0.0, 0.0, 0.85]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

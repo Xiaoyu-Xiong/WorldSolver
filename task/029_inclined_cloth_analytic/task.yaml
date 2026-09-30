@@ -1,0 +1,28 @@
+id: 029_inclined_cloth_analytic
+title: Inclined Cloth Analytic
+category: cloth_and_shells
+source:
+  title: An Implicit Frictional Contact Solver for Adaptive Cloth Simulation
+  url: https://www-users.cselabs.umn.edu/~lixx4611/files/clothNodalContactSolver.pdf
+  anchor: Figure 5; PDF page 10
+goal: Recreate the observable physical phenomenon in which a cloth sheet initially parallel to an inclined
+  plane falls onto the plane and slides for one second. The implementation method is unrestricted; the
+  target is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Square cloth sheet
+  - Rigid inclined plane
+  - Gravity
+  - Coulomb friction
+  - Cloth named by the scene
+  - Cloth-plane contact surface
+  initial_state:
+  - A cloth sheet initially parallel to an inclined plane falls onto the plane and slides for one second.
+  required_events:
+  - Cloth displacement/velocity error against the analytical friction solution and constraint residual
+camera_requirements:
+- Use a three-quarter view showing attachments, folds or bends, self-contact and external contact regions,
+  and the final drape or configuration without occlusion.
+parameter_notes:
+- 'Original paper parameters/configuration: Coulomb friction mu = 0.2; duration 1 s; common incline and
+  cloth geometry from Figure 5.'

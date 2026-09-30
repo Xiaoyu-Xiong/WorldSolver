@@ -1,0 +1,31 @@
+id: 012_billiard_impulse_chain
+title: Billiard Impulse Chain
+category: rigid_body_dynamics
+source:
+  title: Nonconvex Rigid Bodies with Stacking
+  url: https://graphics.stanford.edu/papers/rigid_bodies-sig03/rigid_bodies.pdf
+  anchor: Figure 5; PDF page 5
+goal: Recreate the observable physical phenomenon in which one billiard ball strikes the near end of a
+  stationary line of balls. The contact impulse propagates through the chain and launches the far ball,
+  which begins to roll. The implementation method is unrestricted; the target is the scene's visible motion,
+  interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Billiard Impulse Chain
+  - Rigid bodies named by the scene
+  - Contact surfaces
+  - Gravity
+  initial_state:
+  - One billiard ball strikes the near end of a stationary line of balls. The contact impulse propagates
+    through the chain and launches the far ball, which begins to roll.
+  required_events:
+  - Momentum transfer
+  - Far-ball launch velocity
+  - Energy loss
+  - Qualitative - absence of overlap and spurious motion in intermediate balls
+camera_requirements:
+- Use a three-quarter view that exposes the important contact points, stack or mechanism, support surfaces,
+  and final configuration throughout the motion.
+parameter_notes:
+- 'Original paper parameters/configuration: Rigid spheres with the common line-of-balls initial state
+  shown in Figure 5; rolling friction enabled.'

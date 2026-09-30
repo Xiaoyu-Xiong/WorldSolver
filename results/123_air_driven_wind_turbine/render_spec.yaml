@@ -1,0 +1,13 @@
+schema_version: 2
+profile: multiphysics
+environment: outdoor_soft
+camera: frozen_config
+bindings:
+  - {object_id: ground, method: rigid_mesh, material: ground, color_rgb: [0.42, 0.50, 0.38]}
+  - {object_id: tower, method: rigid_mesh, material: tower_white, color_rgb: [0.84, 0.87, 0.88]}
+  - {object_id: nacelle, method: rigid_mesh, material: tower_white, color_rgb: [0.88, 0.90, 0.91]}
+  - {object_id: rotor, method: rigid_mesh, material: blade_white, color_rgb: [0.92, 0.94, 0.95], subdivision: 1}
+  - {object_id: airflow, method: volume, material: clear_air, opacity: 0.0, density_scale: 0.1}
+  - {object_id: smoke_red, method: volume, material: smoke_red, color_rgb: [0.96, 0.05, 0.04], opacity: 0.45, density_scale: 5.0}
+  - {object_id: smoke_green, method: volume, material: smoke_green, color_rgb: [0.02, 0.76, 0.18], opacity: 0.45, density_scale: 5.0}
+  - {object_id: smoke_ochre, method: volume, material: smoke_ochre, color_rgb: [1.0, 0.42, 0.02], opacity: 0.45, density_scale: 5.0}

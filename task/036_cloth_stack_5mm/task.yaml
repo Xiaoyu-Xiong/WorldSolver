@@ -1,0 +1,34 @@
+id: 036_cloth_stack_5mm
+title: Cloth Stack 5mm
+category: cloth_and_shells
+source:
+  title: Codimensional Incremental Potential Contact
+  url: https://par.nsf.gov/servlets/purl/10290705
+  anchor: Figures 17-18; PDF pages 16-17
+goal: Recreate the observable physical phenomenon in which ten 5 mm-thick square cloth panels fall onto
+  a board, collide and fold, and settle into a frictional multilayer stack. The implementation method
+  is unrestricted; the target is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Cloth Stack 5mm
+  - Thin structure or fiber object named by the scene
+  - Collision/contact geometry
+  - Gravity
+  initial_state:
+  - Ten 5 mm-thick square cloth panels fall onto a board, collide and fold, and settle into a frictional
+    multilayer stack.
+  required_events:
+  - Quantitative/qualitative - interpenetration
+  - Final stack height
+  - Thickness preservation
+  - Contact artifacts
+  - Stability
+camera_requirements:
+- Use a three-quarter view showing attachments, folds or bends, self-contact and external contact regions,
+  and the final drape or configuration without occlusion.
+parameter_notes:
+- 'Merged source variants (cloth_stack_c_ipc_5mm, cloth_stack_arcsim_5mm, cloth_stack_argus_5mm). Original
+  paper parameters/configurations: Ten 8K-node panels; friction mu = 0.1; method = C_IPC; thickness =
+  5mm; use method-specific time step reported in the paper. | Ten 8K-node panels; friction mu = 0.1; method
+  = ARCSIM; thickness = 5mm; use method-specific time step reported in the paper. | Ten 8K-node panels;
+  friction mu = 0.1; method = ARGUS; thickness = 5mm; use method-specific time step reported in the paper.'

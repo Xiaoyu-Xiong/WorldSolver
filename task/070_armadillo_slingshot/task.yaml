@@ -1,0 +1,25 @@
+id: 070_armadillo_slingshot
+title: Elastic Armadillo Slingshot Motion
+category: elastic_solids
+source:
+  title: Decomposed Optimization Time Integrator for Large-Step Elastodynamics
+  url: https://dannykaufman.io/projects/DOT/doc/li2019dot.pdf
+  anchor: Figure 1; PDF page 1
+goal: 'Recreate the source experiment: After the pulling constraint is released, the body moves rapidly
+  back and swings past its earlier position while the fixed grasp points remain held. The numerical implementation
+  is unrestricted; the deforming material is a three-dimensional solid.'
+scene_requirements:
+  required_elements:
+  - A volumetric elastic Armadillo model.
+  - The fixed grasp points and temporary pulling constraint used in Figure 1.
+  initial_state:
+  - The Armadillo begins before the pull, with the source fixed grasp points retained.
+  required_events:
+  - The temporary pull stretches the Armadillo away from its fixed grasp points.
+  - The stretched limbs and body become visibly longer and thinner as the pull increases.
+  - After the pulling constraint is released, the body moves rapidly back and swings past its earlier
+    position while the fixed grasp points remain held.
+camera_requirements:
+- Use a fixed view covering the grasp points and the full pull-and-recoil path.
+- Keep the relevant objects visible before loading or contact, during the largest deformation, and during
+  the stated outcome.

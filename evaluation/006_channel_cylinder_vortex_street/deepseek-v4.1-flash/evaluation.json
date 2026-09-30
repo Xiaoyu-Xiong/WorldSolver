@@ -1,0 +1,126 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 669108595,
+          "trajectory_frames": 901,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "field.divergence.v1",
+        "criterion": "In the active incompressible region of channel cylinder vortex street, the velocity field is approximately divergence free.",
+        "criterion_id": "incompressible_velocity_constraint",
+        "details": {
+          "sample_count": 901,
+          "worst_frame_index": 272
+        },
+        "dimension": "field_constraints",
+        "domain": "physics",
+        "metric": "divergence_relative_l2",
+        "normalized_error": 11.805265437490105,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 7.809287553480069
+      },
+      {
+        "calculator": "field.scalar_transport.v1",
+        "criterion": "The exported advected wake dye in channel cylinder vortex street evolves consistently with its collocated velocity and prescribed local source.",
+        "criterion_id": "transported_scalar_consistency",
+        "details": {
+          "sample_count": 901,
+          "worst_frame_index": 320
+        },
+        "dimension": "transport_equation_consistency",
+        "domain": "physics",
+        "metric": "transport_relative_l2",
+        "normalized_error": 0.999867411788685,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.013258821131501008
+      },
+      {
+        "calculator": "boundary.velocity_residual.v1",
+        "criterion": "At impermeable or moving boundaries in channel cylinder vortex street, the sampled material velocity matches the prescribed normal boundary velocity.",
+        "criterion_id": "prescribed_boundary_velocity",
+        "details": {
+          "sample_count": 901,
+          "worst_frame_index": 845
+        },
+        "dimension": "boundary_and_interface_conditions",
+        "domain": "physics",
+        "metric": "normal_velocity_relative_rms",
+        "normalized_error": 3205.18837670726,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.0031198440903694403
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.015999999999999997,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.122
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.013564659966250536,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.054000000000000006
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0132664991614216,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.022
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.02756809750418044,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.12
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "006_channel_cylinder_vortex_street",
+  "visual_score": 0.0795,
+  "visual_fidelity_score": 7.95,
+  "physical_plausibility_score": 2.6085554062339797,
+  "total_score": 5.27927770311699
+}

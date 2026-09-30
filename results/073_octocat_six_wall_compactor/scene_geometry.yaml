@@ -1,0 +1,53 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: octocat
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/octocat.obj, topology_asset: assets/octocat.obj}
+    state_binding: {selector: all}
+    material_id: octocat_elastic
+    collision_enabled: true
+  - id: wall_left
+    semantic: rigid
+    motion: kinematic
+    geometry: {type: box, half_extents: [0.05, 1.55, 1.55]}
+    transform: {translation: [-1.50, 0.0, 0.0]}
+    material_id: transparent_wall
+    collision_enabled: true
+  - id: wall_right
+    semantic: rigid
+    motion: kinematic
+    geometry: {type: box, half_extents: [0.05, 1.55, 1.55]}
+    transform: {translation: [1.50, 0.0, 0.0]}
+    material_id: transparent_wall
+    collision_enabled: true
+  - id: wall_front
+    semantic: rigid
+    motion: kinematic
+    geometry: {type: box, half_extents: [1.55, 0.05, 1.55]}
+    transform: {translation: [0.0, -1.50, 0.0]}
+    material_id: transparent_wall
+    collision_enabled: true
+  - id: wall_back
+    semantic: rigid
+    motion: kinematic
+    geometry: {type: box, half_extents: [1.55, 0.05, 1.55]}
+    transform: {translation: [0.0, 1.50, 0.0]}
+    material_id: transparent_wall
+    collision_enabled: true
+  - id: wall_bottom
+    semantic: rigid
+    motion: kinematic
+    geometry: {type: box, half_extents: [1.55, 1.55, 0.05]}
+    transform: {translation: [0.0, 0.0, -1.50]}
+    material_id: transparent_wall
+    collision_enabled: true
+  - id: wall_top
+    semantic: rigid
+    motion: kinematic
+    geometry: {type: box, half_extents: [1.55, 1.55, 0.05]}
+    transform: {translation: [0.0, 0.0, 1.50]}
+    material_id: transparent_wall
+    collision_enabled: true

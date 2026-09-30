@@ -1,0 +1,14 @@
+schema_version: 2
+profile: deformable_surface
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: ground_plane
+    method: rigid_mesh
+    material: ground
+    color_rgb: [0.72, 0.74, 0.76]
+  - object_id: elastic_rod
+    method: deformed_mesh
+    material: rod
+    color_rgb: [0.18, 0.55, 0.72]
+    subdivision: 1

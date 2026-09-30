@@ -1,0 +1,43 @@
+schema_version: 1
+scene_id: 105_rigid_box_narrow_channel_flow
+seed: 105
+duration: 8.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+dimension: 2
+gravity: [0.0, 0.0, -9.81]
+fluid:
+  density: 1000.0
+  domain_min: [-0.50, -0.04, 0.05]
+  domain_max: [0.50, 0.04, 3.55]
+  nominal_resolution: [64, 1, 224]
+  marker_spacing: 0.035
+  initial_velocity: [0.0, 0.0, 0.0]
+  boundary_condition: impermeable_slip_side_walls
+rigid_box:
+  body_id: 1
+  size: [0.86, 0.08, 0.48]
+  mass: 55.0
+  initial_center: [0.0, 0.0, 2.72]
+  initial_angle_degrees: -4.0
+  initial_velocity: [0.0, 0.0, -0.18]
+  initial_angular_velocity: [0.0, 0.035, 0.0]
+  degrees_of_freedom: [translate_x, translate_z, rotate_y]
+controls:
+  - id: upward_fluid_drive
+    target: fluid
+    type: uniform_body_acceleration
+    direction: [0.0, 0.0, 1.0]
+    magnitude: 15.0
+    start_time: 3.0
+    end_time: 8.0
+    ramp_duration: 0.35
+camera:
+  position: [0.0, -7.0, 1.8]
+  look_at: [0.0, 0.0, 1.8]
+  up: [0.0, 0.0, 1.0]
+  projection: orthographic
+  orthographic_scale: 4.15
+  width: 960
+  height: 640
+  fps: 50

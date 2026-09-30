@@ -1,0 +1,28 @@
+id: 067_elastic_bunny_pendulum
+title: Swinging of a Suspended Elastic Bunny
+category: elastic_solids
+source:
+  title: Mixed Variational Finite Elements for Implicit Simulation of Deformables
+  url: https://www.dgp.toronto.edu/projects/mixed-variational-fem/mfem_lowres.pdf
+  anchor: Figure 3, PDF page 5; Table 1 and Section 4, PDF page 6
+goal: 'Recreate the source experiment: The body passes back and forth beneath the attachment, with visible
+  changes in orientation and stretch over successive swings. The numerical implementation is unrestricted;
+  the deforming material is a three-dimensional solid.'
+scene_requirements:
+  required_elements:
+  - The volumetric soft bunny and suspension attachment used in Figure 3.
+  - Gravity.
+  initial_state:
+  - The bunny begins in the displaced initial pose of the source swinging example, with its suspension
+    attachment fixed.
+  required_events:
+  - After release, the bunny moves away from its initial displaced pose while the suspension point stays
+    in place.
+  - The hanging body swings beneath its attachment and changes shape near the stretched suspension region.
+  - The body passes back and forth beneath the attachment, with visible changes in orientation and stretch
+    over successive swings.
+camera_requirements:
+- Use a fixed view of the swing plane that contains the attachment and the complete bunny throughout its
+  motion.
+- Keep the relevant objects visible before loading or contact, during the largest deformation, and during
+  the stated outcome.

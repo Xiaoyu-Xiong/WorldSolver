@@ -1,0 +1,14 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - {object_id: tray_floor, method: rigid_mesh, material: tray_matte, color_rgb: [0.34, 0.34, 0.32]}
+  - {object_id: tray_back_wall, method: rigid_mesh, material: tray_matte, color_rgb: [0.34, 0.34, 0.32]}
+  - {object_id: tray_left_wall, method: rigid_mesh, material: tray_matte, color_rgb: [0.34, 0.34, 0.32]}
+  - {object_id: tray_right_wall, method: rigid_mesh, material: tray_matte, color_rgb: [0.34, 0.34, 0.32]}
+  - {object_id: wettable_sand, method: particle_instances, material: initially_dry_sand_base, color_rgb: [0.86, 0.68, 0.42], particle_radius_scale: 1.05}
+  - {object_id: sand_wetness_overlay, method: diagnostic_points, material: wetness_scalar_overlay, scalar_attribute: wetness, scalar_range: [0.0, 0.05], opacity: 0.95, max_points: 5000}
+  - {object_id: pouring_water, method: reconstructed_surface, material: transparent_blue_pouring_water, color_rgb: [0.02, 0.45, 1.0], opacity: 0.50, surface_pitch: 0.045, surface_smoothing: 1.15}
+  - {object_id: left_spout, method: rigid_mesh, material: brushed_metal, color_rgb: [0.56, 0.58, 0.60]}
+  - {object_id: right_spout, method: rigid_mesh, material: brushed_metal, color_rgb: [0.56, 0.58, 0.60]}

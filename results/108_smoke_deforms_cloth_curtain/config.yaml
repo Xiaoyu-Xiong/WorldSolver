@@ -1,0 +1,48 @@
+schema_version: 1
+scene_id: 108_smoke_deforms_cloth_curtain
+seed: 108
+duration: 8.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+camera:
+  position: [5.8, -5.2, 3.6]
+  look_at: [0.25, 0.0, 1.75]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50
+domain:
+  bounds_min: [-3.2, -2.0, 0.0]
+  bounds_max: [4.0, 2.0, 4.0]
+  grid_shape: [126, 70, 70]
+  boundary: open
+cloth:
+  width: 2.4
+  height: 2.7
+  grid_shape: [5, 7]
+  top_height: 3.35
+  surface_density: 0.18
+  thickness: 0.002
+  initial_velocity: [0.0, 0.0, 0.0]
+  pinned_vertices: [0, 4]
+  support_condition: two_top_corners_only
+  impermeable: true
+initial_conditions:
+  gravity: [0.0, 0.0, -9.81]
+  ambient_velocity: [0.0, 0.0, 0.0]
+  ambient_smoke_density: 0.0
+jet:
+  center: [-2.75, 0.0, 1.85]
+  axis: [1.0, 0.0, 0.0]
+  radius: 0.42
+  speed: 2.8
+  smoke_density: 1.0
+  start_time: 0.65
+  ramp_duration: 0.45
+  active_until: 8.0
+coupling_requirements:
+  two_way: true
+  cloth_is_impermeable_moving_boundary: true
+  fluid_force_drives_cloth: true
+  cloth_motion_alters_fluid: true
+  resolved_on_both_sides: true

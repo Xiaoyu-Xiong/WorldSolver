@@ -1,0 +1,30 @@
+id: 149_spolling_coin_decay
+title: Spolling Coin Decay
+category: rigid_body_dynamics
+source:
+  title: Intersection-free Rigid Body Dynamics
+  url: https://ipc-sim.github.io/rigid-ipc/assets/rigid_ipc_paper_350ppi.pdf
+  anchor: Figure 7
+goal: >-
+  Recreate the paper's clearly visible spolling coin decay phenomenon. The implementation method is unrestricted;
+  evaluation targets rigid motion, contact response, event propagation, and the characteristic outcome.
+scene_requirements:
+  required_elements:
+  - Thin rigid coin or disk
+  - Rigid horizontal floor
+  - Gravity
+  - Frictional rolling and impact contact
+  initial_state:
+  - A coin begins tilted and spinning or rolling rapidly on the floor.
+  required_events:
+  - The coin precesses around its contact region while losing energy.
+  - Its tilt angle decreases and the contact motion accelerates into tighter, faster wobbling.
+  - The motion decays into rest without penetrating the floor or gaining unexplained energy.
+  - All bodies preserve rigid shape and contacts remain free of persistent overlap.
+camera_requirements:
+- Use a low three-quarter view that resolves coin tilt, precession path, and final settling.
+- Keep the complete interaction chain in frame and use contrasting colors for neighboring bodies.
+parameter_notes:
+- Match the qualitative geometry, loading, and event ordering shown in Figure 7; object count may be reduced within resource limits.
+- Export body IDs, mass, position, velocity, external forces, interaction-force pairs, and signed contact distances.
+

@@ -1,0 +1,97 @@
+schema_version: 4
+task_id: 050_water_collapses_towers
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The submitted solver runs to the frozen end time, produces a complete finite trajectory
+      with every required evaluation field, and produces a readable platform render without exceeding
+      the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: The advancing water mass visibly reaches the two assembled towers.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: Water first displaces exposed lower components and initiates progressive tower failure.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: Cylinders and cubes of differing density visibly follow different floating, sinking, and
+      transport paths during collapse.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: Rigid debris and water continue to interact without solid-solid or fluid-solid tunneling,
+      teleportation, or collapse occurring before water contact.
+  physics:
+  - id: material_mass_balance
+    profile: multiphysics_coupling
+    dimension: conservation_and_source_balance
+    criterion: For the fluid and rigid materials, the mass change equals the cumulative prescribed inflow,
+      outflow, or phase-transfer source; internal motion and contact do not create or delete mass.
+    applicability:
+      requires:
+      - prescribed sources and sinks are exported
+      - Per-sample mass contributions are exported for every evaluated material.
+      excludes:
+      - Unreported particle deletion or remeshing loss.
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: linear_momentum_balance
+    profile: multiphysics_coupling
+    dimension: momentum_and_force_balance
+    criterion: For water collapses towers, the time rate of total linear momentum is consistent with the
+      exported external forces; internal forces may redistribute momentum but cancel in the total balance.
+    applicability:
+      requires:
+      - Mass, velocity, and all external forces are exported at the trajectory sampling times.
+      excludes:
+      - Frames spanning an unreported impulsive external intervention.
+    numeric_binding:
+      calculator: dynamics.linear_momentum_balance.v1
+      inputs:
+        mass: state.mass
+        velocity: state.velocity
+        external_force: fields.external_force
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: internal_coupling_force_balance
+    profile: multiphysics_coupling
+    dimension: multiphysics_exchange_balance
+    criterion: The paired internal interaction forces exchanged between materials in water collapses towers
+      are equal and opposite in the aggregate.
+    applicability:
+      requires:
+      - Both sides of every internal coupling or contact force pair are exported.
+      excludes:
+      - External actuator, gravity, or boundary reaction forces.
+    numeric_binding:
+      calculator: coupling.force_balance.v1
+      inputs:
+        interaction_force: fields.interaction_force
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: nonpenetrating_contact
+    profile: multiphysics_coupling
+    dimension: contact_and_interface_conditions
+    criterion: During water collapses towers, solid-solid and solid-boundary contacts maintain nonnegative
+      geometric gaps up to the contact tolerance and do not permit persistent interpenetration.
+    applicability:
+      requires:
+      - Signed geometric gaps are exported for active and near-contact pairs.
+      excludes:
+      - Pairs intentionally allowed to pass through or merge.
+    numeric_binding:
+      calculator: contact.penetration.v1
+      inputs:
+        signed_distance: fields.contact_signed_distance
+        length_scale: scalars.contact_length_scale
+      parameters: {}
+      reduction:
+        type: maximum

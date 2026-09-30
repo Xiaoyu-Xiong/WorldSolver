@@ -1,0 +1,46 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: ground
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [3.2, 1.4, 0.05]}
+    transform: {translation: [0.0, 0.0, -0.05]}
+    material_id: ground
+    collision_enabled: true
+  - id: basin_back
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [1.85, 0.08, 0.34]}
+    transform: {translation: [0.0, 0.92, 0.30]}
+    material_id: basin
+    collision_enabled: true
+  - id: basin_left
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.08, 0.92, 0.34]}
+    transform: {translation: [-1.85, 0.0, 0.30]}
+    material_id: basin
+    collision_enabled: true
+  - id: basin_right
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.08, 0.92, 0.34]}
+    transform: {translation: [1.85, 0.0, 0.30]}
+    material_id: basin
+    collision_enabled: true
+  - id: pool
+    semantic: liquid
+    motion: dynamic
+    geometry: {type: particle_domain, bounds_min: [-3.0, -1.2, 0.0], bounds_max: [3.0, 1.2, 3.8], grid_shape: [24, 16, 28]}
+    state_binding: {selector: attribute, attribute_name: material_label, value: 0}
+    material_id: pool
+    collision_enabled: true
+  - id: liquid_bunny
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/bunny.obj, topology_asset: assets/bunny.obj}
+    state_binding: {selector: attribute, attribute_name: material_label, value: 1}
+    material_id: bunny
+    collision_enabled: true

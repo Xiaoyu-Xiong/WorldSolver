@@ -1,0 +1,60 @@
+schema_version: 1
+scene_id: 092_curved_rod_coiling_reversal
+seed: 92
+duration: 55.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+regime:
+  name: source_static_coiling_inversion
+  quasi_static: true
+  normalized_deployment_height: 15.0
+  normalized_natural_curvature: 0.69
+rod:
+  topology_asset: assets/rod_topology.json
+  radius: 0.0016
+  density: 1180.0
+  young_modulus: 1300000.0
+  poisson_ratio: 0.49
+  gravito_bending_length: 0.033
+  natural_curvature: 20.9090909091
+  natural_radius: 0.04782608696
+  total_available_length: 1.75
+  initial_deployed_length: 0.595
+  inextensible: true
+  self_contact_required: false
+injector:
+  center: [0.0, 0.0, 0.510]
+  axis: [0.0, 0.0, -1.0]
+  outlet_position: [0.0, 0.0, 0.495]
+  injection_speed: 0.02
+  start_time: 0.0
+  end_time: 55.0
+  inlet_natural_curvature_direction: [1.0, 0.0, 0.0]
+  inlet_material_orientation_fixed: true
+substrate:
+  surface_z: 0.0
+  stationary: true
+  speed: 0.0
+  deposited_rod_condition: sticking
+  self_contact_required: false
+initial_conditions:
+  description: naturally curved heel in contact with the substrate and a clockwise seed turn already sticking
+  injector_end_controlled: true
+  deposited_nodes_stick: true
+  initial_coiling_direction: clockwise_viewed_from_above
+  expected_reversal: counterclockwise_during_continued_injection
+event_sequence:
+  - continued_downward_injection_onto_stationary_substrate
+  - clockwise_turns_accumulate_and_stick
+  - suspended_heel_rotates_as_twist_builds
+  - heel_reorients_during_coiling_inversion
+  - counterclockwise_turns_accumulate_beside_earlier_turns
+camera:
+  position: [0.58, -0.72, 0.43]
+  look_at: [0.0, 0.0, 0.235]
+  up: [0.0, 0.0, 1.0]
+  focal_length_mm: 55
+  width: 960
+  height: 640
+  fps: 50

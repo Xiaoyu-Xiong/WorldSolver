@@ -1,0 +1,32 @@
+id: 098_spaghetti_plate_frictional_stack
+title: Frictional Stacking of Spaghetti in a Plate
+category: rods_and_strands
+source:
+  title: A Nonsmooth Newton Solver for Capturing Exact Coulomb Friction in Fiber Assemblies
+  url: https://elan.inrialpes.fr/people/bertails/Papiers/PDF/hairContact.pdf
+  anchor: Figure 7, bottom row; Section 5.1.3, first experiment; author PDF page 9
+goal: >-
+  Recreate the frictional packing of 31 flexible spaghetti strands falling into
+  a plate. After contacting the plate and one another, the strands form a raised
+  stack and stop sliding, as shown in the bottom row of Figure 7. Use elastic
+  rods or strands for this benchmark; the original Figure 7 experiment used
+  mass-spring chains. The numerical implementation is otherwise unrestricted.
+scene_requirements:
+  required_elements:
+    - 31 separate flexible strands with finite thickness and resistance to bending.
+    - One stationary rigid plate with a shallow interior and a raised rim, following Figure 7.
+    - Uniform downward gravity.
+    - Dry friction with coefficient 0.3 for both strand-strand and strand-plate contact; use 0.3 for both static and kinetic friction.
+  initial_state:
+    - The strands start at rest in a dense parallel arrangement above the plate, without initial interpenetration.
+    - Both ends of every strand are free; no strand is pinned, tethered, or attached to another strand.
+    - The plate is at rest, and no strand initially touches it.
+  required_events:
+    - The strands fall into the plate under gravity.
+    - Strands contacting the plate bend and make contact with neighboring strands as the remaining strands descend.
+    - Upper strands come to rest on lower strands, producing a raised stack rather than spreading into a thin layer across the plate.
+    - After landing, the stack settles and the strands stop visibly sliding against one another and the plate.
+camera_requirements:
+  - Use a fixed oblique view showing the plate interior, the falling strands, and the height of the final stack.
+  - Keep the entire plate and strand assembly in view from release through the settled state.
+  - Use sufficient contrast and resolution to distinguish individual strands and their contact with the plate.

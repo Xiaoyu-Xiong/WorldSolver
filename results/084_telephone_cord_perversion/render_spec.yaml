@@ -1,0 +1,18 @@
+schema_version: 2
+profile: fiber_rods
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: slinky_ribbon
+    method: curve_tubes
+    material: copper_spring_steel
+    color_rgb: [0.88, 0.27, 0.08]
+    subdivision: 2
+  - object_id: left_endpoint_grip
+    method: rigid_mesh
+    material: dark_grip
+    color_rgb: [0.12, 0.14, 0.17]
+  - object_id: right_endpoint_grip
+    method: rigid_mesh
+    material: dark_grip
+    color_rgb: [0.12, 0.14, 0.17]

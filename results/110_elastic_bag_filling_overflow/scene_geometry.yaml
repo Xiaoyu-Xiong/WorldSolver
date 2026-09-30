@@ -1,0 +1,39 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: catch_floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [2.6, 2.6, 0.04]}
+    transform: {translation: [0.0, 0.0, -0.04]}
+    material_id: concrete
+    collision_enabled: true
+  - id: water_nozzle
+    semantic: emitter
+    motion: static
+    geometry: {type: cylinder, radius: 0.19, height: 0.72}
+    transform: {translation: [0.0, 0.0, 2.78]}
+    material_id: metal
+    collision_enabled: true
+  - id: elastic_bag
+    semantic: cloth
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/elastic_bag.npz
+      topology_asset: assets/elastic_bag.npz
+      grid_shape: [18, 32]
+    state_binding: {selector: body_id, value: 0}
+    material_id: emerald_cloth
+    collision_enabled: true
+  - id: water
+    semantic: liquid
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [-2.4, -2.4, 0.0]
+      bounds_max: [2.4, 2.4, 2.5]
+    state_binding: {selector: body_id, value: 1}
+    material_id: clear_water
+    collision_enabled: true

@@ -1,0 +1,35 @@
+schema_version: 1
+scene_id: 101_hair_clump_dynamic_buckling
+seed: 101
+duration: 2.4
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+hair_clump:
+  material_length: 0.42
+  effective_radius: 0.0028
+  density: 1300.0
+  inextensible: true
+  initial_shape: hanging_nearly_straight
+  lateral_imperfection_amplitude: 0.0015
+  internal_damping_gamma: 1.0e-10
+  ambient_drag_nu: 5.0e-6
+  ambient_air_velocity: [0.0, 0.0, 0.0]
+  root_boundary: clamped
+  tip_boundary: free
+root_motion:
+  type: vertical_sinusoid_after_hold
+  axis: [0.0, 0.0, 1.0]
+  rest_position: [0.0, 0.0, 0.30]
+  start_time: 0.30
+  amplitude: 0.045
+  frequency: 3.0
+  phase: 0.0
+  root_orientation_fixed: true
+camera:
+  position: [0.0, -1.25, 0.08]
+  look_at: [0.0, 0.0, 0.08]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

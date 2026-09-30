@@ -1,0 +1,23 @@
+schema_version: 2
+profile: deformable_surface
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - {object_id: chamber_back, method: rigid_mesh, material: transparent_tube, color_rgb: [0.72, 0.84, 0.82], opacity: 0.20}
+  - {object_id: chamber_left, method: rigid_mesh, material: transparent_tube, color_rgb: [0.72, 0.84, 0.82], opacity: 0.25}
+  - {object_id: chamber_right, method: rigid_mesh, material: transparent_tube, color_rgb: [0.72, 0.84, 0.82], opacity: 0.25}
+  - {object_id: funnel_left, method: rigid_mesh, material: transparent_tube, color_rgb: [0.72, 0.84, 0.82], opacity: 0.28}
+  - {object_id: funnel_right, method: rigid_mesh, material: transparent_tube, color_rgb: [0.72, 0.84, 0.82], opacity: 0.28}
+  - {object_id: funnel_back, method: rigid_mesh, material: transparent_tube, color_rgb: [0.72, 0.84, 0.82], opacity: 0.20}
+  - {object_id: outlet_front_lip, method: rigid_mesh, material: tube_edge, color_rgb: [0.42, 0.47, 0.46]}
+  - {object_id: outlet_back_lip, method: rigid_mesh, material: tube_edge, color_rgb: [0.42, 0.47, 0.46]}
+  - {object_id: collector_floor, method: rigid_mesh, material: collector, color_rgb: [0.64, 0.70, 0.70], opacity: 0.45}
+  - {object_id: collector_back, method: rigid_mesh, material: collector, color_rgb: [0.64, 0.70, 0.70], opacity: 0.22}
+  - {object_id: collector_left, method: rigid_mesh, material: collector, color_rgb: [0.64, 0.70, 0.70], opacity: 0.30}
+  - {object_id: collector_right, method: rigid_mesh, material: collector, color_rgb: [0.64, 0.70, 0.70], opacity: 0.30}
+  - {object_id: pusher_plate, method: rigid_mesh, material: pusher, color_rgb: [0.20, 0.23, 0.25]}
+  - {object_id: soft_red, method: deformed_mesh, material: soft_red, color_rgb: [0.82, 0.18, 0.16], subdivision: 2}
+  - {object_id: soft_blue, method: deformed_mesh, material: soft_blue, color_rgb: [0.10, 0.36, 0.72], subdivision: 2}
+  - {object_id: soft_green, method: deformed_mesh, material: soft_green, color_rgb: [0.34, 0.66, 0.18], subdivision: 2}
+  - {object_id: soft_gold, method: deformed_mesh, material: soft_gold, color_rgb: [0.88, 0.57, 0.12], subdivision: 2}
+  - {object_id: soft_magenta, method: deformed_mesh, material: soft_magenta, color_rgb: [0.72, 0.16, 0.48], subdivision: 2}

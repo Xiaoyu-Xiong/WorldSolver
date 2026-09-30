@@ -1,0 +1,42 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: torso
+    semantic: rigid
+    motion: kinematic
+    geometry: {type: capsule, radius: 0.34, height: 0.62}
+    transform: {translation: [0.0, 0.0, 0.62], rotation_xyzw: [0.0, 0.0, 0.0, 1.0], scale: [1.0, 0.72, 1.0]}
+    material_id: dark_blouse
+    collision_enabled: true
+  - id: shoulder_bar
+    semantic: rigid
+    motion: kinematic
+    geometry: {type: capsule, radius: 0.145, height: 0.92}
+    transform: {translation: [0.0, 0.0, 1.02], rotation_xyzw: [0.0, 0.7071068, 0.0, 0.7071068], scale: [1.0, 1.0, 1.0]}
+    material_id: skin
+    collision_enabled: true
+  - id: neck
+    semantic: rigid
+    motion: kinematic
+    geometry: {type: capsule, radius: 0.115, height: 0.28}
+    transform: {translation: [0.0, 0.0, 1.28], rotation_xyzw: [0.0, 0.0, 0.0, 1.0], scale: [1.0, 1.0, 1.0]}
+    material_id: skin
+    collision_enabled: true
+  - id: head
+    semantic: rigid
+    motion: kinematic
+    geometry: {type: sphere, radius: 0.265}
+    transform: {translation: [0.0, 0.0, 1.62], rotation_xyzw: [0.0, 0.0, 0.0, 1.0], scale: [0.88, 0.95, 1.12]}
+    material_id: skin
+    collision_enabled: true
+  - id: wavy_hair
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/hair_topology.json
+      radius: 0.0042
+    state_binding: {selector: all}
+    material_id: golden_hair
+    collision_enabled: true

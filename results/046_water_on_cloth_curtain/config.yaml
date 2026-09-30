@@ -1,0 +1,34 @@
+schema_version: 1
+scene_id: 046_water_on_cloth_curtain
+seed: 4601
+duration: 4.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+initial_conditions:
+  curtain: "unstressed vertical sheet, top row pinned to support"
+  water: "continuous horizontal stream already spanning nozzle-to-curtain gap; shallow catch-tank pool"
+boundary_conditions:
+  cloth_top_edge: pinned
+  cloth_surface: impermeable two-way fluid interface
+  tank: closed bottom and side walls, open top
+  nozzle: prescribed inflow throughout the shot
+diagnostics:
+- leakage_across_cloth
+- cloth_displacement
+- water_volume
+- thin_sheet_and_spray
+- coupling_stability
+visual_requirements:
+  cloth_topology_asset_must_contain: [vertices, faces]
+  cloth_color: saturated_red
+  water_color: transparent_cyan_blue
+  water_stream_must_remain_visible_until_contact: true
+  tank_must_not_occlude_cloth_water_interface: true
+camera:
+  position: [-4.25, -4.65, 3.05]
+  look_at: [0.05, 0.0, 1.42]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

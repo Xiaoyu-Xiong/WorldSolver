@@ -1,0 +1,49 @@
+schema_version: 1
+scene_id: 082_localized_helical_buckling
+seed: 82082
+duration: 10.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, 0.0]
+simulation_mode: quasi_static_displacement_control
+rod:
+  length: 0.929
+  radius: 0.0045
+  density: 1100.0
+  naturally_straight: true
+  isotropic: true
+  inextensible: true
+  circular_cross_section: true
+  bending_modulus_ratio: 1.345
+  twisting_modulus_ratio: 0.789
+  self_contact: true
+  source_nondimensional_length: 9.29
+  source_imposed_end_twist_rad: 27.0
+loading_protocol:
+  quasi_static: true
+  twist_stage: {start_time: 0.0, end_time: 2.0, final_relative_rotation_rad: 27.0}
+  shortening_stage: {start_time: 2.0, end_time: 8.0, increment_count: 120, final_end_distance: 0.650}
+  hold_stage: {start_time: 8.0, end_time: 10.0}
+initial_conditions:
+  shape: nearly_straight
+  left_endpoint: [-0.4645, 0.0, 0.0]
+  right_endpoint: [0.4645, 0.0, 0.0]
+  tangent: [1.0, 0.0, 0.0]
+  branch_selection_perturbation_amplitude: 0.00025
+  velocity: [0.0, 0.0, 0.0]
+boundary_conditions:
+  left_clamp: {prescribes: [position, tangent, material_frame], fixed_position: [-0.4645, 0.0, 0.0], tangent: [1.0, 0.0, 0.0]}
+  right_clamp: {prescribes: [position, tangent, material_frame], initial_position: [0.4645, 0.0, 0.0], final_position: [0.1855, 0.0, 0.0], tangent: [1.0, 0.0, 0.0]}
+expected_outcome:
+  type: localized_helical_buckling
+  envelope: maximum_at_center_decays_to_both_clamps
+  obstacle_forcing: false
+camera:
+  projection: perspective
+  position: [1.18, -1.35, 0.72]
+  look_at: [0.0, 0.0, 0.0]
+  up: [0.0, 0.0, 1.0]
+  focal_length_mm: 62
+  width: 960
+  height: 640
+  fps: 50

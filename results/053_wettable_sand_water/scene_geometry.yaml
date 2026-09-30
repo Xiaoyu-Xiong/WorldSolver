@@ -1,0 +1,31 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - {id: tray_floor, semantic: boundary, motion: static, geometry: {type: box, half_extents: [1.55, 1.15, 0.04]}, transform: {translation: [0.0, 0.0, -0.04]}, material_id: tray_matte, collision_enabled: true}
+  - {id: tray_back_wall, semantic: boundary, motion: static, geometry: {type: box, half_extents: [1.55, 0.04, 0.14]}, transform: {translation: [0.0, 1.11, 0.14]}, material_id: tray_matte, collision_enabled: true}
+  - {id: tray_left_wall, semantic: boundary, motion: static, geometry: {type: box, half_extents: [0.04, 1.15, 0.14]}, transform: {translation: [-1.51, 0.0, 0.14]}, material_id: tray_matte, collision_enabled: true}
+  - {id: tray_right_wall, semantic: boundary, motion: static, geometry: {type: box, half_extents: [0.04, 1.15, 0.14]}, transform: {translation: [1.51, 0.0, 0.14]}, material_id: tray_matte, collision_enabled: true}
+  - id: wettable_sand
+    semantic: granular
+    motion: dynamic
+    geometry: {type: particle_domain, bounds_min: [-0.78, -0.72, 0.0], bounds_max: [0.78, 0.72, 1.12]}
+    state_binding: {selector: body_id, value: 1}
+    material_id: pale_sand
+    collision_enabled: true
+  - id: sand_wetness_overlay
+    semantic: granular
+    motion: static
+    geometry: {type: particle_domain, bounds_min: [-0.78, -0.72, 0.0], bounds_max: [0.78, 0.72, 1.12]}
+    state_binding: {selector: attribute, attribute_name: material_id, value: 1}
+    material_id: wetness_scalar_overlay
+    collision_enabled: false
+  - id: pouring_water
+    semantic: liquid
+    motion: dynamic
+    geometry: {type: particle_domain, bounds_min: [-1.25, -0.75, 0.0], bounds_max: [1.25, 0.75, 2.35]}
+    state_binding: {selector: body_id, value: 2}
+    material_id: clear_water
+    collision_enabled: true
+  - {id: left_spout, semantic: emitter, motion: static, geometry: {type: cylinder, radius: 0.09, height: 0.38}, transform: {translation: [-0.58, 0.08, 1.92], rotation_xyzw: [0.0, 0.7071068, 0.0, 0.7071068]}, material_id: brushed_metal, collision_enabled: false}
+  - {id: right_spout, semantic: emitter, motion: static, geometry: {type: cylinder, radius: 0.09, height: 0.38}, transform: {translation: [0.58, 0.08, 1.92], rotation_xyzw: [0.0, 0.7071068, 0.0, 0.7071068]}, material_id: brushed_metal, collision_enabled: false}

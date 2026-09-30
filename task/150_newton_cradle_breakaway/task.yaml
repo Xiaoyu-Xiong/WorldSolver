@@ -1,0 +1,30 @@
+id: 150_newton_cradle_breakaway
+title: Newton Cradle Breakaway
+category: rigid_body_dynamics
+source:
+  title: Reflections on Simultaneous Impact
+  url: https://www.cs.columbia.edu/cg/rosi/rosi.pdf
+  anchor: Figure 3
+goal: >-
+  Recreate the paper's clearly visible newton cradle breakaway phenomenon. The implementation method is unrestricted;
+  evaluation targets rigid motion, contact response, event propagation, and the characteristic outcome.
+scene_requirements:
+  required_elements:
+  - Aligned row of identical suspended balls
+  - Rigid pendulum supports
+  - One or more displaced end balls
+  - Gravity and impact contact
+  initial_state:
+  - A row of touching equal balls hangs at rest while one end ball is displaced.
+  required_events:
+  - The released ball swings into the stationary row.
+  - The impact impulse propagates through the interior balls with little gross displacement.
+  - The opposite end ball breaks away with a matching pendulum swing while the center balls remain nearly stationary.
+  - All bodies preserve rigid shape and contacts remain free of persistent overlap.
+camera_requirements:
+- Use a front view aligned with the row and showing all suspension points and swing arcs.
+- Keep the complete interaction chain in frame and use contrasting colors for neighboring bodies.
+parameter_notes:
+- Match the qualitative geometry, loading, and event ordering shown in Figure 3; object count may be reduced within resource limits.
+- Export body IDs, mass, position, velocity, external forces, interaction-force pairs, and signed contact distances.
+

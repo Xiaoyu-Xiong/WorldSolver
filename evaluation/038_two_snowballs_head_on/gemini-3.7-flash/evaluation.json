@@ -1,0 +1,129 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 29914482,
+          "trajectory_frames": 151,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "For two snowballs head on, the mass change equals the cumulative prescribed inflow, outflow, or phase-transfer source; internal motion and contact do not create or delete mass.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "initial_quantity": [
+            63.999999999999986
+          ],
+          "sample_count": 151,
+          "worst_frame_index": 0
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.0,
+        "profile": "particles_and_granular_materials",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "dynamics.linear_momentum_balance.v1",
+        "criterion": "For two snowballs head on, the time rate of total linear momentum is consistent with the exported external forces; internal forces may redistribute momentum but cancel in the total balance.",
+        "criterion_id": "linear_momentum_balance",
+        "details": {
+          "sample_count": 151,
+          "worst_frame_index": 15
+        },
+        "dimension": "momentum_and_force_balance",
+        "domain": "physics",
+        "metric": "momentum_balance_relative_l2",
+        "normalized_error": 1.0,
+        "profile": "particles_and_granular_materials",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.0
+      },
+      {
+        "calculator": "deformation.jacobian.v1",
+        "criterion": "Material elements in two snowballs head on retain a positive deformation Jacobian except where the case explicitly performs a represented topology change.",
+        "criterion_id": "orientation_preserving_deformation",
+        "details": {
+          "sample_count": 151,
+          "worst_frame_index": 108
+        },
+        "dimension": "deformation_validity",
+        "domain": "physics",
+        "metric": "nonpositive_jacobian_fraction",
+        "normalized_error": 0.5923780487804878,
+        "profile": "particles_and_granular_materials",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 40.762195121951216
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.05059644256269408,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.8699999999999999
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.12868566353716332,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.31
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.1684755175092215,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.254
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.03655133376499413,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.132
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "038_two_snowballs_head_on",
+  "visual_score": 0.39149999999999996,
+  "visual_fidelity_score": 39.15,
+  "physical_plausibility_score": 46.92073170731707,
+  "total_score": 43.03536585365853
+}

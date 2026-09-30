@@ -1,0 +1,37 @@
+id: 002_fountain
+title: Fountain
+category: fluid_dynamics
+source:
+  title: The Affine Particle-In-Cell Method
+  url: https://math.ucdavis.edu/~jteran/papers/JSSTS15.pdf
+  anchor: Figure 5; PDF page 3
+goal: Recreate the observable physical phenomenon in which a free-surface jet rises as a fountain, spreads,
+  breaks into sheets or droplets, falls under gravity, and returns to the surrounding liquid. The implementation
+  method is unrestricted; the target is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Fountain
+  - Simulated fluid or gas medium
+  - Visible domain boundaries
+  initial_state:
+  - A free-surface jet rises as a fountain, spreads, breaks into sheets or droplets, falls under gravity,
+    and returns to the surrounding liquid.
+  required_events:
+  - Leading-edge noise
+  - Late-time surface roughness
+  - Height/energy retention
+  - Numerical dissipation
+camera_requirements:
+- Use a three-quarter or side view that keeps the source, main interaction region, free surface or plume,
+  obstacles, and final state visible; avoid occlusion and excessive top-down views.
+parameter_notes:
+- 'Merged source variants (fountain_apic, fountain_pic, fountain_flip, fountain_flip_pic). Original paper
+  parameters/configurations: Use the shared fountain initial state and forcing from Figure 5. Transfer
+  method: APIC. All compared methods must share geometry, particles, time step, material parameters, and
+  initial velocities. | Use the shared fountain initial state and forcing from Figure 5. Transfer method:
+  PIC. All compared methods must share geometry, particles, time step, material parameters, and initial
+  velocities. | Use the shared fountain initial state and forcing from Figure 5. Transfer method: FLIP.
+  All compared methods must share geometry, particles, time step, material parameters, and initial velocities.
+  | Use the shared fountain initial state and forcing from Figure 5. Transfer method: the paper''s FLIP/PIC
+  blend. All compared methods must share geometry, particles, time step, material parameters, and initial
+  velocities.'

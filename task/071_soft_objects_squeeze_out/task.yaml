@@ -1,0 +1,26 @@
+id: 071_soft_objects_squeeze_out
+title: Soft Objects Squeezed through a Narrow Outlet
+category: elastic_solids
+source:
+  title: 'Incremental Potential Contact: Intersection- and Inversion-free, Large-Deformation Dynamics'
+  url: https://ipc-sim.github.io/file/IPC-paper-350ppi.pdf
+  anchor: Figure 1, PDF page 1; Section 7.2, Squeeze out stress test, PDF page 15
+goal: 'Recreate the source experiment: After leaving the outlet, the objects become distinguishable separate
+  bodies again and form a pile outside the tube. The numerical implementation is unrestricted; the deforming
+  material is a three-dimensional solid.'
+scene_requirements:
+  required_elements:
+  - Several separate volumetric soft objects with the source outlet-tube geometry.
+  - A moving plate that pushes the objects toward the narrow outlet.
+  initial_state:
+  - The objects begin inside the wider receiving region, separated from each other and from the tube walls.
+  required_events:
+  - The plate advances and the objects gather against the narrowing outlet.
+  - Objects flatten against one another and elongate toward the opening as they are pushed through it.
+  - After leaving the outlet, the objects become distinguishable separate bodies again and form a pile
+    outside the tube.
+camera_requirements:
+- Use a fixed view showing the plate, the interior narrowing, and the region outside the outlet.
+- Use distinct object colors and a transparent or cutaway tube wall where it would hide the squeeze.
+- Keep the relevant objects visible before loading or contact, during the largest deformation, and during
+  the stated outcome.

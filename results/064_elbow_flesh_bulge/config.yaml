@@ -1,0 +1,32 @@
+schema_version: 1
+scene_id: 064_elbow_flesh_bulge
+seed: 6402
+duration: 3.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+initial_conditions:
+  pose: straight_arm
+  elbow_center: [0.0, 0.0, 1.05]
+  flesh_density_kg_m3: 1050.0
+boundary_conditions:
+  upper_arm_bone: fixed
+  forearm_bone:
+    type: prescribed_hinge_rotation
+    hinge_center: [0.0, 0.0, 1.05]
+    hinge_axis: [0.0, 1.0, 0.0]
+    start_time: 0.4
+    end_time: 2.4
+    start_angle_degrees: 0.0
+    end_angle_degrees: -110.0
+    interpolation: smoothstep
+  flesh_attachment: driven_by_internal_bone_surfaces
+  expected_outcome: volume-preserving outward bulge on the inside of the elbow
+camera:
+  position: [0.05, -3.2, 1.18]
+  look_at: [0.0, 0.0, 1.08]
+  up: [0.0, 0.0, 1.0]
+  projection: orthographic
+  orthographic_scale: 1.85
+  width: 960
+  height: 640
+  fps: 50

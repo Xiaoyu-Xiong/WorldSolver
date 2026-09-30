@@ -1,0 +1,50 @@
+schema_version: 1
+scene_id: 109_water_sheet_on_suspended_cloth
+seed: 10908
+duration: 6.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+domain:
+  bounds_min: [-2.35, -2.15, 0.0]
+  bounds_max: [2.35, 2.15, 3.65]
+  boundary: open_top_with_receiving_basin
+cloth:
+  size: [2.65, 2.25]
+  center: [0.0, 0.0, 2.05]
+  grid_shape: [25, 21]
+  total_mass: 0.32
+  thickness: 0.0015
+  impermeable: true
+  initial_velocity: [0.0, 0.0, 0.0]
+  support_condition: four_corner_vertices_only
+  pinned_vertices: [0, 24, 500, 524]
+water:
+  density: 1000.0
+  initial_particle_spacing: 0.09
+  initial_receiving_depth: 0.10
+inflow:
+  center: [0.0, 0.0, 3.20]
+  axis: [0.0, 0.0, -1.0]
+  radius: 0.24
+  speed: 2.2
+  active_interval: [0.0, 5.2]
+  initial_column_bottom: 2.30
+boundary_conditions:
+  cloth_corners: fixed_position
+  cloth_edges: free
+  cloth_surface: impermeable_moving_two_way_interface
+  basin: closed_floor_and_side_walls_open_top
+  nozzle: prescribed_inflow
+coupling_requirements:
+  two_way: true
+  fluid_forces_drive_cloth: true
+  evolving_cloth_alters_fluid: true
+  prevent_cross_cloth_leakage: true
+camera:
+  position: [4.35, -4.65, 3.75]
+  look_at: [0.0, 0.0, 1.65]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

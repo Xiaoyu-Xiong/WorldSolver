@@ -1,0 +1,27 @@
+id: 077_elastic_rod_ground_stick_slip
+title: Stick-Slip of an Elastic Rod Dragged along a Surface
+category: elastic_solids
+source:
+  title: 'Incremental Potential Contact: Intersection- and Inversion-free, Large-Deformation Dynamics'
+  url: https://ipc-sim.github.io/file/IPC-paper-350ppi.pdf
+  anchor: Figure 20, PDF page 15; Section 7.3, Stick-slip instability, PDF page 16
+goal: 'Recreate the source experiment: The lower end then slides forward and the rod straightens partially;
+  this catching, bending, and slipping sequence repeats. The numerical implementation is unrestricted;
+  the deforming material is a three-dimensional solid.'
+scene_requirements:
+  required_elements:
+  - A thin volumetric elastic rod.
+  - A stationary frictional plane.
+  - A prescribed motion of the rod top that presses the rod down and drags it along the plane.
+  initial_state:
+  - The rod begins touching the plane before sustained sideways dragging.
+  required_events:
+  - The driven top moves sideways while the lower end remains pressed against the plane.
+  - The lower end temporarily stays in place as the moving top bends the rod farther sideways.
+  - The lower end then slides forward and the rod straightens partially; this catching, bending, and slipping
+    sequence repeats.
+camera_requirements:
+- Use a fixed side view of the drag direction, showing the driven top, rod shape, and lower contact point
+  throughout each stick-slip cycle.
+- Keep the relevant objects visible before loading or contact, during the largest deformation, and during
+  the stated outcome.

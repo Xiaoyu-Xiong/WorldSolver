@@ -1,0 +1,10 @@
+schema_version: 2
+profile: fiber_rods
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: pretwisted_ring
+    method: curve_tubes
+    material: ring_elastomer
+    color_rgb: [0.48, 0.18, 0.68]
+    subdivision: 2

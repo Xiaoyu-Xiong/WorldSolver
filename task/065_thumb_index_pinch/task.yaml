@@ -1,0 +1,26 @@
+id: 065_thumb_index_pinch
+title: Bulging of the Thumb-Index Web during Pinching
+category: elastic_solids
+source:
+  title: Stable Neo-Hookean Flesh Simulation
+  url: https://www.tkim.graphics/NEO/StableNeoHookean2018.pdf
+  anchor: Figure 8, PDF page 12; Figure 7, PDF page 11
+goal: 'Recreate the source experiment: The pinched pose shows a rounded mound of flesh in the thumb-index
+  web rather than a flat web or an empty-looking notch. The numerical implementation is unrestricted;
+  the deforming material is a three-dimensional solid.'
+scene_requirements:
+  required_elements:
+  - A volumetric hand and forearm flesh model with driven bones.
+  - The thumb motion that compresses the thumb-index web in Figure 8.
+  initial_state:
+  - The thumb begins in the original pose shown at the top of Figure 8.
+  required_events:
+  - The thumb moves from its initial pose toward the index-finger side of the hand.
+  - The flesh in the web between thumb and index finger rises outward as that region is squeezed.
+  - The pinched pose shows a rounded mound of flesh in the thumb-index web rather than a flat web or an
+    empty-looking notch.
+camera_requirements:
+- Use a fixed close view matching Figure 8, keeping the thumb, index-finger base, and intervening web
+  visible.
+- Keep the relevant objects visible before loading or contact, during the largest deformation, and during
+  the stated outcome.

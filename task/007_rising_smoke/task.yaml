@@ -1,0 +1,30 @@
+id: 007_rising_smoke
+title: Rising Smoke
+category: fluid_dynamics
+source:
+  title: Visual Simulation of Smoke
+  url: https://graphics.ucsd.edu/~henrik/papers/smoke/smoke.pdf
+  anchor: Figure 3; PDF page 5
+goal: Recreate the observable physical phenomenon in which buoyant smoke rises in an unobstructed domain
+  and rolls into persistent vortices. The implementation method is unrestricted; the target is the scene's
+  visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Smoke density field
+  - Velocity field
+  - Source or initial density region
+  - Simulation domain boundaries
+  initial_state:
+  - Buoyant smoke rises in an unobstructed domain and rolls into persistent vortices.
+  required_events:
+  - Qualitative/quantitative - plume rise
+  - Vorticity preservation
+  - Density loss
+  - Divergence
+  - Stability
+camera_requirements:
+- Use a three-quarter or side view that keeps the source, main interaction region, free surface or plume,
+  obstacles, and final state visible; avoid occlusion and excessive top-down views.
+parameter_notes:
+- 'Original paper parameters/configuration: 100 x 100 x 40 grid; buoyancy is the only external force;
+  about 30 s per frame in the paper.'

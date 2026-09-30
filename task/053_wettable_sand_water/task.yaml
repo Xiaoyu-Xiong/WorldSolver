@@ -1,0 +1,32 @@
+id: 053_wettable_sand_water
+title: Wettable Sand Water
+category: multiphysics_coupling
+source:
+  title: A Unified Particle System Framework for Multi-Phase, Multi-Material Visual Simulations
+  url: https://cg.cs.tsinghua.edu.cn/papers/SIGASIA-2017_fluid.pdf
+  anchor: Figure 11 left; PDF page 10
+goal: Recreate the observable physical phenomenon in which water pours onto a pile of sand that is wettable
+  but does not dissolve. The implementation method is unrestricted; the target is the scene's visible
+  motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Receiving pile region
+  - Coupled materials named by the scene
+  - Interface/contact region
+  - Domain or support boundaries
+  - An initially all-dry sand pile; wetness should be caused by the water stream, not prepainted left/right regions
+  initial_state:
+  - Water pours onto a pile of sand that is wettable but does not dissolve.
+  required_events:
+  - Quantitative/qualitative - wetting penetration
+  - Pile deformation
+  - Phase mass
+  - Runoff
+camera_requirements:
+- Use a three-quarter view that simultaneously exposes each coupled phase or body, their interface, the
+  main transfer or contact region, and the final distribution.
+- Use dry sand, wet sand, and water colors that make the wetting front readable. Do not initialize the
+  scene as a left-dry/right-wet split before pouring begins.
+parameter_notes:
+- 'Original paper parameters/configuration: Phase evolution disabled for sand; concentration/interaction
+  set for wetting only.'

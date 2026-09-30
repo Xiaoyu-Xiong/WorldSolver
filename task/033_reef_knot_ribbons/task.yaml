@@ -1,0 +1,29 @@
+id: 033_reef_knot_ribbons
+title: Reef Knot Ribbons
+category: cloth_and_shells
+source:
+  title: Codimensional Incremental Potential Contact
+  url: https://par.nsf.gov/servlets/purl/10290705
+  anchor: Figure 4; PDF page 4
+goal: Recreate the observable physical phenomenon in which two intertwined ribbons are pulled into a tight
+  reef knot under friction and a strict strain limit. The implementation method is unrestricted; the target
+  is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Reef Knot Ribbons
+  - Thin structure or fiber object named by the scene
+  - Collision/contact geometry
+  - Gravity
+  initial_state:
+  - Two intertwined ribbons are pulled into a tight reef knot under friction and a strict strain limit.
+  required_events:
+  - Quantitative/qualitative - knot tightness
+  - Strain-limit violation
+  - Intersection count
+  - Frictional stability
+camera_requirements:
+- Use a three-quarter view showing attachments, folds or bends, self-contact and external contact regions,
+  and the final drape or configuration without occlusion.
+parameter_notes:
+- 'Original paper parameters/configuration: 100K nodes, strain upper bound 1.134, friction mu = 0.02;
+  scripted end pulling.'

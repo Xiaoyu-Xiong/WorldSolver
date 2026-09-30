@@ -1,0 +1,148 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 11309961,
+          "trajectory_frames": 211,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "field.divergence.v1",
+        "criterion": "The active incompressible carrier velocity is approximately divergence free.",
+        "criterion_id": "incompressible_velocity_constraint",
+        "details": {
+          "sample_count": 211,
+          "worst_frame_index": 168
+        },
+        "dimension": "field_constraints",
+        "domain": "physics",
+        "metric": "divergence_relative_l2",
+        "normalized_error": 2.824743242306728,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 26.145545900667923
+      },
+      {
+        "calculator": "boundary.velocity_residual.v1",
+        "criterion": "Sampled fluid velocity at impermeable rigid boundaries matches the prescribed normal boundary velocity.",
+        "criterion_id": "prescribed_boundary_velocity",
+        "details": {
+          "sample_count": 211,
+          "worst_frame_index": 0
+        },
+        "dimension": "boundary_and_interface_conditions",
+        "domain": "physics",
+        "metric": "normal_velocity_relative_rms",
+        "normalized_error": 0.0,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "Total represented liquid mass follows the exported cumulative source and is conserved in closed configurations.",
+        "criterion_id": "liquid_mass_balance",
+        "details": {
+          "initial_quantity": [
+            921.984
+          ],
+          "sample_count": 211,
+          "worst_frame_index": 0
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.0,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "interface.level_set_kinematic.v1",
+        "criterion": "The exported liquid-air level set is transported consistently by the collocated liquid velocity.",
+        "criterion_id": "free_surface_kinematic_consistency",
+        "details": {
+          "sample_count": 211,
+          "worst_frame_index": 184
+        },
+        "dimension": "transport_equation_consistency",
+        "domain": "physics",
+        "metric": "kinematic_relative_l2",
+        "normalized_error": 0.9249844840741245,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 7.5015515925875516
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.09372299611087988,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.834
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.05314132102234568,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.656
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.07999999999999999,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.44000000000000006
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.08182909018191513,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.708
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "132_arch_obstacle_dam_break",
+  "visual_score": 0.6595,
+  "visual_fidelity_score": 65.95,
+  "physical_plausibility_score": 58.41177437331387,
+  "total_score": 62.18088718665693
+}

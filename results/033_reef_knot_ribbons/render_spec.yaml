@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "profile": "cloth_shell",
+  "environment": "studio_neutral",
+  "camera": "frozen_config",
+  "bindings": [
+    {
+      "object_id": "ribbon_1",
+      "method": "shell_surface",
+      "material": "default",
+      "subdivision": 1
+    },
+    {
+      "object_id": "ribbon_2",
+      "method": "shell_surface",
+      "material": "default",
+      "subdivision": 1
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 10826206,
+          "trajectory_frames": 211,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "Total represented material mass follows the exported cumulative source and remains conserved when no source or sink is active.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "initial_quantity": [
+            1781.8164000000002
+          ],
+          "sample_count": 211,
+          "worst_frame_index": 0
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.0,
+        "profile": "particles_and_granular_materials",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "dynamics.linear_momentum_balance.v1",
+        "criterion": "The time rate of total material momentum is consistent with exported external forces.",
+        "criterion_id": "linear_momentum_balance",
+        "details": {
+          "sample_count": 211,
+          "worst_frame_index": 16
+        },
+        "dimension": "momentum_and_force_balance",
+        "domain": "physics",
+        "metric": "momentum_balance_relative_l2",
+        "normalized_error": 0.9996553933959783,
+        "profile": "particles_and_granular_materials",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.03446066040216911
+      },
+      {
+        "calculator": "deformation.jacobian.v1",
+        "criterion": "Exported material deformation gradients preserve positive local orientation away from explicitly separated fracture surfaces.",
+        "criterion_id": "admissible_local_deformation",
+        "details": {
+          "sample_count": 211,
+          "worst_frame_index": 15
+        },
+        "dimension": "deformation_constraints",
+        "domain": "physics",
+        "metric": "nonpositive_jacobian_fraction",
+        "normalized_error": 0.3367983367983368,
+        "profile": "particles_and_granular_materials",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 66.32016632016632
+      },
+      {
+        "calculator": "contact.penetration.v1",
+        "criterion": "Active material-solid contacts maintain nonnegative signed gaps up to the frozen contact tolerance.",
+        "criterion_id": "nonpenetrating_rigid_contact",
+        "details": {
+          "sample_count": 211,
+          "worst_frame_index": 210
+        },
+        "dimension": "contact_and_interface_conditions",
+        "domain": "physics",
+        "metric": "penetration_relative_max",
+        "normalized_error": 967.1864229429274,
+        "profile": "particles_and_granular_materials",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.005169366952483995
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.050438080851673964,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.20600000000000002
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.03310589071449369,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.092
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.01264911064067352,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.04
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.01833030277982336,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.018
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "127_brittle_bowl_edge_drop",
+  "visual_score": 0.08900000000000001,
+  "visual_fidelity_score": 8.9,
+  "physical_plausibility_score": 41.589949086880246,
+  "total_score": 25.244974543440122
+}

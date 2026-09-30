@@ -1,0 +1,41 @@
+schema_version: 1
+scene_id: 052_soluble_bunny_water
+seed: 52017
+duration: 8.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+initial_conditions:
+  water_temperature_k: 293.15
+  water_concentration_red: 0.0
+  bunny_concentration_red: 1.0
+  initial_bunny_mass_kg: 896.094
+  inflow_speed_m_s: 2.4
+  inflow_start_s: 0.0
+  inflow_end_s: 5.5
+  bunny_visual: pink_soluble_bunny_asset_or_particle_surface
+  dynamic_water_stream: continuous_blue_pipe_flow_visible_from_frame_zero
+  dissolved_plume: red_pink_concentration_carried_by_water
+boundary_conditions:
+  floor: no_penetration
+  open_sides: outflow
+  pipe: prescribed_inflow
+visual_requirements:
+  bunny_color: saturated_pink_red
+  clear_water_color: transparent_blue
+  dissolved_water_color: red_pink_plume
+  bunny_shape_must_be_recognizable: true
+  water_stream_must_reach_bunny: true
+  no_static_placeholder_water_only: true
+  dynamic_color_binding:
+    scalar_attribute: red_solute_concentration
+    range: [0.0, 1.0]
+    meaning: 0 clear water, 1 red bunny solute
+    requirement: solver must advect/diffuse and export this per-particle attribute; renderer colors water/plume with diagnostic_points
+camera:
+  position: [-3.75, -4.8, 2.85]
+  look_at: [0.30, 0.0, 0.88]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

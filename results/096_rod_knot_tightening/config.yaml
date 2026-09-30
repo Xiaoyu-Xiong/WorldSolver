@@ -1,0 +1,51 @@
+schema_version: 1
+scene_id: 096_rod_knot_tightening
+seed: 9606
+duration: 8.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, 0.0]
+rod:
+  vertex_count: 161
+  radius: 0.035
+  total_mass: 0.12
+  rest_length: 6.95
+  inextensible: true
+  bending_resistance: true
+  circular_cross_section: true
+self_contact:
+  enabled: true
+  finite_thickness: true
+  friction_coefficient: 0.0
+  contact_distance: 0.070
+endpoint_manipulation:
+  controlled_vertices: [0, 160]
+  interpolation: smoothstep
+  left_tail:
+    initial_position: [-2.65, 0.0, 0.0]
+    waypoints:
+      - {time: 0.0, position: [-2.65, 0.0, 0.0]}
+      - {time: 4.2, position: [-2.65, 0.0, 0.0]}
+      - {time: 8.0, position: [-3.05, 0.0, 0.0]}
+  threading_tail:
+    initial_position: [1.70, -0.42, 0.46]
+    waypoints:
+      - {time: 0.0, position: [1.70, -0.42, 0.46]}
+      - {time: 1.8, position: [0.62, -0.38, 0.42]}
+      - {time: 3.2, position: [-0.10, 0.18, 0.02]}
+      - {time: 4.2, position: [0.92, 0.10, -0.16]}
+      - {time: 8.0, position: [3.05, 0.0, 0.0]}
+event_windows:
+  loose_loop_visible: [0.0, 1.8]
+  end_threads_through_loop: [1.8, 4.2]
+  tails_pull_and_loop_shrinks: [4.2, 7.2]
+  compact_tight_contacting_knot: [7.2, 8.0]
+required_outcome: A compact frictionless overhand knot remains between two visible opposed tails, with close self-contact and no interpenetration.
+camera:
+  position: [0.15, -6.8, 3.35]
+  look_at: [0.0, 0.0, 0.15]
+  up: [0.0, 0.0, 1.0]
+  focal_length_mm: 54
+  width: 960
+  height: 640
+  fps: 50

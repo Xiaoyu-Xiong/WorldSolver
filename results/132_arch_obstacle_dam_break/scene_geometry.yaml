@@ -1,0 +1,46 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: ground
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [3.2, 1.4, 0.05]}
+    transform: {translation: [0.0, 0.0, -0.05]}
+    material_id: ground
+    collision_enabled: true
+  - id: arch_left
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.22,0.7,0.70]}
+    transform: {translation: [-0.75,0,0.70]}
+    material_id: obstacle
+    collision_enabled: true
+  - id: arch_right
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.22,0.7,0.70]}
+    transform: {translation: [0.75,0,0.70]}
+    material_id: obstacle
+    collision_enabled: true
+  - id: arch_top
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.95,0.7,0.18]}
+    transform: {translation: [0,0,1.40]}
+    material_id: obstacle
+    collision_enabled: true
+  - id: dam_gate
+    semantic: boundary
+    motion: kinematic
+    geometry: {type: box, half_extents: [0.04,0.65,0.55]}
+    transform: {translation: [-1.55,0,0.55]}
+    material_id: gate
+    collision_enabled: true
+  - id: subject
+    semantic: liquid
+    motion: dynamic
+    geometry: {type: particle_domain, bounds_min: [-2.7,-0.65,0.0], bounds_max: [-1.45,0.65,1.25], grid_shape: [14,12,14]}
+    state_binding: {selector: all}
+    material_id: subject
+    collision_enabled: true

@@ -1,0 +1,64 @@
+schema_version: 1
+scene_id: 029_inclined_cloth_analytic
+seed: 29
+duration: 1.0
+sample_dt: 0.016666666666666666
+gravity:
+- 0.0
+- 0.0
+- -9.81
+friction:
+  model: coulomb
+  coefficient: 0.2
+incline:
+  angle_degrees: 25.0
+  plane_translation:
+  - 0.0
+  - 0.0
+  - 0.38
+  plane_half_thickness: 0.04
+  downhill_direction:
+  - -0.906307787
+  - 0.0
+  - -0.422618262
+cloth:
+  name: inclined_cloth
+  side_length: 1.2
+  grid_shape:
+  - 25
+  - 25
+  total_mass: 0.18
+  initial_normal_gap: 0.18
+  initial_velocity:
+  - 0.0
+  - 0.0
+  - 0.0
+contact:
+  surface_object: inclined_plane
+  cloth_object: inclined_cloth
+  thickness: 0.004
+diagnostics:
+  analytical_friction_solution:
+    acceleration_magnitude: 2.366591
+    expression: max(0, g*(sin(theta)-mu*cos(theta)))
+    compare:
+    - downslope_displacement_error
+    - downslope_velocity_error
+  constraint_residual: cloth_plane_nonpenetration
+camera:
+  position:
+  - -0.5
+  - 3.6
+  - 2.8
+  look_at:
+  - -0.15
+  - 0.0
+  - 0.55
+  up:
+  - 0.0
+  - 0.0
+  - 1.0
+  width: 960
+  height: 640
+  fps: 50
+visual_judge_frame_count: 20

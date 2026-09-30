@@ -1,0 +1,31 @@
+id: 130_sand_ball_impact_spray
+title: Ball Impact into Sand with Granular Spray
+category: plastic_and_complex_materials
+source:
+  title: Drucker-Prager Elastoplasticity for Sand Animation
+  url: https://www.math.ucdavis.edu/~jteran/papers/KGPSJT16.pdf
+  anchor: Figure 2
+goal: >-
+  Recreate the paper's clearly visible ball impact into sand with granular spray phenomenon. The implementation method is unrestricted;
+  evaluation targets the observable motion, material response, interaction sequence, and final state.
+scene_requirements:
+  required_elements:
+  - Dense sand bed
+  - Rigid impact ball
+  - Rigid container floor
+  - Gravity
+  - Granular elastoplasticity
+  initial_state:
+  - A dense, level sand bed is at rest while a rigid ball starts above it.
+  required_events:
+  - The ball drops vertically and penetrates the sand surface.
+  - A crater forms and sand is expelled upward and outward in a granular spray around the ball.
+  - The spray falls back, the ball decelerates, and a permanent crater and disturbed deposit remain.
+  - Material motion remains continuous, with no unexplained teleportation or numerical explosion.
+camera_requirements:
+- Use an oblique side view that shows penetration depth, spray envelope, crater rim, and final deposit.
+- Keep material and rigid obstacles visually distinct and preserve enough contrast to read deformation and contacts.
+parameter_notes:
+- Match the qualitative scale, material regime, and event ordering shown in Figure 2; geometric simplification is allowed.
+- Export per-sample mass, velocity, external force, deformation gradient, and near-contact signed distance for scoring.
+

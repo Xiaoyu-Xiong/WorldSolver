@@ -1,0 +1,149 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 158702338,
+          "trajectory_frames": 211,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "field.divergence.v1",
+        "criterion": "The active incompressible carrier velocity is approximately divergence free.",
+        "criterion_id": "incompressible_velocity_constraint",
+        "details": {
+          "sample_count": 211,
+          "worst_frame_index": 202
+        },
+        "dimension": "field_constraints",
+        "domain": "physics",
+        "metric": "divergence_relative_l2",
+        "normalized_error": 17.909611883805134,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 5.288315837177153
+      },
+      {
+        "calculator": "boundary.velocity_residual.v1",
+        "criterion": "Sampled fluid velocity at impermeable rigid boundaries matches the prescribed normal boundary velocity.",
+        "criterion_id": "prescribed_boundary_velocity",
+        "details": {
+          "sample_count": 211,
+          "worst_frame_index": 4
+        },
+        "dimension": "boundary_and_interface_conditions",
+        "domain": "physics",
+        "metric": "normal_velocity_relative_rms",
+        "normalized_error": 0.022926887400153022,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 81.34916787934185
+      },
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "Total represented liquid mass follows the exported cumulative source and is conserved in closed configurations.",
+        "criterion_id": "liquid_mass_balance",
+        "details": {
+          "initial_quantity": [
+            2173.2479999999823,
+            43486.91199998932
+          ],
+          "sample_count": 211,
+          "worst_frame_index": 0
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.0,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "interface.level_set_kinematic.v1",
+        "criterion": "The exported liquid-air level set is transported consistently by the collocated liquid velocity.",
+        "criterion_id": "free_surface_kinematic_consistency",
+        "details": {
+          "sample_count": 211,
+          "worst_frame_index": 0
+        },
+        "dimension": "transport_equation_consistency",
+        "domain": "physics",
+        "metric": "kinematic_relative_l2",
+        "normalized_error": 1.0,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.0
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.024494897427831747,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.9199999999999999
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.09797958971132714,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.37
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0812403840463596,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.6799999999999999
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.06651315659326355,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.766
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "135_liquid_bunny_pool_impact",
+  "visual_score": 0.6839999999999999,
+  "visual_fidelity_score": 68.39999999999999,
+  "physical_plausibility_score": 46.65937092912975,
+  "total_score": 57.52968546456487
+}

@@ -1,0 +1,10 @@
+schema_version: 2
+profile: deformable_surface
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - {object_id: armadillo, method: deformed_mesh, material: terracotta, color_rgb: [0.72, 0.16, 0.11], subdivision: 1}
+  - {object_id: upper_left_roller, method: rigid_mesh, material: roller_steel, color_rgb: [0.42, 0.48, 0.52]}
+  - {object_id: upper_right_roller, method: rigid_mesh, material: roller_steel, color_rgb: [0.42, 0.48, 0.52]}
+  - {object_id: lower_left_roller, method: rigid_mesh, material: roller_steel, color_rgb: [0.42, 0.48, 0.52]}
+  - {object_id: lower_right_roller, method: rigid_mesh, material: roller_steel, color_rgb: [0.42, 0.48, 0.52]}

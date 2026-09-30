@@ -1,0 +1,8 @@
+schema_version: 2
+profile: rigid_contact
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: floor, method: rigid_mesh, material: matte, color_rgb: [0.18, 0.21, 0.26]}
+  - {object_id: bolt, method: rigid_mesh, material: metal, color_rgb: [0.78, 0.82, 0.88]}
+  - {object_id: nut, method: rigid_mesh, material: metal, color_rgb: [0.16, 0.56, 0.86]}

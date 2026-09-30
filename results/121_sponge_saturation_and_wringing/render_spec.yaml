@@ -1,0 +1,23 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - {object_id: sink_floor, method: rigid_mesh, material: brushed_steel, color_rgb: [0.60, 0.65, 0.68]}
+  - {object_id: sink_back, method: rigid_mesh, material: brushed_steel, color_rgb: [0.60, 0.65, 0.68]}
+  - {object_id: sink_left, method: rigid_mesh, material: brushed_steel, color_rgb: [0.60, 0.65, 0.68]}
+  - {object_id: sink_right, method: rigid_mesh, material: brushed_steel, color_rgb: [0.60, 0.65, 0.68]}
+  - {object_id: faucet_riser, method: rigid_mesh, material: chrome, color_rgb: [0.78, 0.82, 0.85]}
+  - {object_id: faucet_spout, method: rigid_mesh, material: chrome, color_rgb: [0.78, 0.82, 0.85]}
+  - {object_id: faucet_nozzle, method: rigid_mesh, material: chrome, color_rgb: [0.32, 0.35, 0.38]}
+  - object_id: sponge
+    method: deformed_mesh
+    material: matte
+    scalar_attribute: saturation
+    scalar_range: [0.0, 1.0]
+    scalar_color_low: [0.96, 0.76, 0.18]
+    scalar_color_high: [0.40, 0.22, 0.06]
+    subdivision: 1
+  - {object_id: water, method: diagnostic_points, material: clear_water, color_rgb: [0.08, 0.48, 0.92], opacity: 0.68, max_points: 1500}
+  - {object_id: left_grip, method: rigid_mesh, material: control_blue, color_rgb: [0.12, 0.35, 0.85]}
+  - {object_id: right_grip, method: rigid_mesh, material: control_red, color_rgb: [0.85, 0.18, 0.12]}

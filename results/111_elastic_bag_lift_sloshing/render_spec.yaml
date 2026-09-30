@@ -1,0 +1,39 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - object_id: tank_floor
+    method: rigid_mesh
+    material: glass
+    color_rgb: [0.45, 0.62, 0.72]
+    opacity: 0.20
+  - object_id: tank_back
+    method: rigid_mesh
+    material: glass
+    color_rgb: [0.45, 0.62, 0.72]
+    opacity: 0.10
+  - object_id: tank_left
+    method: rigid_mesh
+    material: glass
+    color_rgb: [0.45, 0.62, 0.72]
+    opacity: 0.13
+  - object_id: tank_right
+    method: rigid_mesh
+    material: glass
+    color_rgb: [0.45, 0.62, 0.72]
+    opacity: 0.13
+  - object_id: elastic_bag
+    method: shell_surface
+    material: emerald_cloth
+    color_rgb: [0.06, 0.76, 0.40]
+    opacity: 0.88
+    subdivision: 1
+  - object_id: water
+    method: reconstructed_surface
+    material: clear_water
+    color_rgb: [0.10, 0.48, 0.88]
+    opacity: 0.72
+    surface_pitch: 0.075
+    surface_smoothing: 1.05
+

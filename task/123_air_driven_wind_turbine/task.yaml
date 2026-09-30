@@ -1,0 +1,32 @@
+id: 123_air_driven_wind_turbine
+title: Airflow Drives a Wind Turbine and a Helical Wake
+category: multiphysics_coupling
+source:
+  title: Fast and Versatile Fluid-Solid Coupling for Turbulent Flow Simulation
+  url: https://www.geometry.caltech.edu/pubs/LLDL21.pdf
+  anchor: Figure 20; PDF page 13
+goal: 'Recreate the source two-way coupled experiment: The rotating blades form a helical wake while axle friction
+  limits further acceleration toward a steady rotation rate. Prescribe only the stated supports and controls;
+  the remaining solid response and fluid motion must be dynamically coupled.'
+scene_requirements:
+  required_elements:
+  - A dynamic rigid three-blade wind turbine with a fixed axle and the source axle friction.
+  - A steady incoming airflow and a resolved downstream wake.
+  - Passive colored smoke emitted near the blade tips to reveal wake geometry.
+  - Fluid forces must change the dynamic solid motion or deformation, and the evolving solid must alter the
+    resolved fluid flow. The numerical coupling method is unrestricted.
+  - Do not drive the rotor with a motor or an animated angular velocity. Account for axle-friction torque when
+    evaluating angular momentum.
+  initial_state:
+  - Start with the rotor at rest before airflow accelerates it.
+  - Leave the rotor angle dynamic; the axle constrains its position and direction but does not prescribe angular
+    speed.
+  required_events:
+  - Incoming airflow starts the rotor turning and its rotation speed increases.
+  - Colored blade-tip smoke is carried downstream in winding trails.
+  - The rotating blades form a helical wake while axle friction limits further acceleration toward a steady
+    rotation rate.
+camera_requirements:
+- Use a fixed oblique view showing the rotor disk and enough downstream distance to see the helical smoke trails.
+- Keep the onset, strongest interaction, and stated outcome visible in a continuous sequence. Passive tracer
+  or wetness colors must follow the simulated state rather than a scripted color change.

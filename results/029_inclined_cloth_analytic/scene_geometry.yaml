@@ -1,0 +1,26 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: inclined_plane
+    semantic: rigid
+    motion: static
+    geometry:
+      type: box
+      half_extents: [1.8, 1.15, 0.04]
+    transform:
+      translation: [0.0, 0.0, 0.38]
+      rotation_xyzw: [0.0, -0.216439614, 0.0, 0.976296007]
+    material_id: ramp_matte
+    collision_enabled: true
+  - id: inclined_cloth
+    semantic: cloth
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      topology_asset: assets/inclined_cloth_topology.json
+      grid_shape: [25, 25]
+    state_binding:
+      selector: all
+    material_id: cloth_blue
+    collision_enabled: true

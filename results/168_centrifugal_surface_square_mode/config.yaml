@@ -1,0 +1,26 @@
+schema_version: 1
+scene_id: 168_centrifugal_surface_square_mode
+seed: 26168
+duration: 12.0
+sample_dt: 0.03333333333333333
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+tank:
+  radius: 0.95
+  wall_height: 1.55
+  initial_fill_height: 0.76
+  particle_spacing: 0.095
+  liquid_density: 1000.0
+  target_mode: 4
+  bottom_angular_velocity_rad_s: 10
+  stationary_side_wall: true
+  field_grid_shape: [24, 24, 20]
+camera:
+  position: [0.0, -1.4, 6.2]
+  look_at: [0.0, 0.0, 0.55]
+  up: [0.0, 1.0, 0.0]
+  projection: orthographic
+  orthographic_height: 2.35
+  width: 960
+  height: 720
+  fps: 50

@@ -1,0 +1,25 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: ground
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [3.2, 1.4, 0.05]}
+    transform: {translation: [0.0, 0.0, -0.05]}
+    material_id: ground
+    collision_enabled: true
+  - id: blast_core
+    semantic: emitter
+    motion: static
+    geometry: {type: sphere, radius: 0.26}
+    transform: {translation: [0.0, 0.0, 0.85]}
+    material_id: emitter
+    collision_enabled: false
+  - id: subject
+    semantic: gas
+    motion: dynamic
+    geometry: {type: voxel_grid, bounds_min: [-3.0, -1.2, 0.0], bounds_max: [3.0, 1.2, 3.8], grid_shape: [24, 16, 28]}
+    state_binding: {selector: field, attribute_name: transported_scalar}
+    material_id: subject
+    collision_enabled: true

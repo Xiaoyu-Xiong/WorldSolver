@@ -1,0 +1,27 @@
+id: 074_armadillo_roller_stick_slip
+title: Stick-Slip of an Armadillo between Rollers
+category: elastic_solids
+source:
+  title: 'Incremental Potential Contact: Intersection- and Inversion-free, Large-Deformation Dynamics'
+  url: https://ipc-sim.github.io/file/IPC-paper-350ppi.pdf
+  anchor: Figure 16 and Section 7.2, Rollers compression and stick-slip instability; PDF page 14
+goal: 'Recreate the source experiment: The stretched region then slips forward, followed by another interval
+  of catching and stretching; passage is visibly intermittent rather than uniformly steady. The numerical
+  implementation is unrestricted; the deforming material is a three-dimensional solid.'
+scene_requirements:
+  required_elements:
+  - A volumetric elastic Armadillo.
+  - The driven high-friction roller arrangement from Figure 16.
+  initial_state:
+  - The Armadillo starts at the roller entrance before being drawn into the gap.
+  required_events:
+  - The turning rollers draw the Armadillo into their gap.
+  - The body flattens in the gap and stretches while a contacting region temporarily remains caught against
+    a roller.
+  - The stretched region then slips forward, followed by another interval of catching and stretching;
+    passage is visibly intermittent rather than uniformly steady.
+camera_requirements:
+- Use a fixed side or three-quarter view that shows the roller rotations, entrance, exit, and compressed
+  body.
+- Keep the relevant objects visible before loading or contact, during the largest deformation, and during
+  the stated outcome.

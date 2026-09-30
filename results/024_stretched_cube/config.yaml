@@ -1,0 +1,42 @@
+schema_version: 1
+scene_id: 024_stretched_cube
+seed: 19027
+duration: 3.6
+sample_dt: 0.03333333333333333
+camera:
+  position:
+  - 3.3
+  - -4.2
+  - 2.35
+  look_at:
+  - 0.0
+  - 0.0
+  - 0.86
+  up:
+  - 0.0
+  - 0.0
+  - 1.0
+  width: 960
+  height: 640
+  fps: 50
+subject_asset: assets/subject.npz
+gravity:
+- 0.0
+- 0.0
+- 0.0
+initial_velocity:
+- 0.0
+- 0.0
+- 0.0
+contact_length_scale: 0.04
+ground_z: 0.0
+scenario: stretched_cube
+subject_mass: 1.3
+stiffness: 28.0
+stretch_ratio: 2.15
+stretch_end: 1.25
+pulse_time: 1.55
+damping: 0.42
+restitution: 0.0
+friction: 0.5
+visual_judge_frame_count: 20

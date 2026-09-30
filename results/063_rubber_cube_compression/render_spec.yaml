@@ -1,0 +1,19 @@
+schema_version: 2
+profile: deformable_surface
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: support
+    method: rigid_mesh
+    material: support_dark
+    color_rgb: [0.28, 0.31, 0.34]
+  - object_id: rubber_cube
+    method: deformed_mesh
+    material: rubber_blue
+    color_rgb: [0.12, 0.48, 0.78]
+    subdivision: 1
+  - object_id: load_indicator
+    method: rigid_mesh
+    material: load_red
+    color_rgb: [0.82, 0.18, 0.12]
+    opacity: 0.45

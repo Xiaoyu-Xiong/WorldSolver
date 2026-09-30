@@ -1,0 +1,35 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: elastic_armadillo
+    semantic: deformable
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/armadillo.obj
+      topology_asset: assets/armadillo_solid.npz
+    state_binding: {selector: all}
+    material_id: armadillo_blue
+    collision_enabled: false
+  - id: left_grasp
+    semantic: boundary
+    motion: static
+    geometry: {type: sphere, radius: 0.075}
+    transform: {translation: [-0.92, 0.0, 2.12]}
+    material_id: grasp_gold
+    collision_enabled: false
+  - id: right_grasp
+    semantic: boundary
+    motion: static
+    geometry: {type: sphere, radius: 0.075}
+    transform: {translation: [0.92, 0.0, 2.12]}
+    material_id: grasp_gold
+    collision_enabled: false
+  - id: pull_target
+    semantic: boundary
+    motion: kinematic
+    geometry: {type: sphere, radius: 0.095}
+    transform: {translation: [0.0, 0.0, 3.65]}
+    material_id: pull_red
+    collision_enabled: false

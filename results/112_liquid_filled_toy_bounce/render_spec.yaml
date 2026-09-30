@@ -1,0 +1,34 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - object_id: floor
+    method: rigid_mesh
+    material: matte_charcoal
+    color_rgb: [0.25, 0.27, 0.32]
+  - object_id: enclosed_liquid
+    method: reconstructed_surface
+    material: clear_water
+    color_rgb: [0.08, 0.46, 0.82]
+    opacity: 0.22
+    surface_pitch: 0.055
+    surface_smoothing: 1.1
+  - object_id: red_markers
+    method: diagnostic_points
+    material: tracer_red
+    color_rgb: [0.92, 0.05, 0.03]
+    particle_radius_scale: 1.8
+    max_points: 1200
+  - object_id: yellow_markers
+    method: diagnostic_points
+    material: tracer_yellow
+    color_rgb: [1.0, 0.88, 0.03]
+    particle_radius_scale: 1.8
+    max_points: 1200
+  - object_id: toy_shell
+    method: deformed_mesh
+    material: rubber
+    color_rgb: [0.92, 0.86, 0.72]
+    opacity: 0.32
+    subdivision: 1

@@ -1,0 +1,39 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: tree_rods
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/tree_topology.json
+      radius: 0.035
+    state_binding:
+      selector: attribute
+      attribute_name: is_rod_vertex
+      value: 1
+    material_id: bark
+    collision_enabled: false
+  - id: rigid_junctions
+    semantic: rigid
+    motion: dynamic
+    geometry:
+      type: sphere
+      radius: 0.072
+    state_binding:
+      selector: attribute
+      attribute_name: is_rigid_junction
+      value: 1
+    material_id: dark_bark
+    collision_enabled: false
+  - id: snowy_ground
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [7.0, 5.0, 0.06]
+    transform:
+      translation: [0.0, 0.0, -0.08]
+    material_id: snow
+    collision_enabled: true

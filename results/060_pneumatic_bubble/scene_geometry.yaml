@@ -1,0 +1,27 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: chamber_wall
+    semantic: deformable
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/chamber_wall.npz
+      topology_asset: assets/chamber_wall.npz
+    state_binding:
+      selector: body_id
+      value: 0
+    material_id: red_silicone
+    collision_enabled: true
+  - id: mounting_base
+    semantic: boundary
+    motion: static
+    geometry:
+      type: cylinder
+      radius: 0.082
+      height: 0.012
+    transform:
+      translation: [0.0, 0.0, -0.006]
+    material_id: dark_mount
+    collision_enabled: true

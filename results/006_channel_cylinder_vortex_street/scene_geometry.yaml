@@ -1,0 +1,46 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: channel_fluid
+    semantic: liquid
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [-6.0, -1.5, -0.06]
+      bounds_max: [10.0, 1.5, 0.06]
+    state_binding:
+      selector: all
+    material_id: dye_diagnostic
+    collision_enabled: false
+  - id: lower_channel_wall
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [8.3, 0.10, 0.10]
+    transform:
+      translation: [2.0, -1.60, 0.0]
+    material_id: channel_wall
+    collision_enabled: true
+  - id: upper_channel_wall
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [8.3, 0.10, 0.10]
+    transform:
+      translation: [2.0, 1.60, 0.0]
+    material_id: channel_wall
+    collision_enabled: true
+  - id: circular_obstacle
+    semantic: rigid
+    motion: static
+    geometry:
+      type: cylinder
+      radius: 0.42
+      height: 0.30
+    transform:
+      translation: [-3.0, 0.0, 0.0]
+    material_id: obstacle
+    collision_enabled: true

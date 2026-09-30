@@ -1,0 +1,28 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - object_id: torsion_rod
+    method: curve_tubes
+    material: striped_rod
+    color_rgb: [0.92, 0.48, 0.10]
+    subdivision: 2
+  - object_id: driven_body
+    method: rigid_mesh
+    material: driven_blue
+    color_rgb: [0.10, 0.32, 0.82]
+    subdivision: 2
+  - object_id: receiver_body
+    method: rigid_mesh
+    material: receiver_blue
+    color_rgb: [0.16, 0.48, 0.94]
+    subdivision: 2
+  - object_id: driven_orientation_mark
+    method: rigid_mesh
+    material: orientation_mark
+    color_rgb: [1.0, 0.88, 0.08]
+  - object_id: receiver_orientation_mark
+    method: rigid_mesh
+    material: orientation_mark
+    color_rgb: [1.0, 0.88, 0.08]

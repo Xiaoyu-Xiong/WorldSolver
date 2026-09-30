@@ -1,0 +1,25 @@
+schema_version: 1
+scene_id: 038_two_snowballs_head_on
+seed: 38003
+duration: 3.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+floor:
+  top_z: 0.0
+  half_extents: [4.5, 3.0, 0.08]
+snowballs:
+  radius: 0.55
+  particle_spacing: 0.075
+  center_height: 0.72
+  center_offset_x: 1.35
+  impact_speed: 4.5
+  total_mass_each: 32.0
+  nominal_density: 400.0
+camera:
+  position: [4.6, -6.4, 3.2]
+  look_at: [0.0, 0.0, 0.62]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

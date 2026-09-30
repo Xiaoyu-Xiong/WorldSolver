@@ -1,0 +1,24 @@
+id: 090_branching_rods_in_wind
+title: Wind-Driven Motion of Branching Elastic Rods
+category: rods_and_strands
+source:
+  title: Discrete Elastic Rods
+  url: https://www.cs.columbia.edu/cg/rods/
+  anchor: Figure 12 and Section 9.4, Rigid-bodies for rigid couples; PDF page 11
+goal: 'Recreate the source experiment: Different branches show different bending amplitudes and timing under
+  the changing wind load. Use elastic rods or strands; the numerical implementation is unrestricted.'
+scene_requirements:
+  required_elements:
+  - A tree-like branching network of bending- and twist-resistant elastic rods.
+  - Rigid junctions coupling the branch positions and orientations, and a fixed root.
+  - Prescribed wind forces and gravity; no fluid solver is required.
+  initial_state:
+  - Start from the source branching reference arrangement with all junctions attached and the root fixed.
+  required_events:
+  - Applied wind loads bend the main branches away from their reference positions.
+  - The main branches carry the attached smaller branches along while those branches also flex.
+  - Different branches show different bending amplitudes and timing under the changing wind load.
+camera_requirements:
+- Keep the root and complete branching structure visible against a contrasting background.
+- Keep the relevant objects visible before loading or contact, during the strongest response, and through the
+  stated outcome.

@@ -1,0 +1,10 @@
+schema_version: 2
+profile: deformable_surface
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - {object_id: support_left, method: rigid_mesh, material: translucent_ivory, color_rgb: [0.82, 0.86, 0.88], opacity: 0.46}
+  - {object_id: support_right, method: rigid_mesh, material: translucent_ivory, color_rgb: [0.82, 0.86, 0.88], opacity: 0.46}
+  - {object_id: support_rear, method: rigid_mesh, material: translucent_ivory, color_rgb: [0.86, 0.89, 0.91], opacity: 0.38}
+  - {object_id: upper_cylinder, method: rigid_mesh, material: translucent_ivory, color_rgb: [0.88, 0.90, 0.92], opacity: 0.48}
+  - {object_id: octopus, method: deformed_mesh, material: octopus_red, color_rgb: [0.82, 0.025, 0.055], opacity: 1.0, subdivision: 2}

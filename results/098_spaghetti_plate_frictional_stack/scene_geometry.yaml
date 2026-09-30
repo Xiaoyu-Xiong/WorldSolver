@@ -1,0 +1,390 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: plate
+    semantic: boundary
+    motion: static
+    geometry:
+      type: axisymmetric_container
+      inner_profile:
+        - [0.10, 0.000]
+        - [0.40, 0.018]
+        - [0.52, 0.075]
+        - [0.57, 0.125]
+      wall_thickness: 0.025
+    material_id: dark_ceramic
+    collision_enabled: true
+  - id: strand_00
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 0
+    material_id: spaghetti_0
+    collision_enabled: true
+  - id: strand_01
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 1
+    material_id: spaghetti_1
+    collision_enabled: true
+  - id: strand_02
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 2
+    material_id: spaghetti_2
+    collision_enabled: true
+  - id: strand_03
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 3
+    material_id: spaghetti_3
+    collision_enabled: true
+  - id: strand_04
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 4
+    material_id: spaghetti_0
+    collision_enabled: true
+  - id: strand_05
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 5
+    material_id: spaghetti_1
+    collision_enabled: true
+  - id: strand_06
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 6
+    material_id: spaghetti_2
+    collision_enabled: true
+  - id: strand_07
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 7
+    material_id: spaghetti_3
+    collision_enabled: true
+  - id: strand_08
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 8
+    material_id: spaghetti_0
+    collision_enabled: true
+  - id: strand_09
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 9
+    material_id: spaghetti_1
+    collision_enabled: true
+  - id: strand_10
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 10
+    material_id: spaghetti_2
+    collision_enabled: true
+  - id: strand_11
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 11
+    material_id: spaghetti_3
+    collision_enabled: true
+  - id: strand_12
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 12
+    material_id: spaghetti_0
+    collision_enabled: true
+  - id: strand_13
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 13
+    material_id: spaghetti_1
+    collision_enabled: true
+  - id: strand_14
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 14
+    material_id: spaghetti_2
+    collision_enabled: true
+  - id: strand_15
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 15
+    material_id: spaghetti_3
+    collision_enabled: true
+  - id: strand_16
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 16
+    material_id: spaghetti_0
+    collision_enabled: true
+  - id: strand_17
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 17
+    material_id: spaghetti_1
+    collision_enabled: true
+  - id: strand_18
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 18
+    material_id: spaghetti_2
+    collision_enabled: true
+  - id: strand_19
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 19
+    material_id: spaghetti_3
+    collision_enabled: true
+  - id: strand_20
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 20
+    material_id: spaghetti_0
+    collision_enabled: true
+  - id: strand_21
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 21
+    material_id: spaghetti_1
+    collision_enabled: true
+  - id: strand_22
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 22
+    material_id: spaghetti_2
+    collision_enabled: true
+  - id: strand_23
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 23
+    material_id: spaghetti_3
+    collision_enabled: true
+  - id: strand_24
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 24
+    material_id: spaghetti_0
+    collision_enabled: true
+  - id: strand_25
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 25
+    material_id: spaghetti_1
+    collision_enabled: true
+  - id: strand_26
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 26
+    material_id: spaghetti_2
+    collision_enabled: true
+  - id: strand_27
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 27
+    material_id: spaghetti_3
+    collision_enabled: true
+  - id: strand_28
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 28
+    material_id: spaghetti_0
+    collision_enabled: true
+  - id: strand_29
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 29
+    material_id: spaghetti_1
+    collision_enabled: true
+  - id: strand_30
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/spaghetti_topology.json
+      radius: 0.006
+    state_binding:
+      selector: body_id
+      value: 30
+    material_id: spaghetti_2
+    collision_enabled: true
+

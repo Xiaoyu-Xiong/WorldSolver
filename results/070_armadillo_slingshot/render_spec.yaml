@@ -1,0 +1,23 @@
+schema_version: 2
+profile: deformable_surface
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: elastic_armadillo
+    method: deformed_mesh
+    material: armadillo_blue
+    color_rgb: [0.10, 0.48, 0.68]
+    subdivision: 1
+  - object_id: left_grasp
+    method: rigid_mesh
+    material: grasp_gold
+    color_rgb: [0.95, 0.62, 0.10]
+  - object_id: right_grasp
+    method: rigid_mesh
+    material: grasp_gold
+    color_rgb: [0.95, 0.62, 0.10]
+  - object_id: pull_target
+    method: rigid_mesh
+    material: pull_red
+    color_rgb: [0.82, 0.12, 0.10]
+    opacity: 0.75

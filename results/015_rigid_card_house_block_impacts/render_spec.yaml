@@ -1,0 +1,19 @@
+schema_version: 2
+profile: rigid_contact
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - {object_id: floor, method: rigid_mesh, material: floor_matte}
+  - {object_id: card_lower_left_outer, method: rigid_mesh, material: card_red}
+  - {object_id: card_lower_left_inner, method: rigid_mesh, material: card_red}
+  - {object_id: card_lower_right_inner, method: rigid_mesh, material: card_blue}
+  - {object_id: card_lower_right_outer, method: rigid_mesh, material: card_blue}
+  - {object_id: card_deck_left, method: rigid_mesh, material: card_ivory}
+  - {object_id: card_deck_right, method: rigid_mesh, material: card_ivory}
+  - {object_id: card_upper_left_outer, method: rigid_mesh, material: card_red}
+  - {object_id: card_upper_left_inner, method: rigid_mesh, material: card_red}
+  - {object_id: card_upper_right_inner, method: rigid_mesh, material: card_blue}
+  - {object_id: card_upper_right_outer, method: rigid_mesh, material: card_blue}
+  - {object_id: impact_block_left, method: rigid_mesh, material: impact_yellow}
+  - {object_id: impact_block_right, method: rigid_mesh, material: impact_orange}
+  - {object_id: impact_block_center, method: rigid_mesh, material: impact_charcoal}

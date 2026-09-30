@@ -1,0 +1,33 @@
+id: 052_soluble_bunny_water
+title: Soluble Bunny Water
+category: multiphysics_coupling
+source:
+  title: A Unified Particle System Framework for Multi-Phase, Multi-Material Visual Simulations
+  url: https://cg.cs.tsinghua.edu.cn/papers/SIGASIA-2017_fluid.pdf
+  anchor: Figure 9; PDF page 10
+goal: Recreate the observable physical phenomenon in which a deformable soluble bunny dissolves into water
+  poured from a pipe and colors the liquid red. The implementation method is unrestricted; the target
+  is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Deformable bunny model
+  - Coupled materials named by the scene
+  - Interface/contact region
+  - Domain or support boundaries
+  - A clearly pink/red soluble bunny visible before water contact
+  - A dynamic blue water stream from the pipe and a red/pink dissolved plume
+  initial_state:
+  - A deformable soluble bunny dissolves into water poured from a pipe and colors the liquid red.
+  required_events:
+  - Quantitative/qualitative - dissolved mass
+  - Concentration conservation
+  - Bunny deformation
+  - Mixing
+camera_requirements:
+- Use a three-quarter view that simultaneously exposes each coupled phase or body, their interface, the
+  main transfer or contact region, and the final distribution.
+- Keep the bunny, clear water, and red dissolved mixture in separate high-contrast colors; the pipe stream
+  must be visible as dynamic water before and during contact.
+parameter_notes:
+- 'Original paper parameters/configuration: Soluble phase evolution enabled; water inflow from Figure
+  9.'

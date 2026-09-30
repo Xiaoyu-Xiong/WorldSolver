@@ -1,0 +1,27 @@
+id: 085_trefoil_knot_twist_snap
+title: Twist-Induced Snap of a Trefoil Knot
+category: rods_and_strands
+source:
+  title: Discrete Elastic Rods
+  url: https://www.cs.columbia.edu/cg/rods/
+  anchor: Figure 1 and Section 9.2, Instability of knots; PDF pages 1 and 9-10
+goal: 'Recreate the source experiment: At a later stage, the knot undergoes a clearly visible sudden change
+  to a different configuration. Use elastic rods or strands; the numerical implementation is unrestricted.'
+scene_requirements:
+  required_elements:
+  - One naturally straight, isotropic, inextensible elastic rod tied into an open trefoil knot.
+  - Two clamps holding the tails and applying relative end twist.
+  - Finite-thickness self-contact at the knot.
+  - Follow one of the source twist directions through its snap; record the dynamic transition rather than scoring
+    it as equilibrium.
+  initial_state:
+  - Start from the source loose twist-free knot, with its main loop and two tails visible.
+  - The tails are already clamped before the twist ramp.
+  required_events:
+  - One clamp rotates relative to the other while the loose trefoil knot remains in view.
+  - The main loop and braid region first change shape continuously as twist increases.
+  - At a later stage, the knot undergoes a clearly visible sudden change to a different configuration.
+camera_requirements:
+- Keep the full knot and the driven end orientation visible from a fixed three-quarter view.
+- Keep the relevant objects visible before loading or contact, during the strongest response, and through the
+  stated outcome.

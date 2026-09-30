@@ -1,0 +1,29 @@
+id: 132_arch_obstacle_dam_break
+title: Dam Break Through an Arch Obstacle
+category: fluid_dynamics
+source:
+  title: "Power Particles: An Incompressible Fluid Solver Based on Power Diagrams"
+  url: https://www.geometry.caltech.edu/pubs/dGWH%2B15.pdf
+  anchor: Figure 1
+goal: >-
+  Recreate the paper's clearly visible dam break through an arch obstacle phenomenon. The implementation method is unrestricted;
+  evaluation targets the observable flow evolution, boundary interaction, signature structure, and final state.
+scene_requirements:
+  required_elements:
+  - Rectangular tank
+  - Liquid column
+  - Rigid arch obstacle
+  - Gravity
+  initial_state:
+  - A liquid column rests behind a removable barrier upstream of a dry arch obstacle.
+  required_events:
+  - Barrier release causes the column to collapse and advance toward the arch.
+  - The flow splits around and through the arch, climbs its surfaces, and reconnects downstream.
+  - Colliding sheets and reflected waves create a complex but coherent free surface before settling.
+  - The represented fluid remains continuous and respects rigid boundaries throughout the event.
+camera_requirements:
+- Use a three-quarter view that keeps the reservoir, arch, split flow, and downstream region visible.
+- Use contrasting fluid and obstacle colors and keep the complete phenomenon inside frame.
+parameter_notes:
+- Match the qualitative scale, flow regime, and event ordering shown in Figure 1; geometric simplification is allowed.
+- Export collocated velocity diagnostics, active masks, boundary samples, and transported liquid or smoke fields.

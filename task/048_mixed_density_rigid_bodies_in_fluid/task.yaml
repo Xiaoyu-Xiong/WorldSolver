@@ -1,0 +1,34 @@
+id: 048_mixed_density_rigid_bodies_in_fluid
+title: Mixed Density Rigid Bodies In Fluid
+category: multiphysics_coupling
+source:
+  title: A Fast Variational Framework for Accurate Solid-Fluid Coupling
+  url: https://www.cs.ubc.ca/~rbridson/docs/batty-siggraph2007-variationalcoupling.pdf
+  anchor: Figure 1 middle; PDF page 1
+goal: Recreate the observable physical phenomenon in which multiple fully coupled rigid bodies with widely
+  varying density move in a fluid visualized by marker particles. The implementation method is unrestricted;
+  the target is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Visible density field
+  - Coupled materials named by the scene
+  - Interface/contact region
+  - Domain or support boundaries
+  - Separately colored rigid bodies spanning light, neutral, and heavy density ratios
+  - Sparse/transparent fluid markers that do not hide the rigid body trajectories
+  initial_state:
+  - Multiple fully coupled rigid bodies with widely varying density move in a fluid visualized by marker
+    particles.
+  required_events:
+  - Quantitative/qualitative - buoyancy/settling trajectories
+  - Momentum conservation
+  - Divergence
+  - Stability across density contrast
+  - Low-density bodies visibly rise while high-density bodies visibly settle
+camera_requirements:
+- Use a three-quarter view that simultaneously exposes each coupled phase or body, their interface, the
+  main transfer or contact region, and the final distribution.
+- Keep the fluid markers sparse or translucent enough that every rigid body can be tracked across the
+  shot. Use high-contrast body colors instead of mostly blue bodies.
+parameter_notes:
+- 'Original paper parameters/configuration: Use the mixed-density body scene from Figure 1 middle.'

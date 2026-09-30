@@ -1,0 +1,149 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 76926883,
+          "trajectory_frames": 351,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "Each particle species independently conserves its represented mass because the closed centrifuge has no material source or sink.",
+        "criterion_id": "species_mass_balance",
+        "details": {
+          "initial_quantity": [
+            1353.377655104503,
+            3380.9244782332685
+          ],
+          "sample_count": 351,
+          "worst_frame_index": 0
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.0,
+        "profile": "multiphysics_coupling",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "dynamics.linear_momentum_balance.v1",
+        "criterion": "Particle momentum change is consistent with gravity, wall forcing, fluid exchange, and other exported external forces.",
+        "criterion_id": "particle_momentum_balance",
+        "details": {
+          "sample_count": 351,
+          "worst_frame_index": 260
+        },
+        "dimension": "momentum_and_force_balance",
+        "domain": "physics",
+        "metric": "momentum_balance_relative_l2",
+        "normalized_error": 0.9999739087187955,
+        "profile": "multiphysics_coupling",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.0026091281204454475
+      },
+      {
+        "calculator": "field.divergence.v1",
+        "criterion": "The active carrier-liquid velocity field remains approximately divergence free.",
+        "criterion_id": "incompressible_carrier_flow",
+        "details": {
+          "sample_count": 351,
+          "worst_frame_index": 336
+        },
+        "dimension": "field_constraints",
+        "domain": "physics",
+        "metric": "divergence_relative_l2",
+        "normalized_error": 1.3591723153731488,
+        "profile": "multiphysics_coupling",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 42.38774732492699
+      },
+      {
+        "calculator": "coupling.force_balance.v1",
+        "criterion": "Exported particle-to-fluid and fluid-to-particle interaction forces cancel in aggregate.",
+        "criterion_id": "particle_fluid_force_balance",
+        "details": {
+          "sample_count": 351,
+          "worst_frame_index": 189
+        },
+        "dimension": "interface_momentum_exchange",
+        "domain": "physics",
+        "metric": "interaction_force_relative_residual",
+        "normalized_error": 0.9999979877434261,
+        "profile": "multiphysics_coupling",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.00020122565739244536
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.08854377448471462,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.8400000000000001
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.02683281572999745,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.93
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.04841487374764082,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.844
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.068585712797929,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.8039999999999999
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "164_centrifuge_slurry_axial_banding",
+  "visual_score": 0.8545,
+  "visual_fidelity_score": 85.45,
+  "physical_plausibility_score": 35.597639419676206,
+  "total_score": 60.52381970983811
+}

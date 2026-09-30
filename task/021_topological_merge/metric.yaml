@@ -1,0 +1,97 @@
+schema_version: 4
+task_id: 021_topological_merge
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The submitted solver runs to the frozen end time, produces a complete finite trajectory
+      with every required evaluation field, and produces a readable platform render without exceeding
+      the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: Multiple initially independent viscoplastic blocks descend and make contact at visibly
+      distinct times rather than beginning as one connected object.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: Contact regions broaden into continuous material bridges instead of remaining as point
+      contacts, visibly overlapping shells, or bouncing rigidly apart.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: Repeated merge events reduce the visible number of separate groups and produce one dominant
+      connected pile.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: The material remains coherent throughout, without obvious mesh popping, cracks, detached
+      fragments, disappearing mass, or numerical explosion.
+  physics:
+  - id: material_mass_balance
+    profile: deformable_solids
+    dimension: conservation_and_source_balance
+    criterion: Merging and internal remeshing do not create, delete, or silently lose material mass.
+    applicability:
+      requires:
+      - Per-sample mass contributions and prescribed cumulative sources are exported.
+      excludes:
+      - Explicitly modeled material injection or removal not represented by the exported source.
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: orientation_preserving_deformation
+    profile: deformable_solids
+    dimension: deformation_validity
+    criterion: Active material elements remain orientation preserving away from explicitly replaced elements
+      at represented topology changes.
+    applicability:
+      requires:
+      - A deformation gradient is exported for every active material element.
+      excludes:
+      - Elements after they have been explicitly removed or replaced by remeshing.
+    numeric_binding:
+      calculator: deformation.jacobian.v1
+      inputs:
+        deformation_gradient: attributes.deformation_gradient
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: linear_momentum_balance
+    profile: rigid_bodies
+    dimension: conservation_and_force_balance
+    criterion: The time rate of total linear momentum is consistent with the exported external forces;
+      internal contact forces cancel in the aggregate.
+    applicability:
+      requires:
+      - Mass, velocity, and external force are exported for every dynamic sample.
+      - External forces include gravity, actuators, and prescribed boundary reactions where applicable.
+      excludes:
+      - Runs with unreported impulses, deleted mass, or unexported external forcing.
+    numeric_binding:
+      calculator: dynamics.linear_momentum_balance.v1
+      inputs:
+        mass: state.mass
+        velocity: state.velocity
+        external_force: fields.external_force
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: internal_interaction_force_balance
+    profile: coupled_contact_systems
+    dimension: conservation_and_force_balance
+    criterion: Exported paired internal contact or coupling forces are equal and opposite in aggregate,
+      so they do not create net system momentum.
+    applicability:
+      requires:
+      - Both sides of every internal contact or coupling force pair are exported.
+      excludes:
+      - External actuator, gravity, prescribed boundary, or one-sided environment reaction forces.
+    numeric_binding:
+      calculator: coupling.force_balance.v1
+      inputs:
+        interaction_force: fields.interaction_force
+      parameters: {}
+      reduction:
+        type: maximum

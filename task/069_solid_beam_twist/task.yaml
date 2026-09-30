@@ -1,0 +1,27 @@
+id: 069_solid_beam_twist
+title: Opposed End Rotations of a Solid Beam
+category: elastic_solids
+source:
+  title: Mixed Variational Finite Elements for Implicit Simulation of Deformables
+  url: https://www.dgp.toronto.edu/projects/mixed-variational-fem/mfem_lowres.pdf
+  anchor: Figure 10 and Section 4; PDF page 7
+goal: 'Recreate the source experiment: The final beam shows distributed turns along its length rather
+  than an untwisted middle separated from an end by one abrupt hinge-like fold. The numerical implementation
+  is unrestricted; the deforming material is a three-dimensional solid.'
+scene_requirements:
+  required_elements:
+  - A volumetric rectangular elastic beam.
+  - Prescribed rotations of the two end faces in opposite directions.
+  initial_state:
+  - The beam starts straight and untwisted.
+  required_events:
+  - The two end faces rotate in opposite directions and the initially straight side edges begin to wind
+    around the beam axis.
+  - The twist extends through the beam length, producing a sequence of turned cross sections between the
+    driven ends.
+  - The final beam shows distributed turns along its length rather than an untwisted middle separated
+    from an end by one abrupt hinge-like fold.
+camera_requirements:
+- Use a fixed oblique view showing the full beam length and the orientation of both end faces.
+- Keep the relevant objects visible before loading or contact, during the largest deformation, and during
+  the stated outcome.

@@ -1,0 +1,16 @@
+schema_version: 2
+profile: deformable_surface
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: chamber_wall
+    method: deformed_mesh
+    material: red_silicone
+    color_rgb: [0.92, 0.24, 0.29]
+    opacity: 1.0
+    subdivision: 1
+  - object_id: mounting_base
+    method: rigid_mesh
+    material: dark_mount
+    color_rgb: [0.12, 0.13, 0.15]
+    opacity: 1.0

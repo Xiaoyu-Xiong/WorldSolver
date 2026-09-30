@@ -1,0 +1,31 @@
+id: 037_snowball_wall_sticky
+title: Snowball Wall Sticky
+category: plastic_and_complex_materials
+source:
+  title: A Material Point Method for Snow Simulation
+  url: https://math.ucdavis.edu/~jteran/papers/SSCTS13.pdf
+  anchor: Figure 2; PDF page 2
+goal: Recreate the observable physical phenomenon in which a snowball is launched into a vertical wall
+  using sticky contact. The implementation method is unrestricted; the target is the scene's visible motion,
+  interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Snowball Wall Sticky
+  - Granular particles
+  - Contact floor or container
+  - Gravity
+  initial_state:
+  - A snowball is launched into a vertical wall using sticky contact.
+  required_events:
+  - Qualitative/quantitative - wall attachment
+  - Rebound
+  - Breakup
+  - Fragment distribution
+  - Volume/mass preservation
+  - Stability
+camera_requirements:
+- Use a three-quarter view showing release or inflow, contact zones, pile or fragment evolution, and the
+  final deposited state without major occlusion.
+parameter_notes:
+- 'Original paper parameters/configuration: Collision mode = sticky; identical snowball, launch velocity,
+  wall, grid, and material parameters across the two runs.'

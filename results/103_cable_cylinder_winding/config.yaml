@@ -1,0 +1,73 @@
+schema_version: 1
+scene_id: 103_cable_cylinder_winding
+seed: 103103
+duration: 12.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+coordinate_convention: cylinder_axis_is_positive_z
+cable:
+  vertex_count: 121
+  length: 0.4
+  radius: 0.002
+  density: 1180.0
+  circular_cross_section: true
+  naturally_straight: true
+  extensible: true
+  shear_response: true
+  bending_response: true
+  torsional_response: true
+  young_modulus_pa: 4462000.0
+  poisson_ratio: 0.5012
+  shear_modulus_pa: 1486193.0
+  driven_vertex: 120
+  free_vertex: 0
+cylinder:
+  center: [0.0, 0.0, 0.145]
+  axis: [0.0, 0.0, 1.0]
+  radius: 0.018
+  height: 0.29
+  fixed: true
+contact:
+  cable_cylinder_enabled: true
+  cable_self_contact_enabled: true
+  finite_cable_radius: true
+  law: generalized_power_friction
+  tangential_impulse_bound: "norm(lambda_t) <= kappa * abs(lambda_n)^N"
+  kappa: 1.296
+  exponent_N: 0.7616
+  ideal_coulomb_capstan_forbidden: true
+winding:
+  direction: counterclockwise_viewed_from_positive_z
+  desired_pitch: 0.024
+  turns: 2.6
+  centerline_orbit_radius: 0.0205
+  approach_end_time: 2.0
+  winding_end_time: 10.5
+  settle_end_time: 12.0
+  start_angle_rad: 0.0
+  start_height: 0.236
+  end_height: 0.1736
+  grip_orientation: tangent_to_winding_path
+initial_conditions:
+  state: straight_pre_winding_cable_beside_cylinder
+  free_end: [0.0205, 0.0, 0.018]
+  driven_end: [0.082, -0.030, 0.413]
+  initial_velocity: [0.0, 0.0, 0.0]
+  only_driven_end_is_gripped: true
+event_sequence:
+  - driven_grip_approaches_cylinder_without_prescribed_coil
+  - grip_follows_constant_pitch_helical_path_around_cylinder
+  - cable_bends_into_frictional_contact_and_extends_under_tension
+  - successive_wraps_form_with_visible_axial_spacing
+  - grip_holds_while_wrapped_cable_settles_under_gravity
+required_outcome: At least two complete, same-handed wraps remain on the cylinder with approximately 0.024 m axial pitch, a visible free lower tail, and no pre-authored target coil.
+camera:
+  projection: perspective
+  position: [0.48, -0.62, 0.38]
+  look_at: [0.0, 0.0, 0.155]
+  up: [0.0, 0.0, 1.0]
+  fov_degrees: 38
+  width: 960
+  height: 640
+  fps: 50

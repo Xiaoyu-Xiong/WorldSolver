@@ -1,0 +1,30 @@
+id: 103_cable_cylinder_winding
+title: Winding an Extensible Cable around a Cylinder
+category: rods_and_strands
+source:
+  title: A Parallelized Iterative Algorithm for Real-Time Simulation of Long Flexible Cable Manipulation
+  url: https://www.inrol.snu.ac.kr/_files/ugd/313661_dc8cc347c7a94fe6bc26698ab42ea943.pdf
+  anchor: Figure 1 left; Figure 5; Sections V-B and V-C; PDF pages 1 and 5-6
+goal: 'Recreate the source experiment: Successive wraps form with visible axial spacing along the cylinder,
+  following the source pitch-controlled winding. Use elastic rods or strands; the numerical implementation
+  is unrestricted.'
+scene_requirements:
+  required_elements:
+  - One extensible elastic cable with bending, shear, and torsional response.
+  - A rigid cylinder and the source cable-end manipulation.
+  - The generalized nonlinear friction law and calibrated material setting from Section V-A, with gravity.
+  - Preserve the source extensibility and generalized nonlinear friction. Do not replace them with exact inextensibility
+    or an ideal Coulomb capstan equation.
+  initial_state:
+  - Start from the source pre-winding cable and cylinder arrangement.
+  - The driven cable end is gripped; other constraints follow the source setup rather than pinning the full
+    cable to a desired coil.
+  required_events:
+  - The gripped cable end follows a winding path around the cylinder.
+  - The cable bends onto the cylinder surface as more of it is wrapped.
+  - Successive wraps form with visible axial spacing along the cylinder, following the source pitch-controlled
+    winding.
+camera_requirements:
+- Use a fixed oblique view showing the cylinder axis, the driven grip, and the spacing between wraps.
+- Keep the relevant objects visible before loading or contact, during the strongest response, and through the
+  stated outcome.

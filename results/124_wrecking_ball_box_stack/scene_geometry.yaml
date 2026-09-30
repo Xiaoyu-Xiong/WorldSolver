@@ -1,0 +1,314 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [3.2, 2.2, 0.05]}
+    transform: {translation: [0.0, 0.0, -0.05]}
+    material_id: floor
+    collision_enabled: true
+  - id: support_beam
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.32,0.72,0.12]}
+    transform: {translation: [-2.2,0,4.0], rotation_xyzw: [0,0,0,1]}
+    material_id: support
+    collision_enabled: false
+  - id: box_0_0
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [-0.9,0,0.18], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 0}
+    material_id: accent_a
+    collision_enabled: true
+  - id: box_0_1
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [-0.54,0,0.18], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 1}
+    material_id: accent_b
+    collision_enabled: true
+  - id: box_0_2
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [-0.18000000000000005,0,0.18], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 2}
+    material_id: accent_a
+    collision_enabled: true
+  - id: box_0_3
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [0.18000000000000005,0,0.18], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 3}
+    material_id: accent_b
+    collision_enabled: true
+  - id: box_0_4
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [0.5399999999999999,0,0.18], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 4}
+    material_id: accent_a
+    collision_enabled: true
+  - id: box_0_5
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [0.8999999999999998,0,0.18], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 5}
+    material_id: accent_b
+    collision_enabled: true
+  - id: box_1_0
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [-0.9,0,0.54], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 6}
+    material_id: accent_a
+    collision_enabled: true
+  - id: box_1_1
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [-0.54,0,0.54], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 7}
+    material_id: accent_b
+    collision_enabled: true
+  - id: box_1_2
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [-0.18000000000000005,0,0.54], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 8}
+    material_id: accent_a
+    collision_enabled: true
+  - id: box_1_3
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [0.18000000000000005,0,0.54], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 9}
+    material_id: accent_b
+    collision_enabled: true
+  - id: box_1_4
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [0.5399999999999999,0,0.54], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 10}
+    material_id: accent_a
+    collision_enabled: true
+  - id: box_1_5
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [0.8999999999999998,0,0.54], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 11}
+    material_id: accent_b
+    collision_enabled: true
+  - id: box_2_0
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [-0.9,0,0.8999999999999999], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 12}
+    material_id: accent_a
+    collision_enabled: true
+  - id: box_2_1
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [-0.54,0,0.8999999999999999], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 13}
+    material_id: accent_b
+    collision_enabled: true
+  - id: box_2_2
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [-0.18000000000000005,0,0.8999999999999999], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 14}
+    material_id: accent_a
+    collision_enabled: true
+  - id: box_2_3
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [0.18000000000000005,0,0.8999999999999999], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 15}
+    material_id: accent_b
+    collision_enabled: true
+  - id: box_2_4
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [0.5399999999999999,0,0.8999999999999999], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 16}
+    material_id: accent_a
+    collision_enabled: true
+  - id: box_2_5
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [0.8999999999999998,0,0.8999999999999999], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 17}
+    material_id: accent_b
+    collision_enabled: true
+  - id: box_3_0
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [-0.9,0,1.26], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 18}
+    material_id: accent_a
+    collision_enabled: true
+  - id: box_3_1
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [-0.54,0,1.26], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 19}
+    material_id: accent_b
+    collision_enabled: true
+  - id: box_3_2
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [-0.18000000000000005,0,1.26], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 20}
+    material_id: accent_a
+    collision_enabled: true
+  - id: box_3_3
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [0.18000000000000005,0,1.26], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 21}
+    material_id: accent_b
+    collision_enabled: true
+  - id: box_3_4
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [0.5399999999999999,0,1.26], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 22}
+    material_id: accent_a
+    collision_enabled: true
+  - id: box_3_5
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [0.8999999999999998,0,1.26], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 23}
+    material_id: accent_b
+    collision_enabled: true
+  - id: box_4_0
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [-0.9,0,1.6199999999999999], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 24}
+    material_id: accent_a
+    collision_enabled: true
+  - id: box_4_1
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [-0.54,0,1.6199999999999999], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 25}
+    material_id: accent_b
+    collision_enabled: true
+  - id: box_4_2
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [-0.18000000000000005,0,1.6199999999999999], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 26}
+    material_id: accent_a
+    collision_enabled: true
+  - id: box_4_3
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [0.18000000000000005,0,1.6199999999999999], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 27}
+    material_id: accent_b
+    collision_enabled: true
+  - id: box_4_4
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [0.5399999999999999,0,1.6199999999999999], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 28}
+    material_id: accent_a
+    collision_enabled: true
+  - id: box_4_5
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.17,0.38,0.17]}
+    transform: {translation: [0.8999999999999998,0,1.6199999999999999], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 29}
+    material_id: accent_b
+    collision_enabled: true
+  - id: wrecking_ball
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/wrecking_ball_hammer.obj}
+    transform: {translation: [-2.2,0,1.35], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 30}
+    material_id: accent_a
+    collision_enabled: true
+  - id: chain_0
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: capsule, radius: 0.07, height: 0.25}
+    transform: {translation: [-2.2,0,1.95], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 31}
+    material_id: accent_b
+    collision_enabled: true
+  - id: chain_1
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: capsule, radius: 0.07, height: 0.25}
+    transform: {translation: [-2.2,0,2.27], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 32}
+    material_id: accent_a
+    collision_enabled: true
+  - id: chain_2
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: capsule, radius: 0.07, height: 0.25}
+    transform: {translation: [-2.2,0,2.59], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 33}
+    material_id: accent_b
+    collision_enabled: true
+  - id: chain_3
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: capsule, radius: 0.07, height: 0.25}
+    transform: {translation: [-2.2,0,2.91], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 34}
+    material_id: accent_a
+    collision_enabled: true
+  - id: chain_4
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: capsule, radius: 0.07, height: 0.25}
+    transform: {translation: [-2.2,0,3.23], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 35}
+    material_id: accent_b
+    collision_enabled: true
+  - id: chain_5
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: capsule, radius: 0.07, height: 0.25}
+    transform: {translation: [-2.2,0,3.55], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 36}
+    material_id: accent_a
+    collision_enabled: true

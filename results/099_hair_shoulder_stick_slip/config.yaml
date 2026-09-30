@@ -1,0 +1,25 @@
+schema_version: 1
+scene_id: 099_hair_shoulder_stick_slip
+seed: 9903
+duration: 4.8
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+friction:
+  hair_hair: {static: 0.3, kinetic: 0.3}
+  hair_body: {static: 0.3, kinetic: 0.3}
+head_motion:
+  description: smooth lateral turn carrying the roots and body, followed by a complete stop
+  axis: [1.0, 0.0, 0.0]
+  displacement: 0.18
+  start_time: 0.45
+  stop_time: 2.35
+  settle_end_time: 4.8
+camera:
+  position: [1.65, -2.35, 1.72]
+  look_at: [0.02, 0.0, 1.16]
+  up: [0.0, 0.0, 1.0]
+  fov_degrees: 36
+  width: 960
+  height: 640
+  fps: 50

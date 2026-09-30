@@ -1,0 +1,33 @@
+id: 011_inclined_block
+title: Inclined Block
+category: rigid_body_dynamics
+source:
+  title: Nonconvex Rigid Bodies with Stacking
+  url: https://graphics.stanford.edu/papers/rigid_bodies-sig03/rigid_bodies.pdf
+  anchor: Figures 3-4; PDF page 4
+goal: Recreate the observable physical phenomenon in which a rigid block slides down an inclined plane,
+  transitions through frictional contact, and reaches the physically expected resting state without spurious
+  tumbling. The implementation method is unrestricted; the target is the scene's visible motion, interaction,
+  and outcome.
+scene_requirements:
+  required_elements:
+  - Inclined Block
+  - Rigid bodies named by the scene
+  - Contact surfaces
+  - Gravity
+  initial_state:
+  - A rigid block slides down an inclined plane, transitions through frictional contact, and reaches the
+    physically expected resting state without spurious tumbling.
+  required_events:
+  - Position and orientation versus the analytical sliding solution
+  - Qualitative - erroneous tumbling or failure to rest
+  - Position and orientation error against the analytical solution
+  - Qualitative - correct transition to rest
+camera_requirements:
+- Use a three-quarter view that exposes the important contact points, stack or mechanism, support surfaces,
+  and final configuration throughout the motion.
+parameter_notes:
+- 'Merged source variants (inclined_block_standard_sequence, inclined_block_contact_first_sequence). Original
+  paper parameters/configurations: Use the common inclined-plane geometry and friction parameters from
+  Figures 3-4; integration ordering: standard. | Use the identical geometry, mass, friction, and initial
+  state as the standard-sequence run; integration ordering: paper''s revised sequence.'

@@ -1,0 +1,17 @@
+schema_version: 2
+profile: fiber_rods
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: hanging_rod
+    method: curve_tubes
+    material: elastic_rod
+    color_rgb: [0.15, 0.55, 0.82]
+  - object_id: left_end_control
+    method: rigid_mesh
+    material: fixed_control
+    color_rgb: [0.18, 0.20, 0.24]
+  - object_id: right_end_control
+    method: rigid_mesh
+    material: driven_control
+    color_rgb: [0.88, 0.34, 0.12]

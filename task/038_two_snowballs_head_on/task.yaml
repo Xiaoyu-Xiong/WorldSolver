@@ -1,0 +1,29 @@
+id: 038_two_snowballs_head_on
+title: Two Snowballs Head On
+category: plastic_and_complex_materials
+source:
+  title: A Material Point Method for Snow Simulation
+  url: https://math.ucdavis.edu/~jteran/papers/SSCTS13.pdf
+  anchor: Figure 3; PDF page 2
+goal: Recreate the observable physical phenomenon in which two snowballs collide head-on, compress, fracture,
+  and disperse into fragments. The implementation method is unrestricted; the target is the scene's visible
+  motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Two Snowballs Head On
+  - Granular particles
+  - Contact floor or container
+  - Gravity
+  initial_state:
+  - Two snowballs collide head-on, compress, fracture, and disperse into fragments.
+  required_events:
+  - Qualitative/quantitative - impact symmetry
+  - Fragment-size distribution
+  - Momentum conservation
+  - Mass loss
+  - Stability
+camera_requirements:
+- Use a three-quarter view showing release or inflow, contact zones, pile or fragment evolution, and the
+  final deposited state without major occlusion.
+parameter_notes:
+- 'Original paper parameters/configuration: Head-on double-smash setup from Figure 3.'

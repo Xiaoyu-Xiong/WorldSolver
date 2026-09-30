@@ -1,0 +1,134 @@
+schema_version: 4
+task_id: 077_elastic_rod_ground_stick_slip
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The solver reaches the frozen end time, exports all required finite trajectory fields,
+      and produces a readable render within the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: The driven top moves sideways while the lower end remains pressed against the plane.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: The lower end temporarily stays in place as the moving top bends the rod farther sideways.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: The lower end then slides forward and the rod straightens partially; this catching, bending,
+      and slipping sequence repeats.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: The lower end does not pass below the plane. The rod does not detach from its driven top,
+      split into pieces, or jump away from the dragging path.
+  physics:
+  - id: material_mass_balance
+    profile: deformable_solids
+    dimension: conservation_and_source_balance
+    criterion: Each deformable body retains its initial material mass. Mass transferred numerically between
+      bodies must not cancel in an aggregate total; this scene has no material sources or sinks.
+    applicability:
+      requires:
+      - Export actual per-sample masses in attributes.mass_quantity [N,G], one fixed column per deformable
+        body and zeros outside that body.
+      - Export fields.cumulative_mass_source as zeros [G]; retain every material contribution throughout
+        the trajectory.
+      excludes: []
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: orientation_preserving_deformation
+    profile: deformable_solids
+    dimension: deformation_validity
+    criterion: Every volumetric material element retains det(F) > 0. Report the maximum fraction of nonpositive
+      determinants across frames, including elements hidden inside the material.
+    applicability:
+      requires:
+      - Export fields.element_deformation_gradient [Ne,3,3] computed from current and reference geometry for
+        all volumetric evaluation elements.
+      - The evaluation mesh and reference geometry are fixed before the run; do not omit highly compressed
+        or interior elements.
+      excludes: []
+    numeric_binding:
+      calculator: deformation.jacobian.v1
+      inputs:
+        deformation_gradient: fields.element_deformation_gradient
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: linear_momentum_impulse_balance
+    profile: deformable_solids
+    dimension: momentum_and_force_balance
+    criterion: Over each adjacent output interval, the momentum change of each selected deformable body
+      equals its external force integral plus its recorded external impulses. Internal forces within that
+      body do not change its total momentum.
+    applicability:
+      requires:
+      - Export actual nodal masses state.mass [N], velocities state.velocity [N,3], and fixed body membership
+        fields.budget_domain_weights [G,N], one row for each deformable body.
+      - Account for the driven top reaction, plane contact reaction, and any configured body forces. Export
+        smooth force terms in fields.budget_external_force [G,K,3]; accumulate rapidly varying contact
+        and constraint impulses from all internal substeps in fields.budget_cumulative_external_impulse
+        [G,3]. Never count a force contribution in both channels.
+      - Export zero cumulative inflow and outflow momentum [G,3], since each body is a closed material
+        domain.
+      - Freeze scalars.reference_momentum = M_ref * V_ref > 0 from the configured body mass and characteristic
+        motion speed before the run; do not use the initially zero net momentum as the scale.
+      - Force and impulse records must come from actual applied updates, not from the momentum difference
+        being checked.
+      excludes: []
+    numeric_binding:
+      calculator: dynamics.momentum_budget.v1
+      inputs:
+        mass: state.mass
+        velocity: state.velocity
+        domain_weights: fields.budget_domain_weights
+        external_force: fields.budget_external_force
+        cumulative_external_impulse: fields.budget_cumulative_external_impulse
+        cumulative_inflow_momentum: fields.budget_cumulative_inflow_momentum
+        cumulative_outflow_momentum: fields.budget_cumulative_outflow_momentum
+        reference_momentum: scalars.reference_momentum
+      parameters:
+        mode: dynamic
+        integration: trapezoidal
+        window: adjacent_frames
+      reduction:
+        type: maximum
+  - id: coulomb_friction_compliance
+    profile: deformable_solids
+    dimension: contact_constitutive_constraints
+    criterion: At sustained dry contacts, the tangential force remains within the static Coulomb limit
+      while sticking and opposes relative sliding with the prescribed sliding magnitude. Frictional power
+      on relative motion is nonpositive.
+    applicability:
+      requires:
+      - Export collocated contact normal force [C], tangential force [C,3], unit normal [C,3], and actual
+        relative surface velocity [C,3] on the same force-receiving side.
+      - Obtain static and dynamic friction coefficients [C] from the frozen contact material pairing.
+      - The platform active mask selects sustained contacts, not impact-only samples or samples chosen
+        by their residual; at least one active contact sample is required.
+      - Freeze the positive stick-speed tolerance, reference force, and reference velocity before the
+        run.
+      excludes: []
+    numeric_binding:
+      calculator: contact.coulomb_law.v1
+      inputs:
+        normal_force: fields.friction_normal_force
+        tangential_force: fields.friction_tangential_force
+        relative_velocity: fields.friction_relative_velocity
+        normal: fields.friction_normal
+        static_coefficient: fields.friction_static_coefficient
+        dynamic_coefficient: fields.friction_dynamic_coefficient
+        active_mask: fields.friction_active_mask
+        stick_speed_tolerance: scalars.friction_stick_speed_tolerance
+        reference_force: scalars.reference_force
+        reference_velocity: scalars.reference_velocity
+      parameters:
+        contact_regime: sustained_dry
+        require_active_samples: true
+      reduction:
+        type: maximum

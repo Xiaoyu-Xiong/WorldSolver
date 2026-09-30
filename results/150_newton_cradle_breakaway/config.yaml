@@ -1,0 +1,45 @@
+schema_version: 1
+scene_id: 150_newton_cradle_breakaway
+seed: 15150
+duration: 8.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+variant: newton_cradle_breakaway
+gravity: [0.0, 0.0, -9.81]
+contact: {friction: 0.55, restitution: 0.12, length_scale: 0.02}
+bodies:
+  - id: ball_0
+    position: [-1.38,0,1.05]
+    orientation: [0,0,0,1]
+    mass: 1
+  - id: ball_1
+    position: [-0.9199999999999999,0,1.05]
+    orientation: [0,0,0,1]
+    mass: 1
+  - id: ball_2
+    position: [-0.45999999999999985,0,1.05]
+    orientation: [0,0,0,1]
+    mass: 1
+  - id: ball_3
+    position: [2.220446049250313e-16,0,1.05]
+    orientation: [0,0,0,1]
+    mass: 1
+  - id: ball_4
+    position: [0.4600000000000002,0,1.05]
+    orientation: [0,0,0,1]
+    mass: 1
+  - id: ball_5
+    position: [0.9200000000000004,0,1.05]
+    orientation: [0,0,0,1]
+    mass: 1
+  - id: ball_6
+    position: [1.3800000000000003,0,1.05]
+    orientation: [0,0,0,1]
+    mass: 1
+camera:
+  position: [4.8, -7.2, 3.6]
+  look_at: [0.0, 0.0, 1.15]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

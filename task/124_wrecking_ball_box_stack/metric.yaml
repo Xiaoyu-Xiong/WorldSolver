@@ -1,0 +1,103 @@
+schema_version: 4
+task_id: 124_wrecking_ball_box_stack
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The submitted solver runs to the frozen end time, produces a complete finite trajectory
+      with every required evaluation field, and produces a readable platform render without exceeding
+      the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: The initially stable box stack remains visibly at rest while the released wrecking ball
+      follows a pendulum-like arc toward it on a connected chain.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: The wrecking-ball impact visibly displaces the contacted boxes and propagates motion into
+      neighboring layers instead of passing through the stack or stopping without a response.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: A progressive multi-body collapse develops, producing a debris field of individually rigid
+      boxes that subsequently loses energy and approaches a settled configuration.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: Boxes, ball, and chain preserve their rigid shapes and move continuously without visible
+      interpenetration, disconnected chain links, teleportation, explosive ejection, or persistent settling jitter.
+  physics:
+  - id: nonpenetrating_contact
+    profile: rigid_bodies_and_contact
+    dimension: contact_and_interface_conditions
+    criterion: During wrecking ball box stack impact, box-box, ball-box, chain-link, and rigid-floor contacts
+      maintain nonnegative geometric gaps up to the contact tolerance and do not permit persistent interpenetration.
+    applicability:
+      requires:
+      - Signed geometric gaps are exported for active and near-contact pairs.
+      excludes:
+      - Pairs intentionally allowed to pass through or merge.
+    numeric_binding:
+      calculator: contact.penetration.v1
+      inputs:
+        signed_distance: fields.contact_signed_distance
+        length_scale: scalars.contact_length_scale
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: linear_momentum_balance
+    profile: rigid_bodies_and_contact
+    dimension: momentum_and_force_balance
+    criterion: For the complete wrecking-ball, chain, and box system, the time rate of total linear momentum
+      is consistent with the exported external forces; internal contact and joint forces cancel in aggregate.
+    applicability:
+      requires:
+      - Mass, velocity, and all external forces are exported at the trajectory sampling times.
+      excludes:
+      - Frames spanning an unreported impulsive external intervention.
+    numeric_binding:
+      calculator: dynamics.linear_momentum_balance.v1
+      inputs:
+        mass: state.mass
+        velocity: state.velocity
+        external_force: fields.external_force
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: center_of_mass_consistency
+    profile: rigid_bodies
+    dimension: kinematic_consistency
+    criterion: Each rigid body's mass-weighted center displacement agrees with the time integral of its
+      mass-weighted velocity, using trapezoidal quadrature between exported frames.
+    applicability:
+      requires:
+      - Persistent body_id values and positive total mass for every evaluated rigid body.
+      - Position, velocity, and mass samples describe the same body mass distribution.
+      - Sampling resolves the motion; unresolved impulses can introduce quadrature error.
+      excludes:
+      - Bodies with mass exchange, changing identity, or inconsistent center-of-mass samples.
+    numeric_binding:
+      calculator: trajectory.center_of_mass_consistency.v1
+      inputs:
+        position: state.position
+        velocity: state.velocity
+        mass: state.mass
+        body_id: state.body_id
+      parameters:
+        displacement_floor: 1.0e-8
+      reduction:
+        type: rms
+  - id: internal_interaction_force_balance
+    profile: coupled_contact_systems
+    dimension: conservation_and_force_balance
+    criterion: Exported paired forces from box-box, ball-box, and chain-link interactions are equal and
+      opposite in aggregate, so internal contact and joint forces do not create net system momentum.
+    applicability:
+      requires:
+      - Both sides of every internal contact or joint-force pair are exported.
+      excludes:
+      - Gravity, floor reaction, fixed-support reaction, and other one-sided external forces.
+    numeric_binding:
+      calculator: coupling.force_balance.v1
+      inputs:
+        interaction_force: fields.interaction_force
+      parameters: {}
+      reduction:
+        type: maximum

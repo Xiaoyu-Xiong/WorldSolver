@@ -1,0 +1,152 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 2053971,
+          "trajectory_frames": 401,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "contact.penetration.v1",
+        "criterion": "Active rigid contacts maintain nonnegative geometric gaps up to the frozen contact tolerance.",
+        "criterion_id": "nonpenetrating_contact",
+        "details": {
+          "sample_count": 401,
+          "worst_frame_index": 20
+        },
+        "dimension": "contact_and_interface_conditions",
+        "domain": "physics",
+        "metric": "penetration_relative_max",
+        "normalized_error": 11.053199817693082,
+        "profile": "rigid_bodies_and_contact",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.4503206356812961
+      },
+      {
+        "calculator": "dynamics.linear_momentum_balance.v1",
+        "criterion": "The time rate of total linear momentum is consistent with all exported external forces.",
+        "criterion_id": "linear_momentum_balance",
+        "details": {
+          "sample_count": 401,
+          "worst_frame_index": 15
+        },
+        "dimension": "momentum_and_force_balance",
+        "domain": "physics",
+        "metric": "momentum_balance_relative_l2",
+        "normalized_error": 1.0,
+        "profile": "rigid_bodies_and_contact",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.0
+      },
+      {
+        "calculator": "trajectory.center_of_mass_consistency.v1",
+        "criterion": "Each rigid body's center displacement agrees with the time integral of its mass-weighted velocity.",
+        "criterion_id": "center_of_mass_consistency",
+        "details": {
+          "body_count": 2,
+          "body_reduction": "maximum",
+          "displacement_floor_meters": 1e-08,
+          "initial_frame_error": "zero (no preceding interval)",
+          "interval_count": 400,
+          "maximum_position_residual_meters": 0.011057664153892022,
+          "quadrature": "trapezoidal",
+          "sample_count": 401,
+          "worst_frame_index": 22
+        },
+        "dimension": "kinematic_consistency",
+        "domain": "physics",
+        "metric": "center_of_mass_kinematic_relative_residual",
+        "normalized_error": 0.11175315568039088,
+        "profile": "rigid_bodies",
+        "reduction": {
+          "type": "rms"
+        },
+        "unit": "dimensionless",
+        "score": 94.41234221598046
+      },
+      {
+        "calculator": "coupling.force_balance.v1",
+        "criterion": "Exported paired internal contact and joint forces are equal and opposite in aggregate.",
+        "criterion_id": "internal_interaction_force_balance",
+        "details": {
+          "sample_count": 401,
+          "worst_frame_index": 1
+        },
+        "dimension": "conservation_and_force_balance",
+        "domain": "physics",
+        "metric": "interaction_force_relative_residual",
+        "normalized_error": 1.0,
+        "profile": "coupled_contact_systems",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.0
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.21385976713725283,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.568
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.187040102651811,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.33599999999999997
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.23286047324524617,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.32599999999999996
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.03261901286060017,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.8960000000000001
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "148_bolt_spins_through_nut",
+  "visual_score": 0.5315,
+  "visual_fidelity_score": 53.15,
+  "physical_plausibility_score": 23.71566571291544,
+  "total_score": 38.43283285645772
+}

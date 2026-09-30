@@ -1,0 +1,29 @@
+id: 006_channel_cylinder_vortex_street
+title: Channel Cylinder Vortex Street
+category: fluid_dynamics
+source:
+  title: 'Power Particles: An Incompressible Fluid Solver Based on Power Diagrams'
+  url: https://www.geometry.caltech.edu/pubs/dGWH%2B15.pdf
+  anchor: Figure 9; PDF page 9
+goal: Recreate the observable physical phenomenon in which a viscous incompressible channel flow passes
+  a fixed circular obstacle and sheds alternating vortices in a von Karman street. The implementation
+  method is unrestricted; the target is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Channel Cylinder Vortex Street
+  - Simulated fluid or gas medium
+  initial_state:
+  - A viscous incompressible channel flow passes a fixed circular obstacle and sheds alternating vortices
+    in a von Karman street.
+  required_events:
+  - Shedding frequency/Strouhal behavior
+  - Wake vorticity
+  - Divergence
+  - Velocity profile
+  - Qualitative - alternating advected-dye wake
+camera_requirements:
+- Use a three-quarter or side view that keeps the source, main interaction region, free surface or plume,
+  obstacles, and final state visible; avoid occlusion and excessive top-down views.
+parameter_notes:
+- 'Original paper parameters/configuration: Wall-confined low-Reynolds-number channel flow with no-slip
+  circular obstacle; the paper does not state the exact Reynolds number in the caption.'

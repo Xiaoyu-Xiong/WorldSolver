@@ -1,0 +1,31 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - {id: flume_floor, semantic: boundary, motion: static, geometry: {type: box, half_extents: [4.25, 1.05, 0.06]}, transform: {translation: [0.25, 0.0, -0.06]}, material_id: concrete, collision_enabled: true}
+  - {id: back_side_wall, semantic: boundary, motion: static, geometry: {type: box, half_extents: [4.25, 0.05, 0.55]}, transform: {translation: [0.25, 1.0, 0.55]}, material_id: concrete, collision_enabled: true}
+  - {id: front_side_wall, semantic: boundary, motion: static, geometry: {type: box, half_extents: [4.25, 0.05, 0.24]}, transform: {translation: [0.25, -1.0, 0.24]}, material_id: concrete, collision_enabled: true}
+  - {id: reservoir_end_wall, semantic: boundary, motion: static, geometry: {type: box, half_extents: [0.07, 1.05, 1.25]}, transform: {translation: [-4.0, 0.0, 1.25]}, material_id: concrete, collision_enabled: true}
+  - {id: downstream_retaining_wall, semantic: boundary, motion: static, geometry: {type: box, half_extents: [0.07, 1.05, 0.35]}, transform: {translation: [4.5, 0.0, 0.35]}, material_id: concrete, collision_enabled: true}
+  - id: cohesive_sand_dam
+    semantic: granular
+    motion: dynamic
+    geometry: {type: particle_domain, bounds_min: [-0.95, -0.95, 0.0], bounds_max: [-0.05, 0.95, 1.75]}
+    state_binding: {selector: body_id, value: 1}
+    material_id: dry_sand
+    collision_enabled: true
+  - id: sand_saturation_overlay
+    semantic: granular
+    motion: static
+    geometry: {type: particle_domain, bounds_min: [-0.95, -0.95, 0.0], bounds_max: [4.4, 0.95, 1.75]}
+    state_binding: {selector: attribute, attribute_name: material_id, value: 1}
+    material_id: saturation_overlay
+    collision_enabled: false
+  - id: reservoir_and_supply_water
+    semantic: liquid
+    motion: dynamic
+    geometry: {type: particle_domain, bounds_min: [-3.9, -0.95, 0.0], bounds_max: [4.4, 0.95, 2.75]}
+    state_binding: {selector: body_id, value: 2}
+    material_id: clear_water
+    collision_enabled: true
+  - {id: supply_chute, semantic: emitter, motion: static, geometry: {type: box, half_extents: [0.55, 0.65, 0.06]}, transform: {translation: [-3.05, 0.0, 2.55], rotation_xyzw: [0.0, -0.1305262, 0.0, 0.9914449]}, material_id: concrete, collision_enabled: false}

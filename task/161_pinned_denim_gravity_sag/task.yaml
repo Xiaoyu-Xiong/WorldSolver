@@ -1,0 +1,30 @@
+id: 161_pinned_denim_gravity_sag
+title: Pinned Denim Gravity Sag
+category: cloth_and_shells
+source:
+  title: Efficient Simulation of Inextensible Cloth
+  url: https://www.cs.columbia.edu/cg/pdfs/131-article.pdf
+  anchor: Figure 1
+goal: >-
+  Recreate the paper's clearly visible pinned denim gravity sag phenomenon. The implementation method is unrestricted;
+  evaluation targets thin-material motion, folds or tears, contact response, and the characteristic outcome.
+scene_requirements:
+  required_elements:
+  - Dense denim-like cloth sheet
+  - Pinned upper corners or edge
+  - Gravity
+  - Inextensible cloth response
+  initial_state:
+  - A flat sheet starts elevated with its prescribed pin set fixed.
+  required_events:
+  - Gravity accelerates the free cloth downward while the pinned points remain stationary.
+  - Tension propagates from the pins and the sheet develops broad hanging folds with little in-plane stretch.
+  - The cloth approaches a stable heavy-fabric drape without rubber-like elongation or persistent oscillation.
+  - Motion remains temporally coherent and all non-tearing regions preserve sheet connectivity.
+camera_requirements:
+- Use a front three-quarter view showing all pins, the full hem, and major folds.
+- Use lighting and material contrast that make folds, wrinkles, contacts, and any crack tip readable.
+parameter_notes:
+- Match the qualitative geometry, stiffness regime, and event ordering shown in Figure 1; mesh resolution may be adapted.
+- Export cloth mass, position, velocity, external force, surface deformation gradients, and signed contact distances.
+

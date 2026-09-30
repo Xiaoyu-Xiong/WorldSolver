@@ -1,0 +1,81 @@
+schema_version: 4
+task_id: 035_pinned_cloth_strain_limit
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The submitted solver runs to the frozen end time, produces a complete finite trajectory
+      with every required evaluation field, and produces a readable platform render without exceeding
+      the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: The initially elevated square cloth visibly falls under gravity and first contacts the
+      crown of the fixed sphere.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: Contact spreads over the sphere while the four free sides descend and form distributed
+      folds and wrinkles rather than remaining flat or membrane-locked.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: The cloth approaches the soft, naturally wrinkled sphere drape shown in Figure 15(c),
+      without the locking, extreme compression, or excessive stretch visible in Figure 15(d-f).
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: Motion remains continuous and the cloth stays coherent without cloth-sphere penetration,
+      fold-through, popping, tearing, or unexplained topology changes.
+  physics:
+  - id: material_mass_balance
+    profile: cloth_thin_shells_and_fibers
+    dimension: conservation_and_source_balance
+    criterion: The cloth mass remains constant because the sphere-drape experiment has no prescribed
+      material sources, sinks, or topology changes.
+    applicability:
+      requires:
+      - Per-sample cloth mass contributions and the zero cumulative source are exported in every frame.
+      excludes:
+      - Explicitly represented cutting, tearing, remeshing, or material injection.
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: strain_limit_compliance
+    profile: cloth_thin_shells_and_fibers
+    dimension: deformation_constraints
+    criterion: Principal stretches computed from the cloth surface deformation gradients remain within
+      the stated target interval [0.9, 1.1].
+    applicability:
+      requires:
+      - Surface deformation gradients are computed from current and rest triangle geometry and exported.
+      excludes:
+      - Elements belonging to an explicitly modeled tear, cut, or remeshing event.
+    numeric_binding:
+      calculator: deformation.strain_limit.v1
+      inputs:
+        deformation_gradient: attributes.deformation_gradient
+      parameters:
+        lower: 0.9
+        upper: 1.1
+      reduction:
+        type: maximum
+  - id: nonpenetrating_sphere_contact
+    profile: cloth_thin_shells_and_fibers
+    dimension: contact_and_interface_conditions
+    criterion: Cloth-sphere contact maintains nonnegative geometric gaps up to the frozen cloth-thickness
+      tolerance and does not permit persistent penetration of the fixed sphere.
+    applicability:
+      requires:
+      - Signed cloth-vertex gaps to the sphere and a frozen contact length scale are exported in every frame.
+      excludes:
+      - Contact pairs intentionally allowed to pass through or merge.
+    numeric_binding:
+      calculator: contact.penetration.v1
+      inputs:
+        signed_distance: fields.contact_signed_distance
+        length_scale: scalars.contact_length_scale
+      parameters: {}
+      reduction:
+        type: maximum

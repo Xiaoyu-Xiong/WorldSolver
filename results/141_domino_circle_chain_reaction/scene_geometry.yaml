@@ -1,0 +1,203 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [3.2, 2.2, 0.05]}
+    transform: {translation: [0.0, 0.0, -0.05]}
+    material_id: floor
+    collision_enabled: true
+  - id: domino_0
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.07,0.2,0.55]}
+    transform: {translation: [1.35,0,0.50], rotation_xyzw: [0,0.20,0,0.9799]}
+    state_binding: {selector: body_id, value: 0}
+    material_id: accent_a
+    collision_enabled: true
+  - id: domino_1
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.07,0.2,0.55]}
+    transform: {translation: [1.3039998654902423,0.349405710888403,0.55], rotation_xyzw: [0,0,0.13052619222005157,0.9914448613738104]}
+    state_binding: {selector: body_id, value: 1}
+    material_id: accent_b
+    collision_enabled: true
+  - id: domino_2
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.07,0.2,0.55]}
+    transform: {translation: [1.1691342951089922,0.6749999999999999,0.55], rotation_xyzw: [0,0,0.25881904510252074,0.9659258262890683]}
+    state_binding: {selector: body_id, value: 2}
+    material_id: accent_a
+    collision_enabled: true
+  - id: domino_3
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.07,0.2,0.55]}
+    transform: {translation: [0.9545941546018393,0.9545941546018392,0.55], rotation_xyzw: [0,0,0.3826834323650898,0.9238795325112867]}
+    state_binding: {selector: body_id, value: 3}
+    material_id: accent_b
+    collision_enabled: true
+  - id: domino_4
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.07,0.2,0.55]}
+    transform: {translation: [0.6750000000000002,1.1691342951089922,0.55], rotation_xyzw: [0,0,0.49999999999999994,0.8660254037844387]}
+    state_binding: {selector: body_id, value: 4}
+    material_id: accent_a
+    collision_enabled: true
+  - id: domino_5
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.07,0.2,0.55]}
+    transform: {translation: [0.349405710888403,1.3039998654902423,0.55], rotation_xyzw: [0,0,0.6087614290087207,0.7933533402912352]}
+    state_binding: {selector: body_id, value: 5}
+    material_id: accent_b
+    collision_enabled: true
+  - id: domino_6
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.07,0.2,0.55]}
+    transform: {translation: [8.266365894244634e-17,1.35,0.55], rotation_xyzw: [0,0,0.7071067811865475,0.7071067811865476]}
+    state_binding: {selector: body_id, value: 6}
+    material_id: accent_a
+    collision_enabled: true
+  - id: domino_7
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.07,0.2,0.55]}
+    transform: {translation: [-0.3494057108884029,1.3039998654902423,0.55], rotation_xyzw: [0,0,0.7933533402912352,0.6087614290087207]}
+    state_binding: {selector: body_id, value: 7}
+    material_id: accent_b
+    collision_enabled: true
+  - id: domino_8
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.07,0.2,0.55]}
+    transform: {translation: [-0.6749999999999997,1.1691342951089922,0.55], rotation_xyzw: [0,0,0.8660254037844386,0.5000000000000001]}
+    state_binding: {selector: body_id, value: 8}
+    material_id: accent_a
+    collision_enabled: true
+  - id: domino_9
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.07,0.2,0.55]}
+    transform: {translation: [-0.9545941546018392,0.9545941546018393,0.55], rotation_xyzw: [0,0,0.9238795325112867,0.38268343236508984]}
+    state_binding: {selector: body_id, value: 9}
+    material_id: accent_b
+    collision_enabled: true
+  - id: domino_10
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.07,0.2,0.55]}
+    transform: {translation: [-1.1691342951089922,0.6749999999999999,0.55], rotation_xyzw: [0,0,0.9659258262890683,0.25881904510252074]}
+    state_binding: {selector: body_id, value: 10}
+    material_id: accent_a
+    collision_enabled: true
+  - id: domino_11
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.07,0.2,0.55]}
+    transform: {translation: [-1.303999865490242,0.3494057108884034,0.55], rotation_xyzw: [0,0,0.9914448613738104,0.1305261922200517]}
+    state_binding: {selector: body_id, value: 11}
+    material_id: accent_b
+    collision_enabled: true
+  - id: domino_12
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.07,0.2,0.55]}
+    transform: {translation: [-1.35,1.6532731788489269e-16,0.55], rotation_xyzw: [0,0,1,6.123233995736766e-17]}
+    state_binding: {selector: body_id, value: 12}
+    material_id: accent_a
+    collision_enabled: true
+  - id: domino_13
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.07,0.2,0.55]}
+    transform: {translation: [-1.3039998654902423,-0.3494057108884031,0.55], rotation_xyzw: [0,0,0.9914448613738104,-0.1305261922200516]}
+    state_binding: {selector: body_id, value: 13}
+    material_id: accent_b
+    collision_enabled: true
+  - id: domino_14
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.07,0.2,0.55]}
+    transform: {translation: [-1.1691342951089925,-0.6749999999999997,0.55], rotation_xyzw: [0,0,0.9659258262890683,-0.25881904510252063]}
+    state_binding: {selector: body_id, value: 14}
+    material_id: accent_a
+    collision_enabled: true
+  - id: domino_15
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.07,0.2,0.55]}
+    transform: {translation: [-0.9545941546018397,-0.9545941546018387,0.55], rotation_xyzw: [0,0,0.9238795325112868,-0.3826834323650895]}
+    state_binding: {selector: body_id, value: 15}
+    material_id: accent_b
+    collision_enabled: true
+  - id: domino_16
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.07,0.2,0.55]}
+    transform: {translation: [-0.6750000000000006,-1.1691342951089918,0.55], rotation_xyzw: [0,0,0.8660254037844387,-0.4999999999999998]}
+    state_binding: {selector: body_id, value: 16}
+    material_id: accent_a
+    collision_enabled: true
+  - id: domino_17
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.07,0.2,0.55]}
+    transform: {translation: [-0.3494057108884029,-1.3039998654902423,0.55], rotation_xyzw: [0,0,0.7933533402912352,-0.6087614290087207]}
+    state_binding: {selector: body_id, value: 17}
+    material_id: accent_b
+    collision_enabled: true
+  - id: domino_18
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.07,0.2,0.55]}
+    transform: {translation: [-2.4799097682733903e-16,-1.35,0.55], rotation_xyzw: [0,0,0.7071067811865476,-0.7071067811865475]}
+    state_binding: {selector: body_id, value: 18}
+    material_id: accent_a
+    collision_enabled: true
+  - id: domino_19
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.07,0.2,0.55]}
+    transform: {translation: [0.34940571088840244,-1.3039998654902425,0.55], rotation_xyzw: [0,0,0.6087614290087209,-0.793353340291235]}
+    state_binding: {selector: body_id, value: 19}
+    material_id: accent_b
+    collision_enabled: true
+  - id: domino_20
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.07,0.2,0.55]}
+    transform: {translation: [0.6750000000000002,-1.1691342951089922,0.55], rotation_xyzw: [0,0,0.49999999999999994,-0.8660254037844387]}
+    state_binding: {selector: body_id, value: 20}
+    material_id: accent_a
+    collision_enabled: true
+  - id: domino_21
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.07,0.2,0.55]}
+    transform: {translation: [0.9545941546018389,-0.9545941546018394,0.55], rotation_xyzw: [0,0,0.3826834323650899,-0.9238795325112867]}
+    state_binding: {selector: body_id, value: 21}
+    material_id: accent_b
+    collision_enabled: true
+  - id: domino_22
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.07,0.2,0.55]}
+    transform: {translation: [1.1691342951089918,-0.6750000000000006,0.55], rotation_xyzw: [0,0,0.258819045102521,-0.9659258262890682]}
+    state_binding: {selector: body_id, value: 22}
+    material_id: accent_a
+    collision_enabled: true
+  - id: domino_23
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.07,0.2,0.55]}
+    transform: {translation: [1.303999865490242,-0.34940571088840416,0.55], rotation_xyzw: [0,0,0.130526192220052,-0.9914448613738104]}
+    state_binding: {selector: body_id, value: 23}
+    material_id: accent_b
+    collision_enabled: true

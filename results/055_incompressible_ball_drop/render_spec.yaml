@@ -1,0 +1,15 @@
+schema_version: 2
+profile: deformable_surface
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: ground
+    method: rigid_mesh
+    material: floor
+    color_rgb: [0.18, 0.20, 0.24]
+  - object_id: ball
+    method: deformed_mesh
+    material: ball
+    color_rgb: [0.86, 0.18, 0.08]
+    subdivision: 1
+    surface_smoothing: 0.8

@@ -1,0 +1,45 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: injected_lower_jet
+    method: volume
+    material: bright_cyan_injected_tracer
+    color_rgb: [0.0, 0.72, 1.0]
+  - object_id: empty_upper_chamber
+    method: rigid_mesh
+    material: clear_upper_chamber
+    color_rgb: [0.92, 0.96, 1.0]
+    visible: false
+  - object_id: separating_plate
+    method: rigid_mesh
+    material: dark_impermeable_plate
+    color_rgb: [0.12, 0.12, 0.13]
+    subdivision: 1
+  - object_id: bottom_wall
+    method: rigid_mesh
+    material: translucent_chamber_wall
+    color_rgb: [0.70, 0.82, 0.90]
+  - object_id: left_wall
+    method: rigid_mesh
+    material: translucent_chamber_wall
+    color_rgb: [0.70, 0.82, 0.90]
+  - object_id: right_wall
+    method: rigid_mesh
+    material: translucent_chamber_wall
+    color_rgb: [0.70, 0.82, 0.90]
+  - object_id: jet_inlet
+    method: rigid_mesh
+    material: luminous_cyan_inlet
+    color_rgb: [0.0, 0.92, 1.0]
+  - object_id: interface_contact_region
+    method: rigid_mesh
+    material: amber_interface_overlay
+    color_rgb: [1.0, 0.62, 0.05]
+    visible: true
+  - object_id: upper_leakage_sensor
+    method: rigid_mesh
+    material: faint_red_diagnostic_plane
+    color_rgb: [1.0, 0.08, 0.08]
+    visible: true

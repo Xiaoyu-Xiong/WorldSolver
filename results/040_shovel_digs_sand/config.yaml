@@ -1,0 +1,77 @@
+schema_version: 1
+scene_id: 040_shovel_digs_sand
+seed: 40040
+duration: 4.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity:
+- 0.0
+- 0.0
+- -9.81
+initial_conditions:
+  sand_particle_spacing: 0.075
+  sand_bulk_density: 1550.0
+  sand_bounds_min:
+  - -2.2
+  - -1.35
+  - 0.0
+  sand_bounds_max:
+  - 2.2
+  - 1.35
+  - 0.62
+boundary_conditions:
+  container_floor_z: 0.0
+  container_inner_bounds:
+  - -2.35
+  - 2.35
+  - -1.5
+  - 1.5
+kinematic_motion:
+  shovel_assembly:
+    description: Broad blade advances horizontally through the upper half of the bed,
+      then lifts slightly to leave a displaced mound.
+    translation_keyframes:
+    - time: 0.0
+      value:
+      - -2.05
+      - 0.0
+      - 0.38
+    - time: 0.5
+      value:
+      - -2.05
+      - 0.0
+      - 0.38
+    - time: 3.2
+      value:
+      - 1.35
+      - 0.0
+      - 0.46
+    - time: 4.0
+      value:
+      - 1.7
+      - 0.0
+      - 0.86
+    interpolation: smooth_monotone
+diagnostics:
+  requested_outputs:
+  - displaced_sand_volume
+  - mound_height_and_footprint
+  - shovel_reaction_force
+  - escaped_particle_count_and_settled_kinetic_energy
+camera:
+  position:
+  - 5.8
+  - -6.8
+  - 4.5
+  look_at:
+  - 0.15
+  - 0.0
+  - 0.48
+  up:
+  - 0.0
+  - 0.0
+  - 1.0
+  width: 960
+  height: 640
+  fps: 50
+  yfov_degrees: 36

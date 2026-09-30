@@ -1,0 +1,27 @@
+id: 078_squishy_ball_glass_impact
+title: Tendril-Covered Squishy Ball Impact against Glass
+category: elastic_solids
+source:
+  title: 'Incremental Potential Contact: Intersection- and Inversion-free, Large-Deformation Dynamics'
+  url: https://ipc-sim.github.io/file/IPC-paper-350ppi.pdf
+  anchor: Figure 22; PDF page 17
+goal: 'Recreate the source experiment: After greatest compression, the ball becomes rounder again and
+  the bent tendrils lift away from the glass. The numerical implementation is unrestricted; the deforming
+  material is a three-dimensional solid.'
+scene_requirements:
+  required_elements:
+  - A volumetric squishy-ball toy with the attached, intertwined tendrils of Figure 22.
+  - A fixed glass wall.
+  initial_state:
+  - The ball starts clear of the glass and moves toward it with its tendrils attached and distinguishable.
+  required_events:
+  - The approaching ball reaches the glass with its front tendrils first.
+  - The ball flattens against the glass as front tendrils bend and spread outward across the contact region.
+  - After greatest compression, the ball becomes rounder again and the bent tendrils lift away from the
+    glass.
+camera_requirements:
+- Provide a fixed side view of the compression and recovery, plus a fixed view through the glass of the
+  tendrils at maximum compression.
+- Keep the individual front tendrils large enough in the image to distinguish neighboring strands.
+- Keep the relevant objects visible before loading or contact, during the largest deformation, and during
+  the stated outcome.

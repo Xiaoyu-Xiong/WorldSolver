@@ -1,0 +1,37 @@
+schema_version: 1
+scene_id: 075_soft_ball_pin_compression
+seed: 75017
+duration: 3.6
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+initial_conditions:
+  ball_center: [0.0, 0.0, 1.48]
+  ball_radius: 0.46
+  ball_velocity: [0.0, 0.0, 0.0]
+  ball_density: 980.0
+boundary_conditions:
+  lower_pin_array:
+    motion: static
+    tip_height: 0.54
+  upper_pin_array:
+    motion: prescribed_translation
+    axis: [0.0, 0.0, -1.0]
+    keyframes:
+      - {time: 0.0, displacement: 0.0}
+      - {time: 1.25, displacement: 0.0}
+      - {time: 2.45, displacement: 0.68}
+      - {time: 3.6, displacement: 0.68}
+event_sequence:
+  free_fall_interval: [0.0, 0.55]
+  lower_pin_settling_interval: [0.55, 1.25]
+  compression_interval: [1.25, 2.45]
+  compressed_hold_interval: [2.45, 3.6]
+camera:
+  position: [3.15, -4.35, 2.75]
+  look_at: [0.0, 0.0, 1.05]
+  up: [0.0, 0.0, 1.0]
+  focal_length_mm: 58
+  width: 960
+  height: 640
+  fps: 50

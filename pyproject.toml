@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "worldsolver-results"
+version = "0.1.0"
+description = "Published WorldSolver solver submissions and evaluation pipeline"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+license = {text = "MIT"}
+dependencies = [
+  "h5py>=3.12",
+  "numpy>=1.26",
+  "pydantic>=2.11",
+  "PyYAML>=6.0",
+  "imageio[ffmpeg]>=2.36",
+  "openai>=1.60",
+  "Pillow>=10.4",
+  "psutil>=6.0",
+  "pyrender @ https://github.com/3DAlgoLab/pyrender/archive/bc79ccb6a050d6502bff25b858d65f87a9dfdb01.zip",
+  "trimesh>=4.4",
+  "PyOpenGL>=3.1.7",
+  "scipy>=1.14",
+  "scikit-image>=0.24",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["scripts"]
+
+[tool.hatch.metadata]
+allow-direct-references = true

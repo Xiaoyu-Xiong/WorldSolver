@@ -1,0 +1,43 @@
+schema_version: 1
+scene_id: 008_rotating_blade_stirring
+seed: 8008
+duration: 6.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+tank:
+  interior_half_width: 0.8
+  height: 0.8
+  wall_thickness: 0.04
+liquid:
+  depth: 0.30
+  density: 1000.0
+  kinematic_viscosity: 0.000001
+  particle_spacing: 0.025
+blade:
+  center: [0.0, 0.0, 0.36]
+  half_extents: [0.5, 0.03, 0.32]
+  initial_angle: 0.0
+  angular_speed: -3.0
+  ramp_duration: 0.8
+  body_id: 1
+boundary_conditions:
+  solids: impermeable_free_slip
+  free_surface: atmospheric_pressure
+  top: open_air
+  mass_source: none
+  escaped_liquid: retain_and_track
+domain:
+  bounds_min: [-0.8, -0.8, 0.0]
+  bounds_max: [0.8, 0.8, 1.2]
+  grid_spacing: 0.05
+  reference_grid: [32, 32, 24]
+camera:
+  position: [2.5, -3.4, 2.65]
+  look_at: [0.0, 0.0, 0.30]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50
+  yfov_degrees: 35.0
+  shadows: false

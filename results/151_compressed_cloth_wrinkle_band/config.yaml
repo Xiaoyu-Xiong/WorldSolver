@@ -1,0 +1,22 @@
+schema_version: 1
+scene_id: 151_compressed_cloth_wrinkle_band
+seed: 18151
+duration: 7.0
+sample_dt: 0.03333333333333333
+visual_judge_frame_count: 20
+variant: compressed_cloth_wrinkle_band
+gravity: [0.0, 0.0, -9.81]
+cloth:
+  grid_shape: [17, 17]
+  size: [3.0, 2.5]
+  center: [0.0, 0.0, 2.15]
+  plane: xy
+  thickness: 0.015
+  total_mass: 0.32
+camera:
+  position: [4.2, -6.2, 3.25]
+  look_at: [0.0, 0.0, 1.25]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

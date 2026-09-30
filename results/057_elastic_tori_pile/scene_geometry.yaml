@@ -1,0 +1,375 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [3.6, 3.6, 0.10]}
+    transform: {translation: [0.0, 0.0, -0.10]}
+    material_id: floor
+    collision_enabled: true
+  - id: post_01
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 0.13, height: 2.80}
+    transform: {translation: [2.3500, 0.0000, 1.40]}
+    material_id: post_blue
+    collision_enabled: true
+  - id: post_02
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 0.13, height: 2.80}
+    transform: {translation: [2.0352, 1.1750, 1.40]}
+    material_id: post_blue
+    collision_enabled: true
+  - id: post_03
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 0.13, height: 2.80}
+    transform: {translation: [1.1750, 2.0352, 1.40]}
+    material_id: post_blue
+    collision_enabled: true
+  - id: post_04
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 0.13, height: 2.80}
+    transform: {translation: [0.0000, 2.3500, 1.40]}
+    material_id: post_blue
+    collision_enabled: true
+  - id: post_05
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 0.13, height: 2.80}
+    transform: {translation: [-1.1750, 2.0352, 1.40]}
+    material_id: post_blue
+    collision_enabled: true
+  - id: post_06
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 0.13, height: 2.80}
+    transform: {translation: [-2.0352, 1.1750, 1.40]}
+    material_id: post_blue
+    collision_enabled: true
+  - id: post_07
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 0.13, height: 2.80}
+    transform: {translation: [-2.3500, 0.0000, 1.40]}
+    material_id: post_blue
+    collision_enabled: true
+  - id: post_08
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 0.13, height: 2.80}
+    transform: {translation: [-2.0352, -1.1750, 1.40]}
+    material_id: post_blue
+    collision_enabled: true
+  - id: post_09
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 0.13, height: 2.80}
+    transform: {translation: [-1.1750, -2.0352, 1.40]}
+    material_id: post_blue
+    collision_enabled: true
+  - id: post_10
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 0.13, height: 2.80}
+    transform: {translation: [-0.0000, -2.3500, 1.40]}
+    material_id: post_blue
+    collision_enabled: true
+  - id: post_11
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 0.13, height: 2.80}
+    transform: {translation: [1.1750, -2.0352, 1.40]}
+    material_id: post_blue
+    collision_enabled: true
+  - id: post_12
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 0.13, height: 2.80}
+    transform: {translation: [2.0352, -1.1750, 1.40]}
+    material_id: post_blue
+    collision_enabled: true
+  - id: torus_01
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 0}
+    material_id: torus_0
+    collision_enabled: true
+  - id: torus_02
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 1}
+    material_id: torus_1
+    collision_enabled: true
+  - id: torus_03
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 2}
+    material_id: torus_2
+    collision_enabled: true
+  - id: torus_04
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 3}
+    material_id: torus_0
+    collision_enabled: true
+  - id: torus_05
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 4}
+    material_id: torus_1
+    collision_enabled: true
+  - id: torus_06
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 5}
+    material_id: torus_2
+    collision_enabled: true
+  - id: torus_07
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 6}
+    material_id: torus_0
+    collision_enabled: true
+  - id: torus_08
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 7}
+    material_id: torus_1
+    collision_enabled: true
+  - id: torus_09
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 8}
+    material_id: torus_2
+    collision_enabled: true
+  - id: torus_10
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 9}
+    material_id: torus_0
+    collision_enabled: true
+  - id: torus_11
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 10}
+    material_id: torus_1
+    collision_enabled: true
+  - id: torus_12
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 11}
+    material_id: torus_2
+    collision_enabled: true
+  - id: torus_13
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 12}
+    material_id: torus_0
+    collision_enabled: true
+  - id: torus_14
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 13}
+    material_id: torus_1
+    collision_enabled: true
+  - id: torus_15
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 14}
+    material_id: torus_2
+    collision_enabled: true
+  - id: torus_16
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 15}
+    material_id: torus_0
+    collision_enabled: true
+  - id: torus_17
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 16}
+    material_id: torus_1
+    collision_enabled: true
+  - id: torus_18
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 17}
+    material_id: torus_2
+    collision_enabled: true
+  - id: torus_19
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 18}
+    material_id: torus_0
+    collision_enabled: true
+  - id: torus_20
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 19}
+    material_id: torus_1
+    collision_enabled: true
+  - id: torus_21
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 20}
+    material_id: torus_2
+    collision_enabled: true
+  - id: torus_22
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 21}
+    material_id: torus_0
+    collision_enabled: true
+  - id: torus_23
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 22}
+    material_id: torus_1
+    collision_enabled: true
+  - id: torus_24
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 23}
+    material_id: torus_2
+    collision_enabled: true
+  - id: torus_25
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 24}
+    material_id: torus_0
+    collision_enabled: true
+  - id: torus_26
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 25}
+    material_id: torus_1
+    collision_enabled: true
+  - id: torus_27
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 26}
+    material_id: torus_2
+    collision_enabled: true
+  - id: torus_28
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 27}
+    material_id: torus_0
+    collision_enabled: true
+  - id: torus_29
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 28}
+    material_id: torus_1
+    collision_enabled: true
+  - id: torus_30
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 29}
+    material_id: torus_2
+    collision_enabled: true
+  - id: torus_31
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 30}
+    material_id: torus_0
+    collision_enabled: true
+  - id: torus_32
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 31}
+    material_id: torus_1
+    collision_enabled: true
+  - id: torus_33
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 32}
+    material_id: torus_2
+    collision_enabled: true
+  - id: torus_34
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 33}
+    material_id: torus_0
+    collision_enabled: true
+  - id: torus_35
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 34}
+    material_id: torus_1
+    collision_enabled: true
+  - id: torus_36
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 35}
+    material_id: torus_2
+    collision_enabled: true
+  - id: torus_37
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 36}
+    material_id: torus_0
+    collision_enabled: true
+  - id: torus_38
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 37}
+    material_id: torus_1
+    collision_enabled: true
+  - id: torus_39
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 38}
+    material_id: torus_2
+    collision_enabled: true
+  - id: torus_40
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/torus.obj, topology_asset: assets/torus.obj}
+    state_binding: {selector: body_id, value: 39}
+    material_id: torus_0
+    collision_enabled: true

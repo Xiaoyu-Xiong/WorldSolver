@@ -1,0 +1,39 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: arm_flesh
+    semantic: deformable
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/arm_flesh.obj
+      topology_asset: assets/arm_flesh.obj
+    state_binding:
+      selector: all
+    material_id: flesh
+    collision_enabled: true
+  - id: humerus_bone
+    semantic: rigid
+    motion: kinematic
+    geometry:
+      type: capsule
+      radius: 0.050
+      height: 0.62
+    transform:
+      translation: [-0.36, 0.0, 1.05]
+      rotation_xyzw: [0.0, 0.70710678, 0.0, 0.70710678]
+    material_id: bone
+    collision_enabled: true
+  - id: forearm_bone
+    semantic: rigid
+    motion: kinematic
+    geometry:
+      type: capsule
+      radius: 0.040
+      height: 0.66
+    transform:
+      translation: [0.38, 0.0, 1.05]
+      rotation_xyzw: [0.0, 0.70710678, 0.0, 0.70710678]
+    material_id: bone
+    collision_enabled: true

@@ -1,0 +1,30 @@
+id: 129_lava_spout_periodic_folding
+title: Lava Spout Periodic Folding
+category: plastic_and_complex_materials
+source:
+  title: The Affine Particle-In-Cell Method
+  url: https://math.ucdavis.edu/~jteran/papers/JSSTS15.pdf
+  anchor: Figures 6 and 16
+goal: >-
+  Recreate the paper's clearly visible lava spout periodic folding phenomenon. The implementation method is unrestricted;
+  evaluation targets the observable motion, material response, interaction sequence, and final state.
+scene_requirements:
+  required_elements:
+  - Continuous viscous lava inlet
+  - Rigid receiving surface
+  - Gravity
+  - Highly viscous elastoplastic material
+  initial_state:
+  - A steady vertical stream of hot viscous material begins above a flat receiving surface.
+  required_events:
+  - The stream reaches the surface and forms a growing mound.
+  - Incoming material cannot spread fast enough and the stream buckles laterally while remaining cohesive.
+  - Repeated alternating folds accumulate into a layered coil with a clear periodic deposition pattern.
+  - Material motion remains continuous, with no unexplained teleportation or numerical explosion.
+camera_requirements:
+- Use a side view showing the inlet, buckling zone, contact point, and growing folded pile.
+- Keep material and rigid obstacles visually distinct and preserve enough contrast to read deformation and contacts.
+parameter_notes:
+- Match the qualitative scale, material regime, and event ordering shown in Figures 6 and 16; geometric simplification is allowed.
+- Export per-sample mass, velocity, external force, deformation gradient, and near-contact signed distance for scoring.
+

@@ -1,0 +1,103 @@
+schema_version: 4
+task_id: 051_egg_frying
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The submitted solver runs to the frozen end time, produces a complete finite trajectory
+      with every required evaluation field, and produces a readable platform render without exceeding
+      the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: The initial egg visibly retains distinct egg-white and yolk material regions on the hot
+      pan.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: The egg white spreads outward across the pan while the central yolk remains visually identifiable.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: A visibly distinct cooked or phase-changed region expands from the heated contact area
+      through the egg.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: Phase appearance evolves smoothly without the yolk and white abruptly mixing into one material,
+      flickering, disappearing, or changing far from the heated region.
+  physics:
+  - id: material_mass_balance
+    profile: multiphysics_coupling
+    dimension: conservation_and_source_balance
+    criterion: For each material phase, including reported phase transfer, the mass change equals the
+      cumulative prescribed inflow, outflow, or phase-transfer source; internal motion and contact do
+      not create or delete mass.
+    applicability:
+      requires:
+      - prescribed sources and sinks are exported
+      - Per-sample mass contributions are exported for every evaluated material.
+      excludes:
+      - Unreported particle deletion or remeshing loss.
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: transported_scalar_consistency
+    profile: multiphysics_coupling
+    dimension: transport_equation_consistency
+    criterion: The exported temperature or phase fraction in egg frying evolves consistently with its
+      collocated velocity and prescribed local source.
+    applicability:
+      requires:
+      - The temperature or phase fraction, carrier velocity, source field, and active mask are exported
+        on one grid.
+      excludes:
+      - Unmodeled subgrid injection or removal of the scalar.
+    numeric_binding:
+      calculator: field.scalar_transport.v1
+      inputs:
+        scalar_field: fields.transported_scalar
+        velocity_field: fields.velocity_field
+        source_field: fields.scalar_source
+        active_mask: fields.active_mask
+        grid_spacing: scalars.grid_spacing
+      parameters:
+        spatial_dimensions: 3
+      reduction:
+        type: maximum
+  - id: internal_coupling_force_balance
+    profile: multiphysics_coupling
+    dimension: multiphysics_exchange_balance
+    criterion: The paired internal interaction forces exchanged between materials in egg frying are equal
+      and opposite in the aggregate.
+    applicability:
+      requires:
+      - Both sides of every internal coupling or contact force pair are exported.
+      excludes:
+      - External actuator, gravity, or boundary reaction forces.
+    numeric_binding:
+      calculator: coupling.force_balance.v1
+      inputs:
+        interaction_force: fields.interaction_force
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: nonpenetrating_contact
+    profile: multiphysics_coupling
+    dimension: contact_and_interface_conditions
+    criterion: During egg frying, solid-solid and solid-boundary contacts maintain nonnegative geometric
+      gaps up to the contact tolerance and do not permit persistent interpenetration.
+    applicability:
+      requires:
+      - Signed geometric gaps are exported for active and near-contact pairs.
+      excludes:
+      - Pairs intentionally allowed to pass through or merge.
+    numeric_binding:
+      calculator: contact.penetration.v1
+      inputs:
+        signed_distance: fields.contact_signed_distance
+        length_scale: scalars.contact_length_scale
+      parameters: {}
+      reduction:
+        type: maximum

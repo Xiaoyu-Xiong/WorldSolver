@@ -1,0 +1,17 @@
+schema_version: 2
+profile: liquid_in_container
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: lab_base, method: rigid_mesh, material: metal, color_rgb: [0.24, 0.27, 0.32]}
+  - {object_id: motor_housing, method: rigid_mesh, material: metal, color_rgb: [0.14, 0.16, 0.20]}
+  - {object_id: stationary_tank, method: rigid_mesh, material: glass, color_rgb: [0.55, 0.64, 0.74], opacity: 0.16, wireframe: true}
+  - {object_id: rotating_bottom_plate, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.34, 0.08]}
+  - object_id: liquid
+    method: deformed_mesh
+    material: matte
+    color_rgb: [0.02, 0.55, 1.0]
+    particle_radius_scale: 1.0
+    surface_pitch: 0.075
+    surface_smoothing: 1.15
+    subdivision: 1

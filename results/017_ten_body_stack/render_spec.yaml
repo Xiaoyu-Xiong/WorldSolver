@@ -1,0 +1,38 @@
+schema_version: 2
+profile: rigid_contact
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: ground
+    method: rigid_mesh
+    material: matte
+  - object_id: body_01
+    method: rigid_mesh
+    material: body
+  - object_id: body_02
+    method: rigid_mesh
+    material: body
+  - object_id: body_03
+    method: rigid_mesh
+    material: body
+  - object_id: body_04
+    method: rigid_mesh
+    material: body
+  - object_id: body_05
+    method: rigid_mesh
+    material: body
+  - object_id: body_06
+    method: rigid_mesh
+    material: body
+  - object_id: body_07
+    method: rigid_mesh
+    material: body
+  - object_id: body_08
+    method: rigid_mesh
+    material: body
+  - object_id: body_09
+    method: rigid_mesh
+    material: body
+  - object_id: body_10
+    method: rigid_mesh
+    material: body

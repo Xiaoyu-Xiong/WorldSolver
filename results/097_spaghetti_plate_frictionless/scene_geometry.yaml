@@ -1,0 +1,28 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: plate
+    semantic: boundary
+    motion: static
+    geometry:
+      type: axisymmetric_container
+      inner_profile:
+        - [0.10, 0.075]
+        - [0.88, 0.080]
+        - [1.05, 0.135]
+        - [1.14, 0.220]
+      wall_thickness: 0.055
+    material_id: dark_ceramic_plate
+    collision_enabled: true
+  - id: spaghetti_bundle
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      radius: 0.010
+      topology_asset: assets/spaghetti_topology.json
+    state_binding:
+      selector: all
+    material_id: warm_spaghetti
+    collision_enabled: true

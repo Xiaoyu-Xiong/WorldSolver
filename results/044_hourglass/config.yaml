@@ -1,0 +1,42 @@
+schema_version: 1
+scene_id: 044_hourglass
+seed: 44044
+duration: 18.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+dimensionality: 2d_thin_slab
+initial_conditions:
+  sand_particle_count: 1400
+  particle_radius: 0.008
+  particle_density: 1600.0
+  fill_chamber: upper
+  initial_sand_bounds: [-0.39, 0.39, 1.08, 1.54]
+  initial_velocity: [0.0, 0.0, 0.0]
+boundary_conditions:
+  hourglass_is_kinematic: true
+  confine_sand_to_thin_slab: true
+  slab_half_depth: 0.055
+  hourglass_shape_must_match_source: true
+  visible_flip_markers: true
+events:
+  - {time: 0.0, type: release, description: sand begins first pass through neck}
+  - {time: 6.0, type: flip, angle_degrees: 180, duration: 0.8, axis: y}
+  - {time: 12.0, type: flip, angle_degrees: 180, duration: 0.8, axis: y}
+observables:
+  - flow_through_neck
+  - deposited_pile_profile
+  - settled_stability_before_each_flip
+  - bulk_volume_drift_after_each_pass
+  - particle_mass_conservation
+  - hourglass_body_rotation_angle
+  - sand_confined_to_glass_interior
+camera:
+  position: [2.15, -3.25, 1.85]
+  look_at: [0.0, 0.0, 0.82]
+  up: [0.0, 0.0, 1.0]
+  projection: orthographic
+  orthographic_scale: 1.95
+  width: 960
+  height: 640
+  fps: 50

@@ -1,0 +1,19 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [3.2, 2.2, 0.05]}
+    transform: {translation: [0.0, 0.0, -0.05]}
+    material_id: floor
+    collision_enabled: true
+  - id: coin
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: cylinder, radius: 0.48, height: 0.08}
+    transform: {translation: [0,0,0.55], rotation_xyzw: [0,0.45,0,0.893]}
+    state_binding: {selector: body_id, value: 0}
+    material_id: accent_a
+    collision_enabled: true

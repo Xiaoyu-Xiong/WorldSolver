@@ -1,0 +1,29 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: inclined_plane
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [3.2, 2.0, 0.08]
+    transform:
+      translation: [0.0, 0.0, 0.0]
+      rotation_xyzw: [-0.258819, 0.0, 0.0, 0.965926]
+    material_id: plane
+    collision_enabled: true
+  - id: inclined_block
+    semantic: rigid
+    motion: dynamic
+    geometry:
+      type: box
+      half_extents: [0.45, 0.35, 0.3]
+    transform:
+      translation: [-1.35, 0.0, 1.05]
+      rotation_xyzw: [-0.258819, 0.0, 0.0, 0.965926]
+    state_binding:
+      selector: body_id
+      value: 1
+    material_id: block
+    collision_enabled: true

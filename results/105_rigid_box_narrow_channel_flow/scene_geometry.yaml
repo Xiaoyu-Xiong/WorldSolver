@@ -1,0 +1,45 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: channel_left_wall
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.035, 0.06, 1.80]}
+    transform: {translation: [-0.535, 0.0, 1.80]}
+    material_id: channel_wall
+    collision_enabled: true
+  - id: channel_right_wall
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.035, 0.06, 1.80]}
+    transform: {translation: [0.535, 0.0, 1.80]}
+    material_id: channel_wall
+    collision_enabled: true
+  - id: channel_floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.57, 0.06, 0.035]}
+    transform: {translation: [0.0, 0.0, 0.015]}
+    material_id: channel_wall
+    collision_enabled: true
+  - id: coupled_box
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.43, 0.04, 0.24]}
+    transform:
+      translation: [0.0, 0.0, 2.72]
+      rotation_xyzw: [0.0, -0.0348995, 0.0, 0.9993908]
+    state_binding: {selector: body_id, value: 1}
+    material_id: heavy_box
+    collision_enabled: true
+  - id: fluid_markers
+    semantic: liquid
+    motion: field
+    geometry:
+      type: particle_domain
+      bounds_min: [-0.50, -0.04, 0.05]
+      bounds_max: [0.50, 0.04, 3.55]
+    state_binding: {selector: attribute, attribute_name: phase, value: 1}
+    material_id: fluid_marker
+    collision_enabled: false

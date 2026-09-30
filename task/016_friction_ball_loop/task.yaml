@@ -1,0 +1,27 @@
+id: 016_friction_ball_loop
+title: Friction Ball Loop
+category: rigid_body_dynamics
+source:
+  title: Fast Frictional Dynamics for Rigid Bodies
+  url: https://graphics.stanford.edu/courses/cs468-05-fall/Papers/p946-kaufman.pdf
+  anchor: Figure 1(c); PDF page 1
+goal: Recreate the observable physical phenomenon in which a ball rolls through a loop; friction dissipates
+  enough energy that it stays on the track on the first pass but falls on the second. The implementation
+  method is unrestricted; the target is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Friction Ball Loop
+  - Rigid bodies named by the scene
+  - Contact surfaces
+  - Gravity
+  initial_state:
+  - A ball rolls through a loop; friction dissipates enough energy that it stays on the track on the first
+    pass but falls on the second.
+  required_events:
+  - Speed/energy per pass and detachment time
+  - Qualitative - rolling contact stability
+camera_requirements:
+- Use a three-quarter view that exposes the important contact points, stack or mechanism, support surfaces,
+  and final configuration throughout the motion.
+parameter_notes:
+- 'Original paper parameters/configuration: Loop and rolling ball from Figure 1(c); friction enabled.'

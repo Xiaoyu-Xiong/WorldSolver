@@ -1,0 +1,37 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: carrier_fluid
+    semantic: liquid
+    motion: field
+    geometry:
+      type: particle_domain
+      bounds_min: [-1.0, -1.0, -0.02]
+      bounds_max: [5.0, 1.0, 0.02]
+    state_binding:
+      selector: body_id
+      value: 1
+    material_id: fluid
+    collision_enabled: false
+  - id: flag
+    semantic: deformable
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/flag_initial.obj
+    state_binding:
+      selector: body_id
+      value: 2
+    material_id: flag
+    collision_enabled: true
+  - id: anchor
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [0.025, 0.06, 0.02]
+    transform:
+      translation: [0.0, 0.0, 0.0]
+    material_id: anchor
+    collision_enabled: true

@@ -1,0 +1,149 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 38094756,
+          "trajectory_frames": 301,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "For the non-dissolving sand and water phases, the mass change equals the cumulative prescribed inflow, outflow, or phase-transfer source; internal motion and contact do not create or delete mass.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "initial_quantity": [
+            0.9714600000000211,
+            0.019799999999999995
+          ],
+          "sample_count": 301,
+          "worst_frame_index": 286
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 3.1540426835941956e-15,
+        "profile": "multiphysics_coupling",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 99.99999999996845
+      },
+      {
+        "calculator": "field.scalar_transport.v1",
+        "criterion": "The exported water saturation in wettable sand water evolves consistently with its collocated velocity and prescribed local source.",
+        "criterion_id": "transported_scalar_consistency",
+        "details": {
+          "sample_count": 301,
+          "worst_frame_index": 11
+        },
+        "dimension": "transport_equation_consistency",
+        "domain": "physics",
+        "metric": "transport_relative_l2",
+        "normalized_error": 1.0,
+        "profile": "multiphysics_coupling",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.0
+      },
+      {
+        "calculator": "coupling.force_balance.v1",
+        "criterion": "The paired internal interaction forces exchanged between materials in wettable sand water are equal and opposite in the aggregate.",
+        "criterion_id": "internal_coupling_force_balance",
+        "details": {
+          "sample_count": 301,
+          "worst_frame_index": 0
+        },
+        "dimension": "multiphysics_exchange_balance",
+        "domain": "physics",
+        "metric": "interaction_force_relative_residual",
+        "normalized_error": 0.0,
+        "profile": "multiphysics_coupling",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "contact.penetration.v1",
+        "criterion": "During wettable sand water, solid-solid and solid-boundary contacts maintain nonnegative geometric gaps up to the contact tolerance and do not permit persistent interpenetration.",
+        "criterion_id": "nonpenetrating_contact",
+        "details": {
+          "sample_count": 301,
+          "worst_frame_index": 239
+        },
+        "dimension": "contact_and_interface_conditions",
+        "domain": "physics",
+        "metric": "penetration_relative_max",
+        "normalized_error": 0.6466433695848929,
+        "profile": "multiphysics_coupling",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 7.177273506499225
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.01959591794226544,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.984
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.03666060555964675,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.8560000000000001
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.08555699854482975,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.6
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.11825396399275585,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.634
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "053_wettable_sand_water",
+  "visual_score": 0.7685,
+  "visual_fidelity_score": 76.85,
+  "physical_plausibility_score": 51.79431837661692,
+  "total_score": 64.32215918830846
+}

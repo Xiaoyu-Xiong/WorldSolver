@@ -1,0 +1,129 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: chamber_back
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.84, 0.06, 2.0]}
+    transform: {translation: [0.0, 0.58, 2.55]}
+    material_id: transparent_tube
+  - id: chamber_left
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.06, 0.52, 2.0]}
+    transform: {translation: [-0.78, 0.0, 2.55]}
+    material_id: transparent_tube
+  - id: chamber_right
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.06, 0.52, 2.0]}
+    transform: {translation: [0.78, 0.0, 2.55]}
+    material_id: transparent_tube
+  - id: funnel_left
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.055, 0.52, 0.75]}
+    transform:
+      translation: [-0.55, 0.0, 0.72]
+      rotation_xyzw: [0.0, -0.153, 0.0, 0.988]
+    material_id: transparent_tube
+  - id: funnel_right
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.055, 0.52, 0.75]}
+    transform:
+      translation: [0.55, 0.0, 0.72]
+      rotation_xyzw: [0.0, 0.153, 0.0, 0.988]
+    material_id: transparent_tube
+  - id: funnel_back
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.72, 0.055, 0.75]}
+    transform:
+      translation: [0.0, 0.38, 0.72]
+      rotation_xyzw: [0.19, 0.0, 0.0, 0.982]
+    material_id: transparent_tube
+  - id: outlet_front_lip
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.34, 0.20, 0.07]}
+    transform: {translation: [0.0, -0.33, 0.0]}
+    material_id: tube_edge
+  - id: outlet_back_lip
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.34, 0.20, 0.07]}
+    transform: {translation: [0.0, 0.33, 0.0]}
+    material_id: tube_edge
+  - id: collector_floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [1.25, 0.9, 0.06]}
+    transform: {translation: [0.0, 0.0, -2.05]}
+    material_id: collector
+  - id: collector_back
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [1.25, 0.05, 1.0]}
+    transform: {translation: [0.0, 0.95, -1.05]}
+    material_id: collector
+  - id: collector_left
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.05, 0.9, 1.0]}
+    transform: {translation: [-1.30, 0.0, -1.05]}
+    material_id: collector
+  - id: collector_right
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.05, 0.9, 1.0]}
+    transform: {translation: [1.30, 0.0, -1.05]}
+    material_id: collector
+  - id: pusher_plate
+    semantic: rigid
+    motion: kinematic
+    geometry: {type: box, half_extents: [0.70, 0.50, 0.08]}
+    transform: {translation: [0.0, 0.0, 4.85]}
+    material_id: pusher
+  - id: soft_red
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/soft_body_unit.obj}
+    transform: {translation: [-0.25, -0.12, 4.13], scale: [0.45, 0.35, 0.33]}
+    state_binding: {selector: body_id, value: 0}
+    material_id: soft_red
+  - id: soft_blue
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/soft_body_unit.obj}
+    transform:
+      translation: [0.22, 0.12, 3.34]
+      rotation_xyzw: [0.0, 0.259, 0.0, 0.966]
+      scale: [0.33, 0.30, 0.55]
+    state_binding: {selector: body_id, value: 1}
+    material_id: soft_blue
+  - id: soft_green
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/soft_body_unit.obj}
+    transform: {translation: [-0.18, 0.10, 2.55], scale: [0.45, 0.39, 0.46]}
+    state_binding: {selector: body_id, value: 2}
+    material_id: soft_green
+  - id: soft_gold
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/soft_body_unit.obj}
+    transform:
+      translation: [0.18, -0.10, 1.72]
+      rotation_xyzw: [0.0, -0.174, 0.0, 0.985]
+      scale: [0.34, 0.32, 0.56]
+    state_binding: {selector: body_id, value: 3}
+    material_id: soft_gold
+  - id: soft_magenta
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/soft_body_unit.obj}
+    transform: {translation: [-0.20, -0.02, 0.98], scale: [0.42, 0.33, 0.30]}
+    state_binding: {selector: body_id, value: 4}
+    material_id: soft_magenta

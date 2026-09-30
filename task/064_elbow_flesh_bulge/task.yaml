@@ -1,0 +1,27 @@
+id: 064_elbow_flesh_bulge
+title: Soft-Tissue Bulging during Elbow Flexion
+category: elastic_solids
+source:
+  title: Stable Neo-Hookean Flesh Simulation
+  url: https://www.tkim.graphics/NEO/StableNeoHookean2018.pdf
+  anchor: Figure 2, PDF page 2; Figure 10, PDF page 12
+goal: 'Recreate the source experiment: The bent arm has a full, rounded outline at the elbow rather than
+  a deeply pinched crease with missing-looking flesh between the upper arm and forearm. The numerical
+  implementation is unrestricted; the deforming material is a three-dimensional solid.'
+scene_requirements:
+  required_elements:
+  - A volumetric upper-arm and forearm flesh model surrounding driven bones.
+  - The prescribed elbow-flexion motion used in the paper.
+  initial_state:
+  - The arm starts in its initial pose before the elbow bends.
+  required_events:
+  - The forearm rotates toward the upper arm as the elbow bends.
+  - Flesh near the inside of the elbow and forearm moves outward, producing a visible rounded bulge as
+    the two arm regions approach.
+  - The bent arm has a full, rounded outline at the elbow rather than a deeply pinched crease with missing-looking
+    flesh between the upper arm and forearm.
+camera_requirements:
+- Use a fixed close side view of the elbow, retaining enough upper arm and forearm to show the bend and
+  the changing silhouette.
+- Keep the relevant objects visible before loading or contact, during the largest deformation, and during
+  the stated outcome.

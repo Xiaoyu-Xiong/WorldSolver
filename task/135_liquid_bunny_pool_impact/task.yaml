@@ -1,0 +1,30 @@
+id: 135_liquid_bunny_pool_impact
+title: Liquid Bunny Pool Impact
+category: fluid_dynamics
+source:
+  title: Position Based Fluids
+  url: https://mmacklin.com/pbf_sig_preprint.pdf
+  anchor: Figures 3 and 4
+goal: >-
+  Recreate the paper's clearly visible liquid bunny pool impact phenomenon. The implementation method is unrestricted;
+  evaluation targets the observable flow evolution, boundary interaction, signature structure, and final state.
+scene_requirements:
+  required_elements:
+  - Bunny-shaped liquid volume
+  - Receiving liquid pool
+  - Rigid basin
+  - Gravity
+  initial_state:
+  - A recognizable bunny-shaped liquid volume begins above a still pool.
+  required_events:
+  - The liquid bunny falls while approximately retaining its silhouette before contact.
+  - Impact generates an outward splash, crown, and upward sheets while the bunny merges into the pool.
+  - The free surface remains volume-coherent and transitions into damped waves after the splash.
+  - The represented fluid remains continuous and respects rigid boundaries throughout the event.
+camera_requirements:
+- Use a front three-quarter view that shows the bunny silhouette and complete splash envelope.
+- Use contrasting fluid and obstacle colors and keep the complete phenomenon inside frame.
+parameter_notes:
+- Match the qualitative scale, flow regime, and event ordering shown in Figures 3 and 4; geometric simplification is allowed.
+- Export collocated velocity diagnostics, active masks, boundary samples, and transported liquid or smoke fields.
+

@@ -1,0 +1,153 @@
+schema_version: 4
+task_id: 085_trefoil_knot_twist_snap
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The solver reaches the frozen end time, exports all required finite trajectory fields, and produces
+      a readable render within the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: One clamp rotates relative to the other while the loose trefoil knot remains in view.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: The main loop and braid region first change shape continuously as twist increases.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: At a later stage, the knot undergoes a clearly visible sudden change to a different configuration.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: The snap does not cut, reconnect, or pass one strand through another, and both tails remain
+      attached.
+  physics:
+  - id: material_mass_balance
+    profile: elastic_rods
+    dimension: conservation_and_source_balance
+    criterion: Each physical rod, strand, and attached rigid body retains its own initial mass. Errors on separate
+      bodies must not cancel in a combined total.
+    applicability:
+      requires:
+      - Export actual per-sample masses in attributes.mass_quantity [N,G], one fixed column per physical body
+        or deployed rod domain, with zeros outside that domain. Do not include render-only hair copies as additional
+        mass.
+      - Export fields.cumulative_mass_source as zeros [G]; include every material sample throughout the run.
+      excludes: []
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: local_material_inextensibility
+    profile: elastic_rods
+    dimension: material_kinematic_constraints
+    criterion: Every evaluated material interval preserves its reference arc length. Changing the rod shape,
+      coil pitch, or endpoint span must not be achieved by stretching its material.
+    applicability:
+      requires:
+      - Export fields.constraint_value as actual current arc length divided by reference arc length for every
+        physical material interval; fields.constraint_target contains matching ones and scalars.constraint_scale
+        is frozen to 1.
+      - Reference intervals are fixed in material coordinates and have positive length. For curved elements
+        integrate their centerline arc length; do not use endpoint chord length or solver-declared nominal
+        lengths.
+      - Include all deployed intervals. Newly injected intervals inherit the source reference length at creation;
+        evaluate each interval at the same material bounds in current and reference geometry.
+      excludes: []
+    numeric_binding:
+      calculator: constraint.target.v1
+      inputs:
+        value: fields.constraint_value
+        target: fields.constraint_target
+        scale: scalars.constraint_scale
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: linear_momentum_impulse_balance
+    profile: elastic_rods
+    dimension: momentum_and_force_balance
+    criterion: Over each adjacent output interval, each physical body linear momentum change equals its external
+      force integral plus recorded external impulses.
+    applicability:
+      requires:
+      - Export state.mass [N], state.velocity [N,3], and fields.budget_domain_weights [G,N]. Each row selects
+        one physical rod/strand or attached rigid body; preserve domain identity and include cross-domain attachment
+        and contact actions.
+      - Account for both clamp reactions, applied torques, and any external damping; self-contact forces are
+        internal to the complete rod. Export smooth force terms in fields.budget_external_force [G,K,3] and
+        accumulate rapidly varying applied contact or constraint impulses from all internal substeps. Never
+        count one contribution in both force and impulse channels.
+      - All domains are closed material bodies; export zero cumulative inflow and outflow momentum. Force and
+        impulse records must come from actual applied updates, never from the momentum differences being checked.
+      - Export fields.budget_cumulative_external_impulse, fields.budget_cumulative_inflow_momentum, and fields.budget_cumulative_outflow_momentum
+        [G,3]. Freeze a positive scalars.reference_momentum from configured mass and speed scales before the
+        run.
+      excludes: []
+    numeric_binding:
+      calculator: dynamics.momentum_budget.v1
+      inputs:
+        mass: state.mass
+        velocity: state.velocity
+        domain_weights: fields.budget_domain_weights
+        external_force: fields.budget_external_force
+        cumulative_external_impulse: fields.budget_cumulative_external_impulse
+        cumulative_inflow_momentum: fields.budget_cumulative_inflow_momentum
+        cumulative_outflow_momentum: fields.budget_cumulative_outflow_momentum
+        reference_momentum: scalars.reference_momentum
+      parameters:
+        mode: dynamic
+        integration: trapezoidal
+        window: adjacent_frames
+      reduction:
+        type: maximum
+  - id: angular_momentum_impulse_balance
+    profile: elastic_rods
+    dimension: angular_momentum_and_torque_balance
+    criterion: Over each adjacent output interval, each physical body angular momentum change equals the external
+      torque integral plus recorded external angular impulses about the same fixed world origin.
+    applicability:
+      requires:
+      - Export state.mass [N], state.velocity [N,3], and fields.budget_domain_weights [G,N]. Each row selects
+        one physical rod/strand or attached rigid body; preserve domain identity and include cross-domain attachment
+        and contact actions.
+      - Account for both clamp reactions, applied torques, and any external damping; self-contact forces are
+        internal to the complete rod. Export smooth force terms in fields.budget_external_force [G,K,3] and
+        accumulate rapidly varying applied contact or constraint impulses from all internal substeps. Never
+        count one contribution in both force and impulse channels.
+      - All domains are closed material bodies; export zero cumulative inflow and outflow momentum. Force and
+        impulse records must come from actual applied updates, never from the momentum differences being checked.
+      - Export state.position [N,3], state.angular_velocity [N,3], and world-space attributes.inertia_tensor
+        [N,3,3]. Use zero intrinsic inertia for point samples; include the actual unresolved rigid-body or
+        rod spin only once.
+      - For quasistatic material-frame twist, do not invent rod spin inertia. Use the angular momentum and
+        applied moments consistent with that reduced model, while retaining the actual inertia of attached
+        rigid bodies.
+      - Export fields.budget_force_position and fields.budget_external_couple [G,K,3]. Record cumulative external
+        angular impulses and zero inflow/outflow angular momentum [G,3], all about the fixed world origin [0,0,0].
+      - Freeze a positive scalars.reference_angular_momentum from the configured size, mass/inertia, and motion
+        scales before the run, not from the initially zero net angular momentum.
+      excludes: []
+    numeric_binding:
+      calculator: dynamics.angular_momentum_budget.v1
+      inputs:
+        mass: state.mass
+        velocity: state.velocity
+        domain_weights: fields.budget_domain_weights
+        external_force: fields.budget_external_force
+        position: state.position
+        angular_velocity: state.angular_velocity
+        inertia_tensor: attributes.inertia_tensor
+        force_position: fields.budget_force_position
+        external_couple: fields.budget_external_couple
+        cumulative_external_angular_impulse: fields.budget_cumulative_external_angular_impulse
+        cumulative_inflow_angular_momentum: fields.budget_cumulative_inflow_angular_momentum
+        cumulative_outflow_angular_momentum: fields.budget_cumulative_outflow_angular_momentum
+        reference_angular_momentum: scalars.reference_angular_momentum
+      parameters:
+        mode: dynamic
+        integration: trapezoidal
+        window: adjacent_frames
+      reduction:
+        type: maximum

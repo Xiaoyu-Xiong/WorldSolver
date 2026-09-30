@@ -1,0 +1,23 @@
+schema_version: 1
+scene_id: 077_elastic_rod_ground_stick_slip
+seed: 77
+duration: 8.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+contact:
+  ground_friction_coefficient: 0.35
+boundary_conditions:
+  driven_top:
+    selector_attribute: driven_top
+    press_interval: [0.0, 0.8]
+    press_displacement: [0.0, 0.0, -0.05]
+    drag_interval: [0.8, 8.0]
+    drag_velocity: [0.22, 0.0, 0.0]
+camera:
+  position: [0.75, -3.2, 0.9]
+  look_at: [0.75, 0.0, 0.75]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

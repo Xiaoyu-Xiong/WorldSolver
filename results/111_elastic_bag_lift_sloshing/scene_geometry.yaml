@@ -1,0 +1,54 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: tank_floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [1.90, 1.60, 0.05]}
+    transform: {translation: [0.0, 0.0, -0.05]}
+    material_id: tank_glass
+    collision_enabled: true
+  - id: tank_back
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [1.90, 0.035, 1.60]}
+    transform: {translation: [0.0, 1.535, 1.60]}
+    material_id: tank_glass
+    collision_enabled: true
+  - id: tank_left
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.035, 1.50, 1.60]}
+    transform: {translation: [-1.835, 0.0, 1.60]}
+    material_id: tank_glass
+    collision_enabled: true
+  - id: tank_right
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.035, 1.50, 1.60]}
+    transform: {translation: [1.835, 0.0, 1.60]}
+    material_id: tank_glass
+    collision_enabled: true
+  - id: elastic_bag
+    semantic: cloth
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/elastic_bag.npz
+      topology_asset: assets/elastic_bag.npz
+      grid_shape: [18, 32]
+    state_binding: {selector: body_id, value: 0}
+    material_id: emerald_cloth
+    collision_enabled: true
+  - id: water
+    semantic: liquid
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [-1.8, -1.5, 0.0]
+      bounds_max: [1.8, 1.5, 3.2]
+    state_binding: {selector: body_id, value: 1}
+    material_id: clear_water
+    collision_enabled: true
+

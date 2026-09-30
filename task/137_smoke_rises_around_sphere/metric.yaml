@@ -1,0 +1,83 @@
+schema_version: 4
+task_id: 137_smoke_rises_around_sphere
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The solver reaches the frozen end time, exports every required finite trajectory field, and produces a readable render within resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: The buoyant plume rises toward the underside of the sphere.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: Smoke splits around the sphere, accelerates along its sides, and rolls into a wake above it.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: Separated streams reconnect into coherent vortical structures without crossing the solid sphere.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: The fluid evolves continuously without teleportation, disconnected material appearing away from the flow, boundary leakage, or numerical explosion.
+  physics:
+  - id: incompressible_velocity_constraint
+    profile: fluids_and_gases
+    dimension: field_constraints
+    criterion: The active incompressible carrier velocity is approximately divergence free.
+    applicability:
+      requires:
+      - A collocated velocity grid and active-region mask are exported.
+      excludes:
+      - Compressible regions and prescribed source cells.
+    numeric_binding:
+      calculator: field.divergence.v1
+      inputs:
+        velocity_field: fields.velocity_field
+        active_mask: fields.active_mask
+        grid_spacing: scalars.grid_spacing
+        characteristic_length: scalars.characteristic_length
+      parameters:
+        spatial_dimensions: 3
+      reduction:
+        type: maximum
+  - id: prescribed_boundary_velocity
+    profile: fluids_and_gases
+    dimension: boundary_and_interface_conditions
+    criterion: Sampled fluid velocity at impermeable rigid boundaries matches the prescribed normal boundary velocity.
+    applicability:
+      requires:
+      - Collocated boundary velocity, target velocity, normal, and reference velocity are exported.
+      excludes:
+      - Open, porous, or prescribed-flux boundary segments.
+    numeric_binding:
+      calculator: boundary.velocity_residual.v1
+      inputs:
+        boundary_velocity: fields.boundary_velocity
+        boundary_target_velocity: fields.boundary_target_velocity
+        boundary_normal: fields.boundary_normal
+        reference_velocity: scalars.reference_velocity
+      parameters:
+        condition: no_penetration
+        spatial_dimensions: 3
+      reduction:
+        type: maximum
+  - id: transported_smoke_consistency
+    profile: fluids_and_gases
+    dimension: transport_equation_consistency
+    criterion: Exported smoke density evolves consistently with the collocated velocity and prescribed source.
+    applicability:
+      requires:
+      - Smoke density, velocity, source field, and active mask are exported on one grid.
+      excludes:
+      - Unmodeled scalar injection or removal.
+    numeric_binding:
+      calculator: field.scalar_transport.v1
+      inputs:
+        scalar_field: fields.transported_scalar
+        velocity_field: fields.velocity_field
+        source_field: fields.scalar_source
+        active_mask: fields.active_mask
+        grid_spacing: scalars.grid_spacing
+      parameters:
+        spatial_dimensions: 3
+      reduction:
+        type: maximum
+

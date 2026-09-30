@@ -1,0 +1,31 @@
+id: 168_centrifugal_surface_square_mode
+title: Centrifugal Free-Surface Square Mode
+category: fluid_dynamics
+source:
+  title: Polygons on a Rotating Fluid Surface
+  url: https://arxiv.org/pdf/physics/0511251
+  anchor: Figure 1 and phase diagram; 4-corner polygon regime
+goal: >-
+  Recreate the symmetry-breaking rotating-fluid experiment in which a stationary transparent cylindrical
+  vessel with a motor-driven bottom plate develops a stable rounded-square depression with four persistent corners. The implementation method is unrestricted.
+scene_requirements:
+  required_elements:
+  - Stationary transparent cylindrical side wall
+  - Partially filled incompressible liquid
+  - Circular bottom plate rotating about the vertical axis
+  - Gravity and a visible liquid-air free surface
+  - Top-view-readable central surface depression
+  initial_state:
+  - The liquid begins approximately axisymmetric with a level or gently curved free surface before the bottom plate reaches its target speed.
+  required_events:
+  - Bottom-plate rotation spins up the liquid and creates an axisymmetric central free-surface depression.
+  - The circular depression loses axial symmetry and develops a dominant azimuthal mode 4.
+  - The resulting surface becomes a stable rounded-square depression with four persistent corners.
+  - The polygon rotates coherently around the vertical axis without collapsing immediately into an unrelated splash.
+camera_requirements:
+- Use a high three-quarter or near-top view that clearly exposes the complete free-surface outline and all 4 corners.
+- Keep the transparent cylindrical wall visually subdued and use surface highlights or tracers to reveal rotation.
+parameter_notes:
+- Tune rotation rate and fill depth into the 4-corner region of the paper's phase diagram rather than prescribing an unsupported exact dimensional frequency.
+- Export the liquid level set, velocity grid, boundary velocities, and total liquid mass for trajectory scoring.
+

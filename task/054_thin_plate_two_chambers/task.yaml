@@ -1,0 +1,39 @@
+id: 054_thin_plate_two_chambers
+title: Thin Plate Two Chambers
+category: fluid_dynamics
+source:
+  title: Fast and Versatile Fluid-Solid Coupling for Turbulent Flow Simulation
+  url: https://hal.science/hal-03464668/document
+  anchor: Figure 3; PDF page 3
+goal: Recreate the observable physical phenomenon in which a jet enters the lower chamber of a two-dimensional
+  domain separated by a thin plate, is redirected by the plate, and remains isolated from the upper chamber
+  without visible leakage. The implementation method is unrestricted; the target is the scene's visible
+  motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Thin separating plate
+  - Coupled materials named by the scene
+  - Interface/contact region
+  - Domain or support boundaries
+  initial_state:
+  - Both upper and lower chambers start quiescent and visually empty of injected tracer except for the
+    prescribed lower inlet core.
+  - A jet enters only from the lower chamber inlet and is redirected by the thin plate without leaking
+    into the upper chamber.
+  required_events:
+  - Quantitative/qualitative - leaked mass into upper chamber
+  - Pressure/velocity discontinuity
+  - Stability
+  - No initial full-domain fill and no discontinuous pop from a filled domain to a lower-chamber jet
+camera_requirements:
+- Use a three-quarter view that simultaneously exposes each coupled phase or body, their interface, the
+  main transfer or contact region, and the final distribution.
+- Use a 2D cross-section view and high-contrast injected jet color so the lower chamber jet, thin plate,
+  and empty upper chamber are immediately readable.
+parameter_notes:
+- 'Merged source variants (thin_plate_two_chambers_diffuse_ib, thin_plate_two_chambers_iterative_diffuse_ib,
+  thin_plate_two_chambers_sharp_ib, thin_plate_two_chambers_distribution_correction_ib, thin_plate_two_chambers_ours).
+  Original paper parameters/configurations: Method = diffuse_ib; identical thin plate, chambers, and jet.
+  | Method = iterative_diffuse_ib; identical thin plate, chambers, and jet. | Method = sharp_ib; identical
+  thin plate, chambers, and jet. | Method = distribution_correction_ib; identical thin plate, chambers,
+  and jet. | Method = ours; identical thin plate, chambers, and jet.'

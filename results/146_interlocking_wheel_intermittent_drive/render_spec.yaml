@@ -1,0 +1,11 @@
+schema_version: 2
+profile: rigid_contact
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: floor, method: rigid_mesh, material: matte, color_rgb: [0.18, 0.21, 0.26]}
+  - {object_id: driver_axle, method: rigid_mesh, material: metal, color_rgb: [0.78, 0.82, 0.88]}
+  - {object_id: follower_axle, method: rigid_mesh, material: metal, color_rgb: [0.78, 0.82, 0.88]}
+  - {object_id: driver, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: follower, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: drive_pin, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}

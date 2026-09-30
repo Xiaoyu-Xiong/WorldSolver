@@ -1,0 +1,89 @@
+schema_version: 4
+task_id: 125_viscoelastic_pool_splash_rebound
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The solver reaches the frozen end time, exports every required finite trajectory field, and produces a readable render within resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: The falling mass accelerates under gravity and strikes the pool.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: Impact produces a broad splash while stretched material remains visibly cohesive rather than atomizing like a simple liquid.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: Elastic stresses pull elongated sheets and strands back toward the pool, producing a visible rebound and damped oscillation.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: Material and rigid geometry move continuously without teleportation, unexplained disappearance, persistent interpenetration, or numerical explosion.
+  physics:
+  - id: material_mass_balance
+    profile: particles_and_granular_materials
+    dimension: conservation_and_source_balance
+    criterion: Total represented material mass follows the exported cumulative source and remains conserved when no source or sink is active.
+    applicability:
+      requires:
+      - Per-sample mass quantity and cumulative material source are exported.
+      excludes:
+      - Deliberately untracked material entering or leaving the domain.
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: linear_momentum_balance
+    profile: particles_and_granular_materials
+    dimension: momentum_and_force_balance
+    criterion: The time rate of total material momentum is consistent with exported external forces.
+    applicability:
+      requires:
+      - Mass, velocity, and all external forces are exported at trajectory samples.
+      excludes:
+      - Frames spanning an unreported external impulse.
+    numeric_binding:
+      calculator: dynamics.linear_momentum_balance.v1
+      inputs:
+        mass: state.mass
+        velocity: state.velocity
+        external_force: fields.external_force
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: admissible_local_deformation
+    profile: particles_and_granular_materials
+    dimension: deformation_constraints
+    criterion: Exported material deformation gradients preserve positive local orientation away from explicitly separated fracture surfaces.
+    applicability:
+      requires:
+      - A deformation gradient is exported for each active material sample.
+      excludes:
+      - Samples deactivated by an explicitly modeled fracture or topology change.
+    numeric_binding:
+      calculator: deformation.jacobian.v1
+      inputs:
+        deformation_gradient: attributes.deformation_gradient
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: nonpenetrating_rigid_contact
+    profile: particles_and_granular_materials
+    dimension: contact_and_interface_conditions
+    criterion: Active material-solid contacts maintain nonnegative signed gaps up to the frozen contact tolerance.
+    applicability:
+      requires:
+      - Signed near-contact distances and a contact length scale are exported.
+      excludes:
+      - Interfaces intentionally modeled as merging or permeable.
+    numeric_binding:
+      calculator: contact.penetration.v1
+      inputs:
+        signed_distance: fields.contact_signed_distance
+        length_scale: scalars.contact_length_scale
+      parameters: {}
+      reduction:
+        type: maximum
+

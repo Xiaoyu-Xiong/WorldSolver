@@ -1,0 +1,26 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: ground
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [4.0, 4.0, 0.10]
+    transform:
+      translation: [0.0, 0.0, -0.10]
+    material_id: floor
+    collision_enabled: true
+  - id: ball
+    semantic: deformable
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/ball_sphere.obj
+    transform:
+      translation: [0.0, 0.0, 2.25]
+    state_binding:
+      selector: all
+    material_id: ball
+    collision_enabled: true

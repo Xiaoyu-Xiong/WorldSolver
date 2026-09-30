@@ -1,0 +1,32 @@
+id: 024_stretched_cube
+title: Stretched Cube
+category: elastic_solids
+source:
+  title: Optimization Integrator for Large Time Steps
+  url: https://math.ucdavis.edu/~jteran/papers/GSSJT15.pdf
+  anchor: Figures 2-3; PDF page 2
+goal: Recreate the observable physical phenomenon in which a deformable cube is stretched and then receives
+  a small compressive pulse, producing a stable large-deformation response and subsequent oscillation.
+  The implementation method is unrestricted; the target is the scene's visible motion, interaction, and
+  outcome.
+scene_requirements:
+  required_elements:
+  - Stretched Cube
+  - Deformable object named by the scene
+  - Collision obstacles or supports
+  - Gravity
+  initial_state:
+  - A deformable cube is stretched and then receives a small compressive pulse, producing a stable large-deformation
+    response and subsequent oscillation.
+  required_events:
+  - Quantitative/qualitative - convergence
+  - Deformation trajectory
+  - Inversion
+  - Energy behavior at frame-rate steps
+camera_requirements:
+- Use a three-quarter view showing the full deformable body, loading or impact region, contacts, large
+  deformation, and recovered or final shape.
+parameter_notes:
+- 'Merged source variants (stretched_cube_optimization, stretched_cube_newton). Original paper parameters/configurations:
+  Method = optimization; one step per 24 Hz frame; identical stretch/pulse script. | Method = newton;
+  one step per 24 Hz frame; identical stretch/pulse script.'

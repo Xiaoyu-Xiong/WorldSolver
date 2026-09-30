@@ -1,0 +1,33 @@
+id: 032_tablecloth_pull_2_mps
+title: Tablecloth Pull 2 Mps
+category: cloth_and_shells
+source:
+  title: Codimensional Incremental Potential Contact
+  url: https://par.nsf.gov/servlets/purl/10290705
+  anchor: Figure 1; PDF page 1
+goal: Recreate the observable physical phenomenon in which a square cloth under heavy stiff dinnerware
+  is pulled horizontally at 2 m/s. The implementation method is unrestricted; the target is the scene's
+  visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Fixed dining table
+  - Square tablecloth
+  - Heavy rigid dinnerware set
+  - Bottle, glass, plate, butter dish, fork, and knife
+  - Gravity
+  - Frictional contact surfaces
+  - Cloth and rigid bodies named by the scene
+  initial_state:
+  - A square cloth under heavy stiff dinnerware is pulled horizontally at 2 m/s.
+  required_events:
+  - Quantitative/qualitative - number of objects remaining on the table
+  - Dinnerware displacement
+  - Cloth strain-limit violation
+  - Contact penetration
+  - Wrinkle detail
+camera_requirements:
+- Use a three-quarter view showing attachments, folds or bends, self-contact and external contact regions,
+  and the final drape or configuration without occlusion.
+parameter_notes:
+- 'Original paper parameters/configuration: Pull speed = 2 m/s; time step h = 0.01 s; identical table,
+  cloth, dinnerware, friction, and initial placement across runs.'

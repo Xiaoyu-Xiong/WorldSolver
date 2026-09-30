@@ -1,0 +1,22 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - {object_id: catch_tank_floor, method: rigid_mesh, material: dark_tank, color_rgb: [0.10, 0.11, 0.12]}
+  - {object_id: catch_tank_back, method: rigid_mesh, material: glass_tank, color_rgb: [0.68, 0.84, 0.95]}
+  - {object_id: catch_tank_front, method: rigid_mesh, material: glass_tank, color_rgb: [0.68, 0.84, 0.95]}
+  - {object_id: catch_tank_left, method: rigid_mesh, material: glass_tank, color_rgb: [0.68, 0.84, 0.95]}
+  - {object_id: catch_tank_right, method: rigid_mesh, material: glass_tank, color_rgb: [0.68, 0.84, 0.95]}
+  - {object_id: inflow_nozzle, method: rigid_mesh, material: brushed_metal, color_rgb: [0.55, 0.58, 0.60]}
+  - object_id: cloth_curtain
+    method: shell_surface
+    material: red_cloth
+    color_rgb: [0.92, 0.04, 0.05]
+    subdivision: 1
+  - object_id: water_stream_and_pool
+    method: reconstructed_surface
+    material: transparent_cyan_water
+    color_rgb: [0.04, 0.48, 0.95]
+    surface_pitch: 0.055
+    surface_smoothing: 1.1

@@ -1,0 +1,14 @@
+schema_version: 2
+profile: fiber_rods
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - object_id: clamp_body
+    method: rigid_mesh
+    material: clamp_metal
+    color_rgb: [0.28, 0.31, 0.34]
+  - object_id: cantilever_rod
+    method: curve_tubes
+    material: rod_elastomer
+    color_rgb: [0.35, 0.78, 0.22]
+    subdivision: 2

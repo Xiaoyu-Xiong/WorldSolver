@@ -1,0 +1,14 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - {object_id: pool_bottom, method: rigid_mesh, material: pool_floor, color_rgb: [0.32, 0.34, 0.38]}
+  - {object_id: pool_back_wall, method: rigid_mesh, material: clear_wall, color_rgb: [0.65, 0.78, 0.9], opacity: 0.18}
+  - {object_id: pool_front_wall, method: rigid_mesh, material: clear_wall, color_rgb: [0.65, 0.78, 0.9], opacity: 0.12}
+  - {object_id: pool_left_wall, method: rigid_mesh, material: clear_wall, color_rgb: [0.65, 0.78, 0.9], opacity: 0.18}
+  - {object_id: pool_right_wall, method: rigid_mesh, material: clear_wall, color_rgb: [0.65, 0.78, 0.9], opacity: 0.18}
+  - {object_id: water, method: reconstructed_surface, material: water, color_rgb: [0.08, 0.35, 0.8], opacity: 0.72, surface_pitch: 0.08}
+  - {object_id: boat, method: rigid_mesh, material: boat_hull, color_rgb: [0.55, 0.25, 0.08]}
+  - {object_id: light_sphere, method: rigid_mesh, material: light_cargo, color_rgb: [0.95, 0.82, 0.18]}
+  - {object_id: heavy_sphere, method: rigid_mesh, material: heavy_cargo, color_rgb: [0.18, 0.2, 0.24]}

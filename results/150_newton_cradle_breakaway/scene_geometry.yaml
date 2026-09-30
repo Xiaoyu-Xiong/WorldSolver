@@ -1,0 +1,137 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [3.2, 2.2, 0.05]}
+    transform: {translation: [0.0, 0.0, -0.05]}
+    material_id: floor
+    collision_enabled: true
+  - id: cradle_top
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [1.85,0.16,0.10]}
+    transform: {translation: [0.0,0.0,2.15]}
+    material_id: frame
+    collision_enabled: false
+  - id: cradle_post_left
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.10,0.16,1.05]}
+    transform: {translation: [-1.85,0.0,1.05]}
+    material_id: frame
+    collision_enabled: false
+  - id: cradle_post_right
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.10,0.16,1.05]}
+    transform: {translation: [1.85,0.0,1.05]}
+    material_id: frame
+    collision_enabled: false
+  - id: string_0
+    semantic: boundary
+    motion: static
+    geometry: {type: capsule, radius: 0.018, height: 0.90}
+    transform: {translation: [-1.38,0.0,1.60]}
+    material_id: string
+    collision_enabled: false
+  - id: string_1
+    semantic: boundary
+    motion: static
+    geometry: {type: capsule, radius: 0.018, height: 0.90}
+    transform: {translation: [-0.92,0.0,1.60]}
+    material_id: string
+    collision_enabled: false
+  - id: string_2
+    semantic: boundary
+    motion: static
+    geometry: {type: capsule, radius: 0.018, height: 0.90}
+    transform: {translation: [-0.46,0.0,1.60]}
+    material_id: string
+    collision_enabled: false
+  - id: string_3
+    semantic: boundary
+    motion: static
+    geometry: {type: capsule, radius: 0.018, height: 0.90}
+    transform: {translation: [0.0,0.0,1.60]}
+    material_id: string
+    collision_enabled: false
+  - id: string_4
+    semantic: boundary
+    motion: static
+    geometry: {type: capsule, radius: 0.018, height: 0.90}
+    transform: {translation: [0.46,0.0,1.60]}
+    material_id: string
+    collision_enabled: false
+  - id: string_5
+    semantic: boundary
+    motion: static
+    geometry: {type: capsule, radius: 0.018, height: 0.90}
+    transform: {translation: [0.92,0.0,1.60]}
+    material_id: string
+    collision_enabled: false
+  - id: string_6
+    semantic: boundary
+    motion: static
+    geometry: {type: capsule, radius: 0.018, height: 0.90}
+    transform: {translation: [1.38,0.0,1.60]}
+    material_id: string
+    collision_enabled: false
+  - id: ball_0
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: sphere, radius: 0.23}
+    transform: {translation: [-1.38,0,1.05], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 0}
+    material_id: accent_a
+    collision_enabled: true
+  - id: ball_1
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: sphere, radius: 0.23}
+    transform: {translation: [-0.9199999999999999,0,1.05], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 1}
+    material_id: accent_b
+    collision_enabled: true
+  - id: ball_2
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: sphere, radius: 0.23}
+    transform: {translation: [-0.45999999999999985,0,1.05], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 2}
+    material_id: accent_a
+    collision_enabled: true
+  - id: ball_3
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: sphere, radius: 0.23}
+    transform: {translation: [2.220446049250313e-16,0,1.05], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 3}
+    material_id: accent_b
+    collision_enabled: true
+  - id: ball_4
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: sphere, radius: 0.23}
+    transform: {translation: [0.4600000000000002,0,1.05], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 4}
+    material_id: accent_a
+    collision_enabled: true
+  - id: ball_5
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: sphere, radius: 0.23}
+    transform: {translation: [0.9200000000000004,0,1.05], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 5}
+    material_id: accent_b
+    collision_enabled: true
+  - id: ball_6
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: sphere, radius: 0.23}
+    transform: {translation: [1.3800000000000003,0,1.05], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 6}
+    material_id: accent_a
+    collision_enabled: true

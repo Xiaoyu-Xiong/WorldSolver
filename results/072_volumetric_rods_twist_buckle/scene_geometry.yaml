@@ -1,0 +1,13 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - {id: rod_center, semantic: deformable, motion: dynamic, geometry: {type: triangle_mesh, asset: assets/rod_surface.obj}, state_binding: {selector: body_id, value: 0}, material_id: rod_gold, collision_enabled: true}
+  - {id: rod_ring_1, semantic: deformable, motion: dynamic, geometry: {type: triangle_mesh, asset: assets/rod_surface.obj}, state_binding: {selector: body_id, value: 1}, material_id: rod_gold_light, collision_enabled: true}
+  - {id: rod_ring_2, semantic: deformable, motion: dynamic, geometry: {type: triangle_mesh, asset: assets/rod_surface.obj}, state_binding: {selector: body_id, value: 2}, material_id: rod_gold, collision_enabled: true}
+  - {id: rod_ring_3, semantic: deformable, motion: dynamic, geometry: {type: triangle_mesh, asset: assets/rod_surface.obj}, state_binding: {selector: body_id, value: 3}, material_id: rod_gold_light, collision_enabled: true}
+  - {id: rod_ring_4, semantic: deformable, motion: dynamic, geometry: {type: triangle_mesh, asset: assets/rod_surface.obj}, state_binding: {selector: body_id, value: 4}, material_id: rod_gold, collision_enabled: true}
+  - {id: rod_ring_5, semantic: deformable, motion: dynamic, geometry: {type: triangle_mesh, asset: assets/rod_surface.obj}, state_binding: {selector: body_id, value: 5}, material_id: rod_gold_light, collision_enabled: true}
+  - {id: rod_ring_6, semantic: deformable, motion: dynamic, geometry: {type: triangle_mesh, asset: assets/rod_surface.obj}, state_binding: {selector: body_id, value: 6}, material_id: rod_gold, collision_enabled: true}
+  - {id: left_drive, semantic: boundary, motion: kinematic, geometry: {type: cylinder, radius: 0.31, height: 0.12}, transform: {translation: [-3.06, 0.0, 0.0], rotation_xyzw: [0.0, 0.70710678, 0.0, 0.70710678], scale: [1.0, 1.0, 1.0]}, material_id: drive_dark, collision_enabled: false}
+  - {id: right_drive, semantic: boundary, motion: kinematic, geometry: {type: cylinder, radius: 0.31, height: 0.12}, transform: {translation: [3.06, 0.0, 0.0], rotation_xyzw: [0.0, 0.70710678, 0.0, 0.70710678], scale: [1.0, 1.0, 1.0]}, material_id: drive_dark, collision_enabled: false}

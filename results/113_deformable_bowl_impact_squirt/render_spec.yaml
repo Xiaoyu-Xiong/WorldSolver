@@ -1,0 +1,10 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: tank_floor, method: rigid_mesh, material: glass, color_rgb: [0.35, 0.55, 0.70], opacity: 0.22}
+  - {object_id: tank_back, method: rigid_mesh, material: glass, color_rgb: [0.35, 0.55, 0.70], opacity: 0.10}
+  - {object_id: bowl_shell, method: deformed_mesh, material: rubber, color_rgb: [0.86, 0.30, 0.12], opacity: 0.9, subdivision: 1}
+  - {object_id: bowl_liquid, method: reconstructed_surface, material: liquid, color_rgb: [0.10, 0.45, 0.95], opacity: 0.78, surface_pitch: 0.08, surface_smoothing: 1.0}
+  - {object_id: shallow_water, method: reconstructed_surface, material: water, color_rgb: [0.08, 0.35, 0.75], opacity: 0.55, surface_pitch: 0.10, surface_smoothing: 1.0}

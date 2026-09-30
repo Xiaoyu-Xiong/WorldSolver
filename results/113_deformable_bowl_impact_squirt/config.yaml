@@ -1,0 +1,22 @@
+schema_version: 1
+scene_id: 113_deformable_bowl_impact_squirt
+seed: 113
+duration: 4.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+initial_conditions:
+  bowl: {total_mass: 0.45, thickness: 0.025, impermeable: true, center: [0.0, 0.0, 2.35], initial_velocity: [0.0, 0.0, -1.2]}
+  liquid: {rest_density: 1000.0, particle_spacing: 0.11, fill_height: 0.62}
+  shallow_water: {rest_density: 1000.0, particle_spacing: 0.13, free_surface_z: 0.22}
+boundary_conditions:
+  tank: {interior_min: [-2.2, -1.5, 0.0], interior_max: [2.2, 1.5, 2.8], open_top: true}
+  bowl_support: none
+camera:
+  position: [4.8, -6.8, 3.6]
+  look_at: [0.0, 0.0, 1.35]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50
+  yfov_degrees: 42.0

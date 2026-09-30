@@ -1,0 +1,12 @@
+schema_version: 2
+profile: deformable_surface
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: ground, method: rigid_mesh, material: matte, color_rgb: [0.22, 0.25, 0.30]}
+
+  - object_id: subject
+    method: deformed_mesh
+    material: ceramic
+    color_rgb: [0.78, 0.82, 0.88]
+    surface_smoothing: 0.35

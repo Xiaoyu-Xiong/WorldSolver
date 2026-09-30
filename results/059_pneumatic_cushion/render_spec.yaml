@@ -1,0 +1,11 @@
+schema_version: 2
+profile: deformable_surface
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: cushion_wall
+    method: deformed_mesh
+    material: coral_rubber
+    color_rgb: [0.94, 0.30, 0.34]
+    opacity: 1.0
+    subdivision: 1

@@ -1,0 +1,97 @@
+schema_version: 4
+task_id: 098_spaghetti_plate_frictional_stack
+criteria:
+  execution:
+    - id: executable_and_evaluable
+      criterion: The solver reaches the frozen end time, exports all required finite trajectory fields, and produces a readable render within the resource limits.
+  visual:
+    - id: visible_event_onset
+      dimension: event_sequence
+      criterion: The initially suspended strands fall into the plate. The lower strands contact the plate before the remaining strands settle onto them.
+    - id: visible_interaction_response
+      dimension: interaction_response
+      criterion: Strands bend on contact with the plate or neighboring strands. Upper strands are supported by lower strands instead of passing through them to the plate bottom.
+    - id: visible_signature_outcome
+      dimension: signature_phenomenon
+      criterion: The strands form a raised stack with visibly overlapping layers, matching the bottom row of Figure 7. The final pile stays concentrated rather than flattening into a widely spread layer, and the strands stop visibly sliding.
+    - id: case_visual_coherence
+      dimension: temporal_coherence
+      criterion: Strands remain continuous and do not disappear, pass through the plate, or jump to distant positions. After settling, the pile does not repeatedly jump upward or suddenly scatter without a new disturbance.
+  physics:
+    - id: strand_mass_balance
+      profile: elastic_rods
+      dimension: conservation_and_source_balance
+      criterion: Each of the 31 strands retains its initial material mass. Mass errors on different strands must not cancel in a combined total; this scene has no material sources or sinks.
+      applicability:
+        requires:
+          - Export actual sample masses in attributes.mass_quantity [N,31], with one fixed column per strand and zeros outside that strand; include every material sample.
+          - Export fields.cumulative_mass_source as zeros [31].
+        excludes: []
+      numeric_binding:
+        calculator: balance.source_aware.v1
+        inputs:
+          quantity: attributes.mass_quantity
+          cumulative_source: fields.cumulative_mass_source
+        parameters: {}
+        reduction:
+          type: maximum
+    - id: strand_linear_momentum_balance
+      profile: elastic_rods
+      dimension: momentum_and_force_balance
+      criterion: Over each adjacent output interval, the change in each strand's linear momentum equals its external force integral plus its recorded external impulses. Contacts between different strands are external to each strand and must be included separately.
+      applicability:
+        requires:
+          - Export actual sample masses state.mass [N], velocities state.velocity [N,3], and strand membership fields.budget_domain_weights [31,N].
+          - Export gravity and any other smooth external forces in fields.budget_external_force [31,K,3]. Accumulate strand-plate and inter-strand contact impulses, including friction, from all internal substeps in fields.budget_cumulative_external_impulse [31,3]. Do not count any contribution in both channels.
+          - Export zero cumulative inflow and outflow momentum [31,3]; the strands are closed material domains.
+          - Freeze a positive scalars.reference_momentum from strand mass and the configured fall height and gravity before the run; do not normalize by the initially zero momentum.
+          - Forces and impulses must come from actual applied updates, never from the momentum differences being checked.
+        excludes: []
+      numeric_binding:
+        calculator: dynamics.momentum_budget.v1
+        inputs:
+          mass: state.mass
+          velocity: state.velocity
+          domain_weights: fields.budget_domain_weights
+          external_force: fields.budget_external_force
+          cumulative_external_impulse: fields.budget_cumulative_external_impulse
+          cumulative_inflow_momentum: fields.budget_cumulative_inflow_momentum
+          cumulative_outflow_momentum: fields.budget_cumulative_outflow_momentum
+          reference_momentum: scalars.reference_momentum
+        parameters:
+          mode: dynamic
+          integration: trapezoidal
+          window: adjacent_frames
+        reduction:
+          type: maximum
+    - id: coulomb_friction_compliance
+      profile: elastic_rods
+      dimension: contact_constitutive_constraints
+      criterion: At sustained strand-strand and strand-plate contacts, sticking tangential forces do not exceed 0.3 times the compressive normal force. Sliding friction opposes relative tangential motion with magnitude 0.3 times the normal force, and its power on relative sliding is nonpositive.
+      applicability:
+        requires:
+          - Export collocated contact normal force [C], tangential force [C,3], unit normal [C,3], and relative surface velocity [C,3], using the same force-receiving side for each contact.
+          - Export static and dynamic friction coefficients as 0.3 for every contact; include both strand-strand and strand-plate contact families.
+          - The active mask selects sustained contacts independently of their metric residuals. Include the settled support contacts and any sustained sliding contacts; exclude instantaneous impact-only samples. At least one active sample from each contact family is required over the run.
+          - Export actual sustained contact forces separately from the cumulative impulses used for momentum bookkeeping. If only impulses are available, a documented sustained-contact force reconstruction is required; do not treat instantaneous impact impulses as forces.
+          - Freeze positive reference force, reference velocity, and stick-speed tolerance before the run.
+        excludes:
+          - Impact-only samples are evaluated by the momentum budget, not the sustained-force friction law.
+      numeric_binding:
+        calculator: contact.coulomb_law.v1
+        inputs:
+          normal_force: fields.friction_normal_force
+          tangential_force: fields.friction_tangential_force
+          relative_velocity: fields.friction_relative_velocity
+          normal: fields.friction_normal
+          static_coefficient: fields.friction_static_coefficient
+          dynamic_coefficient: fields.friction_dynamic_coefficient
+          active_mask: fields.friction_active_mask
+          stick_speed_tolerance: scalars.friction_stick_speed_tolerance
+          reference_force: scalars.reference_force
+          reference_velocity: scalars.reference_velocity
+        parameters:
+          contact_regime: sustained_dry
+          require_active_samples: true
+        reduction:
+          type: maximum

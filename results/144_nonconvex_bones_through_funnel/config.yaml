@@ -1,0 +1,89 @@
+schema_version: 1
+scene_id: 144_nonconvex_bones_through_funnel
+seed: 15144
+duration: 8.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+variant: nonconvex_bones_through_funnel
+gravity: [0.0, 0.0, -9.81]
+contact: {friction: 0.55, restitution: 0.12, length_scale: 0.02}
+bodies:
+  - id: bone_0
+    position: [-1,-0.35,1.4]
+    orientation: [0,0,0,1]
+    mass: 0.35
+  - id: bone_1
+    position: [-0.6,0,1.4]
+    orientation: [0,0,0,1]
+    mass: 0.35
+  - id: bone_2
+    position: [-0.19999999999999996,0.35,1.4]
+    orientation: [0,0,0,1]
+    mass: 0.35
+  - id: bone_3
+    position: [0.20000000000000018,-0.35,1.4]
+    orientation: [0,0,0,1]
+    mass: 0.35
+  - id: bone_4
+    position: [0.6000000000000001,0,1.4]
+    orientation: [0,0,0,1]
+    mass: 0.35
+  - id: bone_5
+    position: [1,0.35,1.4]
+    orientation: [0,0,0,1]
+    mass: 0.35
+  - id: bone_6
+    position: [-1,-0.35,1.9]
+    orientation: [0,0,0,1]
+    mass: 0.35
+  - id: bone_7
+    position: [-0.6,0,1.9]
+    orientation: [0,0,0,1]
+    mass: 0.35
+  - id: bone_8
+    position: [-0.19999999999999996,0.35,1.9]
+    orientation: [0,0,0,1]
+    mass: 0.35
+  - id: bone_9
+    position: [0.20000000000000018,-0.35,1.9]
+    orientation: [0,0,0,1]
+    mass: 0.35
+  - id: bone_10
+    position: [0.6000000000000001,0,1.9]
+    orientation: [0,0,0,1]
+    mass: 0.35
+  - id: bone_11
+    position: [1,0.35,1.9]
+    orientation: [0,0,0,1]
+    mass: 0.35
+  - id: bone_12
+    position: [-1,-0.35,2.4]
+    orientation: [0,0,0,1]
+    mass: 0.35
+  - id: bone_13
+    position: [-0.6,0,2.4]
+    orientation: [0,0,0,1]
+    mass: 0.35
+  - id: bone_14
+    position: [-0.19999999999999996,0.35,2.4]
+    orientation: [0,0,0,1]
+    mass: 0.35
+  - id: bone_15
+    position: [0.20000000000000018,-0.35,2.4]
+    orientation: [0,0,0,1]
+    mass: 0.35
+  - id: bone_16
+    position: [0.6000000000000001,0,2.4]
+    orientation: [0,0,0,1]
+    mass: 0.35
+  - id: bone_17
+    position: [1,0.35,2.4]
+    orientation: [0,0,0,1]
+    mass: 0.35
+camera:
+  position: [4.8, -7.2, 3.6]
+  look_at: [0.0, 0.0, 1.15]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

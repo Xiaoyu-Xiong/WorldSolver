@@ -1,0 +1,84 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: receiving_ground
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [3.2, 3.2, 0.08]}
+    transform: {translation: [0.0, 0.0, -0.08]}
+    material_id: ground
+    collision_enabled: true
+  - id: ring_collection
+    semantic: rigid
+    motion: dynamic
+    geometry:
+      type: axisymmetric_container
+      inner_profile: [[0.18, 0.00], [0.28, 0.02], [0.34, 0.08], [0.34, 0.18], [0.28, 0.24], [0.18, 0.26]]
+      wall_thickness: 0.06
+    state_binding: {selector: all}
+    material_id: ring_metal
+    collision_enabled: true
+  - id: pole_a
+    semantic: rigid
+    motion: static
+    geometry: {type: cylinder, radius: 0.075, height: 2.6}
+    transform: {translation: [-0.9, -0.9, 1.3]}
+    material_id: pole
+    collision_enabled: true
+  - id: pole_b
+    semantic: rigid
+    motion: static
+    geometry: {type: cylinder, radius: 0.075, height: 2.6}
+    transform: {translation: [0.0, -0.9, 1.3]}
+    material_id: pole
+    collision_enabled: true
+  - id: pole_c
+    semantic: rigid
+    motion: static
+    geometry: {type: cylinder, radius: 0.075, height: 2.6}
+    transform: {translation: [0.9, -0.9, 1.3]}
+    material_id: pole
+    collision_enabled: true
+  - id: pole_d
+    semantic: rigid
+    motion: static
+    geometry: {type: cylinder, radius: 0.075, height: 2.6}
+    transform: {translation: [-0.9, 0.0, 1.3]}
+    material_id: pole
+    collision_enabled: true
+  - id: pole_e
+    semantic: rigid
+    motion: static
+    geometry: {type: cylinder, radius: 0.075, height: 2.6}
+    transform: {translation: [0.0, 0.0, 1.3]}
+    material_id: pole
+    collision_enabled: true
+  - id: pole_f
+    semantic: rigid
+    motion: static
+    geometry: {type: cylinder, radius: 0.075, height: 2.6}
+    transform: {translation: [0.9, 0.0, 1.3]}
+    material_id: pole
+    collision_enabled: true
+  - id: pole_g
+    semantic: rigid
+    motion: static
+    geometry: {type: cylinder, radius: 0.075, height: 2.6}
+    transform: {translation: [-0.9, 0.9, 1.3]}
+    material_id: pole
+    collision_enabled: true
+  - id: pole_h
+    semantic: rigid
+    motion: static
+    geometry: {type: cylinder, radius: 0.075, height: 2.6}
+    transform: {translation: [0.0, 0.9, 1.3]}
+    material_id: pole
+    collision_enabled: true
+  - id: pole_i
+    semantic: rigid
+    motion: static
+    geometry: {type: cylinder, radius: 0.075, height: 2.6}
+    transform: {translation: [0.9, 0.9, 1.3]}
+    material_id: pole
+    collision_enabled: true

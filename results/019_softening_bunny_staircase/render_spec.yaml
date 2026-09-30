@@ -1,0 +1,28 @@
+schema_version: 2
+profile: deformable_surface
+environment: studio_neutral
+camera: frozen_config
+bindings:
+- object_id: ground
+  method: rigid_mesh
+  material: matte
+- object_id: stair_0
+  method: rigid_mesh
+  material: wood
+- object_id: stair_1
+  method: rigid_mesh
+  material: wood
+- object_id: stair_2
+  method: rigid_mesh
+  material: wood
+- object_id: stair_3
+  method: rigid_mesh
+  material: wood
+- object_id: subject
+  method: deformed_mesh
+  material: matte
+  subdivision: 1
+  color_rgb:
+  - 0.83
+  - 0.36
+  - 0.27

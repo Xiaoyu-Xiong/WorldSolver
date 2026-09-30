@@ -1,0 +1,36 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - {id: tank_floor, semantic: boundary, motion: static, geometry: {type: box, half_extents: [0.52, 0.52, 0.02]}, transform: {translation: [0.0, 0.0, -0.02]}, material_id: glass, collision_enabled: true}
+  - {id: tank_back, semantic: boundary, motion: static, geometry: {type: box, half_extents: [0.52, 0.012, 0.36]}, transform: {translation: [0.0, 0.512, 0.36]}, material_id: glass, collision_enabled: true}
+  - {id: tank_front, semantic: boundary, motion: static, geometry: {type: box, half_extents: [0.52, 0.012, 0.36]}, transform: {translation: [0.0, -0.512, 0.36]}, material_id: glass, collision_enabled: true}
+  - {id: tank_left, semantic: boundary, motion: static, geometry: {type: box, half_extents: [0.012, 0.50, 0.36]}, transform: {translation: [-0.512, 0.0, 0.36]}, material_id: glass, collision_enabled: true}
+  - {id: tank_right, semantic: boundary, motion: static, geometry: {type: box, half_extents: [0.012, 0.50, 0.36]}, transform: {translation: [0.512, 0.0, 0.36]}, material_id: glass, collision_enabled: true}
+  - {id: rock_01, semantic: rigid, motion: static, geometry: {type: sphere, radius: 0.12}, transform: {translation: [-0.34, -0.25, 0.10], scale: [1.25, 0.82, 0.78]}, material_id: rock_gray, collision_enabled: true}
+  - {id: rock_02, semantic: rigid, motion: static, geometry: {type: sphere, radius: 0.105}, transform: {translation: [-0.10, -0.31, 0.11], scale: [1.20, 0.78, 1.05]}, material_id: rock_light, collision_enabled: true}
+  - {id: rock_03, semantic: rigid, motion: static, geometry: {type: sphere, radius: 0.115}, transform: {translation: [0.18, -0.30, 0.09], scale: [1.35, 0.78, 0.72]}, material_id: rock_gray, collision_enabled: true}
+  - {id: rock_04, semantic: rigid, motion: static, geometry: {type: sphere, radius: 0.11}, transform: {translation: [0.39, -0.22, 0.12], scale: [0.78, 1.12, 1.05]}, material_id: rock_light, collision_enabled: true}
+  - {id: rock_05, semantic: rigid, motion: static, geometry: {type: sphere, radius: 0.115}, transform: {translation: [-0.39, 0.00, 0.12], scale: [0.90, 1.28, 1.00]}, material_id: rock_light, collision_enabled: true}
+  - {id: rock_06, semantic: rigid, motion: static, geometry: {type: sphere, radius: 0.125}, transform: {translation: [-0.16, -0.04, 0.13], scale: [1.15, 0.88, 1.06]}, material_id: rock_dark, collision_enabled: true}
+  - {id: rock_07, semantic: rigid, motion: static, geometry: {type: sphere, radius: 0.10}, transform: {translation: [0.09, -0.06, 0.10], scale: [1.28, 0.85, 0.82]}, material_id: rock_light, collision_enabled: true}
+  - {id: rock_08, semantic: rigid, motion: static, geometry: {type: sphere, radius: 0.13}, transform: {translation: [0.34, 0.03, 0.14], scale: [0.88, 1.12, 1.10]}, material_id: rock_gray, collision_enabled: true}
+  - {id: rock_09, semantic: rigid, motion: static, geometry: {type: sphere, radius: 0.11}, transform: {translation: [-0.31, 0.27, 0.10], scale: [1.30, 0.82, 0.78]}, material_id: rock_dark, collision_enabled: true}
+  - {id: rock_10, semantic: rigid, motion: static, geometry: {type: sphere, radius: 0.12}, transform: {translation: [-0.05, 0.25, 0.15], scale: [0.88, 1.20, 1.20]}, material_id: rock_light, collision_enabled: true}
+  - {id: rock_11, semantic: rigid, motion: static, geometry: {type: sphere, radius: 0.105}, transform: {translation: [0.20, 0.25, 0.09], scale: [1.42, 0.78, 0.75]}, material_id: rock_dark, collision_enabled: true}
+  - {id: rock_12, semantic: rigid, motion: static, geometry: {type: sphere, radius: 0.115}, transform: {translation: [0.42, 0.29, 0.11], scale: [0.78, 1.12, 0.92]}, material_id: rock_light, collision_enabled: true}
+  - id: water
+    semantic: liquid
+    motion: field
+    geometry: {type: particle_domain, bounds_min: [-0.50, -0.50, 0.0], bounds_max: [0.50, 0.50, 0.40]}
+    state_binding: {selector: body_id, value: 2}
+    material_id: clear_water
+    collision_enabled: true
+  - id: soft_starfish
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/starfish.obj}
+    transform: {translation: [0.0, 0.0, 0.58]}
+    state_binding: {selector: body_id, value: 1}
+    material_id: coral_orange
+    collision_enabled: true

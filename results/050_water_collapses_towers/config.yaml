@@ -1,0 +1,35 @@
+schema_version: 1
+scene_id: 050_water_collapses_towers
+seed: 5011
+duration: 6.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+initial_conditions:
+  water_rest_density: 1000.0
+  incoming_water_velocity: [3.2, 0.0, 0.0]
+  water_region: {min: [-3.8, -1.7, 0.08], max: [-1.35, 1.7, 1.25]}
+  tower_material_densities: {cylinders: 600.0, cubes: 1500.0}
+visual_requirements:
+  left_tower_light_cylinders_color: cyan
+  left_tower_heavy_cubes_color: deep_blue
+  right_tower_light_cylinders_color: yellow
+  right_tower_heavy_cubes_color: red
+  incoming_water_color: saturated_blue
+  splash_water_color: pale_cyan
+  tower_colors_must_remain_distinct_after_collapse: true
+boundaries:
+  basin_interior: {min: [-4.0, -2.0, 0.0], max: [4.0, 2.0, 2.2]}
+  open_top: true
+event_windows:
+  water_tower_contact: [0.35, 1.8]
+  expected_tower_failure: [0.8, 3.0]
+  splash_and_debris_settling: [1.2, 6.0]
+camera:
+  position: [6.5, -7.5, 4.9]
+  look_at: [0.35, 0.0, 0.85]
+  up: [0.0, 0.0, 1.0]
+  focal_length_mm: 48
+  width: 960
+  height: 640
+  fps: 50

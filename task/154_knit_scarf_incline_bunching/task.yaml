@@ -1,0 +1,30 @@
+id: 154_knit_scarf_incline_bunching
+title: Knitted Scarf Bunching on an Incline
+category: cloth_and_shells
+source:
+  title: Simulating Knitted Cloth at the Yarn Level
+  url: https://people.eecs.berkeley.edu/~sequin/CS285/PAPERS/Kaldor_Simul-Knitting.pdf
+  anchor: Figure 11
+goal: >-
+  Recreate the paper's clearly visible knitted scarf bunching on an incline phenomenon. The implementation method is unrestricted;
+  evaluation targets thin-material motion, folds or tears, contact response, and the characteristic outcome.
+scene_requirements:
+  required_elements:
+  - Long knitted scarf
+  - Inclined rigid plane
+  - Yarn-level or effective knit response
+  - Gravity and friction
+  initial_state:
+  - An extended knitted scarf lies partly on a sloped plane with room to slide downhill.
+  required_events:
+  - Gravity causes the scarf to slide and its leading region meets resistance or a lower stop.
+  - Following material compresses into the slowed region and forms thick bunched folds.
+  - The final pile shows knit-like compliance and volume while the upper scarf remains connected on the incline.
+  - Motion remains temporally coherent and all non-tearing regions preserve sheet connectivity.
+camera_requirements:
+- Use a side three-quarter view spanning the full incline and bunched lower region.
+- Use lighting and material contrast that make folds, wrinkles, contacts, and any crack tip readable.
+parameter_notes:
+- Match the qualitative geometry, stiffness regime, and event ordering shown in Figure 11; mesh resolution may be adapted.
+- Export cloth mass, position, velocity, external force, surface deformation gradients, and signed contact distances.
+

@@ -1,0 +1,38 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: contact_floor
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [2.8, 2.8, 0.04]
+    transform:
+      translation: [0.0, 0.0, -0.04]
+    material_id: matte_warm_gray_floor
+    collision_enabled: true
+  - id: viscoplastic_comparison_body
+    semantic: granular
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [-0.82, -0.34, 1.28]
+      bounds_max: [-0.14, 0.34, 1.96]
+    state_binding:
+      selector: body_id
+      value: 1
+    material_id: warm_coral_viscoplastic
+    collision_enabled: true
+  - id: oobleck_body
+    semantic: granular
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [0.14, -0.34, 1.28]
+      bounds_max: [0.82, 0.34, 1.96]
+    state_binding:
+      selector: body_id
+      value: 2
+    material_id: saturated_yellow_green_oobleck
+    collision_enabled: true

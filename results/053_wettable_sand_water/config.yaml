@@ -1,0 +1,38 @@
+schema_version: 1
+scene_id: 053_wettable_sand_water
+seed: 53011
+duration: 6.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+initial_conditions:
+  sand: compact_conical_pile_at_rest
+  water: overhead_streams_begin_above_initially_dry_pile
+  sand_phase: solid_fixed_no_phase_evolution
+  interaction: wetting_concentration_transfer_only
+  phase_mass_conserved: true
+  initial_wetness: all_sand_dry_zero_wetness
+  no_prepainted_left_dry_right_wet_split: true
+boundary_conditions:
+  tray: impermeable_floor_and_low_walls
+  top: open
+  runoff: retained_and_visible_in_tray
+visual_requirements:
+  dry_sand_color: pale_tan
+  wet_sand_color: darker_tan_only_after_water_contact
+  water_color: transparent_blue
+  wetting_front_must_start_at_stream_impact_points: true
+  sand_asset_or_particle_pile_must_remain_recognizable: true
+  dynamic_color_binding:
+    scalar_attribute: wetness
+    range: [0.0, 0.05]
+    meaning: 0 dry sand, 0.05 saturated wettable sand per paper assumption
+    requirement: solver must export per-sand-particle wetness/water_concentration; renderer uses diagnostic_points overlay so wetting appears only after contact
+camera:
+  position: [2.65, -3.15, 2.15]
+  look_at: [0.0, 0.05, 0.62]
+  up: [0.0, 0.0, 1.0]
+  focal_length_mm: 52
+  width: 960
+  height: 640
+  fps: 50

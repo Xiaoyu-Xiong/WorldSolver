@@ -1,0 +1,55 @@
+schema_version: 1
+scene_id: 097_spaghetti_plate_frictionless
+seed: 97031
+duration: 6.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+strand_count: 31
+strand:
+  length: 1.30
+  radius: 0.010
+  vertex_count: 33
+  total_mass_each: 0.0041
+  naturally_straight: true
+  circular_cross_section: true
+  finite_thickness: true
+  bending_resistance: true
+  endpoints: free
+plate:
+  interior_radius: 1.05
+  outer_radius: 1.20
+  interior_floor_height: 0.08
+  rim_height: 0.22
+  wall_thickness: 0.055
+contact:
+  strand_strand:
+    enabled: true
+    static_friction_coefficient: 0.0
+    kinetic_friction_coefficient: 0.0
+  strand_plate:
+    enabled: true
+    static_friction_coefficient: 0.0
+    kinetic_friction_coefficient: 0.0
+initial_conditions:
+  arrangement: dense_parallel_hexagonal_bundle
+  center: [0.0, 0.0, 0.78]
+  strand_axis: [1.0, 0.0, 0.0]
+  center_spacing: 0.021
+  velocity: [0.0, 0.0, 0.0]
+  no_initial_contact: true
+  no_initial_interpenetration: true
+event_windows:
+  free_fall: [0.0, 0.40]
+  plate_and_neighbor_contact: [0.35, 1.6]
+  frictionless_lateral_spreading: [0.65, 6.0]
+required_outcome: low dispersed frictionless arrangement across the plate, not a raised friction-supported stack
+camera:
+  projection: perspective
+  position: [2.65, -3.45, 2.35]
+  look_at: [0.0, 0.0, 0.48]
+  up: [0.0, 0.0, 1.0]
+  vertical_fov_degrees: 34.0
+  width: 960
+  height: 640
+  fps: 50

@@ -1,0 +1,32 @@
+schema_version: 1
+scene_id: 068_heterogeneous_gummy_bear
+seed: 68017
+duration: 2.4
+sample_dt: 0.02
+visual_judge_frame_count: 20
+camera:
+  position: [2.9, -4.8, 2.7]
+  look_at: [0.0, 0.0, 1.25]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50
+  projection: perspective
+  fov_y_degrees: 34.0
+initial_conditions:
+  description: The bonded bear is released from its rest geometry with a smooth bend-and-turn velocity field.
+  gravity: [0.0, 0.0, -9.81]
+  soft_youngs_modulus_pa: 6.0e4
+  stiff_youngs_modulus_pa: 1.0e14
+  density_kg_m3: 1000.0
+  poisson_ratio: 0.45
+  bonded_interfaces: true
+  release_time: 0.0
+boundary_conditions:
+  ground_contact: true
+  ground_height: 0.0
+event_sequence:
+  - {time: 0.0, event: release_preloaded_bear}
+  - {time: 0.7, event: visible_bending_and_turning}
+  - {time: 1.35, event: largest_deformation}
+  - {time: 2.4, event: rebound_with_stiff_regions_carried_by_shell}

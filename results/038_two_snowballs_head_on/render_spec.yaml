@@ -1,0 +1,16 @@
+schema_version: 2
+profile: granular_particles
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - object_id: floor
+    method: rigid_mesh
+    material: packed_snow_floor
+  - object_id: left_snowball
+    method: particle_instances
+    material: fresh_snow
+    particle_radius_scale: 1.18
+  - object_id: right_snowball
+    method: particle_instances
+    material: fresh_snow
+    particle_radius_scale: 1.18

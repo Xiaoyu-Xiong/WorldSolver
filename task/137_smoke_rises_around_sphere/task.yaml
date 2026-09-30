@@ -1,0 +1,30 @@
+id: 137_smoke_rises_around_sphere
+title: Smoke Rising Around a Sphere
+category: fluid_dynamics
+source:
+  title: Visual Simulation of Smoke
+  url: https://graphics.stanford.edu/~henrik/papers/smoke/smoke.pdf
+  anchor: Figure 5
+goal: >-
+  Recreate the paper's clearly visible smoke rising around a sphere phenomenon. The implementation method is unrestricted;
+  evaluation targets the observable flow evolution, boundary interaction, signature structure, and final state.
+scene_requirements:
+  required_elements:
+  - Buoyant smoke source
+  - Fixed sphere obstacle
+  - Enclosed domain
+  - Gravity-aligned buoyancy
+  initial_state:
+  - A smoke source lies below a stationary sphere in otherwise clear air.
+  required_events:
+  - The buoyant plume rises toward the underside of the sphere.
+  - Smoke splits around the sphere, accelerates along its sides, and rolls into a wake above it.
+  - Separated streams reconnect into coherent vortical structures without crossing the solid sphere.
+  - The represented fluid remains continuous and respects rigid boundaries throughout the event.
+camera_requirements:
+- Use a side view centered on the source, sphere, split plume, and upper wake.
+- Use contrasting fluid and obstacle colors and keep the complete phenomenon inside frame.
+parameter_notes:
+- Match the qualitative scale, flow regime, and event ordering shown in Figure 5; geometric simplification is allowed.
+- Export collocated velocity diagnostics, active masks, boundary samples, and transported liquid or smoke fields.
+

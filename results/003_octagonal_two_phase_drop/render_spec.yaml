@@ -1,0 +1,25 @@
+schema_version: 2
+profile: liquid_in_container
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: octagonal_basin
+    method: rigid_mesh
+    material: glass
+    color_rgb: [0.65, 0.75, 0.82]
+    opacity: 0.12
+    subdivision: 1
+  - object_id: heavy_blue_liquid
+    method: reconstructed_surface
+    material: default
+    color_rgb: [0.06, 0.12, 0.82]
+    surface_pitch: 0.035
+    surface_smoothing: 1.15
+    subdivision: 1
+  - object_id: light_pink_liquid
+    method: reconstructed_surface
+    material: default
+    color_rgb: [0.92, 0.20, 0.47]
+    surface_pitch: 0.035
+    surface_smoothing: 1.15
+    subdivision: 1

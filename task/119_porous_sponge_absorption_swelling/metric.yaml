@@ -1,0 +1,173 @@
+schema_version: 4
+task_id: 119_porous_sponge_absorption_swelling
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The solver reaches the frozen end time, exports all required finite trajectory fields, and produces
+      a readable render within the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: Water enters the sponge from the side that touches the right-hand water block.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: The wet region advances inward from that contact side rather than appearing throughout the whole
+      sponge at once.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: The sponge outline gradually expands as liquid is absorbed.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: The sponge remains connected and does not enlarge before touching water or jump instantaneously
+      to its final size.
+  physics:
+  - id: material_mass_source_balance
+    profile: multiphysics_coupling
+    dimension: conservation_and_source_balance
+    criterion: 'Each dry solid material and the carrier fluid obey its own mass budget: current mass equals
+      initial mass plus independently measured cumulative inflow minus outflow. Transfers between free, attached,
+      and pore liquid do not create mass.'
+    applicability:
+      requires:
+      - Export actual mass contributions in attributes.mass_quantity [N,G], with fixed columns for each evaluated
+        solid body and each fluid species; use zero entries outside each column membership. Use dry solid mass,
+        not wet aggregate mass, in solid columns.
+      - Export fields.cumulative_mass_source [G] as independently accumulated net material input minus output,
+        including actual injection, deletion at open boundaries, and source terms. Do not derive this array
+        from the measured total-mass difference.
+      - Water absorbed in the pores remains part of the liquid mass column; the dry sponge skeleton retains
+        its mass. Swelling does not imply creation of solid material.
+      - 'Include all physically stored fluid: free liquid, pore liquid, films and detached droplets exactly
+        once. Do not count render meshes or passive tracers as extra material. For Eulerian data integrate
+        actual density over the occupied physical fluid volume, excluding solid volume.'
+      - Every solid budget begins with positive mass. A fluid column may initially be empty only when its first
+        positive mass is accompanied by a recorded source; do not hide unexplained mass before injection.
+      excludes: []
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: solid_momentum_impulse_budget
+    profile: multiphysics_coupling
+    dimension: momentum_and_force_balance
+    criterion: For each complete dry-solid material body, the linear momentum change equals the time-integrated
+      external force plus applied external impulses.
+    applicability:
+      requires:
+      - Export state.mass [N], state.velocity [N,3], and fields.budget_domain_weights [G,N], with one row selecting
+        the dry sponge skeleton, excluding all pore liquid. Preserve row identities and include every material
+        sample of each selected body. In 2D embed positions and momenta in 3D using one frozen extrusion thickness.
+      - Account for gravity, support reactions, and actual interphase pressure, drag, and capillary forces.
+        Export smooth actual force terms in fields.budget_external_force [G,K,3]. Record impulsive contact
+        or coupling updates cumulatively from all solver substeps, never counting an action in both force and
+        impulse channels.
+      - 'Use closed dry-solid material domains with zero cumulative material inflow and outflow momentum. Fluid
+        is external to these domains: include its actual forces even when it occupies solid pores. Do not add
+        absorbed water to dry-skeleton state.mass.'
+      - Force, torque and impulse records must come from the applied solver updates, not from the momentum
+        residual being tested. Resolve rapid events with sufficiently dense diagnostic output or their actual
+        cumulative impulses. Internal solid forces cancel only over the complete selected material body.
+      - Export fields.budget_cumulative_external_impulse [G,3] and explicit zero fields.budget_cumulative_inflow_momentum
+        and fields.budget_cumulative_outflow_momentum [G,3]. Freeze a positive scalars.reference_momentum from
+        configured mass and speed scales before the run, not from initially zero momentum.
+      excludes: []
+    numeric_binding:
+      calculator: dynamics.momentum_budget.v1
+      inputs:
+        mass: state.mass
+        velocity: state.velocity
+        domain_weights: fields.budget_domain_weights
+        external_force: fields.budget_external_force
+        cumulative_external_impulse: fields.budget_cumulative_external_impulse
+        cumulative_inflow_momentum: fields.budget_cumulative_inflow_momentum
+        cumulative_outflow_momentum: fields.budget_cumulative_outflow_momentum
+        reference_momentum: scalars.reference_momentum
+      parameters:
+        mode: dynamic
+        integration: trapezoidal
+        window: adjacent_frames
+      reduction:
+        type: maximum
+  - id: solid_fluid_exchange_force_balance
+    profile: multiphysics_coupling
+    dimension: interface_momentum_exchange
+    criterion: The total actual solid-to-fluid and fluid-to-solid exchange forces cancel. This checks aggregate
+      action-reaction balance, not pointwise traction accuracy or a zero total external force.
+    applicability:
+      requires:
+      - Export fields.interaction_force [Q,3] containing both independently accumulated action sides actually
+        used by the fluid and solid updates, in the same world frame and units. Include pressure, drag, viscosity,
+        and capillary exchange whenever present.
+      - Use forces over a common physical substep interval. If coupling is impulse-based, divide each separately
+        recorded exchange impulse by that same interval; sum subcycled impulses before forming the corresponding
+        interval-average force.
+      - Exclude gravity, supports, prescribed drives, and solid-solid contacts from this exchange array. For
+        porous models include forces exchanged throughout the overlapping fluid-skeleton region, not just the
+        outer geometric surface.
+      - Do not construct the second action side by negating the first, export only an already-zero total, or
+        substitute a pressure-only surrogate for the actual update. Retain the loaded interaction phase; the
+        entire diagnostic must not have zero exchange forces.
+      - Frames genuinely before contact may contain zero exchange forces; zero over zero is treated as zero
+        by this calculator. Report such frames as unloaded, not as evidence that a later coupling event is
+        correct.
+      excludes: []
+    numeric_binding:
+      calculator: coupling.force_balance.v1
+      inputs:
+        interaction_force: fields.interaction_force
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: pore_darcy_and_storage_balance
+    profile: multiphysics_coupling
+    dimension: porous_transport_and_continuity
+    criterion: Resolved low-inertia pore liquid obeys q = -(K/mu)(grad(p)-rho*g) and d(phi*S)/dt + div(phi*S*v_s+q)
+      = s, including transport by the swelling solid skeleton.
+    applicability:
+      requires:
+      - Export collocated porosity, saturation, actual liquid pressure, and volume source fields [nx,ny,nz],
+        solid velocity and measured relative Darcy flux [nx,ny,nz,3], and effective permeability [nx,ny,nz,3,3]
+        on one fixed uniform physical grid with at least three cells along each axis.
+      - Porosity and saturation lie in [0,1]. Permeability is a symmetric positive-semidefinite tensor derived
+        from the frozen material and saturation model, not fitted from the observed flux. Relative Darcy flux
+        is volumetric transport per total area relative to the solid, not intrinsic water velocity.
+      - Use physical pore-liquid pressure, including the contribution consistent with the chosen capillary
+        model; do not use a gauge or hydraulic head that double-counts the separately supplied gravity. Do
+        not derive flux from the Darcy formula just to produce a zero residual.
+      - fields.pore_active_mask certifies complete valid interior stencils in the low pore-Reynolds-number
+        regime. Exclude stencils crossing the free-water interface, dry pores, source singularities or invalid
+        cells, using a frozen physical rule rather than the measured error.
+      - The mask may be empty before wetting; require a nonempty interior region at both endpoints of at least
+        one adjacent wetting interval. Include actual skeleton velocity and storage changes; never set them
+        to zero solely because the motion is slow.
+      - Export explicit zero volume sources where none exist. Freeze positive scalars.grid_spacing, scalars.dynamic_viscosity,
+        scalars.pore_fluid_density, scalars.reference_darcy_flux, and scalars.reference_pore_storage_rate;
+        fields.gravity_acceleration [1,3] remains fixed.
+      excludes:
+      - Fast inertial pore flow and unresolved boundary or wetting-front stencils.
+    numeric_binding:
+      calculator: porous.darcy_balance.v1
+      inputs:
+        porosity: fields.pore_porosity
+        saturation: fields.pore_saturation
+        pressure: fields.pore_pressure
+        solid_velocity: fields.pore_solid_velocity
+        relative_flux: fields.pore_relative_flux
+        permeability: fields.pore_permeability
+        source: fields.pore_volume_source
+        active_mask: fields.pore_active_mask
+        grid_spacing: scalars.grid_spacing
+        dynamic_viscosity: scalars.dynamic_viscosity
+        fluid_density: scalars.pore_fluid_density
+        gravity: fields.gravity_acceleration
+        reference_flux: scalars.reference_darcy_flux
+        reference_storage_rate: scalars.reference_pore_storage_rate
+      parameters:
+        spatial_dimensions: 3
+        flux_definition: relative_to_solid
+      reduction:
+        type: maximum

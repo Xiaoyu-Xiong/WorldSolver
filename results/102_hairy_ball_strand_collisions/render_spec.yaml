@@ -1,0 +1,14 @@
+schema_version: 2
+profile: fiber_rods
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - object_id: rotating_ball
+    method: rigid_mesh
+    material: ball_ivory
+    color_rgb: [0.18, 0.23, 0.29]
+    subdivision: 2
+  - object_id: elastic_hair
+    method: curve_tubes
+    material: hair_copper
+    color_rgb: [0.86, 0.50, 0.18]

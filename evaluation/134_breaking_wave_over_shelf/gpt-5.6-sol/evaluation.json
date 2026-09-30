@@ -1,0 +1,148 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 33010198,
+          "trajectory_frames": 211,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "field.divergence.v1",
+        "criterion": "The active incompressible carrier velocity is approximately divergence free.",
+        "criterion_id": "incompressible_velocity_constraint",
+        "details": {
+          "sample_count": 211,
+          "worst_frame_index": 154
+        },
+        "dimension": "field_constraints",
+        "domain": "physics",
+        "metric": "divergence_relative_l2",
+        "normalized_error": 10.274195069056084,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 8.869812823663725
+      },
+      {
+        "calculator": "boundary.velocity_residual.v1",
+        "criterion": "Sampled fluid velocity at impermeable rigid boundaries matches the prescribed normal boundary velocity.",
+        "criterion_id": "prescribed_boundary_velocity",
+        "details": {
+          "sample_count": 211,
+          "worst_frame_index": 0
+        },
+        "dimension": "boundary_and_interface_conditions",
+        "domain": "physics",
+        "metric": "normal_velocity_relative_rms",
+        "normalized_error": 0.0,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "Total represented liquid mass follows the exported cumulative source and is conserved in closed configurations.",
+        "criterion_id": "liquid_mass_balance",
+        "details": {
+          "initial_quantity": [
+            2881.2000000000003
+          ],
+          "sample_count": 211,
+          "worst_frame_index": 0
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.0,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "interface.level_set_kinematic.v1",
+        "criterion": "The exported liquid-air level set is transported consistently by the collocated liquid velocity.",
+        "criterion_id": "free_surface_kinematic_consistency",
+        "details": {
+          "sample_count": 211,
+          "worst_frame_index": 0
+        },
+        "dimension": "transport_equation_consistency",
+        "domain": "physics",
+        "metric": "kinematic_relative_l2",
+        "normalized_error": 0.8728377214959039,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 12.716227850409611
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.132664991614216,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.48
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.09797958971132711,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.16999999999999998
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.039999999999999994,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.06999999999999999
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.07999999999999999,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.6100000000000001
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "134_breaking_wave_over_shelf",
+  "visual_score": 0.3325,
+  "visual_fidelity_score": 33.25,
+  "physical_plausibility_score": 55.39651016851833,
+  "total_score": 44.323255084259166
+}

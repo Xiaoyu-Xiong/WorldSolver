@@ -1,0 +1,14 @@
+schema_version: 2
+profile: gas_volume
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: domain_floor, method: rigid_mesh, material: matte, color_rgb: [0.28, 0.24, 0.20]}
+  - object_id: smoke_volume
+    method: volume
+    material: default
+    color_rgb: [0.75, 0.77, 0.80]
+    volume_mode: slices
+    volume_axis: 1
+    density_scale: 5.0
+  - {object_id: source_disk, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.13, 0.15]}

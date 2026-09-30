@@ -1,0 +1,98 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: basin_floor
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [1.81, 0.86, 0.03]
+    transform:
+      translation: [0.0, 0.0, -0.03]
+    material_id: basin
+    collision_enabled: true
+  - id: basin_back
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [1.81, 0.03, 0.62]
+    transform:
+      translation: [0.0, 0.83, 0.59]
+    material_id: basin
+    collision_enabled: true
+  - id: basin_front
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [1.81, 0.03, 0.62]
+    transform:
+      translation: [0.0, -0.83, 0.59]
+    material_id: basin
+    collision_enabled: true
+  - id: basin_left
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [0.03, 0.8, 0.62]
+    transform:
+      translation: [-1.78, 0.0, 0.59]
+    material_id: basin
+    collision_enabled: true
+  - id: basin_right
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [0.03, 0.8, 0.62]
+    transform:
+      translation: [1.78, 0.0, 0.59]
+    material_id: basin
+    collision_enabled: true
+  - id: receiving_water
+    semantic: liquid
+    motion: field
+    geometry:
+      type: particle_domain
+      bounds_min: [-1.7, -0.75, 0.0]
+      bounds_max: [1.7, 0.75, 2.0]
+    state_binding:
+      selector: body_id
+      value: 1
+    material_id: water
+    collision_enabled: false
+  - id: porous_towel
+    semantic: cloth
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      topology_asset: assets/towel_topology.obj
+      grid_shape: [41, 15]
+    state_binding:
+      selector: body_id
+      value: 0
+    material_id: towel_blue
+    collision_enabled: true
+  - id: grip_left
+    semantic: rigid
+    motion: kinematic
+    geometry:
+      type: box
+      half_extents: [0.08, 0.42, 0.055]
+    transform:
+      translation: [-1.25, 0.0, 0.76]
+    material_id: grip_black
+    collision_enabled: true
+  - id: grip_right
+    semantic: rigid
+    motion: kinematic
+    geometry:
+      type: box
+      half_extents: [0.08, 0.42, 0.055]
+    transform:
+      translation: [1.25, 0.0, 0.76]
+    material_id: grip_black
+    collision_enabled: true

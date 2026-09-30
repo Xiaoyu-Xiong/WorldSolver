@@ -1,0 +1,30 @@
+schema_version: 2
+profile: rigid_contact
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: floor, method: rigid_mesh, material: matte, color_rgb: [0.18, 0.21, 0.26]}
+  - {object_id: domino_0, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: domino_1, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: domino_2, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: domino_3, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: domino_4, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: domino_5, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: domino_6, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: domino_7, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: domino_8, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: domino_9, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: domino_10, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: domino_11, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: domino_12, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: domino_13, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: domino_14, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: domino_15, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: domino_16, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: domino_17, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: domino_18, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: domino_19, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: domino_20, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: domino_21, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}
+  - {object_id: domino_22, method: rigid_mesh, material: matte, color_rgb: [0.92, 0.43, 0.12]}
+  - {object_id: domino_23, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.58, 0.86]}

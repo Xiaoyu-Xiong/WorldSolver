@@ -1,0 +1,30 @@
+id: 099_hair_shoulder_stick_slip
+title: Hair Sticking and Sliding on a Shoulder
+category: rods_and_strands
+source:
+  title: A Nonsmooth Newton Solver for Capturing Exact Coulomb Friction in Fiber Assemblies
+  url: https://elan.inrialpes.fr/people/bertails/Papiers/PDF/hairContact.pdf
+  anchor: Figure 8; Section 5.1.4; author PDF page 9
+goal: 'Recreate the source experiment: After the head stops, some wisps remain draped over the shoulder and
+  other hair layers rather than all sliding off. Use elastic rods or strands; the numerical implementation
+  is unrestricted.'
+scene_requirements:
+  required_elements:
+  - A wavy head of hair represented by contacting elastic strands rooted on a moving head.
+  - The head, shoulder, and upper-body collision geometry from Figure 8.
+  - Gravity and dry friction with coefficient 0.3 at hair-hair and hair-body contacts, using the same value
+    for static and kinetic friction.
+  - Match the frictional row of Figure 8; do not require conservation of the visible hair volume.
+  initial_state:
+  - Begin with the hair attached at its roots and positioned so head motion brings wisps into contact with
+    the shoulder and neighboring hair layers.
+  required_events:
+  - Head motion brings hair wisps against the shoulder and neighboring hair layers.
+  - Some contacting wisps remain at nearly the same surface location before sliding or being pulled away by
+    the continuing motion.
+  - After the head stops, some wisps remain draped over the shoulder and other hair layers rather than all
+    sliding off.
+camera_requirements:
+- Use a fixed three-quarter view that clearly shows the shoulder, roots, and contacting wisps.
+- Keep the relevant objects visible before loading or contact, during the strongest response, and through the
+  stated outcome.

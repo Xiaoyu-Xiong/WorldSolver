@@ -1,0 +1,30 @@
+id: 128_ductile_hollow_ball_drop
+title: Ductile Hollow Ball Drop and Tear
+category: plastic_and_complex_materials
+source:
+  title: Graphical Modeling and Animation of Ductile Fracture
+  url: https://sealab.cs.utah.edu/Papers/Obrien-2002-GMA/Obrien-2002-GMA.pdf
+  anchor: Figure 1
+goal: >-
+  Recreate the paper's clearly visible ductile hollow ball drop and tear phenomenon. The implementation method is unrestricted;
+  evaluation targets the observable motion, material response, interaction sequence, and final state.
+scene_requirements:
+  required_elements:
+  - Hollow ductile shell
+  - Rigid floor
+  - Gravity
+  - Plastic deformation and ductile fracture
+  initial_state:
+  - A hollow deformable ball begins above a rigid floor with no initial deformation.
+  required_events:
+  - The ball falls and flattens strongly at floor impact.
+  - The shell undergoes permanent plastic buckling and localized necking rather than recovering its original sphere.
+  - A ductile tear opens only after substantial deformation, leaving a permanently collapsed and torn shell.
+  - Material motion remains continuous, with no unexplained teleportation or numerical explosion.
+camera_requirements:
+- Use a side three-quarter view that reveals flattening, buckling, tear opening, and residual shape.
+- Keep material and rigid obstacles visually distinct and preserve enough contrast to read deformation and contacts.
+parameter_notes:
+- Match the qualitative scale, material regime, and event ordering shown in Figure 1; geometric simplification is allowed.
+- Export per-sample mass, velocity, external force, deformation gradient, and near-contact signed distance for scoring.
+

@@ -1,0 +1,107 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [3.2, 2.2, 0.05]}
+    transform: {translation: [0.0, 0.0, -0.05]}
+    material_id: floor_matte
+    collision_enabled: true
+
+  # Lower A-frames. Cards are 0.90 x 0.36 x 0.03 m rigid boxes.
+  - id: card_lower_left_outer
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.45, 0.18, 0.015]}
+    transform: {translation: [-0.925, 0.0, 0.397], rotation_xyzw: [0.0, -0.5, 0.0, 0.8660254]}
+    state_binding: {selector: body_id, value: 0}
+    material_id: card_red
+  - id: card_lower_left_inner
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.45, 0.18, 0.015]}
+    transform: {translation: [-0.475, 0.0, 0.397], rotation_xyzw: [0.0, 0.5, 0.0, 0.8660254]}
+    state_binding: {selector: body_id, value: 1}
+    material_id: card_red
+  - id: card_lower_right_inner
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.45, 0.18, 0.015]}
+    transform: {translation: [0.475, 0.0, 0.397], rotation_xyzw: [0.0, -0.5, 0.0, 0.8660254]}
+    state_binding: {selector: body_id, value: 2}
+    material_id: card_blue
+  - id: card_lower_right_outer
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.45, 0.18, 0.015]}
+    transform: {translation: [0.925, 0.0, 0.397], rotation_xyzw: [0.0, 0.5, 0.0, 0.8660254]}
+    state_binding: {selector: body_id, value: 3}
+    material_id: card_blue
+  - id: card_deck_left
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.45, 0.18, 0.015]}
+    transform: {translation: [-0.7, 0.0, 0.81]}
+    state_binding: {selector: body_id, value: 4}
+    material_id: card_ivory
+  - id: card_deck_right
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.45, 0.18, 0.015]}
+    transform: {translation: [0.7, 0.0, 0.81]}
+    state_binding: {selector: body_id, value: 5}
+    material_id: card_ivory
+
+  # Upper A-frames rest on the two deck cards.
+  - id: card_upper_left_outer
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.45, 0.18, 0.015]}
+    transform: {translation: [-0.925, 0.0, 1.222], rotation_xyzw: [0.0, -0.5, 0.0, 0.8660254]}
+    state_binding: {selector: body_id, value: 6}
+    material_id: card_red
+  - id: card_upper_left_inner
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.45, 0.18, 0.015]}
+    transform: {translation: [-0.475, 0.0, 1.222], rotation_xyzw: [0.0, 0.5, 0.0, 0.8660254]}
+    state_binding: {selector: body_id, value: 7}
+    material_id: card_red
+  - id: card_upper_right_inner
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.45, 0.18, 0.015]}
+    transform: {translation: [0.475, 0.0, 1.222], rotation_xyzw: [0.0, -0.5, 0.0, 0.8660254]}
+    state_binding: {selector: body_id, value: 8}
+    material_id: card_blue
+  - id: card_upper_right_outer
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.45, 0.18, 0.015]}
+    transform: {translation: [0.925, 0.0, 1.222], rotation_xyzw: [0.0, 0.5, 0.0, 0.8660254]}
+    state_binding: {selector: body_id, value: 9}
+    material_id: card_blue
+
+  - id: impact_block_left
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.16, 0.16, 0.16]}
+    transform: {translation: [-0.7, 0.0, 2.25]}
+    state_binding: {selector: body_id, value: 10}
+    material_id: impact_yellow
+  - id: impact_block_right
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.16, 0.16, 0.16]}
+    transform: {translation: [0.7, 0.0, 2.25]}
+    state_binding: {selector: body_id, value: 11}
+    material_id: impact_orange
+  - id: impact_block_center
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.19, 0.19, 0.19]}
+    transform: {translation: [0.0, 0.0, 2.65]}
+    state_binding: {selector: body_id, value: 12}
+    material_id: impact_charcoal

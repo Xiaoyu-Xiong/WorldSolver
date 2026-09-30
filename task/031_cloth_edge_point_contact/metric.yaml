@@ -1,0 +1,100 @@
+schema_version: 4
+task_id: 031_cloth_edge_point_contact
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The submitted solver runs to the frozen end time, produces a complete finite trajectory
+      with every required evaluation field, and produces a readable platform render without exceeding
+      the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: The square cloth visibly falls onto the sharp edge and point obstacles.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: The sharp edge produces a localized line fold while the point produces a distinct localized
+      indentation or drape.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: The cloth settles around both obstacle types into a coherent final resting geometry.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: No portion of the cloth visibly tunnels through an obstacle, misses contact, remains artificially
+      snagged, or teleports across a sharp feature.
+  physics:
+  - id: material_mass_balance
+    profile: cloth_thin_shells_and_fibers
+    dimension: conservation_and_source_balance
+    criterion: For cloth edge point contact, the mass change equals the cumulative prescribed inflow,
+      outflow, or phase-transfer source; internal motion and contact do not create or delete mass.
+    applicability:
+      requires:
+      - prescribed sources and sinks are exported
+      - Per-sample mass contributions are exported for every evaluated material.
+      excludes:
+      - Unreported particle deletion or remeshing loss.
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: orientation_preserving_deformation
+    profile: cloth_thin_shells_and_fibers
+    dimension: deformation_validity
+    criterion: Material elements in cloth edge point contact retain a positive deformation Jacobian except
+      where the case explicitly performs a represented topology change.
+    applicability:
+      requires:
+      - A deformation gradient is exported for every active material element.
+      excludes:
+      - Elements at an explicitly modeled cut, tear, merge, or deletion event after they cease to exist.
+    numeric_binding:
+      calculator: deformation.jacobian.v1
+      inputs:
+        deformation_gradient: attributes.deformation_gradient
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: nonpenetrating_contact
+    profile: cloth_thin_shells_and_fibers
+    dimension: contact_and_interface_conditions
+    criterion: During cloth edge point contact, solid-solid and solid-boundary contacts maintain nonnegative
+      geometric gaps up to the contact tolerance and do not permit persistent interpenetration.
+    applicability:
+      requires:
+      - Signed geometric gaps are exported for active and near-contact pairs.
+      excludes:
+      - Pairs intentionally allowed to pass through or merge.
+    numeric_binding:
+      calculator: contact.penetration.v1
+      inputs:
+        signed_distance: fields.contact_signed_distance
+        length_scale: scalars.contact_length_scale
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: cloth_kinematic_continuity
+    profile: cloth_and_shells
+    dimension: trajectory_consistency
+    criterion: The bound object `falling_square_cloth` has position increments consistent with its exported
+      velocity trace between consecutive trajectory frames.
+    applicability:
+      requires:
+      - The tracked object is bound to a stable scene object id and exports position and velocity.
+      excludes:
+      - Runs that intentionally reset or reinitialize the tracked object state.
+    numeric_binding:
+      calculator: trajectory.kinematic_continuity.v1
+      inputs:
+        position: state.position
+        velocity: state.velocity
+      parameters:
+        object_id: falling_square_cloth
+        object_keywords:
+        - cloth
+        - square
+      reduction:
+        type: maximum

@@ -1,0 +1,26 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - {object_id: tank_floor, method: rigid_mesh, material: tank_boundary, color_rgb: [0.18, 0.20, 0.22]}
+  # Keep the container readable as a boundary without occluding the simulation.
+  # Explicit opacity is required here because these custom material names do not
+  # inherit the renderer's built-in glass preset.
+  - {object_id: tank_back_wall, method: rigid_mesh, material: tank_boundary_glass, color_rgb: [0.66, 0.82, 0.92], opacity: 0.10}
+  - {object_id: tank_front_wall, method: rigid_mesh, material: tank_boundary_cutaway_glass, color_rgb: [0.74, 0.88, 0.96], opacity: 0.035}
+  - {object_id: tank_left_wall, method: rigid_mesh, material: tank_boundary_glass, color_rgb: [0.66, 0.82, 0.92], opacity: 0.12}
+  - {object_id: tank_right_wall, method: rigid_mesh, material: tank_boundary_glass, color_rgb: [0.66, 0.82, 0.92], opacity: 0.12}
+  - object_id: water
+    method: reconstructed_surface
+    material: coupled_water_clear_blue
+    color_rgb: [0.04, 0.40, 0.95]
+    opacity: 0.58
+    surface_pitch: 0.09
+    surface_smoothing: 1.15
+    subdivision: 1
+  - object_id: drop_cube
+    method: rigid_mesh
+    material: bright_visible_cube
+    color_rgb: [1.0, 0.72, 0.02]
+    subdivision: 1

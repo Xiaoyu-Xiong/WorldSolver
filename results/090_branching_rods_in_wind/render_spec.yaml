@@ -1,0 +1,18 @@
+schema_version: 2
+profile: fiber_rods
+environment: outdoor_soft
+camera: frozen_config
+bindings:
+  - object_id: tree_rods
+    method: curve_tubes
+    material: bark
+    color_rgb: [0.20, 0.13, 0.09]
+    subdivision: 2
+  - object_id: rigid_junctions
+    method: rigid_mesh
+    material: dark_bark
+    color_rgb: [0.11, 0.07, 0.045]
+  - object_id: snowy_ground
+    method: rigid_mesh
+    material: snow
+    color_rgb: [0.82, 0.86, 0.88]

@@ -1,0 +1,148 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 4609414,
+          "trajectory_frames": 211,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "Total represented material mass follows the exported cumulative source and remains conserved when no source or sink is active.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "initial_quantity": [
+            349.91999999999985
+          ],
+          "sample_count": 211,
+          "worst_frame_index": 0
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.0,
+        "profile": "particles_and_granular_materials",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "dynamics.linear_momentum_balance.v1",
+        "criterion": "The time rate of total material momentum is consistent with exported external forces.",
+        "criterion_id": "linear_momentum_balance",
+        "details": {
+          "sample_count": 211,
+          "worst_frame_index": 9
+        },
+        "dimension": "momentum_and_force_balance",
+        "domain": "physics",
+        "metric": "momentum_balance_relative_l2",
+        "normalized_error": 1.0,
+        "profile": "particles_and_granular_materials",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.0
+      },
+      {
+        "calculator": "deformation.jacobian.v1",
+        "criterion": "Exported material deformation gradients preserve positive local orientation away from explicitly separated fracture surfaces.",
+        "criterion_id": "admissible_local_deformation",
+        "details": {
+          "sample_count": 211,
+          "worst_frame_index": 37
+        },
+        "dimension": "deformation_constraints",
+        "domain": "physics",
+        "metric": "nonpositive_jacobian_fraction",
+        "normalized_error": 0.56,
+        "profile": "particles_and_granular_materials",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 43.99999999999999
+      },
+      {
+        "calculator": "contact.penetration.v1",
+        "criterion": "Active material-solid contacts maintain nonnegative signed gaps up to the frozen contact tolerance.",
+        "criterion_id": "nonpenetrating_rigid_contact",
+        "details": {
+          "sample_count": 211,
+          "worst_frame_index": 36
+        },
+        "dimension": "contact_and_interface_conditions",
+        "domain": "physics",
+        "metric": "penetration_relative_max",
+        "normalized_error": 0.05676284435965687,
+        "profile": "particles_and_granular_materials",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 46.83277248736716
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.018973665961010275,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.05
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.023323807579381205,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.074
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0285657137141714,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.142
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.056213877290220794,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.4
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "126_wrecking_ball_brittle_wall",
+  "visual_score": 0.1665,
+  "visual_fidelity_score": 16.650000000000002,
+  "physical_plausibility_score": 47.70819312184179,
+  "total_score": 32.1790965609209
+}

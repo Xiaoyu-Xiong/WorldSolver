@@ -1,0 +1,27 @@
+schema_version: 1
+scene_id: 148_bolt_spins_through_nut
+seed: 15148
+duration: 8.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+variant: bolt_spins_through_nut
+gravity: [0.0, 0.0, -9.81]
+contact: {friction: 0.55, restitution: 0.12, length_scale: 0.02}
+bodies:
+  - id: bolt
+    position: [0,0,1.45]
+    orientation: [0,0,0,1]
+    mass: 2
+  - id: nut
+    position: [0,0,0.65]
+    orientation: [0,0,0,1]
+    mass: 3
+camera:
+  position: [4.8, -7.2, 3.6]
+  look_at: [0.0, 0.0, 1.15]
+  up: [0.0, 0.0, 1.0]
+  projection: orthographic
+  orthographic_height: 2.55
+  width: 960
+  height: 640
+  fps: 50

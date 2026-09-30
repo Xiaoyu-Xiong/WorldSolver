@@ -1,0 +1,53 @@
+schema_version: 2
+profile: rigid_contact
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: ground
+    method: rigid_mesh
+    material: matte_floor
+  - object_id: block_00
+    method: rigid_mesh
+    material: stone
+  - object_id: block_01
+    method: rigid_mesh
+    material: stone
+  - object_id: block_02
+    method: rigid_mesh
+    material: stone
+  - object_id: block_03
+    method: rigid_mesh
+    material: stone
+  - object_id: block_04
+    method: rigid_mesh
+    material: stone
+  - object_id: block_05
+    method: rigid_mesh
+    material: stone
+  - object_id: block_06
+    method: rigid_mesh
+    material: stone
+  - object_id: block_07
+    method: rigid_mesh
+    material: keystone
+  - object_id: block_08
+    method: rigid_mesh
+    material: stone
+  - object_id: block_09
+    method: rigid_mesh
+    material: stone
+  - object_id: block_10
+    method: rigid_mesh
+    material: stone
+  - object_id: block_11
+    method: rigid_mesh
+    material: stone
+  - object_id: block_12
+    method: rigid_mesh
+    material: stone
+  - object_id: block_13
+    method: rigid_mesh
+    material: stone
+  - object_id: block_14
+    method: rigid_mesh
+    material: stone

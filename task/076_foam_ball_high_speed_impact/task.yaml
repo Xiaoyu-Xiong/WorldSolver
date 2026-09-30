@@ -1,0 +1,30 @@
+id: 076_foam_ball_high_speed_impact
+title: High-Speed Foam Practice Ball Impact
+category: elastic_solids
+source:
+  title: 'Incremental Potential Contact: Intersection- and Inversion-free, Large-Deformation Dynamics'
+  url: https://ipc-sim.github.io/file/IPC-paper-350ppi.pdf
+  anchor: Figure 19 and Section 7.2, High speed impact test; PDF page 15
+goal: 'Recreate the source experiment: After its greatest compression, the ball lengthens away from the
+  plate and separates from it, matching the compression-recovery-release sequence in Figure 19. The numerical
+  implementation is unrestricted; the deforming material is a three-dimensional solid.'
+scene_requirements:
+  required_elements:
+  - A volumetric elastic practice ball.
+  - A fixed flat impact plate.
+  - The initial velocity and material configuration reported for Figure 19.
+  initial_state:
+  - The initially round ball approaches the plate with the source high-speed initial velocity and has
+    not yet contacted it.
+  required_events:
+  - The ball approaches the plate and makes contact with its leading surface.
+  - The leading side flattens against the plate while the ball becomes shorter in the travel direction
+    and wider across it.
+  - After its greatest compression, the ball lengthens away from the plate and separates from it, matching
+    the compression-recovery-release sequence in Figure 19.
+camera_requirements:
+- Use a fixed side view perpendicular to the travel direction, showing the initial gap, plate contact,
+  and separation.
+- Show enough frames around impact to distinguish first contact, greatest compression, recovery, and release.
+- Keep the relevant objects visible before loading or contact, during the largest deformation, and during
+  the stated outcome.

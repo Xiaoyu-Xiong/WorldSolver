@@ -1,0 +1,61 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: floor
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [3.5, 3.0, 0.08]
+    transform:
+      translation: [0.0, 0.0, -0.08]
+    material_id: floor
+    collision_enabled: true
+  - id: toy_shell
+    semantic: deformable
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/toy_shell.obj
+    state_binding:
+      selector: body_id
+      value: 1
+    material_id: transparent_shell
+    collision_enabled: true
+  - id: enclosed_liquid
+    semantic: liquid
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [-0.82, -0.52, 0.58]
+      bounds_max: [0.82, 0.52, 2.18]
+    state_binding:
+      selector: body_id
+      value: 2
+    material_id: clear_liquid
+    collision_enabled: false
+  - id: red_markers
+    semantic: liquid
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [-0.70, -0.44, 0.82]
+      bounds_max: [-0.08, 0.44, 1.88]
+    state_binding:
+      selector: body_id
+      value: 3
+    material_id: red_tracer
+    collision_enabled: false
+  - id: yellow_markers
+    semantic: liquid
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [0.08, -0.44, 0.82]
+      bounds_max: [0.70, 0.44, 1.88]
+    state_binding:
+      selector: body_id
+      value: 4
+    material_id: yellow_tracer
+    collision_enabled: false

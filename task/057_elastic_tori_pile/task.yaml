@@ -1,0 +1,29 @@
+id: 057_elastic_tori_pile
+title: Pile of Forty Incompressible Elastic Tori
+category: elastic_solids
+source:
+  title: Volume Conserving Finite Element Simulations of Deformable Models
+  url: https://www.cs.ucr.edu/~craigs/papers/2007-incompressible/paper.pdf
+  anchor: Figure 5 and Section 5; PDF page 5
+goal: 'Recreate the source experiment: A pile remains on the floor, with lower tori visibly deformed under
+  upper ones and individual rings still distinguishable. The numerical implementation is unrestricted;
+  the deforming material is a three-dimensional solid.'
+scene_requirements:
+  required_elements:
+  - Forty separate incompressible elastic tori represented as volumetric solids.
+  - A rigid floor and the surrounding vertical posts shown in Figure 5.
+  - Gravity.
+  initial_state:
+  - The tori begin above the receiving region with separate, nonintersecting surfaces.
+  required_events:
+  - The tori fall into the receiving region and collide with the floor, posts, and previously fallen tori.
+  - Tori already in the pile flatten or bend as new tori land on them; their circular openings become
+    visibly distorted under load.
+  - A pile remains on the floor, with lower tori visibly deformed under upper ones and individual rings
+    still distinguishable.
+camera_requirements:
+- Use a fixed three-quarter view showing the floor, posts, the complete pile, and the openings of several
+  foreground tori.
+- Use contrasting torus colors so neighboring bodies remain distinguishable.
+- Keep the relevant objects visible before loading or contact, during the largest deformation, and during
+  the stated outcome.

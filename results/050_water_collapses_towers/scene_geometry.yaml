@@ -1,0 +1,58 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: basin_floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [4.2, 2.2, 0.10]}
+    transform: {translation: [0.0, 0.0, -0.10]}
+    material_id: basin_concrete
+  - id: basin_back_wall
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [4.2, 0.10, 0.65]}
+    transform: {translation: [0.0, 2.1, 0.65]}
+    material_id: basin_concrete
+  - id: basin_front_wall
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [4.2, 0.10, 0.65]}
+    transform: {translation: [0.0, -2.1, 0.65]}
+    material_id: basin_concrete
+  - id: basin_end_wall
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.10, 2.2, 0.65]}
+    transform: {translation: [4.1, 0.0, 0.65]}
+    material_id: basin_concrete
+  - id: incoming_water
+    semantic: liquid
+    motion: field
+    geometry: {type: particle_domain, bounds_min: [-3.8, -1.7, 0.08], bounds_max: [-1.35, 1.7, 1.25]}
+    state_binding: {selector: attribute, attribute_name: scene_group, value: 10}
+    material_id: water_density
+  - id: left_tower_cylinders
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: cylinder, radius: 0.115, height: 1.85}
+    state_binding: {selector: attribute, attribute_name: scene_group, value: 20}
+    material_id: light_cylinders
+  - id: left_tower_cubes
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.115, 0.115, 0.925]}
+    state_binding: {selector: attribute, attribute_name: scene_group, value: 21}
+    material_id: heavy_cubes
+  - id: right_tower_cylinders
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: cylinder, radius: 0.115, height: 1.85}
+    state_binding: {selector: attribute, attribute_name: scene_group, value: 30}
+    material_id: light_cylinders
+  - id: right_tower_cubes
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.115, 0.115, 0.925]}
+    state_binding: {selector: attribute, attribute_name: scene_group, value: 31}
+    material_id: heavy_cubes

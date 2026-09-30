@@ -1,0 +1,27 @@
+schema_version: 2
+profile: granular_particles
+environment: studio_neutral
+camera: frozen_config
+bindings:
+- object_id: receiving_floor
+  method: rigid_mesh
+  material: charcoal_floor
+  color_rgb:
+  - 0.22
+  - 0.27
+  - 0.31
+- object_id: supply_hopper
+  method: rigid_mesh
+  material: transparent_cutaway_hopper
+  color_rgb:
+  - 0.78
+  - 0.88
+  - 0.96
+- object_id: sand
+  method: particle_instances
+  material: warm_sand
+  color_rgb:
+  - 0.94
+  - 0.6
+  - 0.19
+  particle_radius_scale: 1.12

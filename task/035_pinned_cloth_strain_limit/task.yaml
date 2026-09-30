@@ -1,0 +1,33 @@
+id: 035_pinned_cloth_strain_limit
+title: Cloth Sphere Drape Strain Limit
+category: cloth_and_shells
+source:
+  title: Codimensional Incremental Potential Contact
+  url: https://par.nsf.gov/servlets/purl/10290705
+  anchor: Figure 15(c-f); PDF page 16
+goal: Recreate the observable physical phenomenon in Figure 15(c), where a soft square cloth falls
+  under gravity, contacts a fixed sphere, and settles into a naturally wrinkled drape while strict
+  principal-strain limits prevent excessive stretch and compression. The ARCSim results in Figure
+  15(d-f) are negative references for locking and failed strain enforcement, not target outcomes.
+scene_requirements:
+  required_elements:
+  - Square cloth panel
+  - Fixed spherical collision body
+  - Gravity
+  initial_state:
+  - A nearly flat square cloth panel starts above a fixed sphere with all cloth vertices unconstrained.
+  required_events:
+  - The cloth falls and makes visible contact with the top of the sphere.
+  - Contact spreads over the crown while the free sides descend around the sphere.
+  - The cloth develops distributed folds and wrinkles instead of remaining membrane-locked.
+  - Principal stretches remain within the target range [0.9, 1.1] without excessive compression or elongation.
+  - The cloth approaches a stable sphere drape without visible cloth-sphere interpenetration.
+camera_requirements:
+- Use a front three-quarter view comparable to Figure 15(c-f), showing the sphere crown, the draped
+  free edges, the wrinkle pattern, and the cloth-sphere contact region without occlusion.
+parameter_notes:
+- 'Figure 15 target: C-IPC sphere drape at 0.01x membrane stiffness; comparison cases use ARCSim at
+  1x, 0.1x, and 0.01x stiffness.'
+- 'Figure 16 reports the corresponding C-IPC sphere statistics: timestep h = 0.04 s, maximum
+  principal stretch 1.0617, average maximum stretch 1.0535, minimum principal stretch 0.9548,
+  and average minimum stretch 0.9652. All methods target principal strains in [0.9, 1.1].'

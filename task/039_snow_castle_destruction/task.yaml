@@ -1,0 +1,36 @@
+id: 039_snow_castle_destruction
+title: Snow Castle Destruction
+category: plastic_and_complex_materials
+source:
+  title: A Material Point Method for Snow Simulation
+  url: https://math.ucdavis.edu/~jteran/papers/SSCTS13.pdf
+  anchor: Figure 6; PDF page 3
+goal: Recreate the observable physical phenomenon in which a modeled snow castle is struck/destabilized
+  and collapses into fractured snow masses. The implementation method is unrestricted; the target is the
+  scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Snow Castle Destruction
+  - Granular particles
+  - Contact floor or container
+  - Gravity
+  - A visually distinct incoming striker
+  - A recognizable castle asset or crenellated castle scaffold
+  initial_state:
+  - A modeled snow castle is shown intact before impact.
+  - A high-contrast striker approaches from the left and remains visible through first contact.
+  required_events:
+  - Visible striker-castle contact before the main collapse begins
+  - At least 2.5 seconds of post-impact fracture and deposition are visible after first contact
+  - Qualitative/quantitative - collapse pattern
+  - Fragment distribution
+  - Plastic compaction
+  - Mass preservation
+  - Stability
+camera_requirements:
+- Use a three-quarter view showing release or inflow, contact zones, pile or fragment evolution, and the
+  final deposited state without major occlusion.
+- Keep the striker, front-left impact face, falling fragments, and final snow pile visually separated by
+  color/value contrast. The striker must not blend into the snow or disappear immediately after contact.
+parameter_notes:
+- 'Original paper parameters/configuration: Castle geometry and destruction script from Figure 6.'

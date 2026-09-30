@@ -1,0 +1,38 @@
+schema_version: 1
+scene_id: 122_wetted_porous_plug_funnel
+seed: 1220508
+duration: 6.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+particle_spacing: 0.05
+plug:
+  radius: 0.46
+  height: 0.52
+  center: [0.0, 0.0, 1.31]
+  mass: 0.34
+  initial_saturation: 0.0
+  porosity: 0.58
+  permeability: 6.0
+  dry_young_modulus: 180000.0
+  wet_softening_factor: 0.05
+  wetting_contact_angle_degrees: 45.0
+  passage_must_result_from_deformation: true
+liquid:
+  bounds_min: [-0.34, -0.34, 2.15]
+  bounds_max: [0.34, 0.34, 2.72]
+  density: 1000.0
+  initial_velocity: [0.0, 0.0, -0.25]
+funnel:
+  throat_radius: 0.31
+  throat_z: 1.02
+  rim_radius: 1.10
+  rim_z: 2.15
+  wall_thickness: 0.045
+camera:
+  position: [3.65, -4.65, 2.85]
+  look_at: [0.0, 0.0, 1.25]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

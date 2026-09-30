@@ -1,0 +1,81 @@
+schema_version: 4
+task_id: 041_spinning_granular_drum
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The submitted solver runs to the frozen end time, produces a complete finite trajectory
+      with every required evaluation field, and produces a readable platform render without exceeding
+      the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: The drum visibly begins rotating, with its rim or wall markers moving while grains remain visible.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: Granular material is lifted along the rotating wall and then slides or avalanches down the
+      exposed free surface.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: The video shows a persistent flowing layer or repeated avalanche inside the half-filled drum,
+      not merely a static pile or a rigidly rotating solid plug.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: Grains remain confined by the drum, are visually distinguishable from the wall and background,
+      and do not explode, teleport, leak through the wall, or become hidden by the camera angle.
+  physics:
+  - id: material_mass_balance
+    profile: particles_and_granular_materials
+    dimension: conservation_and_source_balance
+    criterion: For the spinning granular drum, the mass change equals the cumulative prescribed inflow,
+      outflow, or phase-transfer source; internal motion and contact do not create or delete mass.
+    applicability:
+      requires:
+      - prescribed sources and sinks are exported
+      - Per-sample mass contributions are exported for every evaluated material.
+      excludes:
+      - Unreported particle deletion or remeshing loss.
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: linear_momentum_balance
+    profile: particles_and_granular_materials
+    dimension: momentum_and_force_balance
+    criterion: For the spinning granular drum, the time rate of total linear momentum is consistent with the
+      exported external forces, including gravity and any reported drum-wall drive forces.
+    applicability:
+      requires:
+      - Mass, velocity, and all external forces are exported at the trajectory sampling times.
+      excludes:
+      - Frames spanning an unreported impulsive external intervention.
+    numeric_binding:
+      calculator: dynamics.linear_momentum_balance.v1
+      inputs:
+        mass: state.mass
+        velocity: state.velocity
+        external_force: fields.external_force
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: nonpenetrating_contact
+    profile: particles_and_granular_materials
+    dimension: contact_and_interface_conditions
+    criterion: During the spinning granular drum scene, grain-wall contacts maintain nonnegative geometric
+      gaps up to the contact tolerance and do not permit persistent interpenetration or leakage through the drum.
+    applicability:
+      requires:
+      - Signed geometric gaps are exported for active and near-contact pairs.
+      excludes:
+      - Pairs intentionally allowed to pass through or merge.
+    numeric_binding:
+      calculator: contact.penetration.v1
+      inputs:
+        signed_distance: fields.contact_signed_distance
+        length_scale: scalars.contact_length_scale
+      parameters: {}
+      reduction:
+        type: maximum

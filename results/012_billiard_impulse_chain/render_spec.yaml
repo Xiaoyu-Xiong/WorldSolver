@@ -1,0 +1,12 @@
+schema_version: 2
+profile: rigid_contact
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - {object_id: ground, method: rigid_mesh, material: green_felt}
+  - {object_id: incoming_ball, method: rigid_mesh, material: ivory, subdivision: 2}
+  - {object_id: ball_1, method: rigid_mesh, material: red, subdivision: 2}
+  - {object_id: ball_2, method: rigid_mesh, material: red, subdivision: 2}
+  - {object_id: ball_3, method: rigid_mesh, material: red, subdivision: 2}
+  - {object_id: ball_4, method: rigid_mesh, material: red, subdivision: 2}
+  - {object_id: ball_5, method: rigid_mesh, material: red, subdivision: 2}

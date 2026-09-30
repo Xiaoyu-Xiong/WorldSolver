@@ -1,0 +1,44 @@
+schema_version: 1
+scene_id: 051_egg_frying
+seed: 51051
+duration: 8.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+camera:
+  position: [0.48, -0.62, 0.43]
+  look_at: [0.0, 0.01, 0.035]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50
+initial_conditions:
+  ambient_temperature_k: 296.0
+  egg_temperature_k: 291.0
+  pan_temperature_k: 443.0
+  gravity: [0.0, 0.0, -9.81]
+  yolk_mass_kg: 0.018
+  white_mass_kg: 0.034
+  concentration_diffusion_enabled: false
+  phase_diffusion_enabled: true
+boundary_conditions:
+  pan_surface_temperature_k: 443.0
+  pan_no_escape_radius_m: 0.185
+  pan_contact_height_m: 0.018
+phenomenon_targets:
+  white_spread_radius_initial_m: 0.072
+  white_spread_radius_final_m: 0.125
+  yolk_radius_initial_m: 0.037
+  solid_phase_front_from_pan_upward: true
+  material_concentrations_remain_unmixed: true
+visual_requirements:
+  pan_color: dark_cast_iron
+  yolk_color: saturated_yellow_orange
+  raw_white_color: translucent_clear_white
+  cooked_white_color: opaque_white
+  eggshell_color: pale_ivory
+  phase_front_color_transition_must_be_visible: true
+  dynamic_color_binding:
+    scalar_attribute: solid_phase_fraction
+    range: [0.0, 1.0]
+    meaning: 0 raw liquid egg, 1 cooked solid egg
+    requirement: solver must export this per-particle attribute for the egg white; renderer uses diagnostic_points, not a material-name hint

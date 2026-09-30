@@ -1,0 +1,16 @@
+schema_version: 2
+profile: gas_volume
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: ground, method: rigid_mesh, material: matte, color_rgb: [0.22, 0.25, 0.30]}
+  - {object_id: obstacle_sphere, method: rigid_mesh, material: matte, color_rgb: [0.32, 0.35, 0.40]}
+  - {object_id: smoke_source, method: rigid_mesh, material: emissive, color_rgb: [1.0, 0.36, 0.08]}
+  - object_id: subject
+    method: volume
+    material: default
+    color_rgb: [0.62, 0.72, 0.84]
+    volume_mode: slices
+    volume_axis: 1
+    density_scale: 7.0
+    opacity: 0.80

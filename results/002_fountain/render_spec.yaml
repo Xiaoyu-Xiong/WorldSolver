@@ -1,0 +1,31 @@
+schema_version: 2
+profile: liquid_in_container
+environment: studio_neutral
+camera: frozen_config
+bindings:
+- object_id: circular_basin
+  method: rigid_mesh
+  material: warm_stone
+  subdivision: 2
+  color_rgb:
+  - 0.53
+  - 0.39
+  - 0.29
+- object_id: fountain_nozzle
+  method: rigid_mesh
+  material: brushed_steel
+  subdivision: 2
+  color_rgb:
+  - 0.76
+  - 0.69
+  - 0.58
+- object_id: fountain_liquid
+  method: reconstructed_surface
+  material: clear_cyan_water
+  surface_pitch: 0.055
+  surface_smoothing: 1.15
+  subdivision: 1
+  color_rgb:
+  - 0.13
+  - 0.67
+  - 0.84

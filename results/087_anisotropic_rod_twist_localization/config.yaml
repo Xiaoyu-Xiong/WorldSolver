@@ -1,0 +1,45 @@
+schema_version: 1
+scene_id: 087_anisotropic_rod_twist_localization
+seed: 8705
+duration: 6.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, 0.0]
+rod:
+  length: 1.20
+  vertex_count: 49
+  cross_section_width: 0.026
+  cross_section_thickness: 0.006
+  density: 1050.0
+  reference_shape: v_shaped
+  apex_vertex: 24
+  anisotropic_cross_section: true
+initial_conditions:
+  untwisted: true
+  centerline_points: [[-0.48, 0.0, 0.18], [0.0, 0.0, 0.62], [0.48, 0.0, 0.18]]
+boundary_conditions:
+  fixed_end:
+    vertex: 48
+    position: [0.48, 0.0, 0.18]
+    material_frame_locked: true
+  driven_end:
+    vertex: 0
+    position: [-0.48, 0.0, 0.18]
+    centerline_position_locked: true
+    rotation_axis: endpoint_tangent
+    rotation_schedule:
+      - [0.0, 0.0]
+      - [1.0, 0.0]
+      - [3.0, 6.283185307179586]
+      - [6.0, 12.566370614359172]
+  expected_sequence:
+    - untwisted_reference_v
+    - twist_localized_on_driven_arm
+    - twist_extends_across_apex_to_fixed_arm
+camera:
+  position: [1.35, -1.75, 1.05]
+  look_at: [0.0, 0.0, 0.38]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

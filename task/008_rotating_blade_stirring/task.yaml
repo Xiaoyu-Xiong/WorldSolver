@@ -1,0 +1,36 @@
+id: 008_rotating_blade_stirring
+title: Rotating Blade Stirring Liquid
+category: fluid_dynamics
+source:
+  title: 'Power Particles: An Incompressible Fluid Solver Based on Power Diagrams'
+  url: https://www.geometry.caltech.edu/pubs/dGWH%2B15.pdf
+  anchor: 'Figure 5 (Moving obstacle), PDF page 6, upper right'
+goal: >-
+  Recreate three-dimensional free-surface liquid stirred by a clockwise rotating upright
+  blade in an open square tank. The blade drives transient splashes followed by sustained
+  swirling flow with a wrinkled free surface. The numerical method is unrestricted.
+scene_requirements:
+  required_elements:
+    - An open square tank with an impermeable floor and four side walls.
+    - A finite-depth incompressible liquid volume with a visible air-water free surface.
+    - One upright rectangular blade, partly immersed, rotating about its fixed vertical center axis.
+  initial_state:
+    - Liquid is at rest with a flat free surface; no fluid samples overlap the blade or tank solids.
+    - The blade starts at rest and smoothly accelerates clockwise as viewed from above (+z).
+  required_events:
+    - Blade motion displaces liquid at its submerged faces and transfers momentum into the liquid.
+    - Start-up produces local surface displacement and transient splashes near the blade.
+    - Continued rotation produces sustained circulation with non-rigid surface wrinkles and wakes.
+    - The blade stays centered and rigid; liquid respects moving and stationary solid boundaries.
+camera_requirements:
+  - Fixed elevated three-quarter view showing the entire tank, free surface, and emerged blade.
+  - Use unobtrusive wireframe or transparent walls so the near wall does not hide the liquid.
+  - Render the actual three-dimensional liquid state as a surface, not a depth-averaged sheet.
+  - Playback uses physical time (sample_dt equals 1/fps); do not speed up the motion.
+parameter_notes:
+  - 'Paper Figure 5 uses 100k particles and describes a clockwise rotating blade, initial splashes, and a surface-wrinkling maelstrom.'
+  - 'Benchmark choices, not paper-reported dimensions: tank interior 1.6 x 1.6 x 0.8 m; initial water depth 0.30 m; blade 1.0 x 0.06 x 0.64 m, bottom clearance 0.04 m.'
+  - 'Benchmark drive: smoothstep angular-speed ramp over 0.8 s to -3 rad/s about +z, then constant rotation; duration 6 s.'
+  - 'Gravity is -9.81 m/s^2 along z; density 1000 kg/m^3; kinematic viscosity 1e-6 m^2/s. Resolution may differ from the paper, but evolution must be genuinely 3D.'
+  - 'Blade actuation supplies external work and torque: unforced energy or angular-momentum conservation is not a valid requirement.'
+  - 'No inflow or mass sink. Track any liquid splashed outside the open tank; do not delete it or report deletion as a prescribed sink.'

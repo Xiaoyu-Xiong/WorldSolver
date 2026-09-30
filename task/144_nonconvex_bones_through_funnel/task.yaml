@@ -1,0 +1,30 @@
+id: 144_nonconvex_bones_through_funnel
+title: Nonconvex Bones through a Funnel
+category: rigid_body_dynamics
+source:
+  title: Nonconvex Rigid Bodies with Stacking
+  url: https://graphics.stanford.edu/papers/rigid_bodies-sig03/rigid_bodies.pdf
+  anchor: Figure 8
+goal: >-
+  Recreate the paper's clearly visible nonconvex bones through a funnel phenomenon. The implementation method is unrestricted;
+  evaluation targets rigid motion, contact response, event propagation, and the characteristic outcome.
+scene_requirements:
+  required_elements:
+  - Many nonconvex bone-shaped rigid bodies
+  - Narrow rigid funnel
+  - Receiving floor or bin
+  - Gravity
+  initial_state:
+  - Bone-shaped bodies begin above the funnel with varied orientations.
+  required_events:
+  - Gravity feeds the first bodies into the narrowing funnel.
+  - Bodies collide, rotate, temporarily bridge, and break free through multi-point contact.
+  - A substantial fraction exits and forms a settled pile below while transient jams remain physically plausible.
+  - All bodies preserve rigid shape and contacts remain free of persistent overlap.
+camera_requirements:
+- Use a side three-quarter view showing the hopper, throat, and receiving pile.
+- Keep the complete interaction chain in frame and use contrasting colors for neighboring bodies.
+parameter_notes:
+- Match the qualitative geometry, loading, and event ordering shown in Figure 8; object count may be reduced within resource limits.
+- Export body IDs, mass, position, velocity, external forces, interaction-force pairs, and signed contact distances.
+

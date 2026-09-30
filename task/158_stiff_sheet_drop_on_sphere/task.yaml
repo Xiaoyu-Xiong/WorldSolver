@@ -1,0 +1,30 @@
+id: 158_stiff_sheet_drop_on_sphere
+title: Stiff Sheet Drop on a Sphere
+category: cloth_and_shells
+source:
+  title: Folding and Crumpling Adaptive Sheets
+  url: https://graphics.berkeley.edu/papers/Narain-FCA-2013-07/Narain-FCA-2013-07.pdf
+  anchor: Figure 2
+goal: >-
+  Recreate the paper's clearly visible stiff sheet drop on a sphere phenomenon. The implementation method is unrestricted;
+  evaluation targets thin-material motion, folds or tears, contact response, and the characteristic outcome.
+scene_requirements:
+  required_elements:
+  - Stiff thin sheet
+  - Fixed rigid sphere
+  - Gravity
+  - Sheet-sphere and self-contact
+  initial_state:
+  - A flat stiff sheet begins horizontally above a fixed sphere.
+  required_events:
+  - The sheet falls and first contacts the sphere crown.
+  - Contact redirects the sheet into a small number of sharp folds rather than a soft cloth drape.
+  - A structured folded configuration settles around the sphere with persistent creases and no penetration.
+  - Motion remains temporally coherent and all non-tearing regions preserve sheet connectivity.
+camera_requirements:
+- Use an oblique view showing the full sheet boundary, sphere, and crease network.
+- Use lighting and material contrast that make folds, wrinkles, contacts, and any crack tip readable.
+parameter_notes:
+- Match the qualitative geometry, stiffness regime, and event ordering shown in Figure 2; mesh resolution may be adapted.
+- Export cloth mass, position, velocity, external force, surface deformation gradients, and signed contact distances.
+

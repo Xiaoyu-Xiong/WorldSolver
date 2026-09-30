@@ -1,0 +1,34 @@
+id: 046_water_on_cloth_curtain
+title: Water On Cloth Curtain
+category: multiphysics_coupling
+source:
+  title: Coupling Water and Smoke to Thin Deformable and Rigid Shells
+  url: https://graphics.stanford.edu/papers/thin_shells_fluid_coupling-sig05/thin_shells_fluid_coupling.pdf
+  anchor: Figure 1; PDF page 1
+goal: Recreate the observable physical phenomenon in which a water stream strikes a deformable cloth curtain
+  with full two-way coupling, loading the cloth while the moving cloth redirects the free surface. The
+  implementation method is unrestricted; the target is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Water On Cloth Curtain
+  - Coupled materials named by the scene
+  - Interface/contact region
+  - Domain or support boundaries
+  - A valid cloth topology asset with vertices and faces
+  - High-contrast red cloth and blue/transparent water
+  initial_state:
+  - A water stream strikes a deformable cloth curtain with full two-way coupling, loading the cloth while
+    the moving cloth redirects the free surface.
+  required_events:
+  - Qualitative/quantitative - leakage across cloth
+  - Cloth displacement
+  - Water volume
+  - Thin-sheet/spray detail
+  - Coupling stability
+  - The incoming water stream must visibly hit the cloth before spreading or pooling
+camera_requirements:
+- Use a three-quarter view that simultaneously exposes each coupled phase or body, their interface, the
+  main transfer or contact region, and the final distribution.
+- Keep the cloth surface red and water blue/transparent so the coupling interface is easy to judge.
+parameter_notes:
+- 'Original paper parameters/configuration: 256 x 256 x 192 effective octree resolution; 30K cloth triangles.'

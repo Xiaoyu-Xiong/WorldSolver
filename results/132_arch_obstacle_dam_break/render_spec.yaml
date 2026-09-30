@@ -1,0 +1,16 @@
+schema_version: 2
+profile: liquid_in_container
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: ground, method: rigid_mesh, material: matte, color_rgb: [0.22, 0.25, 0.30]}
+  - {object_id: arch_left, method: rigid_mesh, material: stone, color_rgb: [0.58, 0.52, 0.44]}
+  - {object_id: arch_right, method: rigid_mesh, material: stone, color_rgb: [0.58, 0.52, 0.44]}
+  - {object_id: arch_top, method: rigid_mesh, material: stone, color_rgb: [0.68, 0.62, 0.52]}
+  - {object_id: dam_gate, method: rigid_mesh, material: gate, color_rgb: [0.66, 0.48, 0.22], opacity: 0.75}
+  - object_id: subject
+    method: reconstructed_surface
+    material: default
+    color_rgb: [0.06, 0.42, 0.88]
+    surface_pitch: 0.10
+    surface_smoothing: 1.0

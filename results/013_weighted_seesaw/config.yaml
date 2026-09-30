@@ -1,0 +1,22 @@
+schema_version: 1
+scene_id: 013_weighted_seesaw
+seed: 13013
+duration: 6.0
+sample_dt: 0.02
+camera:
+  position:
+  - 4.8
+  - 5.2
+  - 3.6
+  look_at:
+  - 0.0
+  - 0.0
+  - 0.65
+  up:
+  - 0.0
+  - 0.0
+  - 1.0
+  width: 960
+  height: 640
+  fps: 50
+visual_judge_frame_count: 20

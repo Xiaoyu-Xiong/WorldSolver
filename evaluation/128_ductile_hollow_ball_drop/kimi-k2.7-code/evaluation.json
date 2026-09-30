@@ -1,0 +1,151 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 26142738,
+          "trajectory_frames": 211,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "Total represented material mass follows the exported cumulative source and remains conserved when no source or sink is active.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "initial_quantity": [
+            5630.688
+          ],
+          "sample_count": 211,
+          "worst_frame_index": 0
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.0,
+        "profile": "particles_and_granular_materials",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "dynamics.linear_momentum_balance.v1",
+        "criterion": "The time rate of total material momentum is consistent with exported external forces.",
+        "criterion_id": "linear_momentum_balance",
+        "details": {
+          "error": "Missing calculator input fields: ['fields.external_force']",
+          "missing_fields": [
+            "fields.external_force"
+          ]
+        },
+        "dimension": "momentum_and_force_balance",
+        "domain": "physics",
+        "metric": "momentum_balance_relative_l2",
+        "normalized_error": null,
+        "profile": "particles_and_granular_materials",
+        "reduction": {
+          "type": "maximum"
+        },
+        "status": "measurement_error",
+        "unit": "dimensionless",
+        "score": 0.0
+      },
+      {
+        "calculator": "deformation.jacobian.v1",
+        "criterion": "Exported material deformation gradients preserve positive local orientation away from explicitly separated fracture surfaces.",
+        "criterion_id": "admissible_local_deformation",
+        "details": {
+          "sample_count": 211,
+          "worst_frame_index": 16
+        },
+        "dimension": "deformation_constraints",
+        "domain": "physics",
+        "metric": "nonpositive_jacobian_fraction",
+        "normalized_error": 0.31513157894736843,
+        "profile": "particles_and_granular_materials",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 68.48684210526315
+      },
+      {
+        "calculator": "contact.penetration.v1",
+        "criterion": "Active material-solid contacts maintain nonnegative signed gaps up to the frozen contact tolerance.",
+        "criterion_id": "nonpenetrating_rigid_contact",
+        "details": {
+          "sample_count": 211,
+          "worst_frame_index": 21
+        },
+        "dimension": "contact_and_interface_conditions",
+        "domain": "physics",
+        "metric": "penetration_relative_max",
+        "normalized_error": 0.01671534478347323,
+        "profile": "particles_and_granular_materials",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 74.9452770757261
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.06523802572120037,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.642
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.1225724275683565,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.674
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.1103449137930698,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.5780000000000001
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0332264954516723,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.16599999999999998
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "physics_measurement_error",
+  "task_id": "128_ductile_hollow_ball_drop",
+  "visual_score": 0.515,
+  "visual_fidelity_score": 51.5,
+  "physical_plausibility_score": 60.85802979524731,
+  "total_score": 56.17901489762366
+}

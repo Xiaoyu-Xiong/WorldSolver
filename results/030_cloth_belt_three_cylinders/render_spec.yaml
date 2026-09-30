@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "profile": "cloth_shell",
+  "environment": "studio_dark",
+  "camera": "frozen_config",
+  "bindings": [
+    {
+      "object_id": "cylinder_left",
+      "method": "rigid_mesh",
+      "material": "metal"
+    },
+    {
+      "object_id": "cylinder_right",
+      "method": "rigid_mesh",
+      "material": "metal"
+    },
+    {
+      "object_id": "cylinder_top",
+      "method": "rigid_mesh",
+      "material": "metal"
+    },
+    {
+      "object_id": "closed_cloth_belt",
+      "method": "shell_surface",
+      "material": "default",
+      "subdivision": 1
+    }
+  ]
+}
+

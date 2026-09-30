@@ -1,0 +1,105 @@
+schema_version: 1
+scene_id: 147_bike_chain_kinematic_sprocket
+seed: 15147
+duration: 8.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+variant: bike_chain_kinematic_sprocket
+gravity: [0.0, 0.0, -9.81]
+contact: {friction: 0.55, restitution: 0.12, length_scale: 0.02}
+bodies:
+  - id: chain_0
+    position: [1.65,0,1.15]
+    orientation: [0,0,0,1]
+    mass: 0.12
+  - id: chain_1
+    position: [1.5692432518870032,0,1.372492235949962]
+    orientation: [0,0,0,1]
+    mass: 0.12
+  - id: chain_2
+    position: [1.3348780407186631,0,1.5732053816505807]
+    orientation: [0,0,0,1]
+    mass: 0.12
+  - id: chain_3
+    position: [0.9698456662825806,0,1.732492235949962]
+    orientation: [0,0,0,1]
+    mass: 0.12
+  - id: chain_4
+    position: [0.5098780407186633,0,1.8347606917325106]
+    orientation: [0,0,0,1]
+    mass: 0.12
+  - id: chain_5
+    position: [1.0103336092965664e-16,0,1.8699999999999999]
+    orientation: [0,0,0,1]
+    mass: 0.12
+  - id: chain_6
+    position: [-0.509878040718663,0,1.8347606917325106]
+    orientation: [0,0,0,1]
+    mass: 0.12
+  - id: chain_7
+    position: [-0.9698456662825804,0,1.732492235949962]
+    orientation: [0,0,0,1]
+    mass: 0.12
+  - id: chain_8
+    position: [-1.3348780407186631,0,1.5732053816505807]
+    orientation: [0,0,0,1]
+    mass: 0.12
+  - id: chain_9
+    position: [-1.5692432518870032,0,1.372492235949962]
+    orientation: [0,0,0,1]
+    mass: 0.12
+  - id: chain_10
+    position: [-1.65,0,1.15]
+    orientation: [0,0,0,1]
+    mass: 0.12
+  - id: chain_11
+    position: [-1.5692432518870036,0,0.9275077640500382]
+    orientation: [0,0,0,1]
+    mass: 0.12
+  - id: chain_12
+    position: [-1.3348780407186633,0,0.7267946183494194]
+    orientation: [0,0,0,1]
+    mass: 0.12
+  - id: chain_13
+    position: [-0.9698456662825808,0,0.5675077640500379]
+    orientation: [0,0,0,1]
+    mass: 0.12
+  - id: chain_14
+    position: [-0.5098780407186635,0,0.4652393082674894]
+    orientation: [0,0,0,1]
+    mass: 0.12
+  - id: chain_15
+    position: [-3.031000827889699e-16,0,0.42999999999999994]
+    orientation: [0,0,0,1]
+    mass: 0.12
+  - id: chain_16
+    position: [0.5098780407186629,0,0.46523930826748927]
+    orientation: [0,0,0,1]
+    mass: 0.12
+  - id: chain_17
+    position: [0.9698456662825803,0,0.5675077640500377]
+    orientation: [0,0,0,1]
+    mass: 0.12
+  - id: chain_18
+    position: [1.3348780407186631,0,0.7267946183494192]
+    orientation: [0,0,0,1]
+    mass: 0.12
+  - id: chain_19
+    position: [1.5692432518870032,0,0.9275077640500377]
+    orientation: [0,0,0,1]
+    mass: 0.12
+  - id: sprocket_left
+    position: [-1.15,0,1.15]
+    orientation: [0,0,0,1]
+    mass: 2
+  - id: sprocket_right
+    position: [1.15,0,1.15]
+    orientation: [0,0,0,1]
+    mass: 2
+camera:
+  position: [4.8, -7.2, 3.6]
+  look_at: [0.0, 0.0, 1.15]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

@@ -1,0 +1,24 @@
+schema_version: 1
+scene_id: 129_lava_spout_periodic_folding
+seed: 12129
+duration: 7.0
+sample_dt: 0.03333333333333333
+visual_judge_frame_count: 20
+scene_family: plastic
+variant: lava_spout_periodic_folding
+gravity: [0.0, 0.0, -9.81]
+sampling:
+  spacing: 0.14
+  density: 1350
+  blocks:
+  - [-0.18,-0.18,0.1,0.18,0.18,2.8]
+  field_grid_shape: [24, 16, 28]
+camera:
+  position: [4.6, -6.8, 3.4]
+  look_at: [0.0, 0.0, 1.35]
+  up: [0.0, 0.0, 1.0]
+  projection: orthographic
+  orthographic_height: 3.80
+  width: 960
+  height: 640
+  fps: 50

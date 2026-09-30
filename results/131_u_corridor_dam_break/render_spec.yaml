@@ -1,0 +1,16 @@
+schema_version: 2
+profile: liquid_in_container
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: ground, method: rigid_mesh, material: matte, color_rgb: [0.22, 0.25, 0.30]}
+  - {object_id: corridor_left_wall, method: rigid_mesh, material: matte, color_rgb: [0.32, 0.35, 0.40]}
+  - {object_id: corridor_right_wall, method: rigid_mesh, material: matte, color_rgb: [0.32, 0.35, 0.40]}
+  - {object_id: corridor_end_wall, method: rigid_mesh, material: matte, color_rgb: [0.32, 0.35, 0.40]}
+  - {object_id: dam_gate, method: rigid_mesh, material: gate, color_rgb: [0.66, 0.48, 0.22], opacity: 0.75}
+  - object_id: subject
+    method: reconstructed_surface
+    material: default
+    color_rgb: [0.06, 0.42, 0.88]
+    surface_pitch: 0.075
+    surface_smoothing: 0.85

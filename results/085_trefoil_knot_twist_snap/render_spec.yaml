@@ -1,0 +1,17 @@
+schema_version: 2
+profile: fiber_rods
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - object_id: trefoil_rod
+    method: curve_tubes
+    material: silicone_rod
+    color_rgb: [0.93, 0.72, 0.22]
+  - object_id: left_clamp
+    method: rigid_mesh
+    material: clamp_dark
+    color_rgb: [0.12, 0.14, 0.17]
+  - object_id: driven_right_clamp
+    method: rigid_mesh
+    material: driven_clamp_blue
+    color_rgb: [0.12, 0.38, 0.72]

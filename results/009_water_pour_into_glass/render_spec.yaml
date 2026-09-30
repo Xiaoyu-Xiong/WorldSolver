@@ -1,0 +1,20 @@
+schema_version: 2
+profile: liquid_in_container
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - object_id: clear_cylindrical_glass
+    method: rigid_mesh
+    material: glass
+    opacity: 0.22
+    subdivision: 2
+  - object_id: pouring_source
+    method: rigid_mesh
+    material: red_wine
+    subdivision: 2
+  - object_id: poured_water
+    method: reconstructed_surface
+    material: red_wine
+    surface_pitch: 0.014
+    surface_smoothing: 0.75
+    subdivision: 1

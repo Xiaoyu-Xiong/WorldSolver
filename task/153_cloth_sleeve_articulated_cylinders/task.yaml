@@ -1,0 +1,30 @@
+id: 153_cloth_sleeve_articulated_cylinders
+title: Cloth Sleeve on Articulated Cylinders
+category: cloth_and_shells
+source:
+  title: Adaptive Anisotropic Remeshing for Cloth Simulation
+  url: https://graphics.berkeley.edu/papers/Narain-AAR-2012-11/Narain-AAR-2012-11.pdf
+  anchor: Figure 9
+goal: >-
+  Recreate the paper's clearly visible cloth sleeve on articulated cylinders phenomenon. The implementation method is unrestricted;
+  evaluation targets thin-material motion, folds or tears, contact response, and the characteristic outcome.
+scene_requirements:
+  required_elements:
+  - Tubular cloth sleeve
+  - Two or more articulated cylinders
+  - Driven joint motion
+  - Frictional cloth-body contact
+  initial_state:
+  - A fitted cloth sleeve surrounds aligned articulated cylinders in a relaxed pose.
+  required_events:
+  - The joint bends and brings neighboring sleeve regions into compression.
+  - The sleeve slides over the cylinders and develops localized folds around the bending joint.
+  - Wrinkles reorganize smoothly through the motion without snagging, penetration, or excessive stretch.
+  - Motion remains temporally coherent and all non-tearing regions preserve sheet connectivity.
+camera_requirements:
+- Use an oblique close view that reveals the joint angle, sleeve silhouette, and fold field.
+- Use lighting and material contrast that make folds, wrinkles, contacts, and any crack tip readable.
+parameter_notes:
+- Match the qualitative geometry, stiffness regime, and event ordering shown in Figure 9; mesh resolution may be adapted.
+- Export cloth mass, position, velocity, external force, surface deformation gradients, and signed contact distances.
+

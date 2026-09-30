@@ -1,0 +1,18 @@
+schema_version: 2
+profile: cloth_shell
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - object_id: ground
+    method: rigid_mesh
+    material: matte
+  - object_id: sharp_edge
+    method: rigid_mesh
+    material: metal
+  - object_id: sharp_point
+    method: rigid_mesh
+    material: metal
+  - object_id: falling_square_cloth
+    method: shell_surface
+    material: default
+    subdivision: 1

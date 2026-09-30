@@ -1,0 +1,35 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: floor
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [2.8, 1.8, 0.04]
+    transform:
+      translation: [-0.75, 0.0, -0.04]
+    material_id: floor_matte
+    collision_enabled: true
+  - id: impact_wall
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [0.08, 1.2, 1.35]
+    transform:
+      translation: [0.08, 0.0, 1.35]
+    material_id: wall_stone
+    collision_enabled: true
+  - id: snowball_particles
+    semantic: granular
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [-2.07, -0.42, 0.76]
+      bounds_max: [-1.23, 0.42, 1.60]
+    state_binding:
+      selector: all
+    material_id: packing_snow
+    collision_enabled: true

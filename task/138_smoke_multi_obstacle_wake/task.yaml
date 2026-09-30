@@ -1,0 +1,30 @@
+id: 138_smoke_multi_obstacle_wake
+title: Smoke Through Multiple Obstacles
+category: fluid_dynamics
+source:
+  title: Visual Simulation of Smoke
+  url: https://graphics.stanford.edu/~henrik/papers/smoke/smoke.pdf
+  anchor: Figure 4
+goal: >-
+  Recreate the paper's clearly visible smoke through multiple obstacles phenomenon. The implementation method is unrestricted;
+  evaluation targets the observable flow evolution, boundary interaction, signature structure, and final state.
+scene_requirements:
+  required_elements:
+  - Buoyant smoke source
+  - Multiple rigid obstacles
+  - Enclosed domain
+  - Impermeable walls
+  initial_state:
+  - Smoke begins below an arrangement of separated rigid obstacles.
+  required_events:
+  - The rising plume first reaches the lowest obstacle and divides around it.
+  - Successive obstacles redirect the plume and generate alternating wakes and vortical roll-up.
+  - The final plume retains a readable obstacle-induced wake hierarchy rather than diffusing uniformly.
+  - The represented fluid remains continuous and respects rigid boundaries throughout the event.
+camera_requirements:
+- Use a front or side view in which every obstacle and downstream wake is visible.
+- Use contrasting fluid and obstacle colors and keep the complete phenomenon inside frame.
+parameter_notes:
+- Match the qualitative scale, flow regime, and event ordering shown in Figure 4; geometric simplification is allowed.
+- Export collocated velocity diagnostics, active masks, boundary samples, and transported liquid or smoke fields.
+

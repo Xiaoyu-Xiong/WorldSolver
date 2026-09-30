@@ -1,0 +1,21 @@
+schema_version: 2
+profile: deformable_surface
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - object_id: ground
+    method: rigid_mesh
+    material: ground_matte
+    color_rgb: [0.12, 0.14, 0.18]
+  - object_id: soft_bear_exterior
+    method: deformed_mesh
+    material: translucent_blue_gummy
+    color_rgb: [0.20, 0.24, 0.78]
+    opacity: 0.38
+    subdivision: 1
+  - object_id: stiff_bear_interior
+    method: deformed_mesh
+    material: stiff_magenta_core
+    color_rgb: [0.95, 0.14, 0.46]
+    opacity: 0.92
+    subdivision: 1

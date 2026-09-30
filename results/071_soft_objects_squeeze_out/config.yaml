@@ -1,0 +1,35 @@
+schema_version: 1
+scene_id: 071_soft_objects_squeeze_out
+seed: 71021
+duration: 8.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+initial_conditions:
+  soft_body_count: 5
+  all_bodies_initially_separated: true
+  initial_velocity: [0.0, 0.0, 0.0]
+boundary_conditions:
+  tube_axis: z
+  chamber_inner_half_width: 0.72
+  chamber_inner_half_depth: 0.52
+  outlet_half_width: 0.34
+  outlet_half_depth: 0.13
+  outlet_center_z: 0.0
+  plate_motion:
+    object_id: pusher_plate
+    type: prescribed_translation
+    start_time: 0.5
+    end_time: 5.8
+    start_translation: [0.0, 0.0, 4.85]
+    end_translation: [0.0, 0.0, 0.58]
+    hold_after_end: true
+camera:
+  position: [7.4, -9.8, 5.4]
+  look_at: [0.0, 0.0, 1.75]
+  up: [0.0, 0.0, 1.0]
+  projection: perspective
+  focal_length_mm: 54
+  width: 960
+  height: 640
+  fps: 50

@@ -1,0 +1,52 @@
+schema_version: 1
+scene_id: 045_pouring_sand
+seed: 45017
+duration: 8.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity:
+- 0.0
+- 0.0
+- -9.81
+initial_conditions:
+  description: Dry sand initially fills the hopper and its outlet, with an established
+    falling stream below the neck.
+  particle_spacing: 0.026
+  nominal_grain_radius: 0.013
+  bulk_density: 1550.0
+  initial_velocity:
+  - 0.0
+  - 0.0
+  - 0.0
+  visible_reservoir:
+    require_many_grains_in_hopper: true
+    initial_hopper_fill_height: 2.26
+    hopper_must_be_transparent_or_cutaway: true
+boundary_conditions:
+  floor: fixed_no_penetration_contact
+  hopper: fixed_no_penetration_contact
+  outlet: open
+event_sequence:
+- gravity_driven_discharge
+- stream_breakup_and_floor_impact
+- pile_growth_and_runout
+- relaxation_to_stable_repose
+- visible_hopper_inventory_decreases_as_pile_grows
+camera:
+  position:
+  - 2.85
+  - -3.85
+  - 2.55
+  look_at:
+  - 0.0
+  - 0.0
+  - 1.08
+  up:
+  - 0.0
+  - 0.0
+  - 1.0
+  focal_length_mm: 52
+  width: 960
+  height: 640
+  fps: 50
+  yfov_degrees: 35

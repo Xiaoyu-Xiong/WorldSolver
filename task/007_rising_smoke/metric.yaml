@@ -1,0 +1,87 @@
+schema_version: 4
+task_id: 007_rising_smoke
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The submitted solver runs to the frozen end time, produces a complete finite trajectory
+      with every required evaluation field, and produces a readable platform render without exceeding
+      the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: A buoyant smoke column visibly rises from its source into the unobstructed domain.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: The plume head rolls up and develops visible vortices along its sides.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: The vortical smoke structures persist while being carried upward and gradually broaden
+      rather than immediately smearing away.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: Smoke density evolves continuously without abrupt disappearance, disconnected blocks, or
+      material appearing outside the active plume.
+  physics:
+  - id: material_mass_balance
+    profile: fluids_and_gases
+    dimension: conservation_and_source_balance
+    criterion: For the smoke scalar, the mass change equals the cumulative prescribed inflow, outflow,
+      or phase-transfer source; internal motion and contact do not create or delete mass.
+    applicability:
+      requires:
+      - the smoke source history is exported
+      - Per-sample mass contributions are exported for every evaluated material.
+      excludes:
+      - Unreported particle deletion or remeshing loss.
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: incompressible_velocity_constraint
+    profile: fluids_and_gases
+    dimension: field_constraints
+    criterion: In the active incompressible region of the carrier flow, the velocity field is approximately
+      divergence free.
+    applicability:
+      requires:
+      - The frozen material model is incompressible.
+      - A collocated velocity grid and active-region mask are exported.
+      excludes:
+      - Compressible material regions and prescribed source cells.
+    numeric_binding:
+      calculator: field.divergence.v1
+      inputs:
+        velocity_field: fields.velocity_field
+        active_mask: fields.active_mask
+        grid_spacing: scalars.grid_spacing
+        characteristic_length: scalars.characteristic_length
+      parameters:
+        spatial_dimensions: 3
+      reduction:
+        type: maximum
+  - id: transported_scalar_consistency
+    profile: fluids_and_gases
+    dimension: transport_equation_consistency
+    criterion: The exported smoke density in rising smoke evolves consistently with its collocated velocity
+      and prescribed local source.
+    applicability:
+      requires:
+      - The smoke density, carrier velocity, source field, and active mask are exported on one grid.
+      excludes:
+      - Unmodeled subgrid injection or removal of the scalar.
+    numeric_binding:
+      calculator: field.scalar_transport.v1
+      inputs:
+        scalar_field: fields.transported_scalar
+        velocity_field: fields.velocity_field
+        source_field: fields.scalar_source
+        active_mask: fields.active_mask
+        grid_spacing: scalars.grid_spacing
+      parameters:
+        spatial_dimensions: 3
+      reduction:
+        type: maximum

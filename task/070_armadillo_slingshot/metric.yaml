@@ -1,0 +1,100 @@
+schema_version: 4
+task_id: 070_armadillo_slingshot
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The solver reaches the frozen end time, exports all required finite trajectory fields,
+      and produces a readable render within the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: The temporary pull stretches the Armadillo away from its fixed grasp points.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: The stretched limbs and body become visibly longer and thinner as the pull increases.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: After the pulling constraint is released, the body moves rapidly back and swings past its
+      earlier position while the fixed grasp points remain held.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: The limbs remain attached to the torso and to the retained grasp points. No pieces shoot
+      away from the body, and the body does not disappear and reappear elsewhere.
+  physics:
+  - id: material_mass_balance
+    profile: deformable_solids
+    dimension: conservation_and_source_balance
+    criterion: Each deformable body retains its initial material mass. Mass transferred numerically between
+      bodies must not cancel in an aggregate total; this scene has no material sources or sinks.
+    applicability:
+      requires:
+      - Export actual per-sample masses in attributes.mass_quantity [N,G], one fixed column per deformable
+        body and zeros outside that body.
+      - Export fields.cumulative_mass_source as zeros [G]; retain every material contribution throughout
+        the trajectory.
+      excludes: []
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: orientation_preserving_deformation
+    profile: deformable_solids
+    dimension: deformation_validity
+    criterion: Every volumetric material element retains det(F) > 0. Report the maximum fraction of nonpositive
+      determinants across frames, including elements hidden inside the material.
+    applicability:
+      requires:
+      - Export fields.element_deformation_gradient [Ne,3,3] computed from current and reference geometry for
+        all volumetric evaluation elements.
+      - The evaluation mesh and reference geometry are fixed before the run; do not omit highly compressed
+        or interior elements.
+      excludes: []
+    numeric_binding:
+      calculator: deformation.jacobian.v1
+      inputs:
+        deformation_gradient: fields.element_deformation_gradient
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: linear_momentum_impulse_balance
+    profile: deformable_solids
+    dimension: momentum_and_force_balance
+    criterion: Over each adjacent output interval, the momentum change of each selected deformable body
+      equals its external force integral plus its recorded external impulses. Internal forces within that
+      body do not change its total momentum.
+    applicability:
+      requires:
+      - Export actual nodal masses state.mass [N], velocities state.velocity [N,3], and fixed body membership
+        fields.budget_domain_weights [G,N], one row for each deformable body.
+      - Account for the temporary pull, retained grasp reactions, and any configured body forces. Export
+        smooth force terms in fields.budget_external_force [G,K,3]; accumulate rapidly varying contact
+        and constraint impulses from all internal substeps in fields.budget_cumulative_external_impulse
+        [G,3]. Never count a force contribution in both channels.
+      - Export zero cumulative inflow and outflow momentum [G,3], since each body is a closed material
+        domain.
+      - Freeze scalars.reference_momentum = M_ref * V_ref > 0 from the configured body mass and characteristic
+        motion speed before the run; do not use the initially zero net momentum as the scale.
+      - Force and impulse records must come from actual applied updates, not from the momentum difference
+        being checked.
+      excludes: []
+    numeric_binding:
+      calculator: dynamics.momentum_budget.v1
+      inputs:
+        mass: state.mass
+        velocity: state.velocity
+        domain_weights: fields.budget_domain_weights
+        external_force: fields.budget_external_force
+        cumulative_external_impulse: fields.budget_cumulative_external_impulse
+        cumulative_inflow_momentum: fields.budget_cumulative_inflow_momentum
+        cumulative_outflow_momentum: fields.budget_cumulative_outflow_momentum
+        reference_momentum: scalars.reference_momentum
+      parameters:
+        mode: dynamic
+        integration: trapezoidal
+        window: adjacent_frames
+      reduction:
+        type: maximum

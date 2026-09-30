@@ -1,0 +1,33 @@
+id: 030_cloth_belt_three_cylinders
+title: Cloth Belt Three Cylinders
+category: cloth_and_shells
+source:
+  title: An Implicit Frictional Contact Solver for Adaptive Cloth Simulation
+  url: https://www-users.cselabs.umn.edu/~lixx4611/files/clothNodalContactSolver.pdf
+  anchor: Figure 7; PDF page 10
+goal: Recreate the observable physical phenomenon in which a closed cloth belt is tensioned by an upward-moving
+  cylinder, then transported by two rotating outer cylinders through friction. The outer cylinders complete a
+  forward revolution, pause, and reverse while the belt remains taut and in stable contact.
+scene_requirements:
+  required_elements:
+  - Closed cloth belt
+  - Three prescribed kinematic parallel cylinders
+  - Triangular cylinder arrangement
+  - Frictional contact
+  - Cloth named by the scene
+  - Cylinder contact surfaces
+  initial_state:
+  - A closed cloth belt initially wraps three cylinders before the middle upper cylinder finishes tensioning it.
+  required_events:
+  - The upper cylinder rises and stretches the closed belt into a taut triangular loop.
+  - The two outer cylinders rotate through one forward revolution and friction visibly transports belt material.
+  - The outer cylinders pause briefly and then reverse through one revolution.
+  - Tracked belt material reverses direction without loss of tension, contact, or loop closure.
+  - The belt does not penetrate the cylinders, explode, chatter strongly, or sag away from the spans.
+camera_requirements:
+- Use a three-quarter view showing attachments, folds or bends, self-contact and external contact regions,
+  and the final drape or configuration without occlusion.
+parameter_notes:
+- 'Original paper configuration: high-tension closed cloth belt and three parallel cylinders as shown in Figure
+  7. The prescribed benchmark sequence raises the upper cylinder, drives the two outer cylinders forward by
+  one revolution, pauses, and reverses them by one revolution.'

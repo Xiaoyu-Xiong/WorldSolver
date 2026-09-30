@@ -1,0 +1,126 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 84926522,
+          "trajectory_frames": 241,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "field.divergence.v1",
+        "criterion": "The active incompressible carrier velocity is approximately divergence free.",
+        "criterion_id": "incompressible_velocity_constraint",
+        "details": {
+          "sample_count": 241,
+          "worst_frame_index": 147
+        },
+        "dimension": "field_constraints",
+        "domain": "physics",
+        "metric": "divergence_relative_l2",
+        "normalized_error": 1.1382542285211061,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 46.76712369658851
+      },
+      {
+        "calculator": "boundary.velocity_residual.v1",
+        "criterion": "Sampled fluid velocity at impermeable rigid boundaries matches the prescribed normal boundary velocity.",
+        "criterion_id": "prescribed_boundary_velocity",
+        "details": {
+          "sample_count": 241,
+          "worst_frame_index": 49
+        },
+        "dimension": "boundary_and_interface_conditions",
+        "domain": "physics",
+        "metric": "normal_velocity_relative_rms",
+        "normalized_error": 0.18871959928072857,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 34.63568121080958
+      },
+      {
+        "calculator": "field.scalar_transport.v1",
+        "criterion": "Exported smoke density evolves consistently with the collocated velocity and prescribed source.",
+        "criterion_id": "transported_smoke_consistency",
+        "details": {
+          "sample_count": 241,
+          "worst_frame_index": 112
+        },
+        "dimension": "transport_equation_consistency",
+        "domain": "physics",
+        "metric": "transport_relative_l2",
+        "normalized_error": 0.36831621570310497,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 63.1683784296895
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.09991996797437439,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.33599999999999997
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.027129319932501075,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.198
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.047497368348151665,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.22199999999999998
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.016000000000000014,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.892
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "138_smoke_multi_obstacle_wake",
+  "visual_score": 0.412,
+  "visual_fidelity_score": 41.199999999999996,
+  "physical_plausibility_score": 48.19039444569586,
+  "total_score": 44.69519722284792
+}

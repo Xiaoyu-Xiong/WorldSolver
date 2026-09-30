@@ -1,0 +1,21 @@
+schema_version: 2
+profile: deformable_surface
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: arm_flesh
+    method: deformed_mesh
+    material: warm_flesh
+    color_rgb: [0.78, 0.36, 0.27]
+    opacity: 1.0
+    subdivision: 2
+  - object_id: humerus_bone
+    method: rigid_mesh
+    material: ivory_bone
+    color_rgb: [0.91, 0.86, 0.70]
+    opacity: 0.28
+  - object_id: forearm_bone
+    method: rigid_mesh
+    material: ivory_bone
+    color_rgb: [0.91, 0.86, 0.70]
+    opacity: 0.28

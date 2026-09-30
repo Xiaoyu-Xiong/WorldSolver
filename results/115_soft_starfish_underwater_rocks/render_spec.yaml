@@ -1,0 +1,24 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: tank_floor, method: rigid_mesh, material: glass, color_rgb: [0.52, 0.68, 0.72], opacity: 0.25}
+  - {object_id: tank_back, method: rigid_mesh, material: glass, color_rgb: [0.45, 0.68, 0.76], opacity: 0.16}
+  - {object_id: tank_front, method: rigid_mesh, material: glass, color_rgb: [0.45, 0.68, 0.76], opacity: 0.10}
+  - {object_id: tank_left, method: rigid_mesh, material: glass, color_rgb: [0.45, 0.68, 0.76], opacity: 0.14}
+  - {object_id: tank_right, method: rigid_mesh, material: glass, color_rgb: [0.45, 0.68, 0.76], opacity: 0.14}
+  - {object_id: rock_01, method: rigid_mesh, material: rock_gray, color_rgb: [0.49, 0.50, 0.48]}
+  - {object_id: rock_02, method: rigid_mesh, material: rock_light, color_rgb: [0.68, 0.68, 0.63]}
+  - {object_id: rock_03, method: rigid_mesh, material: rock_gray, color_rgb: [0.45, 0.47, 0.46]}
+  - {object_id: rock_04, method: rigid_mesh, material: rock_light, color_rgb: [0.66, 0.65, 0.59]}
+  - {object_id: rock_05, method: rigid_mesh, material: rock_light, color_rgb: [0.61, 0.62, 0.59]}
+  - {object_id: rock_06, method: rigid_mesh, material: rock_dark, color_rgb: [0.34, 0.37, 0.36]}
+  - {object_id: rock_07, method: rigid_mesh, material: rock_light, color_rgb: [0.72, 0.70, 0.64]}
+  - {object_id: rock_08, method: rigid_mesh, material: rock_gray, color_rgb: [0.48, 0.50, 0.49]}
+  - {object_id: rock_09, method: rigid_mesh, material: rock_dark, color_rgb: [0.35, 0.38, 0.37]}
+  - {object_id: rock_10, method: rigid_mesh, material: rock_light, color_rgb: [0.69, 0.68, 0.62]}
+  - {object_id: rock_11, method: rigid_mesh, material: rock_dark, color_rgb: [0.39, 0.41, 0.39]}
+  - {object_id: rock_12, method: rigid_mesh, material: rock_light, color_rgb: [0.65, 0.64, 0.59]}
+  - {object_id: water, method: reconstructed_surface, material: clear_water, color_rgb: [0.12, 0.50, 0.68], opacity: 0.58, surface_pitch: 0.018, surface_smoothing: 1.1}
+  - {object_id: soft_starfish, method: deformed_mesh, material: coral_orange, color_rgb: [0.96, 0.25, 0.12], subdivision: 1}

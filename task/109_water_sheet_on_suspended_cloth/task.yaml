@@ -1,0 +1,31 @@
+id: 109_water_sheet_on_suspended_cloth
+title: Water Sheets Flow over Four-Corner Suspended Cloth
+category: multiphysics_coupling
+source:
+  title: Coupling Water and Smoke to Thin Deformable and Rigid Shells
+  url: https://graphics.stanford.edu/papers/thin_shells_fluid_coupling-sig05/
+  anchor: Figure 8; PDF page 7
+goal: 'Recreate the source two-way coupled experiment: Thin water sheets leave the free cloth edges and fall
+  into the receiving region. Prescribe only the stated supports and controls; the remaining solid response
+  and fluid motion must be dynamically coupled.'
+scene_requirements:
+  required_elements:
+  - An impermeable deformable cloth supported at four corners, with free edges.
+  - A water stream directed onto the supported cloth and a receiving domain below it.
+  - The source nozzle and solid domain boundaries, with gravity.
+  - Fluid forces must change the dynamic solid motion or deformation, and the evolving solid must alter the
+    resolved fluid flow. The numerical coupling method is unrestricted.
+  - Use the four-corner water-support configuration of Figure 8, not the vertically hanging curtain of existing
+    case 046.
+  initial_state:
+  - The cloth starts without an imposed water-loaded sag and its four corners remain supported.
+  - The incoming stream reaches the cloth before it can form outflow sheets along the cloth edges.
+  required_events:
+  - The incoming stream visibly lands on the cloth and spreads across its upper surface.
+  - The loaded cloth sags between its four supports as water moves over it.
+  - Thin water sheets leave the free cloth edges and fall into the receiving region.
+camera_requirements:
+- Use a fixed oblique view showing all four supports, the upper cloth surface, free-edge waterfalls, and the
+  region below the cloth.
+- Keep the onset, strongest interaction, and stated outcome visible in a continuous sequence. Passive tracer
+  or wetness colors must follow the simulated state rather than a scripted color change.

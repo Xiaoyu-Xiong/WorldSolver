@@ -1,0 +1,22 @@
+schema_version: 1
+scene_id: 107_flag_limit_cycle_flapping
+seed: 107
+duration: 20.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+physics:
+  dimensionality: 2
+  inflow_velocity: [1.0, 0.0]
+  reynolds_number: 1400
+  mass_ratio: 0.16
+  bending_rigidity: 0.001
+  flag_length: 1.0
+  flag_thickness: 0.05
+  boundary_conditions: left_inflow_right_open_periodic_y
+camera:
+  position: [2.0, 0.0, 8.0]
+  look_at: [2.0, 0.0, 0.0]
+  up: [0.0, 1.0, 0.0]
+  width: 960
+  height: 640
+  fps: 50

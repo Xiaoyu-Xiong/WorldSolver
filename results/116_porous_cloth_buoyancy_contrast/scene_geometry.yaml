@@ -1,0 +1,102 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: tank_floor
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [2.43, 1.08, 0.04]
+    transform:
+      translation: [0.0, 0.0, -0.04]
+    material_id: tank_glass
+    collision_enabled: true
+  - id: tank_back
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [2.43, 0.04, 1.265]
+    transform:
+      translation: [0.0, 1.04, 1.225]
+    material_id: tank_glass
+    collision_enabled: true
+  - id: tank_front
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [2.43, 0.04, 1.265]
+    transform:
+      translation: [0.0, -1.04, 1.225]
+    material_id: tank_glass
+    collision_enabled: true
+  - id: tank_left
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [0.04, 1.0, 1.265]
+    transform:
+      translation: [-2.39, 0.0, 1.225]
+    material_id: tank_glass
+    collision_enabled: true
+  - id: tank_right
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [0.04, 1.0, 1.265]
+    transform:
+      translation: [2.39, 0.0, 1.225]
+    material_id: tank_glass
+    collision_enabled: true
+  - id: water
+    semantic: liquid
+    motion: field
+    geometry:
+      type: particle_domain
+      bounds_min: [-2.35, -1.0, 0.0]
+      bounds_max: [2.35, 1.0, 2.15]
+    state_binding:
+      selector: body_id
+      value: 0
+    material_id: water_clear
+    collision_enabled: false
+  - id: cloth_light
+    semantic: cloth
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      topology_asset: assets/cloth_patch_topology.json
+      grid_shape: [9, 7]
+    state_binding:
+      selector: body_id
+      value: 1
+    material_id: cloth_light
+    collision_enabled: true
+  - id: cloth_neutral
+    semantic: cloth
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      topology_asset: assets/cloth_patch_topology.json
+      grid_shape: [9, 7]
+    state_binding:
+      selector: body_id
+      value: 2
+    material_id: cloth_neutral
+    collision_enabled: true
+  - id: cloth_heavy
+    semantic: cloth
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      topology_asset: assets/cloth_patch_topology.json
+      grid_shape: [9, 7]
+    state_binding:
+      selector: body_id
+      value: 3
+    material_id: cloth_heavy
+    collision_enabled: true

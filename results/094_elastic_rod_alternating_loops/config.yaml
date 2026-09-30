@@ -1,0 +1,58 @@
+schema_version: 1
+scene_id: 094_elastic_rod_alternating_loops
+seed: 94
+duration: 70.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+regime:
+  name: source_quasi_static_alternating_loops
+  quasi_static: true
+  target_pattern: alternating_loops
+  speed_ratio_belt_to_injection: 0.5
+rod:
+  topology_asset: assets/rod_topology.json
+  radius: 0.0016
+  density: 1180.0
+  young_modulus: 1300000.0
+  poisson_ratio: 0.49
+  gravito_bending_length: 0.033
+  naturally_straight: true
+  inextensible: true
+  total_available_length: 2.10
+  initial_deployed_length: 0.515
+  self_contact_required: false
+injector:
+  center: [0.0, 0.0, 0.518]
+  axis: [0.0, 0.0, -1.0]
+  outlet_position: [0.0, 0.0, 0.503]
+  injection_speed: 0.020
+  start_time: 0.0
+  end_time: 70.0
+  inlet_position_controlled: true
+  inlet_direction_controlled: true
+belt:
+  center: [0.30, 0.0, -0.012]
+  half_extents: [0.75, 0.22, 0.012]
+  surface_z: 0.0
+  travel_direction: [1.0, 0.0, 0.0]
+  speed: 0.010
+  deposited_rod_condition: sticking_to_moving_belt
+initial_conditions:
+  description: straight hanging rod with a shallow heel and one short newly contacted seed on the already-moving belt
+  injector_and_belt_started: true
+  developed_pattern_present: false
+  deposited_nodes_move_with_belt: true
+event_sequence:
+  - continuous_downward_injection_onto_translating_belt
+  - contact_point_turns_back_repeatedly_on_alternating_sides
+  - successive_left_and_right_loops_form_about_belt_aligned_trace
+  - belt_carries_sticking_deposited_pattern_in_positive_x
+camera:
+  position: [0.94, -1.08, 0.66]
+  look_at: [0.20, 0.0, 0.19]
+  up: [0.0, 0.0, 1.0]
+  focal_length_mm: 48
+  width: 960
+  height: 640
+  fps: 50

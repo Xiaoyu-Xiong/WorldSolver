@@ -1,0 +1,67 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: tank_bottom
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [2.4, 1.8, 0.10]}
+    transform: {translation: [0.0, 0.0, -0.10]}
+    material_id: tank_dark
+    collision_enabled: true
+  - id: tank_back
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [2.4, 0.06, 1.9]}
+    transform: {translation: [0.0, 1.74, 1.9]}
+    material_id: tank_wall
+    collision_enabled: true
+  - id: tank_left
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.06, 1.8, 1.9]}
+    transform: {translation: [-2.34, 0.0, 1.9]}
+    material_id: tank_wall
+    collision_enabled: true
+  - id: tank_right
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.06, 1.8, 1.9]}
+    transform: {translation: [2.34, 0.0, 1.9]}
+    material_id: tank_wall
+    collision_enabled: true
+  - id: boat_shell
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/open_boat.obj}
+    transform: {translation: [0.0, 0.0, 1.82]}
+    state_binding: {selector: body_id, value: 0}
+    material_id: boat_red
+    collision_enabled: true
+  - id: water
+    semantic: liquid
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [-2.28, -1.68, 0.02]
+      bounds_max: [2.28, 1.68, 3.35]
+    state_binding: {selector: body_id, value: 1}
+    material_id: clear_water
+    collision_enabled: true
+  - id: overhead_inlet
+    semantic: emitter
+    motion: static
+    geometry: {type: cylinder, radius: 0.22, height: 0.35}
+    transform: {translation: [0.0, 0.0, 3.55]}
+    material_id: inlet_metal
+    collision_enabled: false
+  - id: visible_inlet_stream
+    semantic: liquid
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [-0.16, -0.16, 2.35]
+      bounds_max: [0.16, 0.16, 3.35]
+    state_binding: {selector: attribute, attribute_name: water_region, value: 3}
+    material_id: inlet_blue_stream
+    collision_enabled: false

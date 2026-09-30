@@ -1,0 +1,39 @@
+schema_version: 1
+scene_id: 004_buoyant_smoke_box
+seed: 40615
+duration: 8.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+domain:
+  bounds_min: [-0.75, -0.75, 0.0]
+  bounds_max: [0.75, 0.75, 3.0]
+  boundary_condition: closed_no_penetration
+initial_conditions:
+  power_particle_count: 20000
+  passive_marker_count: 120000
+  reference_passive_marker_count: 2000000
+  ambient_temperature: 0.0
+  source_temperature: 1.0
+  source_center: [0.0, 0.0, 0.12]
+  source_radius: 0.28
+  source_height: 0.24
+  initial_velocity: [0.0, 0.0, 0.0]
+field_layout:
+  grid_shape: [32, 32, 64]
+  required_fields: [smoke_density, velocity_field]
+diagnostics:
+  required_scalars: [divergence_l2, divergence_max, relative_volume_error]
+  target_divergence_l2: 0.001
+  target_relative_volume_error: 0.001
+camera:
+  projection: orthographic
+  orthographic_height: 3.7
+  position: [0.0, -6.0, 1.42]
+  look_at: [0.0, 0.0, 1.42]
+  up: [0.0, 0.0, 1.0]
+  point_radius: 0.6
+  shadows: false
+  background_rgb: [0.035, 0.045, 0.065]
+  width: 960
+  height: 640
+  fps: 50

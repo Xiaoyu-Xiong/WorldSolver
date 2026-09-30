@@ -1,0 +1,148 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 52400564,
+          "trajectory_frames": 301,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "For fountain, the mass change equals the cumulative prescribed inflow, outflow, or phase-transfer source; internal motion and contact do not create or delete mass.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "initial_quantity": [
+            2198.567499999999
+          ],
+          "sample_count": 301,
+          "worst_frame_index": 299
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 3.909238598202773e-14,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 99.99999999960907
+      },
+      {
+        "calculator": "field.divergence.v1",
+        "criterion": "In the active incompressible region of fountain, the velocity field is approximately divergence free.",
+        "criterion_id": "incompressible_velocity_constraint",
+        "details": {
+          "sample_count": 301,
+          "worst_frame_index": 282
+        },
+        "dimension": "field_constraints",
+        "domain": "physics",
+        "metric": "divergence_relative_l2",
+        "normalized_error": 10.483194796070823,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 8.708377918853799
+      },
+      {
+        "calculator": "boundary.velocity_residual.v1",
+        "criterion": "At impermeable or moving boundaries in fountain, the sampled material velocity matches the prescribed normal boundary velocity.",
+        "criterion_id": "prescribed_boundary_velocity",
+        "details": {
+          "sample_count": 301,
+          "worst_frame_index": 211
+        },
+        "dimension": "boundary_and_interface_conditions",
+        "domain": "physics",
+        "metric": "normal_velocity_relative_rms",
+        "normalized_error": 0.6233974584120766,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 13.823659295058782
+      },
+      {
+        "calculator": "interface.level_set_kinematic.v1",
+        "criterion": "Where fountain has no prescribed interfacial mass transfer, its material interface is advected consistently by the collocated velocity field.",
+        "criterion_id": "material_interface_kinematics",
+        "details": {
+          "sample_count": 301,
+          "worst_frame_index": 0
+        },
+        "dimension": "boundary_and_interface_conditions",
+        "domain": "physics",
+        "metric": "kinematic_relative_l2",
+        "normalized_error": 0.9626705330520792,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 3.732946694792083
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.07730459236035074,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.27199999999999996
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.009797958971132713,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.042
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.01673320053068151,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.06
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.019390719429665314,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.048
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "002_fountain",
+  "visual_score": 0.1055,
+  "visual_fidelity_score": 10.549999999999999,
+  "physical_plausibility_score": 31.566245977078434,
+  "total_score": 21.058122988539218
+}

@@ -1,0 +1,52 @@
+schema_version: 1
+scene_id: 015_rigid_card_house_block_impacts
+seed: 15015
+duration: 12.0
+sample_dt: 0.02
+gravity:
+- 0.0
+- 0.0
+- -9.81
+contact_parameters:
+  friction_coefficient: 0.8
+  restitution: 0.1
+initial_conditions:
+  card_house_equilibrium: static
+  impact_block_release_times:
+  - 1.5
+  - 5.0
+  - 8.5
+  impact_block_initial_velocity:
+  - 0.0
+  - 0.0
+  - 0.0
+event_windows:
+  pre_impact_equilibrium:
+  - 0.0
+  - 1.5
+  first_impact_and_settling:
+  - 1.5
+  - 5.0
+  second_impact_and_settling:
+  - 5.0
+  - 8.5
+  third_impact_and_final_settling:
+  - 8.5
+  - 12.0
+camera:
+  position:
+  - 5.8
+  - -7.2
+  - 4.6
+  look_at:
+  - 0.0
+  - 0.0
+  - 1.15
+  up:
+  - 0.0
+  - 0.0
+  - 1.0
+  width: 960
+  height: 640
+  fps: 50
+visual_judge_frame_count: 20

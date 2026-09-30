@@ -1,0 +1,150 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 27037956,
+          "trajectory_frames": 181,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "For cloth edge point contact, the mass change equals the cumulative prescribed inflow, outflow, or phase-transfer source; internal motion and contact do not create or delete mass.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "initial_quantity": [
+            0.42
+          ],
+          "sample_count": 181,
+          "worst_frame_index": 0
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.0,
+        "profile": "cloth_thin_shells_and_fibers",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "deformation.jacobian.v1",
+        "criterion": "Material elements in cloth edge point contact retain a positive deformation Jacobian except where the case explicitly performs a represented topology change.",
+        "criterion_id": "orientation_preserving_deformation",
+        "details": {
+          "sample_count": 181,
+          "worst_frame_index": 49
+        },
+        "dimension": "deformation_validity",
+        "domain": "physics",
+        "metric": "nonpositive_jacobian_fraction",
+        "normalized_error": 0.4098750743604997,
+        "profile": "cloth_thin_shells_and_fibers",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 59.012492563950026
+      },
+      {
+        "calculator": "contact.penetration.v1",
+        "criterion": "During cloth edge point contact, solid-solid and solid-boundary contacts maintain nonnegative geometric gaps up to the contact tolerance and do not permit persistent interpenetration.",
+        "criterion_id": "nonpenetrating_contact",
+        "details": {
+          "sample_count": 181,
+          "worst_frame_index": 29
+        },
+        "dimension": "contact_and_interface_conditions",
+        "domain": "physics",
+        "metric": "penetration_relative_max",
+        "normalized_error": 7.359318119523187,
+        "profile": "cloth_thin_shells_and_fibers",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.6748259312588087
+      },
+      {
+        "calculator": "trajectory.kinematic_continuity.v1",
+        "criterion": "The bound object `falling_square_cloth` has position increments consistent with its exported velocity trace between consecutive trajectory frames.",
+        "criterion_id": "cloth_kinematic_continuity",
+        "details": {
+          "maximum_position_residual": 0.011134629260744178,
+          "object_id": "falling_square_cloth",
+          "sample_count": 181,
+          "worst_frame_index": 33
+        },
+        "dimension": "trajectory_consistency",
+        "domain": "physics",
+        "metric": "trajectory_kinematic_continuity_error",
+        "normalized_error": 0.2812964972060241,
+        "profile": "cloth_and_shells",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 85.9351751396988
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.013564659966250548,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.966
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.04898979485566355,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.78
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.07418894796396562,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.736
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.07589466384404113,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.45
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "031_cloth_edge_point_contact",
+  "visual_score": 0.733,
+  "visual_fidelity_score": 73.3,
+  "physical_plausibility_score": 61.40562340872691,
+  "total_score": 67.35281170436346
+}

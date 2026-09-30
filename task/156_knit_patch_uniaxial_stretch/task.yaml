@@ -1,0 +1,30 @@
+id: 156_knit_patch_uniaxial_stretch
+title: Knitted Patch Uniaxial Stretch
+category: cloth_and_shells
+source:
+  title: Simulating Knitted Cloth at the Yarn Level
+  url: https://people.eecs.berkeley.edu/~sequin/CS285/PAPERS/Kaldor_Simul-Knitting.pdf
+  anchor: Figure 8
+goal: >-
+  Recreate the paper's clearly visible knitted patch uniaxial stretch phenomenon. The implementation method is unrestricted;
+  evaluation targets thin-material motion, folds or tears, contact response, and the characteristic outcome.
+scene_requirements:
+  required_elements:
+  - Rectangular knitted patch
+  - Fixed grip
+  - Moving grip
+  - Prescribed uniaxial extension
+  initial_state:
+  - A relaxed knit patch is held along two opposite edges.
+  required_events:
+  - One grip moves away smoothly while the other remains fixed.
+  - Loops rotate and tighten, producing large directional extension and transverse contraction.
+  - On unloading or hold, the patch remains coherent with a clearly knit-specific nonlinear deformation pattern.
+  - Motion remains temporally coherent and all non-tearing regions preserve sheet connectivity.
+camera_requirements:
+- Use a front view with visible loop or stitch-scale structure and both grips in frame.
+- Use lighting and material contrast that make folds, wrinkles, contacts, and any crack tip readable.
+parameter_notes:
+- Match the qualitative geometry, stiffness regime, and event ordering shown in Figure 8; mesh resolution may be adapted.
+- Export cloth mass, position, velocity, external force, surface deformation gradients, and signed contact distances.
+

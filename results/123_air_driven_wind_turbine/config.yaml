@@ -1,0 +1,54 @@
+schema_version: 1
+scene_id: 123_air_driven_wind_turbine
+seed: 12320
+duration: 8.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+camera:
+  position: [8.8, -11.5, 7.4]
+  look_at: [4.0, 0.0, 3.3]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50
+domain:
+  bounds_min: [-2.0, -4.0, 0.0]
+  bounds_max: [12.0, 4.0, 7.5]
+  reference_grid: [112, 64, 60]
+  open_boundaries: [x_min, x_max, y_min, y_max, z_max]
+  ground_boundary: no_slip
+air:
+  density: 1.225
+  initial_velocity: [0.0, 0.0, 0.0]
+  inlet:
+    boundary: x_min
+    velocity: [6.0, 0.0, 0.0]
+    start_time: 0.0
+    ramp_duration: 0.4
+  outlet_boundary: x_max
+turbine:
+  rotor_body_id: 1
+  hub_center: [0.0, 0.0, 4.0]
+  axle_axis: [1.0, 0.0, 0.0]
+  rotor_radius: 2.1
+  mass: 38.0
+  initial_angle: 0.0
+  initial_angular_velocity: 0.0
+  constraint: revolute_fixed_axis
+  axle_friction:
+    type: resisting_torque
+    viscous_coefficient: 1.8
+    coulomb_torque: 0.8
+    regularization_speed: 0.15
+smoke:
+  passive: true
+  emission_start: 0.25
+  emission_end: 7.5
+  source_radius: 0.10
+  source_rate_each: 1.0
+  rotor_local_tip_positions:
+    - [0.10, 0.0, 1.90]
+    - [0.10, -1.645, -0.95]
+    - [0.10, 1.645, -0.95]
+  channels: [smoke_red, smoke_green, smoke_ochre]
+

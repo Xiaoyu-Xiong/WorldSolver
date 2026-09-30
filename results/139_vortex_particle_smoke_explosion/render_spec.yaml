@@ -1,0 +1,15 @@
+schema_version: 2
+profile: gas_volume
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: ground, method: rigid_mesh, material: matte, color_rgb: [0.22, 0.25, 0.30]}
+  - {object_id: blast_core, method: rigid_mesh, material: emissive, color_rgb: [1.0, 0.24, 0.04], opacity: 0.75}
+  - object_id: subject
+    method: volume
+    material: default
+    color_rgb: [0.84, 0.88, 0.94]
+    volume_mode: slices
+    volume_axis: 1
+    density_scale: 8.0
+    opacity: 0.72

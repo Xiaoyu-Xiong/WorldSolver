@@ -1,0 +1,30 @@
+id: 141_domino_circle_chain_reaction
+title: Circular Domino Chain Reaction
+category: rigid_body_dynamics
+source:
+  title: Nonconvex Rigid Bodies with Stacking
+  url: https://graphics.stanford.edu/papers/rigid_bodies-sig03/rigid_bodies.pdf
+  anchor: Figure 6
+goal: >-
+  Recreate the paper's clearly visible circular domino chain reaction phenomenon. The implementation method is unrestricted;
+  evaluation targets rigid motion, contact response, event propagation, and the characteristic outcome.
+scene_requirements:
+  required_elements:
+  - Circular sequence of upright dominoes
+  - Rigid floor
+  - Initial trigger domino
+  - Gravity and frictional contact
+  initial_state:
+  - All dominoes except the trigger are upright, evenly spaced, and motionless in a circular path.
+  required_events:
+  - The trigger falls and contacts the next domino.
+  - A single coherent toppling front propagates around the circle through sequential impacts.
+  - The wave closes the loop and the dominoes settle without skipped contacts or premature falls.
+  - All bodies preserve rigid shape and contacts remain free of persistent overlap.
+camera_requirements:
+- Use a high oblique view showing the complete circle and moving toppling front.
+- Keep the complete interaction chain in frame and use contrasting colors for neighboring bodies.
+parameter_notes:
+- Match the qualitative geometry, loading, and event ordering shown in Figure 6; object count may be reduced within resource limits.
+- Export body IDs, mass, position, velocity, external forces, interaction-force pairs, and signed contact distances.
+

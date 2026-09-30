@@ -1,0 +1,32 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: ground
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [2.4, 2.0, 0.05]}
+    transform: {translation: [0.0, 0.0, -0.05]}
+    material_id: ground
+    collision_enabled: true
+  - id: sphere
+    semantic: boundary
+    motion: kinematic
+    geometry: {type: sphere, radius: 0.62}
+    transform: {translation: [0.0, 0.0, 0.68]}
+    material_id: obstacle
+    collision_enabled: true
+  - id: curtain_rod
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 0.055, height: 3.1}
+    transform: {translation: [0.0,0.0,2.84], rotation_xyzw: [0.0,0.7071068,0.0,0.7071068]}
+    material_id: rod
+    collision_enabled: false
+  - id: cloth
+    semantic: cloth
+    motion: dynamic
+    geometry: {type: triangle_mesh, topology_asset: assets/cloth_topology.json, grid_shape: [17, 17]}
+    state_binding: {selector: all}
+    material_id: cloth
+    collision_enabled: true

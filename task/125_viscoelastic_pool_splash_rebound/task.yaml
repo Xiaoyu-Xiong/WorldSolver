@@ -1,0 +1,30 @@
+id: 125_viscoelastic_pool_splash_rebound
+title: Viscoelastic Pool Splash and Rebound
+category: plastic_and_complex_materials
+source:
+  title: A Method for Animating Viscoelastic Fluids
+  url: https://graphics.berkeley.edu/papers/Goktekin-AMF-2004-08/Goktekin-AMF-2004-08.pdf
+  anchor: Figure 1
+goal: >-
+  Recreate the paper's clearly visible viscoelastic pool splash and rebound phenomenon. The implementation method is unrestricted;
+  evaluation targets the observable motion, material response, interaction sequence, and final state.
+scene_requirements:
+  required_elements:
+  - Viscoelastic fluid pool
+  - Falling viscoelastic fluid mass
+  - Rigid basin
+  - Gravity and fluid-solid contact
+  initial_state:
+  - A compact viscoelastic fluid mass begins above a quiescent pool.
+  required_events:
+  - The falling mass accelerates under gravity and strikes the pool.
+  - Impact produces a broad splash while stretched material remains visibly cohesive rather than atomizing like a simple liquid.
+  - Elastic stresses pull elongated sheets and strands back toward the pool, producing a visible rebound and damped oscillation.
+  - Material motion remains continuous, with no unexplained teleportation or numerical explosion.
+camera_requirements:
+- Use a three-quarter view showing the full pool, impact crown, stretched strands, and rebound.
+- Keep material and rigid obstacles visually distinct and preserve enough contrast to read deformation and contacts.
+parameter_notes:
+- Match the qualitative scale, material regime, and event ordering shown in Figure 1; geometric simplification is allowed.
+- Export per-sample mass, velocity, external force, deformation gradient, and near-contact signed distance for scoring.
+

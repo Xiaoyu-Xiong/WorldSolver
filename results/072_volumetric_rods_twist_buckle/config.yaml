@@ -1,0 +1,47 @@
+schema_version: 1
+scene_id: 072_volumetric_rods_twist_buckle
+seed: 7204
+duration: 100.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+geometry:
+  rod_count: 7
+  rod_length: 6.0
+  rod_radius: 0.09
+  bundle_ring_radius: 0.205
+  axial_segments: 48
+  radial_segments: 10
+material:
+  class: volumetric_elastic_solid
+  density: 1050.0
+initial_conditions:
+  arrangement: one_center_plus_six_hexagonal
+  state: straight_parallel_untwisted_rods
+boundary_conditions:
+  driven_end_length: 0.38
+  rotation_axis: [1.0, 0.0, 0.0]
+  left_end_angular_speed_deg_s: -72.0
+  right_end_angular_speed_deg_s: 72.0
+  start_time: 0.0
+  stop_time: 100.0
+  axial_position_fixed_at_driven_ends: true
+event_sequence:
+  - time: 0.0
+    event: straight untwisted seven-rod bundle
+  - time: 5.5
+    event: regular intertwined helical bundle before global buckling
+  - time: 25.0
+    event: helical bundle develops loops and kinks
+  - time: 73.6
+    event: repeated tight buckled coils with close rod-rod contact
+  - time: 100.0
+    event: extreme extended twisting complete
+camera:
+  position: [7.8, -10.5, 5.0]
+  look_at: [0.0, 0.0, 0.0]
+  up: [0.0, 0.0, 1.0]
+  projection: perspective
+  fov_y_degrees: 38.0
+  width: 960
+  height: 640
+  fps: 50

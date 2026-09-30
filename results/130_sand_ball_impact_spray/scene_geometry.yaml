@@ -1,0 +1,25 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: ground
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [3.2, 1.4, 0.05]}
+    transform: {translation: [0.0, 0.0, -0.05]}
+    material_id: ground
+    collision_enabled: true
+  - id: sand
+    semantic: granular
+    motion: dynamic
+    geometry: {type: particle_domain, bounds_min: [-3.0, -1.2, 0.0], bounds_max: [3.0, 1.2, 3.8], grid_shape: [24, 16, 28]}
+    state_binding: {selector: body_id, value: 0}
+    material_id: sand
+    collision_enabled: true
+  - id: ball
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: sphere, radius: 0.54}
+    state_binding: {selector: body_id, value: 1}
+    material_id: impactor
+    collision_enabled: true

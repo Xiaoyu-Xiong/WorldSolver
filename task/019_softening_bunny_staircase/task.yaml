@@ -1,0 +1,33 @@
+id: 019_softening_bunny_staircase
+title: Softening Bunny Staircase
+category: plastic_and_complex_materials
+source:
+  title: A Finite Element Method for Animating Large Viscoplastic Flow
+  url: https://graphics.cs.cmu.edu/projects/Bargteil-2007-AFE/Bargteil-2007-AFE.pdf
+  anchor: Figure 1; PDF page 1
+goal: Recreate the observable physical phenomenon in which a viscoplastic bunny falls down a staircase;
+  repeated impacts accumulate plastic work and softened regions droop over the steps. The implementation
+  method is unrestricted; the target is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Deformable bunny model
+  - Fixed staircase
+  - Step edges and risers
+  - Gravity
+  - Deformable object named by the scene
+  - Collision obstacles or supports
+  initial_state:
+  - A viscoplastic bunny falls down a staircase; repeated impacts accumulate plastic work and softened
+    regions droop over the steps.
+  required_events:
+  - Qualitative/quantitative - permanent deformation
+  - Softened-region sag
+  - Topology changes
+  - Element quality
+  - Volume change
+camera_requirements:
+- Use a three-quarter view showing the full deformable body, loading or impact region, contacts, large
+  deformation, and recovered or final shape.
+parameter_notes:
+- 'Original paper parameters/configuration: Work-softening constitutive response; bunny dropped under
+  gravity onto a fixed staircase.'

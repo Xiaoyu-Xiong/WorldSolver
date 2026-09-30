@@ -1,0 +1,30 @@
+id: 013_weighted_seesaw
+title: Weighted Seesaw
+category: rigid_body_dynamics
+source:
+  title: Nonconvex Rigid Bodies with Stacking
+  url: https://graphics.stanford.edu/papers/rigid_bodies-sig03/rigid_bodies.pdf
+  anchor: Figure 7; PDF page 6
+goal: Recreate the observable physical phenomenon in which a heavier block tips a seesaw, slides off,
+  and leaves the lighter block to tip the seesaw back in the opposite direction. The implementation method
+  is unrestricted; the target is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Weighted Seesaw
+  - Rigid bodies named by the scene
+  - Contact surfaces
+  - Gravity
+  initial_state:
+  - A heavier block tips a seesaw, slides off, and leaves the lighter block to tip the seesaw back in
+    the opposite direction.
+  required_events:
+  - Quantitative/qualitative - seesaw angle
+  - Block trajectories
+  - Load transfer through contact
+  - Absence of interpenetration
+camera_requirements:
+- Use a three-quarter view that exposes the important contact points, stack or mechanism, support surfaces,
+  and final configuration throughout the motion.
+parameter_notes:
+- 'Original paper parameters/configuration: Two unequal rigid blocks on a pivoted seesaw; gravity, contact
+  propagation, and friction enabled.'

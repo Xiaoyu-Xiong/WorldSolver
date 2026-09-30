@@ -1,0 +1,30 @@
+id: 140_turbulent_stream_complex_obstacles
+title: Turbulent Stream through Complex Obstacles
+category: fluid_dynamics
+source:
+  title: A Vortex Particle Method for Smoke, Water and Explosions
+  url: https://graphics.stanford.edu/papers/vortex_particle-sig05/vortex_particle.pdf
+  anchor: Figure 3
+goal: >-
+  Recreate the paper's clearly visible turbulent stream through complex obstacles phenomenon. The implementation method is unrestricted;
+  evaluation targets the observable flow evolution, boundary interaction, signature structure, and final state.
+scene_requirements:
+  required_elements:
+  - Continuous smoke stream
+  - Several complex rigid obstacles
+  - Open flow domain
+  - Prescribed inlet
+  initial_state:
+  - A steady smoke stream enters upstream of multiple complex obstacles.
+  required_events:
+  - The leading smoke reaches and separates around the first obstacle.
+  - Obstacle interactions shed vortices and repeatedly split, redirect, and reconnect the stream.
+  - A long turbulent wake with coherent eddies persists downstream while respecting every solid boundary.
+  - The represented fluid remains continuous and respects rigid boundaries throughout the event.
+camera_requirements:
+- Use a wide side view spanning inlet, all obstacles, and the downstream wake.
+- Use contrasting fluid and obstacle colors and keep the complete phenomenon inside frame.
+parameter_notes:
+- Match the qualitative scale, flow regime, and event ordering shown in Figure 3; geometric simplification is allowed.
+- Export collocated velocity diagnostics, active masks, boundary samples, and transported liquid or smoke fields.
+

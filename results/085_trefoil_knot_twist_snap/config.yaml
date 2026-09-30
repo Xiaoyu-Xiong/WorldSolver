@@ -1,0 +1,48 @@
+schema_version: 1
+scene_id: 085_trefoil_knot_twist_snap
+seed: 8501
+duration: 10.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+camera:
+  position: [3.15, -4.6, 2.75]
+  look_at: [0.0, 0.0, 0.95]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50
+gravity: [0.0, 0.0, -9.81]
+rod:
+  vertex_count: 181
+  total_length: 7.2
+  mass: 0.095
+  radius: 0.032
+  naturally_straight: true
+  isotropic: true
+  inextensible: true
+  self_contact: true
+  initial_material_twist_turns: 0.0
+  initial_configuration: loose_open_trefoil_with_large_loop_braid_and_two_tails
+clamps:
+  controlled_vertices: [0, 180]
+  positions_fixed: true
+  left:
+    position: [-2.25, 0.0, 0.86]
+    orientation_xyzw: [0.0, 0.0, 0.0, 1.0]
+    rotation_turns: 0.0
+  right:
+    position: [2.25, 0.0, 0.86]
+    rotation_axis: [1.0, 0.0, 0.0]
+    twist_direction: positive_about_outward_tail_tangent
+  twist_ramp:
+    hold_twist_free_until: 1.0
+    ramp_start: 1.0
+    ramp_end: 7.2
+    final_relative_turns: 3.0
+    interpolation: smoothstep
+  post_ramp_hold_until: 10.0
+event_windows:
+  continuous_deformation: [1.0, 6.2]
+  expected_critical_snap: [6.2, 8.2]
+  dynamic_post_snap_observation: [8.2, 10.0]
+required_outcome: sudden_transition_to_distinct_knot_configuration

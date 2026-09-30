@@ -1,0 +1,30 @@
+id: 163_cloth_drape_over_cylinder
+title: Cloth Drape over a Cylinder
+category: cloth_and_shells
+source:
+  title: Large Steps in Cloth Simulation
+  url: https://www.cs.cmu.edu/~baraff/papers/sig98.pdf
+  anchor: Figure 1
+goal: >-
+  Recreate the paper's clearly visible cloth drape over a cylinder phenomenon. The implementation method is unrestricted;
+  evaluation targets thin-material motion, folds or tears, contact response, and the characteristic outcome.
+scene_requirements:
+  required_elements:
+  - Rectangular cloth sheet
+  - Fixed horizontal cylinder
+  - Gravity
+  - Cloth-cylinder contact
+  initial_state:
+  - A flat rectangular cloth begins above a horizontal cylinder.
+  required_events:
+  - The cloth falls and first contacts the top line of the cylinder.
+  - Contact spreads around the cylinder while free sides descend and form gravity-driven folds.
+  - The sheet settles into a symmetric or near-symmetric drape without excessive stretch, penetration, or jitter.
+  - Motion remains temporally coherent and all non-tearing regions preserve sheet connectivity.
+camera_requirements:
+- Use an end-oblique view showing cylinder curvature, both hanging sides, and the complete cloth boundary.
+- Use lighting and material contrast that make folds, wrinkles, contacts, and any crack tip readable.
+parameter_notes:
+- Match the qualitative geometry, stiffness regime, and event ordering shown in Figure 1; mesh resolution may be adapted.
+- Export cloth mass, position, velocity, external force, surface deformation gradients, and signed contact distances.
+

@@ -1,0 +1,45 @@
+schema_version: 1
+scene_id: 006_channel_cylinder_vortex_street
+seed: 6006
+duration: 18.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+domain:
+  bounds_min: [-6.0, -1.5, -0.08]
+  bounds_max: [10.0, 1.5, 0.08]
+  dimensionality: 2
+fluid:
+  density: 1000.0
+  kinematic_viscosity: 0.012
+  nominal_particle_spacing: 0.10
+initial_conditions:
+  velocity_profile: parabolic
+  centerline_speed: 1.20
+  mean_speed: 0.80
+  initial_vorticity: parabolic_profile_curl
+  initial_divergence: 0.0
+boundary_conditions:
+  channel_walls: no_slip
+  cylinder: no_slip
+  inlet: prescribed_parabolic_velocity
+  outlet: open
+  spanwise: periodic
+obstacle:
+  center: [-3.0, 0.0, 0.0]
+  radius: 0.42
+diagnostics:
+  expected_strouhal_number: 0.20
+  expected_shedding_period: 2.75
+  fields: [velocity, vorticity, divergence, dye]
+camera:
+  position: [2.0, 0.0, 12.0]
+  look_at: [2.0, 0.0, 0.0]
+  up: [0.0, 1.0, 0.0]
+  projection: orthographic
+  orthographic_height: 11.4
+  point_radius: 3.1
+  shadows: false
+  background_rgb: [0.035, 0.045, 0.065]
+  width: 960
+  height: 640
+  fps: 50

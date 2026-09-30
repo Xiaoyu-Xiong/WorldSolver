@@ -1,0 +1,138 @@
+schema_version: 4
+task_id: 055_incompressible_ball_drop
+criteria:
+  execution:
+    - id: executable_and_evaluable
+      criterion: >-
+        The solver reaches the specified end time and produces the required
+        trajectory fields and a readable render. Required samples are present,
+        finite, and associated with the same material throughout the sequence.
+  visual:
+    - id: visible_event_onset
+      dimension: event_sequence
+      criterion: >-
+        The first view shows a round ball separated from the floor by a visible
+        gap. In later views that gap shrinks until the bottom of the ball touches
+        the floor. The ball does not start already flattened against the floor.
+    - id: visible_interaction_response
+      dimension: interaction_response
+      criterion: >-
+        After first contact, the ball's top moves downward while its left and
+        right outlines spread outward. At maximum compression the ball is visibly
+        wider than it is tall, and its bottom has a flat region resting against
+        the floor. A ball that keeps an almost circular outline while bouncing
+        does not show the required response.
+    - id: visible_signature_outcome
+      dimension: signature_phenomenon
+      criterion: >-
+        After the widest, flattest shape, the ball's top rises and its left and
+        right sides move inward, producing a taller, narrower shape. Later views
+        show its top lower and its sides spread again during the next oscillation.
+        A ball that remains a flat puddle, or stops changing shape immediately
+        after the first impact, does not show the required recovery.
+    - id: case_visual_coherence
+      dimension: temporal_coherence
+      criterion: >-
+        Throughout the sequence, the ball remains one visible piece: no chunks
+        break away and no holes open through it. No part of its outline is visible
+        below the floor. Its sideways location does not jump between views, and
+        its surface does not sprout isolated long spikes during compression or recovery.
+  physics:
+    - id: material_mass_balance
+      profile: deformable_solids
+      dimension: conservation_and_source_balance
+      criterion: >-
+        The sum of the ball's material masses remains equal to its initial value.
+        There are no prescribed mass sources or sinks.
+      applicability:
+        requires:
+          - Export the actual ball nodal masses in state.mass in every frame.
+          - Export fields.cumulative_mass_source as a zero array of shape [1].
+        excludes: []
+      numeric_binding:
+        calculator: balance.source_aware.v1
+        inputs:
+          quantity: state.mass
+          cumulative_source: fields.cumulative_mass_source
+        parameters: {}
+        reduction:
+          type: maximum
+    - id: orientation_preserving_deformation
+      profile: deformable_solids
+      dimension: deformation_validity
+      criterion: >-
+        Every volumetric material element has det(F) > 0. Report the largest
+        fraction of elements with nonpositive determinants over the trajectory,
+        including elements hidden inside the ball.
+      applicability:
+        requires:
+          - Export geometry-derived deformation gradients with shape [Ne,3,3].
+          - Include every element of the fixed volumetric evaluation mesh.
+        excludes: []
+      numeric_binding:
+        calculator: deformation.jacobian.v1
+        inputs:
+          deformation_gradient: fields.element_deformation_gradient
+        parameters: {}
+        reduction:
+          type: maximum
+    - id: local_material_volume_preservation
+      profile: deformable_solids
+      dimension: incompressibility
+      criterion: >-
+        The material volume associated with each fixed nodal one-ring remains
+        equal to its reference volume. Compute the RMS difference between the
+        current-to-reference nodal volume ratios and one, then report the maximum
+        over frames. A correct total volume alone is insufficient because local
+        expansion and compression can cancel.
+      applicability:
+        requires:
+          - Use the incompressible material model specified in task.yaml.
+          - Compute each nodal volume as one quarter of the summed signed volumes of incident tetrahedra; divide its current value by its reference value.
+          - Export the ratios in fields.constraint_value with shape [Nv], with stable node identities.
+          - Export fields.constraint_target as frozen ones of shape [Nv] and scalars.constraint_scale as 1.
+        excludes: []
+      numeric_binding:
+        calculator: constraint.target.v1
+        inputs:
+          value: fields.constraint_value
+          target: fields.constraint_target
+          scale: scalars.constraint_scale
+        parameters: {}
+        reduction:
+          type: maximum
+    - id: linear_momentum_impulse_balance
+      profile: deformable_solids
+      dimension: momentum_and_force_balance
+      criterion: >-
+        Over each adjacent output interval, the change in total ball momentum
+        equals the gravity impulse plus the floor impulse accumulated during that
+        interval. Normalize the vector residual by the frozen reference momentum
+        and report the maximum interval error. Floor impulses must come from the
+        actual contact updates and must not be reconstructed from this residual.
+      applicability:
+        requires:
+          - Export the actual nodal masses and velocities as state.mass [N] and state.velocity [N,3].
+          - Export fields.budget_domain_weights as an array of ones with shape [1,N], selecting only the ball.
+          - Export fields.budget_external_force with shape [1,1,3], containing only the constant total gravity force.
+          - Export actual floor impulses accumulated over all solver substeps in fields.budget_cumulative_external_impulse [1,3]; do not also include them in budget_external_force.
+          - Export both cumulative momentum inflow and outflow as zero arrays of shape [1,3].
+          - Freeze scalars.reference_momentum = M0 * sqrt(2 * g * H), using the initial ball mass M0, gravity magnitude g, and initial bottom clearance H of the configured scene; keep it unchanged across frames.
+        excludes: []
+      numeric_binding:
+        calculator: dynamics.momentum_budget.v1
+        inputs:
+          mass: state.mass
+          velocity: state.velocity
+          domain_weights: fields.budget_domain_weights
+          external_force: fields.budget_external_force
+          cumulative_external_impulse: fields.budget_cumulative_external_impulse
+          cumulative_inflow_momentum: fields.budget_cumulative_inflow_momentum
+          cumulative_outflow_momentum: fields.budget_cumulative_outflow_momentum
+          reference_momentum: scalars.reference_momentum
+        parameters:
+          mode: dynamic
+          integration: trapezoidal
+          window: adjacent_frames
+        reduction:
+          type: maximum

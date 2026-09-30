@@ -1,0 +1,30 @@
+id: 152_cloth_moving_sphere_wrinkle_wake
+title: Cloth Wrinkle Wake from a Moving Sphere
+category: cloth_and_shells
+source:
+  title: Adaptive Anisotropic Remeshing for Cloth Simulation
+  url: https://graphics.berkeley.edu/papers/Narain-AAR-2012-11/Narain-AAR-2012-11.pdf
+  anchor: Figure 2
+goal: >-
+  Recreate the paper's clearly visible cloth wrinkle wake from a moving sphere phenomenon. The implementation method is unrestricted;
+  evaluation targets thin-material motion, folds or tears, contact response, and the characteristic outcome.
+scene_requirements:
+  required_elements:
+  - Large cloth sheet
+  - Rigid sphere beneath or against cloth
+  - Prescribed sphere motion
+  - Cloth-sphere contact
+  initial_state:
+  - A cloth sheet begins gently draped while a sphere is positioned to travel beneath or against it.
+  required_events:
+  - The sphere moves into contact and lifts or displaces the cloth locally.
+  - A moving contact bulge forms and radiates anisotropic folds away from the sphere.
+  - A readable wrinkle wake trails the moving sphere while contact remains nonpenetrating.
+  - Motion remains temporally coherent and all non-tearing regions preserve sheet connectivity.
+camera_requirements:
+- Use a three-quarter view showing the sphere path, contact bulge, and trailing wrinkles.
+- Use lighting and material contrast that make folds, wrinkles, contacts, and any crack tip readable.
+parameter_notes:
+- Match the qualitative geometry, stiffness regime, and event ordering shown in Figure 2; mesh resolution may be adapted.
+- Export cloth mass, position, velocity, external force, surface deformation gradients, and signed contact distances.
+

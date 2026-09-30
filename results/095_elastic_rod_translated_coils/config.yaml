@@ -1,0 +1,55 @@
+schema_version: 1
+scene_id: 095_elastic_rod_translated_coils
+seed: 95095
+duration: 32.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+simulation_mode: quasi_static_translated_coiling
+rod:
+  vertex_count: 161
+  initial_deployed_length: 0.484
+  radius: 0.0016
+  density: 1180.0
+  inextensible: true
+  naturally_straight: true
+  circular_cross_section: true
+injector:
+  center: [0.0, 0.0, 0.525]
+  outlet: [0.0, 0.0, 0.505]
+  axis: [0.0, 0.0, -1.0]
+  injection_speed: 0.020
+  feed_start: 0.0
+  feed_end: 32.0
+belt:
+  center: [0.0, 0.0, 0.0]
+  half_extents: [0.64, 0.20, 0.018]
+  surface_z: 0.018
+  translation_axis: [-1.0, 0.0, 0.0]
+  speed: 0.006
+  speed_ratio_to_injection: 0.30
+  sticking_contact: true
+  self_contact_required: false
+initial_conditions:
+  state: pre_contact_suspended_heel
+  lower_tip_clearance: 0.003
+  lateral_branch_bias: 0.00025
+  winding_direction: counterclockwise_viewed_from_above
+event_sequence:
+  - injector_continuously_supplies_inextensible_rod
+  - first_contact_and_sticking_deposition
+  - contact_point_repeatedly_circles_with_fixed_winding_direction
+  - belt_advects_successive_nearly_circular_turn_centers
+required_outcome:
+  regime: translated_coiling
+  excluded_regime: alternating_loops
+  earlier_turns_remain_in_view: true
+camera:
+  projection: perspective
+  position: [0.82, -1.10, 0.72]
+  look_at: [-0.06, 0.0, 0.20]
+  up: [0.0, 0.0, 1.0]
+  fov_degrees: 42
+  width: 960
+  height: 640
+  fps: 50

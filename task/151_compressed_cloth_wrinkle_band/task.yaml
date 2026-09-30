@@ -1,0 +1,30 @@
+id: 151_compressed_cloth_wrinkle_band
+title: Compressed Cloth Wrinkle Band
+category: cloth_and_shells
+source:
+  title: Adaptive Anisotropic Remeshing for Cloth Simulation
+  url: https://graphics.berkeley.edu/papers/Narain-AAR-2012-11/Narain-AAR-2012-11.pdf
+  anchor: Figure 5
+goal: >-
+  Recreate the paper's clearly visible compressed cloth wrinkle band phenomenon. The implementation method is unrestricted;
+  evaluation targets thin-material motion, folds or tears, contact response, and the characteristic outcome.
+scene_requirements:
+  required_elements:
+  - Rectangular cloth sheet
+  - Two opposing moving grips
+  - Compression loading
+  - Gravity optional
+  initial_state:
+  - A flat rectangular sheet is held along two opposite boundaries with slight slack.
+  required_events:
+  - The grips move inward and place the sheet in compression.
+  - A band of fine wrinkles nucleates and spreads across the compressed region.
+  - Wrinkle wavelength and orientation remain spatially coherent while the sheet avoids mesh-locked faceting.
+  - Motion remains temporally coherent and all non-tearing regions preserve sheet connectivity.
+camera_requirements:
+- Use a near-orthographic view showing the whole sheet and a grazing component that reveals wrinkle amplitude.
+- Use lighting and material contrast that make folds, wrinkles, contacts, and any crack tip readable.
+parameter_notes:
+- Match the qualitative geometry, stiffness regime, and event ordering shown in Figure 5; mesh resolution may be adapted.
+- Export cloth mass, position, velocity, external force, surface deformation gradients, and signed contact distances.
+

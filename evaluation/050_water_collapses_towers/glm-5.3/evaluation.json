@@ -1,0 +1,150 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 43914281,
+          "trajectory_frames": 301,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "For the fluid and rigid materials, the mass change equals the cumulative prescribed inflow, outflow, or phase-transfer source; internal motion and contact do not create or delete mass.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "initial_quantity": [
+            10321.919999999318,
+            461.1779475653476,
+            1174.38
+          ],
+          "sample_count": 301,
+          "worst_frame_index": 0
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.0,
+        "profile": "multiphysics_coupling",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "dynamics.linear_momentum_balance.v1",
+        "criterion": "For water collapses towers, the time rate of total linear momentum is consistent with the exported external forces; internal forces may redistribute momentum but cancel in the total balance.",
+        "criterion_id": "linear_momentum_balance",
+        "details": {
+          "sample_count": 301,
+          "worst_frame_index": 6
+        },
+        "dimension": "momentum_and_force_balance",
+        "domain": "physics",
+        "metric": "momentum_balance_relative_l2",
+        "normalized_error": 1.0,
+        "profile": "multiphysics_coupling",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.0
+      },
+      {
+        "calculator": "coupling.force_balance.v1",
+        "criterion": "The paired internal interaction forces exchanged between materials in water collapses towers are equal and opposite in the aggregate.",
+        "criterion_id": "internal_coupling_force_balance",
+        "details": {
+          "sample_count": 301,
+          "worst_frame_index": 247
+        },
+        "dimension": "multiphysics_exchange_balance",
+        "domain": "physics",
+        "metric": "interaction_force_relative_residual",
+        "normalized_error": 2.3097600358365534e-14,
+        "profile": "multiphysics_coupling",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 99.9999999999977
+      },
+      {
+        "calculator": "contact.penetration.v1",
+        "criterion": "During water collapses towers, solid-solid and solid-boundary contacts maintain nonnegative geometric gaps up to the contact tolerance and do not permit persistent interpenetration.",
+        "criterion_id": "nonpenetrating_contact",
+        "details": {
+          "sample_count": 301,
+          "worst_frame_index": 253
+        },
+        "dimension": "contact_and_interface_conditions",
+        "domain": "physics",
+        "metric": "penetration_relative_max",
+        "normalized_error": 1.5264222783280768,
+        "profile": "multiphysics_coupling",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 3.1717389869057833
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.022449944320643626,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.944
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.06000000000000001,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.8699999999999999
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.08997777503361594,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.7220000000000001
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.06523802572120035,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.728
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "050_water_collapses_towers",
+  "visual_score": 0.816,
+  "visual_fidelity_score": 81.6,
+  "physical_plausibility_score": 50.79293474672587,
+  "total_score": 66.19646737336294
+}

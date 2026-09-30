@@ -1,0 +1,38 @@
+schema_version: 1
+scene_id: 058_pressurized_rubber_tube
+seed: 58017
+duration: 1.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, 0.0]
+geometry:
+  inner_radius: 0.40
+  wall_thickness: 0.08
+  height: 1.60
+  circumferential_segments: 32
+  axial_segments: 16
+material:
+  name: silicone_rubber
+  density: 1070.0
+boundary_conditions:
+  fixed_rims:
+    axial_locations: [-0.80, 0.80]
+    node_attribute: fixed_rim
+    target_velocity: [0.0, 0.0, 0.0]
+  cavity_pressure:
+    surface_attribute: pressure_surface
+    pressure_pa: 10000.0
+    ramp_start: 0.0
+    ramp_end: 0.30
+    hold_until: 1.0
+initial_conditions:
+  shape: uninflated_straight_hollow_cylinder
+  velocity: [0.0, 0.0, 0.0]
+camera:
+  position: [2.8, -3.6, 1.55]
+  look_at: [0.0, 0.0, 0.0]
+  up: [0.0, 0.0, 1.0]
+  focal_length_mm: 58
+  width: 960
+  height: 640
+  fps: 50

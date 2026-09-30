@@ -1,0 +1,73 @@
+{
+  "schema_version": 2,
+  "profile": "cloth_shell",
+  "environment": "studio_neutral",
+  "camera": "frozen_config",
+  "bindings": [
+    {
+      "object_id": "board",
+      "method": "rigid_mesh",
+      "material": "default"
+    },
+    {
+      "object_id": "panel_01",
+      "method": "shell_surface",
+      "material": "default",
+      "subdivision": 1
+    },
+    {
+      "object_id": "panel_02",
+      "method": "shell_surface",
+      "material": "default",
+      "subdivision": 1
+    },
+    {
+      "object_id": "panel_03",
+      "method": "shell_surface",
+      "material": "default",
+      "subdivision": 1
+    },
+    {
+      "object_id": "panel_04",
+      "method": "shell_surface",
+      "material": "default",
+      "subdivision": 1
+    },
+    {
+      "object_id": "panel_05",
+      "method": "shell_surface",
+      "material": "default",
+      "subdivision": 1
+    },
+    {
+      "object_id": "panel_06",
+      "method": "shell_surface",
+      "material": "default",
+      "subdivision": 1
+    },
+    {
+      "object_id": "panel_07",
+      "method": "shell_surface",
+      "material": "default",
+      "subdivision": 1
+    },
+    {
+      "object_id": "panel_08",
+      "method": "shell_surface",
+      "material": "default",
+      "subdivision": 1
+    },
+    {
+      "object_id": "panel_09",
+      "method": "shell_surface",
+      "material": "default",
+      "subdivision": 1
+    },
+    {
+      "object_id": "panel_10",
+      "method": "shell_surface",
+      "material": "default",
+      "subdivision": 1
+    }
+  ]
+}

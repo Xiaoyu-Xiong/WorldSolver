@@ -1,0 +1,148 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 144680530,
+          "trajectory_frames": 161,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "For foam tendril tearing enabled, the mass change equals the cumulative prescribed inflow, outflow, or phase-transfer source; internal motion and contact do not create or delete mass.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "initial_quantity": [
+            141.98003999999995
+          ],
+          "sample_count": 161,
+          "worst_frame_index": 0
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.0,
+        "profile": "particles_and_granular_materials",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "dynamics.linear_momentum_balance.v1",
+        "criterion": "For foam tendril tearing enabled, the time rate of total linear momentum is consistent with the exported external forces; internal forces may redistribute momentum but cancel in the total balance.",
+        "criterion_id": "linear_momentum_balance",
+        "details": {
+          "sample_count": 161,
+          "worst_frame_index": 21
+        },
+        "dimension": "momentum_and_force_balance",
+        "domain": "physics",
+        "metric": "momentum_balance_relative_l2",
+        "normalized_error": 0.9999954204895173,
+        "profile": "particles_and_granular_materials",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.0004579510482716209
+      },
+      {
+        "calculator": "contact.penetration.v1",
+        "criterion": "During foam tendril tearing enabled, solid-solid and solid-boundary contacts maintain nonnegative geometric gaps up to the contact tolerance and do not permit persistent interpenetration.",
+        "criterion_id": "nonpenetrating_contact",
+        "details": {
+          "sample_count": 161,
+          "worst_frame_index": 7
+        },
+        "dimension": "contact_and_interface_conditions",
+        "domain": "physics",
+        "metric": "penetration_relative_max",
+        "normalized_error": 0.1414141985640079,
+        "profile": "particles_and_granular_materials",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 26.121364232695765
+      },
+      {
+        "calculator": "deformation.jacobian.v1",
+        "criterion": "Material elements in foam tendril tearing enabled retain a positive deformation Jacobian except where the case explicitly performs a represented topology change.",
+        "criterion_id": "orientation_preserving_deformation",
+        "details": {
+          "sample_count": 161,
+          "worst_frame_index": 40
+        },
+        "dimension": "deformation_validity",
+        "domain": "physics",
+        "metric": "nonpositive_jacobian_fraction",
+        "normalized_error": 0.0003465804066543438,
+        "profile": "particles_and_granular_materials",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 99.96534195933457
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.011661903789690611,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.968
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0040000000000000036,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.982
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.006324555320336764,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.99
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.03187475490101844,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.942
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "042_foam_tendril_tearing_enabled",
+  "visual_score": 0.9704999999999999,
+  "visual_fidelity_score": 97.05,
+  "physical_plausibility_score": 56.52179103576965,
+  "total_score": 76.78589551788482
+}

@@ -1,0 +1,29 @@
+id: 034_noodles_in_bowl
+title: Noodles In Bowl
+category: rods_and_strands
+source:
+  title: Codimensional Incremental Potential Contact
+  url: https://par.nsf.gov/servlets/purl/10290705
+  anchor: Figure 10; PDF page 11
+goal: Recreate the observable physical phenomenon in which six hundred twenty-five rod-modeled noodles
+  fall into a bowl, intertwine, and settle with finite thickness. The implementation method is unrestricted;
+  the target is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Bowl interior
+  - Thin structure or fiber object named by the scene
+  - Collision/contact geometry
+  - Gravity
+  initial_state:
+  - Six hundred twenty-five rod-modeled noodles fall into a bowl, intertwine, and settle with finite thickness.
+  required_events:
+  - Quantitative/qualitative - thickness-offset violation
+  - Intersection count
+  - Fill height
+  - Stable intertwined equilibrium
+camera_requirements:
+- Use a three-quarter view showing attachments, folds or bends, self-contact and external contact regions,
+  and the final drape or configuration without occlusion.
+parameter_notes:
+- 'Original paper parameters/configuration: 625 noodles, each 40 cm long; C-IPC offset/thickness parameters
+  set to the noodle radius.'

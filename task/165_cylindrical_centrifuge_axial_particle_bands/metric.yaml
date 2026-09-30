@@ -1,0 +1,93 @@
+schema_version: 4
+task_id: 165_cylindrical_centrifuge_axial_particle_bands
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The solver reaches the frozen end time, exports every required finite trajectory field, and produces a readable render within resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: Differential centrifuging moves particles radially and creates a nonuniform cross-sectional distribution.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: Hydrodynamic interactions amplify small axial concentration perturbations into localized particle-rich regions.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: The initially uniform suspension develops a sequence of distinct axial high- and low-concentration bands.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: Both species remain distinguishable and confined, with continuous motion and no leakage, teleportation, or numerical explosion.
+  physics:
+  - id: species_mass_balance
+    profile: multiphysics_coupling
+    dimension: conservation_and_source_balance
+    criterion: Each particle species independently conserves its represented mass because the closed centrifuge has no material source or sink.
+    applicability:
+      requires:
+      - attributes.mass_quantity contains one fixed column per species and fields.cumulative_mass_source contains matching zeros.
+      excludes:
+      - Deliberately modeled open-boundary material exchange.
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: particle_momentum_balance
+    profile: multiphysics_coupling
+    dimension: momentum_and_force_balance
+    criterion: Particle momentum change is consistent with gravity, wall forcing, fluid exchange, and other exported external forces.
+    applicability:
+      requires:
+      - Mass, velocity, and all actual external forces are exported at trajectory samples.
+      excludes:
+      - Frames spanning an unreported external impulse.
+    numeric_binding:
+      calculator: dynamics.linear_momentum_balance.v1
+      inputs:
+        mass: state.mass
+        velocity: state.velocity
+        external_force: fields.external_force
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: incompressible_carrier_flow
+    profile: multiphysics_coupling
+    dimension: field_constraints
+    criterion: The active carrier-liquid velocity field remains approximately divergence free.
+    applicability:
+      requires:
+      - A collocated carrier velocity grid and active-fluid mask are exported.
+      excludes:
+      - Solid particle interiors and prescribed source cells.
+    numeric_binding:
+      calculator: field.divergence.v1
+      inputs:
+        velocity_field: fields.velocity_field
+        active_mask: fields.active_mask
+        grid_spacing: scalars.grid_spacing
+        characteristic_length: scalars.characteristic_length
+      parameters:
+        spatial_dimensions: 3
+      reduction:
+        type: maximum
+  - id: particle_fluid_force_balance
+    profile: multiphysics_coupling
+    dimension: interface_momentum_exchange
+    criterion: Exported particle-to-fluid and fluid-to-particle interaction forces cancel in aggregate.
+    applicability:
+      requires:
+      - Both independently accumulated action sides of every hydrodynamic exchange are exported.
+      excludes:
+      - Gravity, wall reactions, and prescribed motor forces.
+    numeric_binding:
+      calculator: coupling.force_balance.v1
+      inputs:
+        interaction_force: fields.interaction_force
+      parameters: {}
+      reduction:
+        type: maximum
+
+

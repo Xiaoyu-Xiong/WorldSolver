@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "units": "meters",
+  "up_axis": "z",
+  "objects": [
+    {
+      "id": "cylinder_left",
+      "semantic": "boundary",
+      "motion": "kinematic",
+      "geometry": {
+        "type": "cylinder",
+        "radius": 0.28,
+        "height": 1.5
+      },
+      "transform": {
+        "translation": [
+          -0.9,
+          0,
+          0.58
+        ],
+        "rotation_xyzw": [
+          0.707106781,
+          0,
+          0,
+          0.707106781
+        ]
+      },
+      "state_binding": {
+        "selector": "body_id",
+        "value": 1
+      },
+      "material_id": "brushed_metal",
+      "collision_enabled": true
+    },
+    {
+      "id": "cylinder_right",
+      "semantic": "boundary",
+      "motion": "kinematic",
+      "geometry": {
+        "type": "cylinder",
+        "radius": 0.28,
+        "height": 1.5
+      },
+      "transform": {
+        "translation": [
+          0.9,
+          0,
+          0.58
+        ],
+        "rotation_xyzw": [
+          0.707106781,
+          0,
+          0,
+          0.707106781
+        ]
+      },
+      "state_binding": {
+        "selector": "body_id",
+        "value": 2
+      },
+      "material_id": "brushed_metal",
+      "collision_enabled": true
+    },
+    {
+      "id": "cylinder_top",
+      "semantic": "boundary",
+      "motion": "kinematic",
+      "geometry": {
+        "type": "cylinder",
+        "radius": 0.28,
+        "height": 1.5
+      },
+      "transform": {
+        "translation": [
+          0,
+          0,
+          0.92
+        ],
+        "rotation_xyzw": [
+          0.707106781,
+          0,
+          0,
+          0.707106781
+        ]
+      },
+      "state_binding": {
+        "selector": "body_id",
+        "value": 3
+      },
+      "material_id": "brushed_metal",
+      "collision_enabled": true
+    },
+    {
+      "id": "closed_cloth_belt",
+      "semantic": "cloth",
+      "motion": "dynamic",
+      "geometry": {
+        "type": "triangle_mesh",
+        "topology_asset": "assets/closed_cloth_belt_topology.json",
+        "grid_shape": [
+          120,
+          9
+        ]
+      },
+      "state_binding": {
+        "selector": "body_id",
+        "value": 0
+      },
+      "material_id": "belt_blue",
+      "collision_enabled": true
+    }
+  ]
+}
+

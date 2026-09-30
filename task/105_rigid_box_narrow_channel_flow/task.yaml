@@ -1,0 +1,32 @@
+id: 105_rigid_box_narrow_channel_flow
+title: Rigid Box Sinking and Rising in a Narrow Fluid Channel
+category: multiphysics_coupling
+source:
+  title: A Fast Variational Framework for Accurate Solid-Fluid Coupling
+  url: https://www.cs.ubc.ca/labs/imager/tr/2007/Batty_VariationalFluids/
+  anchor: Figure 5; PDF page 6
+goal: 'Recreate the source two-way coupled experiment: After the fluid drive is enabled, the box reverses its
+  downward motion and rises. Prescribe only the stated supports and controls; the remaining solid response
+  and fluid motion must be dynamically coupled.'
+scene_requirements:
+  required_elements:
+  - A dynamic rigid box in a two-dimensional fluid-filled vertical tube, with narrow but nonzero gaps on its
+    sides.
+  - A resolved fluid velocity field with passive marker particles.
+  - Gravity and the source later force applied to the fluid.
+  - Fluid forces must change the dynamic solid motion or deformation, and the evolving solid must alter the
+    resolved fluid flow. The numerical coupling method is unrestricted.
+  - Apply the lifting drive to the fluid, not directly to the box. Preserve the source narrow-gap geometry;
+    no spring or kinematic path may lift the box.
+  initial_state:
+  - Start with the heavy box near the upper part of the tube, free to translate and rotate.
+  - Initially let the box sink; enable the source fluid drive later so flow through the gaps pushes the box
+    upward.
+  required_events:
+  - The released box descends through the narrow tube and rocks from side to side.
+  - Fluid markers pass through the side gaps and move around the tilted box.
+  - After the fluid drive is enabled, the box reverses its downward motion and rises.
+camera_requirements:
+- Use a fixed front view of the two-dimensional tube, with the box, both gaps, and moving fluid markers visible.
+- Keep the onset, strongest interaction, and stated outcome visible in a continuous sequence. Passive tracer
+  or wetness colors must follow the simulated state rather than a scripted color change.

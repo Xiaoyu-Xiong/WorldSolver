@@ -1,0 +1,28 @@
+id: 027_torus_through_hole
+title: Torus Through Hole
+category: elastic_solids
+source:
+  title: Optimization Integrator for Large Time Steps
+  url: https://math.ucdavis.edu/~jteran/papers/GSSJT15.pdf
+  anchor: Figure 11; PDF page 10
+goal: Recreate the observable physical phenomenon in which a deformable torus is pushed through a smaller
+  rigid hole under constraint contact. The implementation method is unrestricted; the target is the scene's
+  visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Torus Through Hole
+  - Deformable object named by the scene
+  - Collision obstacles or supports
+  - Gravity
+  initial_state:
+  - A deformable torus is pushed through a smaller rigid hole under constraint contact.
+  required_events:
+  - Quantitative/qualitative - inversion/penetration
+  - Peak deformation
+  - Recovery
+  - Solver convergence
+camera_requirements:
+- Use a three-quarter view showing the full deformable body, loading or impact region, contacts, large
+  deformation, and recovered or final shape.
+parameter_notes:
+- 'Original paper parameters/configuration: Constraint collisions; Figure 11 geometry.'

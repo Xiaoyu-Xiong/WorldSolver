@@ -1,0 +1,146 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 22403020,
+          "trajectory_frames": 401,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.extensive_quantity.v1",
+        "criterion": "In the closed tank with no liquid source, sink, phase change, or open liquid boundary, total liquid mass remains equal to its initial value.",
+        "criterion_id": "closed_tank_liquid_mass_balance",
+        "details": {
+          "initial_quantity": 3600.000000000002,
+          "sample_count": 401,
+          "worst_frame_index": 0
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.0,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "field.divergence.v1",
+        "criterion": "Under the frozen incompressible-liquid condition, the velocity field is approximately divergence free in the exported liquid-interior region.",
+        "criterion_id": "interior_incompressibility",
+        "details": {
+          "sample_count": 401,
+          "worst_frame_index": 10
+        },
+        "dimension": "field_constraints",
+        "domain": "physics",
+        "metric": "divergence_relative_l2",
+        "normalized_error": 28.69802889678912,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 3.3672268401224357
+      },
+      {
+        "calculator": "boundary.velocity_residual.v1",
+        "criterion": "On the stationary impermeable tank floor and side walls, the exported liquid boundary velocity has zero relative normal component.",
+        "criterion_id": "impermeable_tank_walls",
+        "details": {
+          "error": "Boundary sample arrays must have shape [B,2] or [B,3]"
+        },
+        "dimension": "boundary_and_interface_conditions",
+        "domain": "physics",
+        "metric": "normal_velocity_relative_rms",
+        "normalized_error": null,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "status": "measurement_error",
+        "unit": "dimensionless",
+        "score": 0.0
+      },
+      {
+        "calculator": "interface.level_set_kinematic.v1",
+        "criterion": "With no interfacial mass transfer, the exported liquid-air level set is transported consistently by the collocated liquid velocity field.",
+        "criterion_id": "free_surface_kinematic_consistency",
+        "details": {
+          "sample_count": 401,
+          "worst_frame_index": 0
+        },
+        "dimension": "transport_equation_consistency",
+        "domain": "physics",
+        "metric": "kinematic_relative_l2",
+        "normalized_error": 1.0,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.0
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.03741657386773942,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.16
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.03162277660168379,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.1
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.031622776601683784,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.25
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.05
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "physics_measurement_error",
+  "task_id": "001_2d_dam_break",
+  "visual_score": 0.14,
+  "visual_fidelity_score": 14.000000000000002,
+  "physical_plausibility_score": 25.84180671003061,
+  "total_score": 19.920903355015305
+}

@@ -1,0 +1,38 @@
+schema_version: 1
+scene_id: 110_elastic_bag_filling_overflow
+seed: 110
+duration: 8.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+initial_conditions:
+  bag:
+    body_id: 0
+    total_mass: 0.34
+    thickness: 0.0015
+    impermeable: true
+    fixed_rim: true
+  water:
+    body_id: 1
+    rest_density: 1000.0
+    initial_state: nozzle_stream_only
+boundary_conditions:
+  rim_support:
+    type: fixed_vertices
+    vertex_set: rim
+  nozzle_inflow:
+    center: [0.0, 0.0, 2.42]
+    direction: [0.0, 0.0, -1.0]
+    radius: 0.14
+    speed: 2.3
+    active_interval: [0.0, 7.0]
+  exterior:
+    open_sides: true
+    catch_floor_z: 0.0
+camera:
+  position: [4.4, -5.5, 3.45]
+  look_at: [0.0, 0.0, 1.45]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

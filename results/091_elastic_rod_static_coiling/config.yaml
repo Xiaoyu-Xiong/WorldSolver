@@ -1,0 +1,41 @@
+schema_version: 1
+scene_id: 091_elastic_rod_static_coiling
+seed: 91
+duration: 180.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+rod:
+  topology_asset: assets/rod_topology.json
+  radius: 0.0016
+  density: 1180.0
+  young_modulus: 1300000.0
+  poisson_ratio: 0.49
+  natural_curvature: 0.0
+  total_available_length: 1.45
+  initial_deployed_length: 0.50
+injector:
+  center: [0.0, 0.0, 0.515]
+  axis: [0.0, 0.0, -1.0]
+  outlet_position: [0.0, 0.0, 0.50]
+  injection_speed: 0.005
+  start_time: 0.0
+  end_time: 180.0
+substrate:
+  surface_z: 0.0
+  stationary: true
+  deposited_rod_condition: sticking
+  self_contact_required: false
+initial_conditions:
+  description: naturally straight suspended rod reaches the substrate with no developed coil
+  symmetry_break_offset: [0.0015, 0.0, 0.0]
+  injector_end_controlled: true
+  substrate_contact_sticks: true
+camera:
+  position: [0.62, -0.78, 0.48]
+  look_at: [0.0, 0.0, 0.23]
+  up: [0.0, 0.0, 1.0]
+  focal_length_mm: 58
+  width: 960
+  height: 640
+  fps: 50

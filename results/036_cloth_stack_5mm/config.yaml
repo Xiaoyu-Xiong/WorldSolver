@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "scene_id": "036_cloth_stack_5mm",
+  "seed": 36,
+  "duration": 3,
+  "sample_dt": 0.03333333333333333,
+  "visual_judge_frame_count": 20,
+  "gravity": [
+    0,
+    0,
+    -9.81
+  ],
+  "camera": {
+    "position": [
+      3,
+      -3.7,
+      2.65
+    ],
+    "look_at": [
+      0,
+      0,
+      0.65
+    ],
+    "up": [
+      0,
+      0,
+      1
+    ],
+    "width": 960,
+    "height": 640,
+    "fps": 50,
+    "yfov_degrees": 42,
+    "background_rgb": [
+      0.9,
+      0.92,
+      0.94
+    ]
+  },
+  "panel_count": 10,
+  "panel": {
+    "grid_shape": [
+      13,
+      13
+    ],
+    "thickness": 0.005,
+    "total_mass": 0.12
+  },
+  "friction": 0.1,
+  "board_top": 0.05,
+  "visual_judge_frame_count": 20
+}

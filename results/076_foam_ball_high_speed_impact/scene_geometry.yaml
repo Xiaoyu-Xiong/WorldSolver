@@ -1,0 +1,29 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: impact_plate
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [0.002, 0.050, 0.050]
+    transform:
+      translation: [0.002, 0.0, 0.020]
+    material_id: brushed_steel
+    collision_enabled: true
+
+  - id: foam_ball
+    semantic: deformable
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/foam_ball_surface.obj
+      topology_asset: assets/foam_ball_surface.obj
+    transform:
+      translation: [-0.050, 0.0, 0.020]
+      scale: [0.020, 0.020, 0.020]
+    state_binding:
+      selector: all
+    material_id: white_foam
+    collision_enabled: true

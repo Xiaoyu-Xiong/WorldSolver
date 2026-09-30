@@ -1,0 +1,31 @@
+id: 166_rotating_drum_radial_to_axial_segregation
+title: Rotating Drum Radial-to-Axial Segregation
+category: plastic_and_complex_materials
+source:
+  title: Simulational Studies of Axial Granular Segregation in a Rotating Cylinder
+  url: https://arxiv.org/pdf/cond-mat/0202499
+  anchor: Figures 1-8; Physical Review E 65, 061306 (2002)
+goal: >-
+  Recreate the published centrifuge segregation phenomenon, from an initially mixed state through rotation-driven
+  radial organization to the characteristic axial concentration pattern. The numerical method is unrestricted.
+scene_requirements:
+  required_elements:
+  - Long horizontal rotating drum
+  - Two granular species with distinct size and color
+  - Partially filled free surface
+  - Gravity
+  - Frictional grain-grain and grain-wall contact
+  initial_state:
+  - Small and large grains begin well mixed throughout a partially filled horizontal drum.
+  required_events:
+  - Rotation produces a flowing surface layer and small grains percolate inward to form radial segregation.
+  - Axial composition fluctuations grow and organize the two species into alternating bands perpendicular to the drum axis.
+  - The band pattern persists and neighboring bands may drift or merge while all grains remain confined.
+  - Material remains confined and motion stays temporally coherent without teleportation or numerical explosion.
+camera_requirements:
+- Use a wide side view showing the complete drum length and species colors, supplemented by an end view to reveal the radial core.
+- Keep both material species strongly color-coded so concentration changes are visible without diagnostic overlays.
+parameter_notes:
+- Preserve the paper's qualitative filling fraction, rotation regime, species contrast, and radial-to-axial event ordering.
+- Export persistent species labels, mass, velocity, applied forces, and contact or coupling diagnostics.
+

@@ -1,0 +1,24 @@
+schema_version: 1
+scene_id: 061_pneumatic_finger
+seed: 61061
+duration: 4.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+pressure:
+  chamber_pressure_pa: 18000.0
+  ramp_start_s: 0.40
+  ramp_end_s: 2.20
+  hold_until_s: 4.0
+initial_conditions:
+  finger_rest_pose: straight_unpressurized
+  base_support_region_x: [0.0, 0.030]
+  initial_velocity_m_s: [0.0, 0.0, 0.0]
+camera:
+  position: [0.105, -0.34, 0.085]
+  look_at: [0.105, 0.0, 0.050]
+  up: [0.0, 0.0, 1.0]
+  projection: orthographic
+  orthographic_scale: 0.255
+  width: 960
+  height: 640
+  fps: 50

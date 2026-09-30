@@ -1,0 +1,22 @@
+schema_version: 2
+profile: deformable_surface
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: hand_flesh
+    method: deformed_mesh
+    material: warm_flesh
+    color_rgb: [0.78, 0.43, 0.31]
+    subdivision: 1
+  - object_id: forearm_cuff
+    method: rigid_mesh
+    material: hidden_guide
+    opacity: 0.0
+  - object_id: index_bone
+    method: rigid_mesh
+    material: hidden_guide
+    opacity: 0.0
+  - object_id: thumb_bone
+    method: rigid_mesh
+    material: hidden_guide
+    opacity: 0.0

@@ -1,0 +1,30 @@
+id: 106_frigate_wave_response
+title: Rigid Frigate Responding to Water Waves
+category: multiphysics_coupling
+source:
+  title: Versatile Rigid-Fluid Coupling for Incompressible SPH
+  url: https://cg.informatik.uni-freiburg.de/publications/2012_SIGGRAPH_rigidFluidCoupling.pdf
+  anchor: Figure 3; PDF page 3
+goal: 'Recreate the source two-way coupled experiment: Water is deflected around the hull while the ship remains
+  afloat through successive passing waves. Prescribe only the stated supports and controls; the remaining solid
+  response and fluid motion must be dynamically coupled.'
+scene_requirements:
+  required_elements:
+  - A dynamic impermeable rigid frigate hull in a free-surface water domain.
+  - Incoming water waves and the source ship geometry, with gravity.
+  - Resolved hull-water pressure and velocity coupling.
+  - Fluid forces must change the dynamic solid motion or deformation, and the evolving solid must alter the
+    resolved fluid flow. The numerical coupling method is unrestricted.
+  - Require hull-water coupling only; sails may be rigid visual geometry. Do not add a separate aerodynamic
+    sail solver or force instantaneous hydrostatic balance in waves.
+  initial_state:
+  - The frigate initially floats at a physically supported waterline.
+  - Waves approach the hull; leave heave and pitch free to respond to water forces.
+  required_events:
+  - As waves reach the frigate, the hull rises and falls rather than staying fixed at one height.
+  - The bow and stern change height relative to one another as the hull pitches.
+  - Water is deflected around the hull while the ship remains afloat through successive passing waves.
+camera_requirements:
+- Use a fixed side-oblique view that shows the bow, stern, hull waterline, and several approaching waves.
+- Keep the onset, strongest interaction, and stated outcome visible in a continuous sequence. Passive tracer
+  or wetness colors must follow the simulated state rather than a scripted color change.

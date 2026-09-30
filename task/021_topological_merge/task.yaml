@@ -1,0 +1,33 @@
+id: 021_topological_merge
+title: Repeated Topological Merge Pile
+category: plastic_and_complex_materials
+source:
+  title: A Finite Element Method for Animating Large Viscoplastic Flow
+  url: https://graphics.cs.cmu.edu/projects/Bargteil-2007-AFE/Bargteil-2007-AFE.pdf
+  anchor: Figure 6; PDF page 6
+goal: Recreate the Figure 6 phenomenon in which many initially independent viscoplastic blocks
+  descend, contact one another, and repeatedly merge into a coherent accumulating mass. The
+  implementation method is unrestricted; evaluation targets the visible approach, persistent
+  material connections, and stable final pile rather than a particular remeshing algorithm.
+scene_requirements:
+  required_elements:
+  - Multiple initially independent rounded viscoplastic blocks
+  - A central accumulating pile with additional blocks above it
+  - A ground support
+  - Gravity
+  initial_state:
+  - Several separate blocks begin near the support while additional separated blocks are staged
+    above them, matching the layered composition of Figure 6.
+  required_events:
+  - Independent blocks progressively descend and make contact over multiple distinct times.
+  - Contact regions develop into broad, persistent, continuous material connections.
+  - The number of separate groups decreases as the blocks merge into one dominant pile.
+  - The merged material remains coherent without obvious mesh popping, fragmentation,
+    disappearance, or numerical explosion.
+camera_requirements:
+- Use a three-quarter view matching Figure 6 that keeps the support, accumulating pile, and
+  incoming upper blocks visible throughout the animation.
+parameter_notes:
+- 'Figure 6 reports about 4,200 elements per initial object, more than 200,000 elements by the end,
+  and many topological merges. These counts document the paper experiment but are not mandatory
+  solver discretization requirements.'

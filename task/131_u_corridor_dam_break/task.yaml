@@ -1,0 +1,29 @@
+id: 131_u_corridor_dam_break
+title: U-Corridor Dam Break
+category: fluid_dynamics
+source:
+  title: "Power Particles: An Incompressible Fluid Solver Based on Power Diagrams"
+  url: https://www.geometry.caltech.edu/pubs/dGWH%2B15.pdf
+  anchor: Figure 2
+goal: >-
+  Recreate the paper's clearly visible u-corridor dam break phenomenon. The implementation method is unrestricted;
+  evaluation targets the observable flow evolution, boundary interaction, signature structure, and final state.
+scene_requirements:
+  required_elements:
+  - U-shaped corridor
+  - Initially confined liquid column
+  - Rigid floor and walls
+  - Gravity
+  initial_state:
+  - A compact liquid column is held at one end of a dry U-shaped corridor.
+  required_events:
+  - After release, the column collapses and its front accelerates along the first corridor leg.
+  - The front turns through both bends, strikes the corridor walls, and develops visible run-up and reflected flow.
+  - Liquid traverses the U path and returns as interacting waves rather than leaking through corners.
+  - The represented fluid remains continuous and respects rigid boundaries throughout the event.
+camera_requirements:
+- Use a high oblique view showing the full U-shaped path and free surface.
+- Use contrasting fluid and obstacle colors and keep the complete phenomenon inside frame.
+parameter_notes:
+- Match the qualitative scale, flow regime, and event ordering shown in Figure 2; geometric simplification is allowed.
+- Export collocated velocity diagnostics, active masks, boundary samples, and transported liquid or smoke fields.

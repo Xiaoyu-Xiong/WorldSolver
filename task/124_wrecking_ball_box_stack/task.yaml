@@ -1,0 +1,39 @@
+id: 124_wrecking_ball_box_stack
+title: Wrecking Ball Box Stack
+category: rigid_body_dynamics
+source:
+  title: Intersection-free Rigid Body Dynamics
+  url: https://ipc-sim.github.io/rigid-ipc/assets/rigid_ipc_paper_350ppi.pdf
+  anchor: Figure 8; PDF page 9
+goal: Recreate the observable physical phenomenon in which a heavy wrecking ball assembled from an
+  interlinked rigid chain swings into a large, initially stable stack of boxes, transfers momentum through
+  the structure, and produces a progressive collapse. The implementation method is unrestricted; the target
+  is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Large stack of separate rigid boxes
+  - Heavy rigid wrecking ball
+  - Interlinked rigid chain suspending the ball
+  - Fixed overhead chain support
+  - Rigid floor
+  - Gravity
+  - Contact and friction between boxes, ball, chain, and floor
+  initial_state:
+  - The boxes begin in a visibly stable stacked arrangement at rest on the floor.
+  - The wrecking ball begins displaced to one side with the chain taut and is released to swing under gravity.
+  required_events:
+  - The intact box stack remains at rest before impact without visible drift or premature collapse.
+  - The wrecking ball follows a pendulum-like arc while the chain links remain connected.
+  - Ball impact visibly transfers momentum into the contacted boxes and initiates a progressive collapse.
+  - Displaced boxes collide with neighboring boxes and the floor instead of passing through them.
+  - After the main collapse, the boxes and wrecking ball lose energy and approach a settled configuration.
+camera_requirements:
+- Use a wide three-quarter view that keeps the full box stack, wrecking-ball arc, chain support, impact zone,
+  and final debris field visible throughout the simulation.
+- Use contrasting colors for the wrecking ball, chain, and alternating box layers so momentum propagation
+  and individual rigid-body motion remain readable.
+parameter_notes:
+- 'Original paper configuration: a stack of 560 rigid boxes is hit by a wrecking ball made from a chain of
+  interlinked rigid bodies; Figure 8.'
+- A reduced box count is acceptable when required by the resource limit, but the stack must remain large
+  enough to exhibit multi-body momentum propagation and progressive collapse rather than a single collision.

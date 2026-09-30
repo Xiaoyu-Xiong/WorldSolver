@@ -1,0 +1,14 @@
+schema_version: 1
+scene_id: 119_porous_sponge_absorption_swelling
+seed: 119
+duration: 8.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+camera:
+  position: [4.15, 4.75, 3.05]
+  look_at: [-0.10, 0.0, 0.70]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50
+  point_radius: 2

@@ -1,0 +1,108 @@
+schema_version: 4
+task_id: 009_water_pour_into_glass
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The submitted solver runs to the frozen end time, produces a complete finite trajectory
+      with every required evaluation field, and produces a readable platform render without exceeding
+      the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: A continuous water jet visibly enters the clear cylindrical glass.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: The jet impacts the glass bottom or existing liquid and produces visible rolling, mixing,
+      and splash motion.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: A recognizable in-glass free surface develops with visible air-water detail and interaction
+      with the cylindrical wall.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: Water remains confined by the glass and evolves without wall penetration, suspended disconnected
+      blobs, or unexplained interruption of the jet.
+  physics:
+  - id: material_mass_balance
+    profile: fluids_and_gases
+    dimension: conservation_and_source_balance
+    criterion: For water pour into glass, the mass change equals the cumulative prescribed inflow, outflow,
+      or phase-transfer source; internal motion and contact do not create or delete mass.
+    applicability:
+      requires:
+      - prescribed sources and sinks are exported
+      - Per-sample mass contributions are exported for every evaluated material.
+      excludes:
+      - Unreported particle deletion or remeshing loss.
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: incompressible_velocity_constraint
+    profile: fluids_and_gases
+    dimension: field_constraints
+    criterion: In the active incompressible region of water pour into glass, the velocity field is approximately
+      divergence free.
+    applicability:
+      requires:
+      - The frozen material model is incompressible.
+      - A collocated velocity grid and active-region mask are exported.
+      excludes:
+      - Compressible material regions and prescribed source cells.
+    numeric_binding:
+      calculator: field.divergence.v1
+      inputs:
+        velocity_field: fields.velocity_field
+        active_mask: fields.active_mask
+        grid_spacing: scalars.grid_spacing
+        characteristic_length: scalars.characteristic_length
+      parameters:
+        spatial_dimensions: 3
+      reduction:
+        type: maximum
+  - id: prescribed_boundary_velocity
+    profile: fluids_and_gases
+    dimension: boundary_and_interface_conditions
+    criterion: At impermeable or moving boundaries in water pour into glass, the sampled material velocity
+      matches the prescribed normal boundary velocity.
+    applicability:
+      requires:
+      - Boundary velocity, target velocity, and normals are exported at collocated samples.
+      excludes:
+      - Open, porous, or prescribed-flux boundary segments.
+    numeric_binding:
+      calculator: boundary.velocity_residual.v1
+      inputs:
+        boundary_velocity: fields.boundary_velocity
+        boundary_target_velocity: fields.boundary_target_velocity
+        boundary_normal: fields.boundary_normal
+        reference_velocity: scalars.reference_velocity
+      parameters:
+        condition: no_penetration
+      reduction:
+        type: maximum
+  - id: material_interface_kinematics
+    profile: fluids_and_gases
+    dimension: boundary_and_interface_conditions
+    criterion: Where water pour into glass has no prescribed interfacial mass transfer, its material interface
+      is advected consistently by the collocated velocity field.
+    applicability:
+      requires:
+      - A signed interface level set and collocated velocity are exported every frame.
+      excludes:
+      - Interface portions with prescribed phase change or mass flux.
+    numeric_binding:
+      calculator: interface.level_set_kinematic.v1
+      inputs:
+        level_set: fields.liquid_level_set
+        velocity_field: fields.velocity_field
+        grid_spacing: scalars.grid_spacing
+      parameters:
+        spatial_dimensions: 3
+        interface_band_cells: 1.5
+      reduction:
+        type: maximum

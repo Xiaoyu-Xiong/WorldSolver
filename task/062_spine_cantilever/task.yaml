@@ -1,0 +1,26 @@
+id: 062_spine_cantilever
+title: Gravity Sag of a Soft Spine Cantilever
+category: elastic_solids
+source:
+  title: Locking-Proof Tetrahedra
+  url: https://research.chalmers.se/publication/524762/file/524762_Fulltext.pdf
+  anchor: Figure 5 (including real photograph), PDF page 8; Figure 4, PDF page 7 (institutional cover
+    included)
+goal: 'Recreate the source experiment: The loaded arm hangs well below its original extended position
+  instead of remaining almost straight and horizontal. The numerical implementation is unrestricted; the
+  deforming material is a three-dimensional solid.'
+scene_requirements:
+  required_elements:
+  - The volumetric rubber spine-arm geometry shown in Figure 5.
+  - A fixed attachment at one end and gravity.
+  initial_state:
+  - One end of the arm is fixed and the remaining arm extends outward before gravity loading.
+  required_events:
+  - The unsupported end moves downward after gravity is applied, while the attached end stays in place.
+  - The thin connections between spine sections bend, so successive sections form a downward-curving arm.
+  - The loaded arm hangs well below its original extended position instead of remaining almost straight
+    and horizontal.
+camera_requirements:
+- Use a fixed side view showing the attachment and the entire downward-curving arm.
+- Keep the relevant objects visible before loading or contact, during the largest deformation, and during
+  the stated outcome.

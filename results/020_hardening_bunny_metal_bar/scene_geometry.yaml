@@ -1,0 +1,50 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+- id: ground
+  semantic: boundary
+  motion: static
+  geometry:
+    type: box
+    half_extents:
+    - 2.5
+    - 1.6
+    - 0.04
+  transform:
+    translation:
+    - 0.0
+    - 0.0
+    - -0.04
+  material_id: matte
+  collision_enabled: true
+- id: metal_bar
+  semantic: rigid
+  motion: static
+  geometry:
+    type: cylinder
+    radius: 0.085
+    height: 2.4
+  transform:
+    translation:
+    - 0.0
+    - 0.0
+    - 0.66
+    rotation_xyzw:
+    - 0.7071067811865476
+    - 0.0
+    - 0.0
+    - 0.7071067811865476
+  material_id: metal
+  collision_enabled: true
+- id: subject
+  semantic: deformable
+  motion: dynamic
+  geometry:
+    type: triangle_mesh
+    asset: assets/subject.npz
+    topology_asset: assets/subject.npz
+  state_binding:
+    selector: all
+  material_id: default
+  collision_enabled: true

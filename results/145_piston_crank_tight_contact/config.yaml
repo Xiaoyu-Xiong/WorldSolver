@@ -1,0 +1,31 @@
+schema_version: 1
+scene_id: 145_piston_crank_tight_contact
+seed: 15145
+duration: 8.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+variant: piston_crank_tight_contact
+gravity: [0.0, 0.0, -9.81]
+contact: {friction: 0.55, restitution: 0.12, length_scale: 0.02}
+bodies:
+  - id: crank
+    position: [-0.8,0,1]
+    orientation: [0,0,0,1]
+    mass: 1
+  - id: rod
+    position: [0,0,1]
+    orientation: [0,0,0,1]
+    mass: 1
+  - id: piston
+    position: [1.15,0,1]
+    orientation: [0,0,0,1]
+    mass: 2
+camera:
+  position: [4.8, -7.2, 3.6]
+  look_at: [0.0, 0.0, 1.15]
+  up: [0.0, 0.0, 1.0]
+  projection: orthographic
+  orthographic_height: 2.55
+  width: 960
+  height: 640
+  fps: 50

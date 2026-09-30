@@ -1,0 +1,28 @@
+id: 040_shovel_digs_sand
+title: Shovel Digs Sand
+category: plastic_and_complex_materials
+source:
+  title: Drucker-Prager Elastoplasticity for Sand Animation
+  url: https://www.math.ucdavis.edu/~jteran/papers/KGPSJT16.pdf
+  anchor: Figure 11; PDF page 6
+goal: Recreate the observable physical phenomenon in which a shovel moves through a sand bed and pushes
+  granular material aside. The implementation method is unrestricted; the target is the scene's visible
+  motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Shovel Digs Sand
+  - Granular particles
+  - Contact floor or container
+  - Gravity
+  initial_state:
+  - A shovel moves through a sand bed and pushes granular material aside.
+  required_events:
+  - Qualitative/quantitative - displaced volume
+  - Mound geometry
+  - Tool force
+  - Granular flow stability
+camera_requirements:
+- Use a three-quarter view showing release or inflow, contact zones, pile or fragment evolution, and the
+  final deposited state without major occlusion.
+parameter_notes:
+- 'Original paper parameters/configuration: Kinematic shovel and sand bed from Figure 11.'

@@ -1,0 +1,14 @@
+schema_version: 2
+profile: deformable_surface
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: elastic_bunny
+    method: deformed_mesh
+    material: soft_bunny_blue
+    color_rgb: [0.18, 0.62, 0.86]
+    subdivision: 0
+  - object_id: attachment_marker
+    method: rigid_mesh
+    material: attachment_dark
+    color_rgb: [0.12, 0.14, 0.17]

@@ -1,0 +1,56 @@
+schema_version: 1
+scene_id: 035_pinned_cloth_strain_limit
+seed: 35
+duration: 4.0
+sample_dt: 0.03333333333333333
+gravity:
+- 0.0
+- 0.0
+- -9.81
+camera:
+  position:
+  - 3.15
+  - -4.25
+  - 2.45
+  look_at:
+  - 0.0
+  - 0.0
+  - 0.72
+  up:
+  - 0.0
+  - 0.0
+  - 1.0
+  width: 960
+  height: 640
+  fps: 50
+  yfov_degrees: 38
+  background_rgb:
+  - 0.035
+  - 0.045
+  - 0.06
+cloth:
+  grid_shape:
+  - 31
+  - 31
+  side_length: 2.8
+  initial_height: 1.72
+  thickness: 0.012
+  total_mass: 0.32
+  strain_lower: 0.9
+  strain_upper: 1.1
+  target_strain_lower: 0.965
+  target_strain_upper: 1.045
+  damping: 1.35
+  friction: 0.22
+sphere:
+  center:
+  - 0.0
+  - 0.0
+  - 0.64
+  radius: 0.64
+ground:
+  height: 0.0
+solver:
+  substep: 0.004
+  constraint_iterations: 15
+visual_judge_frame_count: 20

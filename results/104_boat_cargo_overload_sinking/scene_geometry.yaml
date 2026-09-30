@@ -1,0 +1,74 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: pool_bottom
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [2.4, 1.4, 0.05]}
+    transform: {translation: [0.0, 0.0, -0.05]}
+    material_id: pool_floor
+    collision_enabled: true
+  - id: pool_back_wall
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [2.4, 0.04, 1.4]}
+    transform: {translation: [0.0, 1.36, 1.4]}
+    material_id: clear_wall
+    collision_enabled: true
+  - id: pool_front_wall
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [2.4, 0.04, 1.4]}
+    transform: {translation: [0.0, -1.36, 1.4]}
+    material_id: clear_wall
+    collision_enabled: true
+  - id: pool_left_wall
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.04, 1.4, 1.4]}
+    transform: {translation: [-2.36, 0.0, 1.4]}
+    material_id: clear_wall
+    collision_enabled: true
+  - id: pool_right_wall
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.04, 1.4, 1.4]}
+    transform: {translation: [2.36, 0.0, 1.4]}
+    material_id: clear_wall
+    collision_enabled: true
+  - id: water
+    semantic: liquid
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [-2.3, -1.3, 0.0]
+      bounds_max: [2.3, 1.3, 0.72]
+      grid_shape: [40, 24, 6]
+    state_binding: {selector: body_id, value: 0}
+    material_id: water
+    collision_enabled: true
+  - id: boat
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/open_boat.obj}
+    transform: {translation: [0.0, 0.0, 0.92]}
+    state_binding: {selector: body_id, value: 1}
+    material_id: boat_hull
+    collision_enabled: true
+  - id: light_sphere
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: sphere, radius: 0.23}
+    transform: {translation: [-0.62, 0.0, 2.05]}
+    state_binding: {selector: body_id, value: 2}
+    material_id: light_cargo
+    collision_enabled: true
+  - id: heavy_sphere
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: sphere, radius: 0.23}
+    transform: {translation: [0.78, 0.0, 2.55]}
+    state_binding: {selector: body_id, value: 3}
+    material_id: heavy_cargo
+    collision_enabled: true

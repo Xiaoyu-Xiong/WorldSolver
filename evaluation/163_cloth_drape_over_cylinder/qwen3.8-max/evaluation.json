@@ -1,0 +1,148 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 4703247,
+          "trajectory_frames": 211,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "Total represented sheet mass follows the exported cumulative source and remains conserved through deformation.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "initial_quantity": [
+            0.32000000000000006
+          ],
+          "sample_count": 211,
+          "worst_frame_index": 0
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.0,
+        "profile": "cloth_thin_shells_and_fibers",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "dynamics.linear_momentum_balance.v1",
+        "criterion": "The time rate of total sheet momentum is consistent with exported external forces.",
+        "criterion_id": "linear_momentum_balance",
+        "details": {
+          "sample_count": 211,
+          "worst_frame_index": 12
+        },
+        "dimension": "momentum_and_force_balance",
+        "domain": "physics",
+        "metric": "momentum_balance_relative_l2",
+        "normalized_error": 0.9999999931212381,
+        "profile": "cloth_thin_shells_and_fibers",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 6.878761893425178e-07
+      },
+      {
+        "calculator": "deformation.strain_limit.v1",
+        "criterion": "Principal stretches in intact sheet elements remain inside the stated broad admissible interval.",
+        "criterion_id": "controlled_surface_strain",
+        "details": {
+          "sample_count": 211,
+          "worst_frame_index": 0
+        },
+        "dimension": "deformation_constraints",
+        "domain": "physics",
+        "metric": "strain_limit_relative_max",
+        "normalized_error": 0.0,
+        "profile": "cloth_thin_shells_and_fibers",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "contact.penetration.v1",
+        "criterion": "Cloth-solid and cloth-self contacts maintain nonnegative gaps up to the frozen thickness tolerance.",
+        "criterion_id": "nonpenetrating_contact",
+        "details": {
+          "sample_count": 211,
+          "worst_frame_index": 35
+        },
+        "dimension": "contact_and_interface_conditions",
+        "domain": "physics",
+        "metric": "penetration_relative_max",
+        "normalized_error": 1.8041124150158794e-14,
+        "profile": "cloth_thin_shells_and_fibers",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 99.99999999996392
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.07348469228349533,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.89
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.06112282715974447,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.6679999999999999
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.03878143885933062,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.354
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0990757286120067,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.41200000000000003
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "163_cloth_drape_over_cylinder",
+  "visual_score": 0.581,
+  "visual_fidelity_score": 58.099999999999994,
+  "physical_plausibility_score": 75.00000017196002,
+  "total_score": 66.55000008598
+}

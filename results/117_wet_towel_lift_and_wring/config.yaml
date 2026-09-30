@@ -1,0 +1,59 @@
+schema_version: 1
+scene_id: 117_wet_towel_lift_and_wring
+seed: 117
+duration: 9.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+camera:
+  position: [3.7, -5.0, 2.8]
+  look_at: [0.0, 0.0, 0.95]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50
+towel:
+  size: [2.5, 0.72]
+  grid_shape: [41, 15]
+  thickness: 0.012
+  dry_areal_density: 0.42
+  porosity: 0.78
+  permeability_m2: 3.0e-9
+  liquid_storage_capacity_kg_m2: 0.78
+  initial_saturation: 0.92
+  initial_end_height: 0.72
+  initial_center_height: 0.18
+  grasp_length: 0.16
+  initial_velocity: [0.0, 0.0, 0.0]
+water:
+  density: 1000.0
+  particle_spacing: 0.085
+  initial_bounds_min: [-1.7, -0.75, 0.03]
+  initial_bounds_max: [1.7, 0.75, 0.50]
+  free_surface_z: 0.50
+  initial_velocity: [0.0, 0.0, 0.0]
+basin:
+  interior_half_extents: [1.75, 0.8, 0.62]
+  wall_thickness: 0.06
+controls:
+  driven_regions: [left_grasp, right_grasp]
+  axis: towel_longitudinal
+  lift:
+    start_time: 0.40
+    end_time: 2.20
+    end_height: 1.72
+  twist:
+    start_time: 2.55
+    end_time: 5.75
+    left_total_degrees: 540.0
+    right_total_degrees: -540.0
+  hold_after_twist_until: 9.0
+coupling_requirements:
+  two_way_momentum_exchange: true
+  evolving_towel_alters_resolved_fluid_flow: true
+  fluid_forces_alter_free_towel_motion: true
+  liquid_can_pass_through_towel: true
+  liquid_storage_and_drainage: true
+  fast_wringing_allows_nonlinear_through_flow: true
+  no_penetration_at_towel: false
+  scripted_wetness_color: false

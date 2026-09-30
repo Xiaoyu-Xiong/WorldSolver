@@ -1,0 +1,53 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: funnel
+    semantic: boundary
+    motion: static
+    geometry:
+      type: axisymmetric_container
+      inner_profile:
+        - [0.31, 0.86]
+        - [0.31, 1.02]
+        - [0.58, 1.48]
+        - [0.88, 1.88]
+        - [1.10, 2.15]
+      wall_thickness: 0.045
+    material_id: clear_acrylic
+    collision_enabled: true
+  - id: porous_plug
+    semantic: deformable
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/porous_plug.obj
+      topology_asset: assets/porous_plug.obj
+    state_binding:
+      selector: body_id
+      value: 1
+    material_id: porous_foam
+    collision_enabled: true
+  - id: water
+    semantic: liquid
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [-0.34, -0.34, 2.15]
+      bounds_max: [0.34, 0.34, 2.72]
+    state_binding:
+      selector: body_id
+      value: 2
+    material_id: water
+    collision_enabled: true
+  - id: catch_floor
+    semantic: boundary
+    motion: static
+    geometry:
+      type: cylinder
+      radius: 1.35
+      height: 0.06
+    transform:
+      translation: [0.0, 0.0, 0.03]
+    material_id: matte_floor
+    collision_enabled: true

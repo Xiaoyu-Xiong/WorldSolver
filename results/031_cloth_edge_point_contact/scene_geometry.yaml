@@ -1,0 +1,45 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: ground
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [1.35, 1.15, 0.04]
+    transform:
+      translation: [0.0, 0.0, -0.04]
+    material_id: ground_matte
+    collision_enabled: true
+  - id: sharp_edge
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [0.025, 0.68, 0.3]
+    transform:
+      translation: [-0.38, 0.0, 0.3]
+    material_id: edge_metal
+    collision_enabled: true
+  - id: sharp_point
+    semantic: boundary
+    motion: static
+    geometry:
+      type: triangle_mesh
+      asset: assets/sharp_point_cone.obj
+    transform:
+      translation: [0.42, 0.0, 0.68]
+    material_id: point_metal
+    collision_enabled: true
+  - id: falling_square_cloth
+    semantic: cloth
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      topology_asset: assets/falling_square_cloth_topology.json
+      grid_shape: [41, 41]
+    state_binding:
+      selector: all
+    material_id: cloth_blue
+    collision_enabled: true

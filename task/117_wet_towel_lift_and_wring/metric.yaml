@@ -1,0 +1,123 @@
+schema_version: 4
+task_id: 117_wet_towel_lift_and_wring
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The solver reaches the frozen end time, exports all required finite trajectory fields, and produces
+      a readable render within the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: The towel is pulled out of the water and hangs downward while droplets fall from it.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: Opposite end rotations tighten and twist the middle of the towel.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: Water is expelled during wringing, and some dripping continues after the twisting stops.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: The towel stays connected to its grips and released droplets detach and fall rather than remaining
+      suspended or glued to the moving towel.
+  physics:
+  - id: material_mass_source_balance
+    profile: multiphysics_coupling
+    dimension: conservation_and_source_balance
+    criterion: 'Each dry solid material and the carrier fluid obey its own mass budget: current mass equals
+      initial mass plus independently measured cumulative inflow minus outflow. Transfers between free, attached,
+      and pore liquid do not create mass.'
+    applicability:
+      requires:
+      - Export actual mass contributions in attributes.mass_quantity [N,G], with fixed columns for each evaluated
+        solid body and each fluid species; use zero entries outside each column membership. Use dry solid mass,
+        not wet aggregate mass, in solid columns.
+      - Export fields.cumulative_mass_source [G] as independently accumulated net material input minus output,
+        including actual injection, deletion at open boundaries, and source terms. Do not derive this array
+        from the measured total-mass difference.
+      - Combine bulk, pore, and surface-attached water in one water column. Absorption and dripping transfer
+        water internally; track only actual domain inflow and outflow.
+      - 'Include all physically stored fluid: free liquid, pore liquid, films and detached droplets exactly
+        once. Do not count render meshes or passive tracers as extra material. For Eulerian data integrate
+        actual density over the occupied physical fluid volume, excluding solid volume.'
+      - Every solid budget begins with positive mass. A fluid column may initially be empty only when its first
+        positive mass is accompanied by a recorded source; do not hide unexplained mass before injection.
+      excludes: []
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: solid_momentum_impulse_budget
+    profile: multiphysics_coupling
+    dimension: momentum_and_force_balance
+    criterion: For each complete dry-solid material body, the linear momentum change equals the time-integrated
+      external force plus applied external impulses.
+    applicability:
+      requires:
+      - Export state.mass [N], state.velocity [N,3], and fields.budget_domain_weights [G,N], with one row selecting
+        the towel dry-material skeleton, excluding absorbed water. Preserve row identities and include every
+        material sample of each selected body. In 2D embed positions and momenta in 3D using one frozen extrusion
+        thickness.
+      - Account for gravity, both grip reactions, liquid pressure and drag, and any actual solid contact. Export
+        smooth actual force terms in fields.budget_external_force [G,K,3]. Record impulsive contact or coupling
+        updates cumulatively from all solver substeps, never counting an action in both force and impulse channels.
+      - 'Use closed dry-solid material domains with zero cumulative material inflow and outflow momentum. Fluid
+        is external to these domains: include its actual forces even when it occupies solid pores. Do not add
+        absorbed water to dry-skeleton state.mass.'
+      - Force, torque and impulse records must come from the applied solver updates, not from the momentum
+        residual being tested. Resolve rapid events with sufficiently dense diagnostic output or their actual
+        cumulative impulses. Internal solid forces cancel only over the complete selected material body.
+      - Export fields.budget_cumulative_external_impulse [G,3] and explicit zero fields.budget_cumulative_inflow_momentum
+        and fields.budget_cumulative_outflow_momentum [G,3]. Freeze a positive scalars.reference_momentum from
+        configured mass and speed scales before the run, not from initially zero momentum.
+      excludes: []
+    numeric_binding:
+      calculator: dynamics.momentum_budget.v1
+      inputs:
+        mass: state.mass
+        velocity: state.velocity
+        domain_weights: fields.budget_domain_weights
+        external_force: fields.budget_external_force
+        cumulative_external_impulse: fields.budget_cumulative_external_impulse
+        cumulative_inflow_momentum: fields.budget_cumulative_inflow_momentum
+        cumulative_outflow_momentum: fields.budget_cumulative_outflow_momentum
+        reference_momentum: scalars.reference_momentum
+      parameters:
+        mode: dynamic
+        integration: trapezoidal
+        window: adjacent_frames
+      reduction:
+        type: maximum
+  - id: solid_fluid_exchange_force_balance
+    profile: multiphysics_coupling
+    dimension: interface_momentum_exchange
+    criterion: The total actual solid-to-fluid and fluid-to-solid exchange forces cancel. This checks aggregate
+      action-reaction balance, not pointwise traction accuracy or a zero total external force.
+    applicability:
+      requires:
+      - Export fields.interaction_force [Q,3] containing both independently accumulated action sides actually
+        used by the fluid and solid updates, in the same world frame and units. Include pressure, drag, viscosity,
+        and capillary exchange whenever present.
+      - Use forces over a common physical substep interval. If coupling is impulse-based, divide each separately
+        recorded exchange impulse by that same interval; sum subcycled impulses before forming the corresponding
+        interval-average force.
+      - Exclude gravity, supports, prescribed drives, and solid-solid contacts from this exchange array. For
+        porous models include forces exchanged throughout the overlapping fluid-skeleton region, not just the
+        outer geometric surface.
+      - Do not construct the second action side by negating the first, export only an already-zero total, or
+        substitute a pressure-only surrogate for the actual update. Retain the loaded interaction phase; the
+        entire diagnostic must not have zero exchange forces.
+      - Frames genuinely before contact may contain zero exchange forces; zero over zero is treated as zero
+        by this calculator. Report such frames as unloaded, not as evidence that a later coupling event is
+        correct.
+      excludes: []
+    numeric_binding:
+      calculator: coupling.force_balance.v1
+      inputs:
+        interaction_force: fields.interaction_force
+      parameters: {}
+      reduction:
+        type: maximum

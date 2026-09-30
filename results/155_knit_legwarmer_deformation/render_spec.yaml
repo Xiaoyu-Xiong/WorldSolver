@@ -1,0 +1,11 @@
+schema_version: 2
+profile: cloth_shell
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: ground, method: rigid_mesh, material: matte, color_rgb: [0.17, 0.20, 0.25]}
+  - {object_id: limb_upper, method: rigid_mesh, material: matte, color_rgb: [0.78, 0.58, 0.46]}
+  - {object_id: limb_lower, method: rigid_mesh, material: matte, color_rgb: [0.78, 0.58, 0.46]}
+  - {object_id: knee_joint, method: rigid_mesh, material: matte, color_rgb: [0.78, 0.58, 0.46]}
+  - {object_id: foot, method: rigid_mesh, material: matte, color_rgb: [0.78, 0.58, 0.46]}
+  - {object_id: cloth, method: shell_surface, material: knit, color_rgb: [0.08, 0.68, 0.82], subdivision: 1}

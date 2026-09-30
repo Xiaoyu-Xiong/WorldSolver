@@ -1,0 +1,42 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: upper_attachment
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [0.35, 0.35, 0.08]
+    transform:
+      translation: [0.0, 0.0, 2.65]
+    material_id: metal
+    collision_enabled: true
+  - id: helical_spring
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      radius: 0.011
+      topology_asset: assets/helical_spring_topology.json
+    transform:
+      translation: [0.0, 0.0, 0.0]
+    state_binding:
+      selector: body_id
+      value: 0
+    material_id: spring_steel
+    collision_enabled: true
+  - id: suspended_weight
+    semantic: rigid
+    motion: dynamic
+    geometry:
+      type: cylinder
+      radius: 0.34
+      height: 0.42
+    transform:
+      translation: [0.0, 0.0, 0.78]
+    state_binding:
+      selector: body_id
+      value: 1
+    material_id: weight
+    collision_enabled: true

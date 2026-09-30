@@ -1,0 +1,28 @@
+id: 066_octopus_cylinder_squash
+title: Octopus Compressed against Cylinders and Released
+category: elastic_solids
+source:
+  title: Stable Neo-Hookean Flesh Simulation
+  url: https://www.tkim.graphics/NEO/StableNeoHookean2018.pdf
+  anchor: Figure 11; PDF page 13
+goal: 'Recreate the source experiment: When the upper cylinder moves away, the flattened body becomes
+  thicker and the bent tentacles move back toward their earlier shapes. The numerical implementation is
+  unrestricted; the deforming material is a three-dimensional solid.'
+scene_requirements:
+  required_elements:
+  - A volumetric elastic octopus.
+  - Three supporting rigid cylinders and a fourth cylinder moving down from above.
+  - Gravity.
+  initial_state:
+  - The octopus starts above the supporting cylinders, with the upper cylinder clear of its body.
+  required_events:
+  - The octopus lands on the supporting cylinders and its body and tentacles bend over them.
+  - The upper cylinder moves down and visibly flattens the octopus between the upper cylinder and the
+    lower supports.
+  - When the upper cylinder moves away, the flattened body becomes thicker and the bent tentacles move
+    back toward their earlier shapes.
+camera_requirements:
+- Use a fixed three-quarter view showing all cylinders and the octopus.
+- Make occluding cylinders partly transparent when needed to expose the compressed body and tentacles.
+- Keep the relevant objects visible before loading or contact, during the largest deformation, and during
+  the stated outcome.

@@ -1,0 +1,88 @@
+schema_version: 4
+task_id: 060_pneumatic_bubble
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The solver reaches the frozen end time, exports all required finite trajectory fields,
+      and produces a readable render within the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: The chamber wall moves outward from the uninflated outline when pressure is applied.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: The flexible wall develops a rounded bulge while retaining its attachment to the chamber
+      base and rim.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: The final pressurized chamber has a visibly fuller, wider profile than the initial chamber.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: The chamber does not split open or turn inside out. Its wall does not pass through the
+      opposite wall, and no separate fragments appear beside it.
+  physics:
+  - id: material_mass_balance
+    profile: deformable_solids
+    dimension: conservation_and_source_balance
+    criterion: Each deformable body retains its initial material mass. Mass transferred numerically between
+      bodies must not cancel in an aggregate total; this scene has no material sources or sinks.
+    applicability:
+      requires:
+      - Export actual per-sample masses in attributes.mass_quantity [N,G], one fixed column per deformable
+        body and zeros outside that body.
+      - Export fields.cumulative_mass_source as zeros [G]; retain every material contribution throughout
+        the trajectory.
+      excludes: []
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: orientation_preserving_deformation
+    profile: deformable_solids
+    dimension: deformation_validity
+    criterion: Every volumetric material element retains det(F) > 0. Report the maximum fraction of nonpositive
+      determinants across frames, including elements hidden inside the material.
+    applicability:
+      requires:
+      - Export fields.element_deformation_gradient [Ne,3,3] computed from current and reference geometry for
+        all volumetric evaluation elements.
+      - The evaluation mesh and reference geometry are fixed before the run; do not omit highly compressed
+        or interior elements.
+      excludes: []
+    numeric_binding:
+      calculator: deformation.jacobian.v1
+      inputs:
+        deformation_gradient: fields.element_deformation_gradient
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: quasistatic_nodal_force_balance
+    profile: deformable_solids
+    dimension: momentum_and_force_balance
+    criterion: At every solved load or pose, each unconstrained material node has zero net force. Check
+      nodes separately so opposite residuals cannot cancel across the object.
+    applicability:
+      requires:
+      - Use one stable budget row per unconstrained node of the volumetric discretization, excluding prescribed-position
+        nodes.
+      - 'Export fields.budget_external_force [G,K,3] as the actual separate nodal force contributions:
+        elastic forces, prescribed cavity-pressure loads, and any configured body forces. These are forces
+        on each nodal control volume, not a whole-body total.'
+      - Use scalars.reference_force as a positive force scale frozen by the scaffold from the prescribed
+        material and loading; never derive it from the measured residual.
+      - Evaluate converged quasistatic states only, not intermediate nonlinear iterations or a dynamic
+        trajectory.
+      excludes: []
+    numeric_binding:
+      calculator: dynamics.momentum_budget.v1
+      inputs:
+        external_force: fields.budget_external_force
+        reference_force: scalars.reference_force
+      parameters:
+        mode: quasistatic
+      reduction:
+        type: maximum

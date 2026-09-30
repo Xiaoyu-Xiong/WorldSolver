@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "units": "meters",
+  "up_axis": "z",
+  "objects": [
+    {
+      "id": "board",
+      "semantic": "boundary",
+      "motion": "static",
+      "geometry": {
+        "type": "box",
+        "half_extents": [
+          0.9,
+          0.9,
+          0.05
+        ]
+      },
+      "transform": {
+        "translation": [
+          0,
+          0,
+          0
+        ]
+      },
+      "material_id": "wood",
+      "collision_enabled": true
+    },
+    {
+      "id": "panel_01",
+      "semantic": "cloth",
+      "motion": "dynamic",
+      "geometry": {
+        "type": "triangle_mesh",
+        "topology_asset": "assets/panel_topology.json",
+        "grid_shape": [
+          13,
+          13
+        ]
+      },
+      "state_binding": {
+        "selector": "body_id",
+        "value": 0
+      },
+      "material_id": "violet",
+      "collision_enabled": true
+    },
+    {
+      "id": "panel_02",
+      "semantic": "cloth",
+      "motion": "dynamic",
+      "geometry": {
+        "type": "triangle_mesh",
+        "topology_asset": "assets/panel_topology.json",
+        "grid_shape": [
+          13,
+          13
+        ]
+      },
+      "state_binding": {
+        "selector": "body_id",
+        "value": 1
+      },
+      "material_id": "indigo",
+      "collision_enabled": true
+    },
+    {
+      "id": "panel_03",
+      "semantic": "cloth",
+      "motion": "dynamic",
+      "geometry": {
+        "type": "triangle_mesh",
+        "topology_asset": "assets/panel_topology.json",
+        "grid_shape": [
+          13,
+          13
+        ]
+      },
+      "state_binding": {
+        "selector": "body_id",
+        "value": 2
+      },
+      "material_id": "blue",
+      "collision_enabled": true
+    },
+    {
+      "id": "panel_04",
+      "semantic": "cloth",
+      "motion": "dynamic",
+      "geometry": {
+        "type": "triangle_mesh",
+        "topology_asset": "assets/panel_topology.json",
+        "grid_shape": [
+          13,
+          13
+        ]
+      },
+      "state_binding": {
+        "selector": "body_id",
+        "value": 3
+      },
+      "material_id": "cyan",
+      "collision_enabled": true
+    },
+    {
+      "id": "panel_05",
+      "semantic": "cloth",
+      "motion": "dynamic",
+      "geometry": {
+        "type": "triangle_mesh",
+        "topology_asset": "assets/panel_topology.json",
+        "grid_shape": [
+          13,
+          13
+        ]
+      },
+      "state_binding": {
+        "selector": "body_id",
+        "value": 4
+      },
+      "material_id": "teal",
+      "collision_enabled": true
+    },
+    {
+      "id": "panel_06",
+      "semantic": "cloth",
+      "motion": "dynamic",
+      "geometry": {
+        "type": "triangle_mesh",
+        "topology_asset": "assets/panel_topology.json",
+        "grid_shape": [
+          13,
+          13
+        ]
+      },
+      "state_binding": {
+        "selector": "body_id",
+        "value": 5
+      },
+      "material_id": "green",
+      "collision_enabled": true
+    },
+    {
+      "id": "panel_07",
+      "semantic": "cloth",
+      "motion": "dynamic",
+      "geometry": {
+        "type": "triangle_mesh",
+        "topology_asset": "assets/panel_topology.json",
+        "grid_shape": [
+          13,
+          13
+        ]
+      },
+      "state_binding": {
+        "selector": "body_id",
+        "value": 6
+      },
+      "material_id": "lime",
+      "collision_enabled": true
+    },
+    {
+      "id": "panel_08",
+      "semantic": "cloth",
+      "motion": "dynamic",
+      "geometry": {
+        "type": "triangle_mesh",
+        "topology_asset": "assets/panel_topology.json",
+        "grid_shape": [
+          13,
+          13
+        ]
+      },
+      "state_binding": {
+        "selector": "body_id",
+        "value": 7
+      },
+      "material_id": "yellow",
+      "collision_enabled": true
+    },
+    {
+      "id": "panel_09",
+      "semantic": "cloth",
+      "motion": "dynamic",
+      "geometry": {
+        "type": "triangle_mesh",
+        "topology_asset": "assets/panel_topology.json",
+        "grid_shape": [
+          13,
+          13
+        ]
+      },
+      "state_binding": {
+        "selector": "body_id",
+        "value": 8
+      },
+      "material_id": "orange",
+      "collision_enabled": true
+    },
+    {
+      "id": "panel_10",
+      "semantic": "cloth",
+      "motion": "dynamic",
+      "geometry": {
+        "type": "triangle_mesh",
+        "topology_asset": "assets/panel_topology.json",
+        "grid_shape": [
+          13,
+          13
+        ]
+      },
+      "state_binding": {
+        "selector": "body_id",
+        "value": 9
+      },
+      "material_id": "coral",
+      "collision_enabled": true
+    }
+  ]
+}
+

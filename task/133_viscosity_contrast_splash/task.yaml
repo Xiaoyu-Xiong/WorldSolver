@@ -1,0 +1,29 @@
+id: 133_viscosity_contrast_splash
+title: Viscosity Contrast Splash
+category: fluid_dynamics
+source:
+  title: "Power Particles: An Incompressible Fluid Solver Based on Power Diagrams"
+  url: https://www.geometry.caltech.edu/pubs/dGWH%2B15.pdf
+  anchor: Figure 8
+goal: >-
+  Recreate the paper's clearly visible viscosity contrast splash phenomenon. The implementation method is unrestricted;
+  evaluation targets the observable flow evolution, boundary interaction, signature structure, and final state.
+scene_requirements:
+  required_elements:
+  - Two liquid pools with contrasting viscosity
+  - Falling liquid volume
+  - Rigid basin
+  - Gravity
+  initial_state:
+  - Comparable liquid volumes with distinctly different viscosity begin in matched impact configurations.
+  required_events:
+  - Each falling volume impacts its receiving pool at comparable speed.
+  - The low-viscosity case spreads and splashes broadly while the high-viscosity case remains thicker and more cohesive.
+  - The side-by-side trajectories preserve a clear contrast in sheet extent, filament thickness, and damping.
+  - The represented fluid remains continuous and respects rigid boundaries throughout the event.
+camera_requirements:
+- Use a matched side-by-side or split view with identical framing and scale.
+- Use contrasting fluid and obstacle colors and keep the complete phenomenon inside frame.
+parameter_notes:
+- Match the qualitative scale, flow regime, and event ordering shown in Figure 8; geometric simplification is allowed.
+- Export collocated velocity diagnostics, active masks, boundary samples, and transported liquid or smoke fields.

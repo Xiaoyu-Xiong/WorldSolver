@@ -1,0 +1,42 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: armadillo
+    semantic: deformable
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/armadillo.obj
+      topology_asset: assets/armadillo.obj
+    transform:
+      translation: [-0.72, 0.0, 0.0]
+      rotation_xyzw: [0.0, 0.0, 0.0, 1.0]
+      scale: [1.0, 1.0, 1.0]
+    state_binding: {selector: body_id, value: 1}
+    material_id: armadillo_elastic_moderate
+    collision_enabled: true
+  - id: upper_left_roller
+    semantic: rigid
+    motion: kinematic
+    geometry: {type: cylinder, radius: 0.22, height: 0.72}
+    transform: {translation: [-0.20, 0.0, 0.30], rotation_xyzw: [0.70710678, 0.0, 0.0, 0.70710678], scale: [1.0, 1.0, 1.0]}
+    material_id: high_friction_roller
+  - id: upper_right_roller
+    semantic: rigid
+    motion: kinematic
+    geometry: {type: cylinder, radius: 0.22, height: 0.72}
+    transform: {translation: [0.30, 0.0, 0.30], rotation_xyzw: [0.70710678, 0.0, 0.0, 0.70710678], scale: [1.0, 1.0, 1.0]}
+    material_id: high_friction_roller
+  - id: lower_left_roller
+    semantic: rigid
+    motion: kinematic
+    geometry: {type: cylinder, radius: 0.22, height: 0.72}
+    transform: {translation: [-0.20, 0.0, -0.30], rotation_xyzw: [0.70710678, 0.0, 0.0, 0.70710678], scale: [1.0, 1.0, 1.0]}
+    material_id: high_friction_roller
+  - id: lower_right_roller
+    semantic: rigid
+    motion: kinematic
+    geometry: {type: cylinder, radius: 0.22, height: 0.72}
+    transform: {translation: [0.30, 0.0, -0.30], rotation_xyzw: [0.70710678, 0.0, 0.0, 0.70710678], scale: [1.0, 1.0, 1.0]}
+    material_id: high_friction_roller

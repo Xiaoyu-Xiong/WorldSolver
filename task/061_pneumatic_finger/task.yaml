@@ -1,0 +1,27 @@
+id: 061_pneumatic_finger
+title: Pressure-Driven Bending of a Soft Finger
+category: elastic_solids
+source:
+  title: Locking-Proof Tetrahedra
+  url: https://research.chalmers.se/publication/524762/file/524762_Fulltext.pdf
+  anchor: Figure 6, right (finger), PDF page 9; Table 1, PDF page 12 (institutional cover included)
+goal: 'Recreate the source experiment: The pressurized finger holds a visibly bent shape, with the tip
+  pointing in a different direction from the base. The numerical implementation is unrestricted; the deforming
+  material is a three-dimensional solid.'
+scene_requirements:
+  required_elements:
+  - The chambered soft-finger geometry from Figure 6, including its asymmetric wall structure.
+  - A supported base and prescribed pressure in the internal chambers.
+  initial_state:
+  - The finger starts in its unpressurized rest shape with its base held in place.
+  required_events:
+  - When the chambers are pressurized, the finger tip moves away from its original position while the
+    base stays in place.
+  - Several chamber sections turn relative to their neighbors, forming a curved finger rather than translating
+    the entire finger as one rigid object.
+  - The pressurized finger holds a visibly bent shape, with the tip pointing in a different direction
+    from the base.
+camera_requirements:
+- Use a fixed view perpendicular to the main bending plane, showing the base, chamber sequence, and fingertip.
+- Keep the relevant objects visible before loading or contact, during the largest deformation, and during
+  the stated outcome.

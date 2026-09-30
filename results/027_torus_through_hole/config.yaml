@@ -1,0 +1,44 @@
+schema_version: 1
+scene_id: 027_torus_through_hole
+seed: 19027
+duration: 4.0
+sample_dt: 0.03333333333333333
+camera:
+  position:
+  - 3.4
+  - -4.5
+  - 2.8
+  look_at:
+  - 0.0
+  - 0.0
+  - 0.92
+  up:
+  - 0.0
+  - 0.0
+  - 1.0
+  width: 960
+  height: 640
+  fps: 50
+subject_asset: assets/subject.npz
+gravity:
+- 0.0
+- 0.0
+- -9.81
+initial_velocity:
+- 0.0
+- 0.0
+- 0.0
+contact_length_scale: 0.04
+ground_z: 0.0
+scenario: torus_through_hole
+subject_mass: 1.6
+stiffness: 11.0
+damping: 1.6
+restitution: 0.04
+friction: 0.48
+hole_z: 0.62
+hole_radius: 0.5
+push_speed: 0.48
+major_radius: 0.42
+minor_radius: 0.17
+visual_judge_frame_count: 20

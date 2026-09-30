@@ -1,0 +1,38 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: floor
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [4.5, 3.0, 0.08]
+    transform:
+      translation: [0.0, 0.0, -0.08]
+    material_id: packed_snow_floor
+    collision_enabled: true
+  - id: left_snowball
+    semantic: granular
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [-1.9, -0.55, 0.17]
+      bounds_max: [-0.8, 0.55, 1.27]
+    state_binding:
+      selector: body_id
+      value: 0
+    material_id: snow
+    collision_enabled: true
+  - id: right_snowball
+    semantic: granular
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [0.8, -0.55, 0.17]
+      bounds_max: [1.9, 0.55, 1.27]
+    state_binding:
+      selector: body_id
+      value: 1
+    material_id: snow
+    collision_enabled: true

@@ -1,0 +1,30 @@
+id: 022_bread_dough_drop
+title: Bread Dough Drop
+category: plastic_and_complex_materials
+source:
+  title: A Finite Element Method for Animating Large Viscoplastic Flow
+  url: https://graphics.cs.cmu.edu/projects/Bargteil-2007-AFE/Bargteil-2007-AFE.pdf
+  anchor: Figure 7; PDF page 7
+goal: Recreate the observable physical phenomenon in which a bread-dough sample falls onto the ground
+  and deforms; the simulated sequence is compared at matched times with recorded real dough. The implementation
+  method is unrestricted; the target is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Bread Dough Drop
+  - Deformable object named by the scene
+  - Collision obstacles or supports
+  - Gravity
+  initial_state:
+  - A bread-dough sample falls onto the ground and deforms; the simulated sequence is compared at matched
+    times with recorded real dough.
+  required_events:
+  - Quantitative/qualitative - silhouette and spread error versus video
+  - Impact deformation
+  - Recovery
+  - Final footprint
+camera_requirements:
+- Use a three-quarter view showing the full deformable body, loading or impact region, contacts, large
+  deformation, and recovered or final shape.
+parameter_notes:
+- 'Original paper parameters/configuration: Match the physical dough geometry and drop setup used in Figure
+  7; tune flow rate and yield stress as described in Results.'

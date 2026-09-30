@@ -1,0 +1,25 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: elastic_bunny
+    semantic: deformable
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/bunny.obj
+      topology_asset: assets/bunny.obj
+    state_binding:
+      selector: all
+    material_id: soft_bunny_blue
+    collision_enabled: false
+  - id: attachment_marker
+    semantic: boundary
+    motion: static
+    geometry:
+      type: sphere
+      radius: 0.055
+    transform:
+      translation: [0.0, 0.0, 2.85]
+    material_id: attachment_dark
+    collision_enabled: false

@@ -1,0 +1,16 @@
+schema_version: 2
+profile: rigid_contact
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - {object_id: receiving_ground, method: rigid_mesh, material: ground}
+  - {object_id: ring_collection, method: rigid_mesh, material: ring_metal, subdivision: 2}
+  - {object_id: pole_a, method: rigid_mesh, material: pole}
+  - {object_id: pole_b, method: rigid_mesh, material: pole}
+  - {object_id: pole_c, method: rigid_mesh, material: pole}
+  - {object_id: pole_d, method: rigid_mesh, material: pole}
+  - {object_id: pole_e, method: rigid_mesh, material: pole}
+  - {object_id: pole_f, method: rigid_mesh, material: pole}
+  - {object_id: pole_g, method: rigid_mesh, material: pole}
+  - {object_id: pole_h, method: rigid_mesh, material: pole}
+  - {object_id: pole_i, method: rigid_mesh, material: pole}

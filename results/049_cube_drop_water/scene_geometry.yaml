@@ -1,0 +1,59 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: tank_floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [1.5, 1.2, 0.06]}
+    transform: {translation: [0.0, 0.0, -0.06]}
+    material_id: tank_boundary
+    collision_enabled: true
+  - id: tank_back_wall
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [1.5, 0.06, 1.25]}
+    transform: {translation: [0.0, 1.14, 1.25]}
+    material_id: tank_boundary
+    collision_enabled: true
+  - id: tank_front_wall
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [1.5, 0.06, 1.25]}
+    transform: {translation: [0.0, -1.14, 1.25]}
+    material_id: tank_boundary_cutaway_glass
+    collision_enabled: true
+  - id: tank_left_wall
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.06, 1.08, 1.25]}
+    transform: {translation: [-1.44, 0.0, 1.25]}
+    material_id: tank_boundary
+    collision_enabled: true
+  - id: tank_right_wall
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.06, 1.08, 1.25]}
+    transform: {translation: [1.44, 0.0, 1.25]}
+    material_id: tank_boundary
+    collision_enabled: true
+  - id: water
+    semantic: liquid
+    motion: field
+    geometry:
+      type: particle_domain
+      bounds_min: [-1.35, -1.05, 0.12]
+      bounds_max: [1.35, 1.05, 1.05]
+    state_binding: {selector: body_id, value: 1}
+    material_id: coupled_water
+    collision_enabled: true
+  - id: drop_cube
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.31, 0.31, 0.31]}
+    transform:
+      translation: [-0.18, -0.36, 2.02]
+      rotation_xyzw: [0.1392, -0.1981, 0.0282, 0.9697]
+    state_binding: {selector: body_id, value: 2}
+    material_id: coupled_cube
+    collision_enabled: true

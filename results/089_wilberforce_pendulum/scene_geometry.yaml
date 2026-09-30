@@ -1,0 +1,37 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: ceiling_mount
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.38, 0.38, 0.07]}
+    transform: {translation: [0.0, 0.0, 2.88]}
+    material_id: mount_metal
+    collision_enabled: false
+  - id: helical_spring
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      radius: 0.012
+      topology_asset: assets/helical_spring_topology.json
+    state_binding: {selector: body_id, value: 0}
+    material_id: spring_copper
+    collision_enabled: false
+  - id: suspended_load
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: cylinder, radius: 0.22, height: 0.30}
+    transform: {translation: [0.0, 0.0, 0.68]}
+    state_binding: {selector: body_id, value: 1}
+    material_id: load_dark
+    collision_enabled: false
+  - id: orientation_marker
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.28, 0.025, 0.025]}
+    transform: {translation: [0.0, 0.0, 0.76]}
+    state_binding: {selector: body_id, value: 2}
+    material_id: marker_red
+    collision_enabled: false

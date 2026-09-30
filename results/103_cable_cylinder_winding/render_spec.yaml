@@ -1,0 +1,25 @@
+schema_version: 2
+profile: fiber_rods
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - object_id: floor
+    method: rigid_mesh
+    material: dark_floor
+    color_rgb: [0.055, 0.065, 0.075]
+  - object_id: winding_cylinder
+    method: rigid_mesh
+    material: olive_cylinder
+    color_rgb: [0.32, 0.34, 0.12]
+    subdivision: 2
+  - object_id: elastic_cable
+    method: curve_tubes
+    material: yellow_cable
+    color_rgb: [0.96, 0.72, 0.12]
+    surface_smoothing: 1.15
+    subdivision: 2
+  - object_id: driven_grip
+    method: rigid_mesh
+    material: grip_metal
+    color_rgb: [0.72, 0.76, 0.80]
+    subdivision: 2

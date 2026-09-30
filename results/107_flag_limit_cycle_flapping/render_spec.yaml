@@ -1,0 +1,20 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - object_id: carrier_fluid
+    method: diagnostic_points
+    material: vorticity
+    scalar_field: vorticity
+    scalar_range: [-4.0, 4.0]
+    scalar_grid: true
+    field_axes: [0, 1]
+    max_points: 12000
+  - object_id: flag
+    method: deformed_mesh
+    material: flag_red
+    color_rgb: [0.9, 0.15, 0.08]
+  - object_id: anchor
+    method: rigid_mesh
+    material: anchor_dark

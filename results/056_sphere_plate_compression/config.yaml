@@ -1,0 +1,32 @@
+schema_version: 1
+scene_id: 056_sphere_plate_compression
+seed: 5601
+duration: 4.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, 0.0]
+sphere:
+  center: [0.0, 0.0, 0.0]
+  radius: 1.0
+  mass: 4.1887902047863905
+  material_class: incompressible_elastic_volumetric_solid
+  rest_volume: 4.1887902047863905
+plates:
+  compression_axis: z
+  half_extents: [3.25, 3.25, 0.12]
+  initial_inner_faces_z: [-0.8506508084, 0.8506508084]
+  final_inner_faces_z: [-0.15, 0.15]
+  motion_start: 0.0
+  motion_end: 3.4
+  motion_profile: constant_symmetric_approach_then_hold
+  speed_each: 0.10313259070588235
+  minimum_positive_gap: 0.30
+camera:
+  position: [5.8, -8.8, 3.3]
+  look_at: [0.0, 0.0, 0.0]
+  up: [0.0, 0.0, 1.0]
+  projection: perspective
+  fov_y_degrees: 34.0
+  width: 960
+  height: 640
+  fps: 50

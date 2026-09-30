@@ -1,0 +1,16 @@
+schema_version: 2
+profile: deformable_surface
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: glass_wall
+    method: rigid_mesh
+    material: glass
+    color_rgb: [0.72, 0.88, 0.96]
+    opacity: 0.24
+  - object_id: squishy_ball
+    method: deformed_mesh
+    material: soft_pink_rubber
+    color_rgb: [0.96, 0.34, 0.52]
+    opacity: 1.0
+    subdivision: 1

@@ -1,0 +1,37 @@
+id: 044_hourglass
+title: Hourglass
+category: plastic_and_complex_materials
+source:
+  title: Multi-Species Simulation of Porous Sand and Water Mixtures
+  url: https://www.museth.org/Ken/Publications_files/Pradhana-etal_SIG17.pdf
+  anchor: Figure 8; PDF page 8
+goal: Recreate the observable physical phenomenon in which sand flows through a two-dimensional hourglass
+  that is flipped twice, forming a stream, accumulating below, and conserving plausible bulk volume. The
+  implementation method is unrestricted; the target is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Hourglass
+  - Granular particles
+  - Contact floor or container
+  - Gravity
+  initial_state:
+  - Sand flows through a two-dimensional hourglass that is flipped twice, forming a stream, accumulating
+    below, and conserving plausible bulk volume.
+  required_events:
+  - Quantitative/qualitative - volume drift after each pass
+  - Flow through neck
+  - Pile shape
+  - Stability
+  - Two visible 180-degree flips of the hourglass body
+  - Sand must remain confined inside the hourglass bulbs and neck
+camera_requirements:
+- Use a three-quarter view showing release or inflow, contact zones, pile or fragment evolution, and the
+  final deposited state without major occlusion.
+- Use enough grains and transparent/high-contrast glass so the stream through the neck and the piles in
+  both bulbs are visible. The hourglass silhouette should be a recognizable two-bulb glass shape.
+parameter_notes:
+- 'Merged source variants (hourglass_coarse_volume_fix_disabled, hourglass_coarse_volume_fix_enabled,
+  hourglass_fine_volume_fix_disabled, hourglass_fine_volume_fix_enabled). Original paper parameters/configurations:
+  Resolution = coarse (dx 7.4e-3 or 3.7e-3); volume fix = disabled. | Resolution = coarse (dx 7.4e-3 or
+  3.7e-3); volume fix = enabled. | Resolution = fine (dx 7.4e-3 or 3.7e-3); volume fix = disabled. | Resolution
+  = fine (dx 7.4e-3 or 3.7e-3); volume fix = enabled.'

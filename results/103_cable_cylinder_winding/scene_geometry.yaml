@@ -1,0 +1,46 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: floor
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [0.22, 0.22, 0.006]
+    transform:
+      translation: [0.0, 0.0, -0.006]
+    material_id: dark_floor
+    collision_enabled: true
+  - id: winding_cylinder
+    semantic: rigid
+    motion: static
+    geometry:
+      type: cylinder
+      radius: 0.018
+      height: 0.29
+    transform:
+      translation: [0.0, 0.0, 0.145]
+    material_id: olive_cylinder
+    collision_enabled: true
+  - id: elastic_cable
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      radius: 0.002
+      topology_asset: assets/cable_topology.json
+    state_binding:
+      selector: all
+    material_id: yellow_cable
+    collision_enabled: true
+  - id: driven_grip
+    semantic: rigid
+    motion: kinematic
+    geometry:
+      type: sphere
+      radius: 0.007
+    transform:
+      translation: [0.082, -0.030, 0.413]
+    material_id: grip_metal
+    collision_enabled: false

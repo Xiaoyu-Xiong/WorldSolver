@@ -1,0 +1,32 @@
+id: 107_flag_limit_cycle_flapping
+title: Limit-Cycle Flapping of a Flag in Flow
+category: multiphysics_coupling
+source:
+  title: Reference Map Technique for Incompressible Fluid-Structure Interaction
+  url: https://people.math.wisc.edu/~chr/publish/JFM2020_Rycroft.pdf
+  anchor: Section 4.2; Figure 5(b); author final-draft PDF page 17
+goal: 'Recreate the source two-way coupled experiment: A sustained repeating flapping motion develops together
+  with alternating downstream vortices. Prescribe only the stated supports and controls; the remaining solid
+  response and fluid motion must be dynamically coupled.'
+scene_requirements:
+  required_elements:
+  - The two-dimensional finite-thickness flexible flag anchored at its upstream end in the source flow domain.
+  - A viscous incompressible carrier fluid with steady mean inflow and an open downstream boundary.
+  - The limit-cycle parameter regime of Figure 5(b), not the stable or chaotic comparison regimes.
+  - Fluid forces must change the dynamic solid motion or deformation, and the evolving solid must alter the
+    resolved fluid flow. The numerical coupling method is unrestricted.
+  - Preserve the source two-dimensional flag section and boundary conditions. The flapping must emerge from
+    two-way coupling, not prescribed nodal motion.
+  initial_state:
+  - Initialize the source nearly straight flag with its upstream anchor fixed and its downstream end free.
+  - 'Use Figure 5(b): aspect ratio 20, mass ratio 0.16, bending rigidity K_B = 0.001, and Reynolds number 1400
+    in the source nondimensional convention.'
+  required_events:
+  - The anchored end stays in place while the free end starts moving above and below the mean-flow direction.
+  - The flag changes curvature along its length as the free end alternates its direction of travel.
+  - A sustained repeating flapping motion develops together with alternating downstream vortices.
+camera_requirements:
+- Use a fixed orthographic view of the two-dimensional flag and downstream wake; show vorticity with a fixed
+  signed color scale and keep the flag outline distinct.
+- Keep the onset, strongest interaction, and stated outcome visible in a continuous sequence. Passive tracer
+  or wetness colors must follow the simulated state rather than a scripted color change.

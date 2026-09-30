@@ -1,0 +1,29 @@
+id: 083_michell_ring_buckling
+title: Michell Buckling of a Pre-Twisted Elastic Ring
+category: rods_and_strands
+source:
+  title: Discrete Elastic Rods
+  url: https://www.cs.columbia.edu/cg/rods/
+  anchor: Figure 8 and Section 9.2, Michell instability; PDF page 9
+goal: 'Recreate the source experiment: The ring develops a visibly nonplanar loop with alternating raised and
+  lowered regions. Use elastic rods or strands; the numerical implementation is unrestricted.'
+scene_requirements:
+  required_elements:
+  - One closed, naturally straight, isotropic, inextensible rod formed into a circular ring with compatible
+    stored material twist.
+  - No supports or external geometry that impose the buckled shape.
+  - This is relaxation from a compatible preloaded ring, not continuous twist injection into an intact closed
+    loop.
+  initial_state:
+  - Initialize a nearly planar circular ring with twist above the source instability threshold and a small
+    out-of-plane perturbation.
+  - The loop is already closed with consistent material-frame closure; do not inject twist by breaking or reconnecting
+    it.
+  required_events:
+  - The initially almost planar, pre-twisted ring begins to move out of its plane after the perturbation.
+  - Different parts of the ring rise and fall as its circular shape deforms.
+  - The ring develops a visibly nonplanar loop with alternating raised and lowered regions.
+camera_requirements:
+- Use a fixed oblique camera that makes the initial ring plane and later vertical displacement visible.
+- Keep the relevant objects visible before loading or contact, during the strongest response, and through the
+  stated outcome.

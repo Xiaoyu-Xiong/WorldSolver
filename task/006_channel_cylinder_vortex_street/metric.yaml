@@ -1,0 +1,91 @@
+﻿schema_version: 4
+task_id: 006_channel_cylinder_vortex_street
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The submitted solver runs to the frozen end time, produces a complete finite trajectory
+      with every required evaluation field, and produces a readable platform render without exceeding
+      the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: The incoming marked flow visibly divides and passes around both sides of the fixed cylinder.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: A wake develops behind the cylinder with alternating left-right deflection rather than
+      a steady symmetric trail.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: The advected dye forms a recognizable staggered sequence of vortical structures that travels
+      downstream.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: Wake structures move continuously without flicker, stationary repeated textures, or marked
+      fluid crossing through the cylinder.
+  physics:
+  - id: incompressible_velocity_constraint
+    profile: fluids_and_gases
+    dimension: field_constraints
+    criterion: In the active incompressible region of channel cylinder vortex street, the velocity field
+      is approximately divergence free.
+    applicability:
+      requires:
+      - The frozen material model is incompressible.
+      - A collocated velocity grid and active-region mask are exported.
+      excludes:
+      - Compressible material regions and prescribed source cells.
+    numeric_binding:
+      calculator: field.divergence.v1
+      inputs:
+        velocity_field: fields.velocity_field
+        active_mask: fields.active_mask
+        grid_spacing: scalars.grid_spacing
+        characteristic_length: scalars.characteristic_length
+      parameters:
+        spatial_dimensions: 2
+      reduction:
+        type: maximum
+  - id: transported_scalar_consistency
+    profile: fluids_and_gases
+    dimension: transport_equation_consistency
+    criterion: The exported advected wake dye in channel cylinder vortex street evolves consistently with
+      its collocated velocity and prescribed local source.
+    applicability:
+      requires:
+      - The advected wake dye, carrier velocity, source field, and active mask are exported on one grid.
+      excludes:
+      - Unmodeled subgrid injection or removal of the scalar.
+    numeric_binding:
+      calculator: field.scalar_transport.v1
+      inputs:
+        scalar_field: fields.transported_scalar
+        velocity_field: fields.velocity_field
+        source_field: fields.scalar_source
+        active_mask: fields.active_mask
+        grid_spacing: scalars.grid_spacing
+      parameters:
+        spatial_dimensions: 2
+      reduction:
+        type: maximum
+  - id: prescribed_boundary_velocity
+    profile: fluids_and_gases
+    dimension: boundary_and_interface_conditions
+    criterion: At impermeable or moving boundaries in channel cylinder vortex street, the sampled material
+      velocity matches the prescribed normal boundary velocity.
+    applicability:
+      requires:
+      - Boundary velocity, target velocity, and normals are exported at collocated samples.
+      excludes:
+      - Open, porous, or prescribed-flux boundary segments.
+    numeric_binding:
+      calculator: boundary.velocity_residual.v1
+      inputs:
+        boundary_velocity: fields.boundary_velocity
+        boundary_target_velocity: fields.boundary_target_velocity
+        boundary_normal: fields.boundary_normal
+        reference_velocity: scalars.reference_velocity
+      parameters:
+        condition: no_penetration
+        spatial_dimensions: 2
+      reduction:
+        type: maximum

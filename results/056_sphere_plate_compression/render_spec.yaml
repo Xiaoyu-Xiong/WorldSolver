@@ -1,0 +1,18 @@
+schema_version: 2
+profile: deformable_surface
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: soft_sphere
+    method: deformed_mesh
+    material: soft_rubber_coral
+    color_rgb: [0.86, 0.20, 0.10]
+    subdivision: 2
+  - object_id: lower_plate
+    method: rigid_mesh
+    material: brushed_steel_blue
+    color_rgb: [0.20, 0.31, 0.43]
+  - object_id: upper_plate
+    method: rigid_mesh
+    material: brushed_steel_blue
+    color_rgb: [0.20, 0.31, 0.43]

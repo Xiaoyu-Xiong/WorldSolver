@@ -1,0 +1,104 @@
+schema_version: 4
+task_id: 096_rod_knot_tightening
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The solver reaches the frozen end time, exports all required finite trajectory fields, and produces
+      a readable render within the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: The manipulated strand end passes through the loose loop to form a knot.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: Pulling the tails draws the contacting portions together and shrinks the main loop.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: The strand forms a compact, tightly contacting knot between its tails.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: The knot cannot disappear through strand interpenetration, and no part of the strand breaks
+      or reconnects during tightening.
+  physics:
+  - id: material_mass_balance
+    profile: elastic_rods
+    dimension: conservation_and_source_balance
+    criterion: Each physical rod, strand, and attached rigid body retains its own initial mass. Errors on separate
+      bodies must not cancel in a combined total.
+    applicability:
+      requires:
+      - Export actual per-sample masses in attributes.mass_quantity [N,G], one fixed column per physical body
+        or deployed rod domain, with zeros outside that domain. Do not include render-only hair copies as additional
+        mass.
+      - Export fields.cumulative_mass_source as zeros [G]; include every material sample throughout the run.
+      excludes: []
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: local_material_inextensibility
+    profile: elastic_rods
+    dimension: material_kinematic_constraints
+    criterion: Every evaluated material interval preserves its reference arc length. Changing the rod shape,
+      coil pitch, or endpoint span must not be achieved by stretching its material.
+    applicability:
+      requires:
+      - Export fields.constraint_value as actual current arc length divided by reference arc length for every
+        physical material interval; fields.constraint_target contains matching ones and scalars.constraint_scale
+        is frozen to 1.
+      - Reference intervals are fixed in material coordinates and have positive length. For curved elements
+        integrate their centerline arc length; do not use endpoint chord length or solver-declared nominal
+        lengths.
+      - Include all deployed intervals. Newly injected intervals inherit the source reference length at creation;
+        evaluate each interval at the same material bounds in current and reference geometry.
+      excludes: []
+    numeric_binding:
+      calculator: constraint.target.v1
+      inputs:
+        value: fields.constraint_value
+        target: fields.constraint_target
+        scale: scalars.constraint_scale
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: linear_momentum_impulse_balance
+    profile: elastic_rods
+    dimension: momentum_and_force_balance
+    criterion: Over each adjacent output interval, each physical body linear momentum change equals its external
+      force integral plus recorded external impulses.
+    applicability:
+      requires:
+      - Export state.mass [N], state.velocity [N,3], and fields.budget_domain_weights [G,N]. Each row selects
+        one physical rod/strand or attached rigid body; preserve domain identity and include cross-domain attachment
+        and contact actions.
+      - Account for actual manipulator forces, any configured body forces and damping; self-contact is internal
+        to the complete strand. Export smooth force terms in fields.budget_external_force [G,K,3] and accumulate
+        rapidly varying applied contact or constraint impulses from all internal substeps. Never count one
+        contribution in both force and impulse channels.
+      - All domains are closed material bodies; export zero cumulative inflow and outflow momentum. Force and
+        impulse records must come from actual applied updates, never from the momentum differences being checked.
+      - Export fields.budget_cumulative_external_impulse, fields.budget_cumulative_inflow_momentum, and fields.budget_cumulative_outflow_momentum
+        [G,3]. Freeze a positive scalars.reference_momentum from configured mass and speed scales before the
+        run.
+      excludes: []
+    numeric_binding:
+      calculator: dynamics.momentum_budget.v1
+      inputs:
+        mass: state.mass
+        velocity: state.velocity
+        domain_weights: fields.budget_domain_weights
+        external_force: fields.budget_external_force
+        cumulative_external_impulse: fields.budget_cumulative_external_impulse
+        cumulative_inflow_momentum: fields.budget_cumulative_inflow_momentum
+        cumulative_outflow_momentum: fields.budget_cumulative_outflow_momentum
+        reference_momentum: scalars.reference_momentum
+      parameters:
+        mode: dynamic
+        integration: trapezoidal
+        window: adjacent_frames
+      reduction:
+        type: maximum

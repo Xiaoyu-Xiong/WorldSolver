@@ -1,0 +1,50 @@
+schema_version: 1
+scene_id: 102_hairy_ball_strand_collisions
+seed: 102
+duration: 15.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+contact:
+  static_friction: 0.2
+  kinetic_friction: 0.2
+  strand_strand: true
+  strand_sphere: true
+physical_parameters:
+  sphere_radius: 0.09
+  strand_count: 192
+  strand_length: 0.30
+  strand_radius: 0.000037
+  segments_per_strand: 16
+  density: 1300.0
+  bending_young_modulus: 3.0e9
+  stretch_young_modulus: 3.0e9
+  poisson_ratio: 0.45
+  natural_helix_radius: 0.005
+  natural_helix_pitch: 0.05
+  attachment: root_only
+  exact_inextensibility: false
+initial_conditions:
+  sphere_stationary_until: 0.83
+  strands: gravity_hanging_with_natural_curl
+prescribed_sphere_rotation:
+  interpolation: smooth
+  keyframes_axis_angle_degrees:
+    - {time: 0.00, axis: [0.0, 0.0, 1.0], angle: 0.0}
+    - {time: 0.83, axis: [0.0, 0.0, 1.0], angle: 0.0}
+    - {time: 2.20, axis: [1.0, 0.0, 0.0], angle: 235.0}
+    - {time: 4.00, axis: [0.0, 1.0, 0.0], angle: -260.0}
+    - {time: 5.41, axis: [0.7071, 0.7071, 0.0], angle: 330.0}
+    - {time: 6.21, axis: [0.0, 1.0, 0.0], angle: 510.0}
+    - {time: 8.10, axis: [1.0, 0.0, 0.0], angle: -480.0}
+    - {time: 9.79, axis: [0.5774, 0.5774, 0.5774], angle: 620.0}
+    - {time: 10.41, axis: [0.0, 0.0, 1.0], angle: -420.0}
+    - {time: 12.50, axis: [0.0, 1.0, 0.0], angle: 280.0}
+    - {time: 15.00, axis: [1.0, 0.0, 0.0], angle: 0.0}
+camera:
+  position: [0.78, -1.08, 0.52]
+  look_at: [0.0, 0.0, 0.08]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

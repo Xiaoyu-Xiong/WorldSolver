@@ -1,0 +1,8 @@
+schema_version: 2
+profile: cloth_shell
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: ground, method: rigid_mesh, material: matte, color_rgb: [0.17, 0.20, 0.25]}
+  - {object_id: incline, method: rigid_mesh, material: matte, color_rgb: [0.48, 0.42, 0.34]}
+  - {object_id: cloth, method: shell_surface, material: knit, color_rgb: [0.70, 0.18, 0.48], subdivision: 1}

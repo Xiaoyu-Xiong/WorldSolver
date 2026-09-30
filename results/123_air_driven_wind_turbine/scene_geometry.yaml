@@ -1,0 +1,68 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: ground
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [7.0, 4.5, 0.05]}
+    transform: {translation: [5.0, 0.0, -0.05]}
+    material_id: ground
+    collision_enabled: true
+  - id: tower
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 0.32, height: 3.9}
+    transform: {translation: [0.0, 0.0, 1.95]}
+    material_id: tower_white
+    collision_enabled: true
+  - id: nacelle
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 0.34, height: 0.9}
+    transform:
+      translation: [0.12, 0.0, 4.0]
+      rotation_xyzw: [0.0, 0.70710678, 0.0, 0.70710678]
+    material_id: tower_white
+    collision_enabled: true
+  - id: rotor
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/three_blade_rotor.obj}
+    transform: {translation: [0.0, 0.0, 4.0]}
+    state_binding: {selector: body_id, value: 1}
+    material_id: blade_white
+    collision_enabled: true
+  - id: airflow
+    semantic: gas
+    motion: field
+    geometry:
+      type: voxel_grid
+      bounds_min: [-2.0, -4.0, 0.0]
+      bounds_max: [12.0, 4.0, 7.5]
+      grid_shape: [112, 64, 60]
+    state_binding: {selector: field, attribute_name: air_density}
+    material_id: clear_air
+    collision_enabled: false
+  - id: smoke_red
+    semantic: gas
+    motion: field
+    geometry: {type: voxel_grid, bounds_min: [-2.0, -4.0, 0.0], bounds_max: [12.0, 4.0, 7.5], grid_shape: [112, 64, 60]}
+    state_binding: {selector: field, attribute_name: smoke_red}
+    material_id: smoke_red
+    collision_enabled: false
+  - id: smoke_green
+    semantic: gas
+    motion: field
+    geometry: {type: voxel_grid, bounds_min: [-2.0, -4.0, 0.0], bounds_max: [12.0, 4.0, 7.5], grid_shape: [112, 64, 60]}
+    state_binding: {selector: field, attribute_name: smoke_green}
+    material_id: smoke_green
+    collision_enabled: false
+  - id: smoke_ochre
+    semantic: gas
+    motion: field
+    geometry: {type: voxel_grid, bounds_min: [-2.0, -4.0, 0.0], bounds_max: [12.0, 4.0, 7.5], grid_shape: [112, 64, 60]}
+    state_binding: {selector: field, attribute_name: smoke_ochre}
+    material_id: smoke_ochre
+    collision_enabled: false
+

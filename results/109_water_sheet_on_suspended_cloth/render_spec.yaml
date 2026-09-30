@@ -1,0 +1,27 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: basin_floor, method: rigid_mesh, material: matte, color_rgb: [0.08, 0.10, 0.12]}
+  - {object_id: basin_back, method: rigid_mesh, material: glass, color_rgb: [0.38, 0.52, 0.62], opacity: 0.28}
+  - {object_id: basin_front, method: rigid_mesh, material: glass, color_rgb: [0.38, 0.52, 0.62], opacity: 0.18}
+  - {object_id: basin_left, method: rigid_mesh, material: glass, color_rgb: [0.38, 0.52, 0.62], opacity: 0.25}
+  - {object_id: basin_right, method: rigid_mesh, material: glass, color_rgb: [0.38, 0.52, 0.62], opacity: 0.25}
+  - {object_id: support_nw, method: rigid_mesh, material: metal, color_rgb: [0.48, 0.52, 0.56]}
+  - {object_id: support_ne, method: rigid_mesh, material: metal, color_rgb: [0.48, 0.52, 0.56]}
+  - {object_id: support_sw, method: rigid_mesh, material: metal, color_rgb: [0.48, 0.52, 0.56]}
+  - {object_id: support_se, method: rigid_mesh, material: metal, color_rgb: [0.48, 0.52, 0.56]}
+  - {object_id: inflow_nozzle, method: rigid_mesh, material: brushed_metal, color_rgb: [0.32, 0.35, 0.38]}
+  - object_id: suspended_cloth
+    method: shell_surface
+    material: woven_cloth
+    color_rgb: [0.72, 0.30, 0.12]
+    subdivision: 1
+  - object_id: water
+    method: reconstructed_surface
+    material: clear_blue_water
+    color_rgb: [0.05, 0.42, 0.88]
+    opacity: 0.88
+    surface_pitch: 0.050
+    surface_smoothing: 1.05

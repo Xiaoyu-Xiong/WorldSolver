@@ -1,0 +1,31 @@
+id: 164_centrifuge_slurry_axial_banding
+title: Centrifuge Slurry Axial Banding
+category: multiphysics_coupling
+source:
+  title: Self-Organization in Granular Slurries
+  url: https://doi.org/10.1103/PhysRevLett.86.3771
+  anchor: Figures 1-3; PRL 86, 3771 (2001)
+goal: >-
+  Recreate the published centrifuge segregation phenomenon, from an initially mixed state through rotation-driven
+  radial organization to the characteristic axial concentration pattern. The numerical method is unrestricted.
+scene_requirements:
+  required_elements:
+  - Transparent horizontal rotating cylinder
+  - Carrier liquid
+  - Two visibly distinct particle-size species
+  - Prescribed cylinder rotation
+  - Gravity and particle-fluid coupling
+  initial_state:
+  - The cylinder is partially filled with a spatially mixed slurry of small and large particles.
+  required_events:
+  - Cylinder rotation establishes a circulating slurry and particles begin to separate radially.
+  - The radially segregated mixture develops axial concentration variations that grow into alternating species-rich bands.
+  - Several persistent, high-contrast axial bands remain visible while liquid and particles stay confined.
+  - Material remains confined and motion stays temporally coherent without teleportation or numerical explosion.
+camera_requirements:
+- Use a wide side view of the entire transparent cylinder, plus a small end-view inset or transparent rendering that exposes radial structure.
+- Keep both material species strongly color-coded so concentration changes are visible without diagnostic overlays.
+parameter_notes:
+- Preserve the paper's qualitative filling fraction, rotation regime, species contrast, and radial-to-axial event ordering.
+- Export persistent species labels, mass, velocity, applied forces, and contact or coupling diagnostics.
+

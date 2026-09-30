@@ -1,0 +1,31 @@
+schema_version: 2
+profile: liquid_in_container
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: ground, method: rigid_mesh, material: matte, color_rgb: [0.22, 0.25, 0.30]}
+  - {object_id: divider, method: rigid_mesh, material: matte, color_rgb: [0.32, 0.35, 0.40]}
+  - object_id: low_viscosity_pool
+    method: reconstructed_surface
+    material: default
+    color_rgb: [0.08, 0.55, 1.0]
+    surface_pitch: 0.10
+    surface_smoothing: 1.0
+  - object_id: low_viscosity_drop
+    method: reconstructed_surface
+    material: default
+    color_rgb: [0.08, 0.55, 1.0]
+    surface_pitch: 0.10
+    surface_smoothing: 1.0
+  - object_id: high_viscosity_pool
+    method: reconstructed_surface
+    material: default
+    color_rgb: [1.0, 0.30, 0.08]
+    surface_pitch: 0.10
+    surface_smoothing: 1.35
+  - object_id: high_viscosity_drop
+    method: reconstructed_surface
+    material: default
+    color_rgb: [1.0, 0.30, 0.08]
+    surface_pitch: 0.10
+    surface_smoothing: 1.35

@@ -1,0 +1,40 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: tank_floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [2.3, 1.6, 0.05]}
+    transform: {translation: [0.0, 0.0, -0.05]}
+    material_id: glass
+    collision_enabled: true
+  - id: tank_back
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [2.3, 0.04, 1.4]}
+    transform: {translation: [0.0, 1.56, 1.4]}
+    material_id: glass
+    collision_enabled: true
+  - id: bowl_shell
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/bowl.npz}
+    transform: {translation: [0.0, 0.0, 0.0]}
+    state_binding: {selector: body_id, value: 1}
+    material_id: rubber
+    collision_enabled: true
+  - id: bowl_liquid
+    semantic: liquid
+    motion: dynamic
+    geometry: {type: particle_domain, bounds_min: [-0.72, -0.72, 1.75], bounds_max: [0.72, 0.72, 2.30]}
+    state_binding: {selector: body_id, value: 2}
+    material_id: liquid
+    collision_enabled: true
+  - id: shallow_water
+    semantic: liquid
+    motion: dynamic
+    geometry: {type: particle_domain, bounds_min: [-2.15, -1.45, 0.0], bounds_max: [2.15, 1.45, 0.24]}
+    state_binding: {selector: body_id, value: 3}
+    material_id: water
+    collision_enabled: true

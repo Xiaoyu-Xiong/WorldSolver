@@ -1,0 +1,26 @@
+id: 088_rod_torque_transducer
+title: Torque Transmission between Rod-Coupled Rigid Bodies
+category: rods_and_strands
+source:
+  title: Discrete Elastic Rods
+  url: https://www.cs.columbia.edu/cg/rods/
+  anchor: Figure 6 and Section 9.4, Torque transducer; PDF pages 9 and 11
+goal: 'Recreate the source experiment: The marked bodies show a time-varying difference in orientation during
+  the rotational exchange. Use elastic rods or strands; the numerical implementation is unrestricted.'
+scene_requirements:
+  required_elements:
+  - Two rigid bodies connected by an elastic rod that resists twisting.
+  - Visible orientation markings on the rigid bodies and the rod.
+  - The driven or initially excited body transfers torque through the rod; do not animate the receiving body
+    independently.
+  initial_state:
+  - Use the rod-body arrangement and rotational excitation of the source torque-transducer experiment.
+  - The rod endpoints are attached to the bodies; do not directly prescribe both body rotations.
+  required_events:
+  - Rotational excitation of one body twists the rod connecting the two bodies.
+  - The second body begins to rotate in response to the connecting rod.
+  - The marked bodies show a time-varying difference in orientation during the rotational exchange.
+camera_requirements:
+- Frame both bodies and the entire connecting rod so their separate orientations can be compared.
+- Keep the relevant objects visible before loading or contact, during the strongest response, and through the
+  stated outcome.

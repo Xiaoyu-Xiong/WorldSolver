@@ -1,0 +1,81 @@
+schema_version: 4
+task_id: 033_reef_knot_ribbons
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The submitted solver runs to the frozen end time, produces a complete finite trajectory
+      with every required evaluation field, and produces a readable platform render without exceeding
+      the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: The two intertwined ribbons are visibly pulled from their loose initial configuration.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: Pulling compacts the central interlaced region into a recognizable reef knot.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: The tightened knot remains closed under tension rather than spontaneously unthreading or
+      exchanging ribbon order.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: Both ribbons retain finite width and evolve without visible interpenetration, surface flipping,
+      teleportation, or abrupt topology changes.
+  physics:
+  - id: material_mass_balance
+    profile: cloth_thin_shells_and_fibers
+    dimension: conservation_and_source_balance
+    criterion: For reef knot ribbons, the mass change equals the cumulative prescribed inflow, outflow,
+      or phase-transfer source; internal motion and contact do not create or delete mass.
+    applicability:
+      requires:
+      - prescribed sources and sinks are exported
+      - Per-sample mass contributions are exported for every evaluated material.
+      excludes:
+      - Unreported particle deletion or remeshing loss.
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: nonpenetrating_contact
+    profile: cloth_thin_shells_and_fibers
+    dimension: contact_and_interface_conditions
+    criterion: During reef knot ribbons, solid-solid and solid-boundary contacts maintain nonnegative
+      geometric gaps up to the contact tolerance and do not permit persistent interpenetration.
+    applicability:
+      requires:
+      - Signed geometric gaps are exported for active and near-contact pairs.
+      excludes:
+      - Pairs intentionally allowed to pass through or merge.
+    numeric_binding:
+      calculator: contact.penetration.v1
+      inputs:
+        signed_distance: fields.contact_signed_distance
+        length_scale: scalars.contact_length_scale
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: strain_limit_compliance
+    profile: cloth_thin_shells_and_fibers
+    dimension: deformation_constraints
+    criterion: Where the stated strain limiter is active in reef knot ribbons, principal stretches remain
+      within [0.0, 1.134].
+    applicability:
+      requires:
+      - The case activates the stated principal-stretch bounds.
+      - Surface deformation gradients are exported.
+      excludes:
+      - Elements released from the limiter by an explicit tear or cut.
+    numeric_binding:
+      calculator: deformation.strain_limit.v1
+      inputs:
+        deformation_gradient: attributes.deformation_gradient
+      parameters:
+        lower: 0.0
+        upper: 1.134
+      reduction:
+        type: maximum

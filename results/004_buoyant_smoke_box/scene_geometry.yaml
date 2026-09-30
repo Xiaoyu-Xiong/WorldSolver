@@ -1,0 +1,51 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: closed_box
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [0.77, 0.77, 1.52]
+    transform:
+      translation: [0.0, 0.0, 1.5]
+    material_id: clear_glass_box
+    collision_enabled: true
+  - id: smoke_field
+    semantic: gas
+    motion: field
+    geometry:
+      type: voxel_grid
+      grid_shape: [32, 32, 64]
+      bounds_min: [-0.75, -0.75, 0.0]
+      bounds_max: [0.75, 0.75, 3.0]
+    state_binding:
+      selector: field
+      attribute_name: smoke_density
+    material_id: charcoal_smoke
+    collision_enabled: false
+  - id: passive_markers
+    semantic: granular
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [-0.75, -0.75, 0.0]
+      bounds_max: [0.75, 0.75, 3.0]
+    state_binding:
+      selector: attribute
+      attribute_name: marker_kind
+      value: 1
+    material_id: warm_gray_markers
+    collision_enabled: false
+  - id: heat_source
+    semantic: emitter
+    motion: static
+    geometry:
+      type: cylinder
+      radius: 0.28
+      height: 0.035
+    transform:
+      translation: [0.0, 0.0, 0.0175]
+    material_id: glowing_heater
+    collision_enabled: false

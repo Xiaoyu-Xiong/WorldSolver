@@ -1,0 +1,42 @@
+schema_version: 1
+scene_id: 076_foam_ball_high_speed_impact
+seed: 76019
+duration: 0.008
+sample_dt: 0.0001
+visual_judge_frame_count: 20
+
+# Source configuration from Figure 19 (SI units).
+foam_ball:
+  diameter: 0.04
+  radius: 0.02
+  density: 1150.0
+  youngs_modulus: 1.0e7
+  poisson_ratio: 0.45
+  initial_center: [-0.050, 0.0, 0.020]
+  initial_velocity: [67.0, 0.0, 0.0]
+  material_description: homogeneous volumetric elastic foam practice ball
+impact_plate:
+  center: [0.002, 0.0, 0.020]
+  half_extents: [0.002, 0.050, 0.050]
+  fixed: true
+initial_conditions:
+  gravity: [0.0, 0.0, -9.81]
+  initial_surface_gap: 0.028
+  travel_direction: [1.0, 0.0, 0.0]
+  ball_is_unstressed_and_round: true
+boundary_conditions:
+  impact_plate: fixed
+  plate_contact_surface_x: 0.0
+event_windows:
+  approach_and_first_contact: [0.0, 0.00055]
+  compression_recovery_release: [0.00055, 0.008]
+
+camera:
+  position: [-0.020, -0.190, 0.026]
+  look_at: [-0.015, 0.0, 0.022]
+  up: [0.0, 0.0, 1.0]
+  projection: orthographic
+  orthographic_scale: 0.135
+  width: 960
+  height: 640
+  fps: 50

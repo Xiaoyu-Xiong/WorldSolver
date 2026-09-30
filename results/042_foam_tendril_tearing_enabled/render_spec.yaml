@@ -1,0 +1,22 @@
+schema_version: 2
+profile: granular_particles
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: contact_floor
+    method: rigid_mesh
+    material: matte_mid_gray_floor
+    color_rgb: [0.42, 0.42, 0.40]
+    subdivision: 1
+  - object_id: upper_plate
+    method: rigid_mesh
+    material: dark_charcoal_plate
+    color_rgb: [0.06, 0.055, 0.05]
+  - object_id: foam_mass
+    method: reconstructed_surface
+    material: bright_white_shaving_foam
+    color_rgb: [0.98, 0.95, 0.88]
+    particle_radius_scale: 1.0
+    surface_pitch: 0.035
+    surface_smoothing: 1.15
+    subdivision: 1

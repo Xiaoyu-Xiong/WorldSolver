@@ -1,0 +1,27 @@
+id: 075_soft_ball_pin_compression
+title: Compression of a Soft Ball between Pin Arrays
+category: elastic_solids
+source:
+  title: 'Incremental Potential Contact: Intersection- and Inversion-free, Large-Deformation Dynamics'
+  url: https://ipc-sim.github.io/file/IPC-paper-350ppi.pdf
+  anchor: Figure 17; Section 7.2, Codimensional collision obstacles; PDF page 14
+goal: 'Recreate the source experiment: Under compression, the ball has a visibly indented outer shape
+  supported between the two arrays rather than passing through them. The numerical implementation is unrestricted;
+  the deforming material is a three-dimensional solid.'
+scene_requirements:
+  required_elements:
+  - A volumetric elastic ball.
+  - Lower and upper pin arrays represented by the source line-segment obstacles.
+  - Gravity and the prescribed upper-array motion.
+  initial_state:
+  - The ball starts above the lower pins and below the raised upper pins.
+  required_events:
+  - The ball falls onto the lower pin array before the upper array presses down.
+  - The ball develops dents at the pin contacts and spreads sideways as the upper pins approach.
+  - Under compression, the ball has a visibly indented outer shape supported between the two arrays rather
+    than passing through them.
+camera_requirements:
+- Use a fixed close three-quarter view showing both pin arrays, the full ball outline, and individual
+  pin contacts.
+- Keep the relevant objects visible before loading or contact, during the largest deformation, and during
+  the stated outcome.

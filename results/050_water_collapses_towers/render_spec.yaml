@@ -1,0 +1,19 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - {object_id: basin_floor, method: rigid_mesh, material: basin_concrete, color_rgb: [0.32, 0.32, 0.30]}
+  - {object_id: basin_back_wall, method: rigid_mesh, material: basin_concrete, color_rgb: [0.40, 0.42, 0.42]}
+  - {object_id: basin_front_wall, method: rigid_mesh, material: basin_concrete, color_rgb: [0.40, 0.42, 0.42]}
+  - {object_id: basin_end_wall, method: rigid_mesh, material: basin_concrete, color_rgb: [0.40, 0.42, 0.42]}
+  - object_id: incoming_water
+    method: reconstructed_surface
+    material: saturated_blue_water
+    color_rgb: [0.02, 0.30, 0.95]
+    surface_pitch: 0.09
+    surface_smoothing: 1.15
+  - {object_id: left_tower_cylinders, method: rigid_mesh, material: left_cyan_light_cylinders, color_rgb: [0.00, 0.78, 0.95]}
+  - {object_id: left_tower_cubes, method: rigid_mesh, material: left_deep_blue_heavy_cubes, color_rgb: [0.04, 0.10, 0.85]}
+  - {object_id: right_tower_cylinders, method: rigid_mesh, material: right_yellow_light_cylinders, color_rgb: [1.0, 0.82, 0.05]}
+  - {object_id: right_tower_cubes, method: rigid_mesh, material: right_red_heavy_cubes, color_rgb: [0.90, 0.04, 0.03]}

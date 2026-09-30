@@ -1,0 +1,24 @@
+id: 086_hanging_rod_plectoneme
+title: Plectoneme Formation in a Hanging Rod
+category: rods_and_strands
+source:
+  title: Discrete Elastic Rods
+  url: https://www.cs.columbia.edu/cg/rods/
+  anchor: Figure 9 and Section 9.3, Plectonemes; PDF page 10
+goal: 'Recreate the source experiment: A portion folds back and forms two mutually wound branches joined by
+  a small end loop. Use elastic rods or strands; the numerical implementation is unrestricted.'
+scene_requirements:
+  required_elements:
+  - One naturally straight, inextensible elastic rod with finite-thickness self-contact.
+  - Two position-controlled endpoints with progressively increasing relative twist.
+  - Downward gravity and, if used, an explicit ambient drag force without a fluid simulation.
+  initial_state:
+  - The rod starts as a twist-free planar hanging curve between the fixed endpoint positions.
+  required_events:
+  - The hanging rod is progressively twisted at its ends.
+  - The centerline first moves out of the plane of the hanging curve.
+  - A portion folds back and forms two mutually wound branches joined by a small end loop.
+camera_requirements:
+- Use a fixed oblique view showing the hanging curve, both end controls, and the self-wound branches.
+- Keep the relevant objects visible before loading or contact, during the strongest response, and through the
+  stated outcome.

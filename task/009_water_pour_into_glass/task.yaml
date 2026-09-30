@@ -1,0 +1,27 @@
+id: 009_water_pour_into_glass
+title: Water Pour Into Glass
+category: fluid_dynamics
+source:
+  title: Animating and Rendering Complex Water Surfaces
+  url: https://graphics.stanford.edu/papers/water-sig02/water.pdf
+  anchor: Figures 1 and 7; PDF pages 1 and 9
+goal: Recreate the observable physical phenomenon in which water is poured into a clear cylindrical glass
+  and produces detailed turbulent mixing of water and air. The implementation method is unrestricted;
+  the target is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Water Pour Into Glass
+  initial_state:
+  - Water is poured into a clear cylindrical glass and produces detailed turbulent mixing of water and
+    air.
+  required_events:
+  - Qualitative/quantitative - jet continuity
+  - Entrained-air/free-surface detail
+  - Volume conservation
+  - Wall interaction
+camera_requirements:
+- Use a three-quarter or side view that keeps the source, main interaction region, free surface or plume,
+  obstacles, and final state visible; avoid occlusion and excessive top-down views.
+parameter_notes:
+- 'Original paper parameters/configuration: 55 x 55 x 120 grid cells; cylindrical glass and inflow from
+  Figure 7.'

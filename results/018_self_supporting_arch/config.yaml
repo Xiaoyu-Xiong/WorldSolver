@@ -1,0 +1,25 @@
+schema_version: 1
+scene_id: 018_self_supporting_arch
+seed: 20240618
+duration: 3.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+friction:
+  coefficient: 0.6
+  description: Frictional contact between voussoir faces and ground (paper mu=0.6).
+initial_conditions:
+  description: >-
+    Parabolic arch of 15 rigid voussoir blocks placed in mating contact along a
+    parabolic load path, at rest under gravity. Blocks span the keystone (heaviest)
+    down to the springing blocks resting on the ground plane.
+  bodies_at_rest: true
+boundary_conditions:
+  ground: static frictional plane at z=0
+camera:
+  position: [6.5, -7.0, 3.6]
+  look_at: [0.0, 0.0, 1.2]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

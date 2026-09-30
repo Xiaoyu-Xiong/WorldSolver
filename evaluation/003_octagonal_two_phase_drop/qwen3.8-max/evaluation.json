@@ -1,0 +1,130 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 70714282,
+          "trajectory_frames": 401,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "For each liquid phase, the mass change equals the cumulative prescribed inflow, outflow, or phase-transfer source; internal motion and contact do not create or delete mass.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "initial_quantity": [
+            360.00000000000637,
+            49.99999999999979
+          ],
+          "sample_count": 401,
+          "worst_frame_index": 68
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.5000000000000011,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 1.960784313725486
+      },
+      {
+        "calculator": "field.divergence.v1",
+        "criterion": "In the active incompressible region of octagonal two phase drop, the velocity field is approximately divergence free.",
+        "criterion_id": "incompressible_velocity_constraint",
+        "details": {
+          "sample_count": 401,
+          "worst_frame_index": 235
+        },
+        "dimension": "field_constraints",
+        "domain": "physics",
+        "metric": "divergence_relative_l2",
+        "normalized_error": 10.823615351088995,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 8.457649968356732
+      },
+      {
+        "calculator": "interface.level_set_kinematic.v1",
+        "criterion": "Where the two liquid phases has no prescribed interfacial mass transfer, its material interface is advected consistently by the collocated velocity field.",
+        "criterion_id": "material_interface_kinematics",
+        "details": {
+          "sample_count": 401,
+          "worst_frame_index": 3
+        },
+        "dimension": "boundary_and_interface_conditions",
+        "domain": "physics",
+        "metric": "kinematic_relative_l2",
+        "normalized_error": 1.0,
+        "profile": "fluids_and_gases",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.0
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.07310266752998829,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.764
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.16316862443496913,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.446
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.011999999999999999,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.074
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.040199502484483556,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.182
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "003_octagonal_two_phase_drop",
+  "visual_score": 0.3665,
+  "visual_fidelity_score": 36.65,
+  "physical_plausibility_score": 3.472811427360739,
+  "total_score": 20.06140571368037
+}

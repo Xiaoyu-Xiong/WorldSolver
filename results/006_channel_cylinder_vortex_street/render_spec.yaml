@@ -1,0 +1,25 @@
+schema_version: 2
+profile: liquid_in_container
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - object_id: channel_fluid
+    method: diagnostic_points
+    material: default
+    scalar_field: vorticity
+    scalar_grid: true
+    scalar_range: [-4.0, 4.0]
+    field_axes: [1, 0]
+    particle_radius_scale: 0.72
+  - object_id: lower_channel_wall
+    method: rigid_mesh
+    material: matte
+    color_rgb: [0.30, 0.32, 0.36]
+  - object_id: upper_channel_wall
+    method: rigid_mesh
+    material: matte
+    color_rgb: [0.30, 0.32, 0.36]
+  - object_id: circular_obstacle
+    method: rigid_mesh
+    material: matte
+    color_rgb: [0.06, 0.07, 0.08]

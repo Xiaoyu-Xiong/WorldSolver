@@ -1,0 +1,30 @@
+id: 143_frictional_mechanism_jamming
+title: Frictional Mechanism Jamming
+category: rigid_body_dynamics
+source:
+  title: Fast Frictional Dynamics for Rigid Bodies
+  url: https://graphics.stanford.edu/courses/cs468-05-fall/Papers/p946-kaufman.pdf
+  anchor: Figures 1(d) and 4
+goal: >-
+  Recreate the paper's clearly visible frictional mechanism jamming phenomenon. The implementation method is unrestricted;
+  evaluation targets rigid motion, contact response, event propagation, and the characteristic outcome.
+scene_requirements:
+  required_elements:
+  - Articulated rigid mechanism
+  - Confining rigid geometry
+  - Driven link or load
+  - Frictional contacts
+  initial_state:
+  - The mechanism begins in a feasible configuration with its driver poised to move.
+  required_events:
+  - The prescribed driver loads the articulated rigid assembly.
+  - Contact forces propagate through multiple links and friction progressively resists relative motion.
+  - The mechanism enters a visibly jammed or locked configuration without interpenetration or joint separation.
+  - All bodies preserve rigid shape and contacts remain free of persistent overlap.
+camera_requirements:
+- Use an orthographic-like oblique view exposing all links, contacts, and the driven element.
+- Keep the complete interaction chain in frame and use contrasting colors for neighboring bodies.
+parameter_notes:
+- Match the qualitative geometry, loading, and event ordering shown in Figures 1(d) and 4; object count may be reduced within resource limits.
+- Export body IDs, mass, position, velocity, external forces, interaction-force pairs, and signed contact distances.
+

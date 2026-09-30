@@ -1,0 +1,8 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: centrifuge_drum, method: rigid_mesh, material: glass, color_rgb: [0.55, 0.62, 0.72], opacity: 0.08, wireframe: true}
+  - {object_id: species_a, method: particle_instances, material: matte, color_rgb: [1.0, 0.20, 0.02], particle_radius_scale: 1.35}
+  - {object_id: species_b, method: particle_instances, material: matte, color_rgb: [0.02, 0.70, 1.0], particle_radius_scale: 1.35}

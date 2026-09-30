@@ -1,0 +1,74 @@
+schema_version: 4
+task_id: 166_rotating_drum_radial_to_axial_segregation
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The solver reaches the frozen end time, exports every required finite trajectory field, and produces a readable render within resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: Rotation produces a flowing surface layer and small grains percolate inward to form radial segregation.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: Axial composition fluctuations grow and organize the two species into alternating bands perpendicular to the drum axis.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: The band pattern persists and neighboring bands may drift or merge while all grains remain confined.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: Both species remain distinguishable and confined, with continuous motion and no leakage, teleportation, or numerical explosion.
+  physics:
+  - id: species_mass_balance
+    profile: particles_and_granular_materials
+    dimension: conservation_and_source_balance
+    criterion: Each particle species independently conserves its represented mass because the closed centrifuge has no material source or sink.
+    applicability:
+      requires:
+      - attributes.mass_quantity contains one fixed column per species and fields.cumulative_mass_source contains matching zeros.
+      excludes:
+      - Deliberately modeled open-boundary material exchange.
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: particle_momentum_balance
+    profile: particles_and_granular_materials
+    dimension: momentum_and_force_balance
+    criterion: Particle momentum change is consistent with gravity, wall forcing, and other exported external forces.
+    applicability:
+      requires:
+      - Mass, velocity, and all actual external forces are exported at trajectory samples.
+      excludes:
+      - Frames spanning an unreported external impulse.
+    numeric_binding:
+      calculator: dynamics.linear_momentum_balance.v1
+      inputs:
+        mass: state.mass
+        velocity: state.velocity
+        external_force: fields.external_force
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: nonpenetrating_drum_contact
+    profile: particles_and_granular_materials
+    dimension: contact_and_interface_conditions
+    criterion: Grain-wall contacts maintain nonnegative signed gaps and no grain leaks through the rotating drum.
+    applicability:
+      requires:
+      - Signed near-contact distances and a frozen contact length scale are exported.
+      excludes:
+      - None.
+    numeric_binding:
+      calculator: contact.penetration.v1
+      inputs:
+        signed_distance: fields.contact_signed_distance
+        length_scale: scalars.contact_length_scale
+      parameters: {}
+      reduction:
+        type: maximum
+
+

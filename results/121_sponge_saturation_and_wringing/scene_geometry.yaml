@@ -1,0 +1,88 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: sink_floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.42, 0.30, 0.015]}
+    transform: {translation: [0.0, 0.0, 0.0]}
+    material_id: stainless_steel
+    collision_enabled: true
+  - id: sink_back
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.42, 0.018, 0.15]}
+    transform: {translation: [0.0, 0.282, 0.15]}
+    material_id: stainless_steel
+    collision_enabled: true
+  - id: sink_left
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.018, 0.30, 0.15]}
+    transform: {translation: [-0.402, 0.0, 0.15]}
+    material_id: stainless_steel
+    collision_enabled: true
+  - id: sink_right
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.018, 0.30, 0.15]}
+    transform: {translation: [0.402, 0.0, 0.15]}
+    material_id: stainless_steel
+    collision_enabled: true
+  - id: faucet_riser
+    semantic: rigid
+    motion: static
+    geometry: {type: cylinder, radius: 0.028, height: 0.42}
+    transform: {translation: [-0.25, 0.04, 0.38]}
+    material_id: chrome
+    collision_enabled: false
+  - id: faucet_spout
+    semantic: rigid
+    motion: static
+    geometry: {type: cylinder, radius: 0.025, height: 0.18}
+    transform:
+      translation: [-0.16, 0.04, 0.58]
+      rotation_xyzw: [0.0, 0.7071068, 0.0, 0.7071068]
+    material_id: chrome
+    collision_enabled: false
+  - id: faucet_nozzle
+    semantic: emitter
+    motion: static
+    geometry: {type: cylinder, radius: 0.025, height: 0.055}
+    transform: {translation: [-0.07, 0.04, 0.552]}
+    material_id: chrome
+    collision_enabled: false
+  - id: sponge
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/sponge_topology.obj}
+    state_binding: {selector: body_id, value: 1}
+    material_id: yellow_cellulose
+    collision_enabled: true
+  - id: water
+    semantic: liquid
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [-0.38, -0.27, 0.015]
+      bounds_max: [0.38, 0.27, 0.58]
+    state_binding: {selector: body_id, value: 2}
+    material_id: clear_water
+    collision_enabled: true
+  - id: left_grip
+    semantic: rigid
+    motion: kinematic
+    geometry: {type: capsule, radius: 0.022, height: 0.11}
+    transform: {rotation_xyzw: [0.0, 0.7071068, 0.0, 0.7071068]}
+    state_binding: {selector: body_id, value: 10}
+    material_id: grip_blue
+    collision_enabled: false
+  - id: right_grip
+    semantic: rigid
+    motion: kinematic
+    geometry: {type: capsule, radius: 0.022, height: 0.11}
+    transform: {rotation_xyzw: [0.0, 0.7071068, 0.0, 0.7071068]}
+    state_binding: {selector: body_id, value: 11}
+    material_id: grip_red
+    collision_enabled: false

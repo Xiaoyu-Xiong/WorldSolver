@@ -1,0 +1,32 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: support
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [3.2, 2.2, 0.08]}
+    transform: {translation: [0.0, 0.0, -0.08]}
+    material_id: support
+    collision_enabled: true
+  - id: sponge
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/sponge_block.obj, topology_asset: assets/sponge_block.obj}
+    state_binding: {selector: body_id, value: 1}
+    material_id: sponge_dry_wet
+    collision_enabled: true
+  - id: porous_interior
+    semantic: granular
+    motion: dynamic
+    geometry: {type: particle_domain, bounds_min: [-1.22, -0.62, 0.03], bounds_max: [0.22, 0.62, 1.27]}
+    state_binding: {selector: body_id, value: 3}
+    material_id: sponge_dry_wet
+    collision_enabled: false
+  - id: water
+    semantic: liquid
+    motion: dynamic
+    geometry: {type: particle_domain, bounds_min: [0.28, -0.72, 0.0], bounds_max: [1.75, 0.72, 1.15]}
+    state_binding: {selector: body_id, value: 2}
+    material_id: water
+    collision_enabled: true

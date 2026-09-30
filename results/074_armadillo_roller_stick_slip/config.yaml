@@ -1,0 +1,31 @@
+schema_version: 1
+scene_id: 074_armadillo_roller_stick_slip
+seed: 74016
+duration: 6.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+initial_conditions:
+  armadillo_at_rest: true
+  armadillo_center: [-0.72, 0.0, 0.0]
+  roller_gap: 0.16
+boundary_conditions:
+  roller_motion: kinematic_counter_rotation
+  roller_axis: [0.0, 1.0, 0.0]
+  upper_angular_velocity_rad_s: 5.0
+  lower_angular_velocity_rad_s: -5.0
+  start_time: 0.35
+  ramp_duration: 0.25
+  contact_friction_coefficient: 0.5
+  intended_transport_direction: positive_x
+phenomenon_targets:
+  deformable_is_volumetric: true
+  moderate_stiffness_reference_pa: 500000.0
+  sequence: [draw_in, flatten_and_catch, stretch, slip_forward, catch_again]
+camera:
+  position: [2.15, -3.45, 1.75]
+  look_at: [0.05, 0.0, 0.0]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

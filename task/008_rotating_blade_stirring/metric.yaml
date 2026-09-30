@@ -1,0 +1,97 @@
+schema_version: 4
+task_id: 008_rotating_blade_stirring
+criteria:
+  execution:
+    - id: executable_and_evaluable
+      criterion: The solver completes the frozen interval with finite required trajectory fields and a readable platform render within the resource limits.
+  visual:
+    - id: blade_driven_onset
+      dimension: event_sequence
+      criterion: The centered upright blade accelerates from rest and rotates clockwise about its vertical axis, visibly displacing initially resting liquid at its submerged faces.
+    - id: liquid_blade_interaction
+      dimension: interaction_response
+      criterion: Moving blade faces generate local surface deformation, wakes, and transient splashes; liquid neither passes through the blade nor follows it as a single rigid slab.
+    - id: sustained_swirl_and_wrinkles
+      dimension: signature_phenomenon
+      criterion: Sustained stirring develops a three-dimensional circulating liquid volume with a visibly wrinkled free surface, consistent with Figure 5, rather than a prescribed flat rotating disk or a breaking wave.
+    - id: physical_temporal_coherence
+      dimension: temporal_coherence
+      criterion: Fluid and blade evolve continuously at physical playback speed; the rigid blade remains centered, the water does not leak through walls, and splashed liquid does not disappear or freeze in air.
+  physics:
+    - id: liquid_mass_balance
+      profile: fluids_and_gases
+      dimension: conservation_and_source_balance
+      criterion: Total liquid mass, including tracked splashes, remains constant. Blade mass is excluded and cumulative prescribed mass source is zero.
+      applicability:
+        requires: [Export actual per-sample liquid mass and zero prescribed source.]
+        excludes: [Counting blade mass as liquid or reclassifying numerical deletion as outflow.]
+      numeric_binding:
+        calculator: balance.source_aware.v1
+        inputs:
+          quantity: attributes.mass_quantity
+          cumulative_source: fields.cumulative_mass_source
+        parameters: {}
+        reduction: {type: maximum}
+    - id: liquid_incompressibility
+      profile: fluids_and_gases
+      dimension: field_constraints
+      criterion: The actual liquid velocity field is approximately divergence free in liquid-interior cells, excluding solid and air cells and stencils crossing those interfaces.
+      applicability:
+        requires: [Export a collocated xyz velocity grid and a nonempty liquid-interior mask from the current fluid state.]
+        excludes: [Air and solid cells or an empty or artificially reduced liquid mask.]
+      numeric_binding:
+        calculator: field.divergence.v1
+        inputs:
+          velocity_field: fields.velocity_field
+          active_mask: fields.active_mask
+          grid_spacing: scalars.grid_spacing
+          characteristic_length: scalars.characteristic_length
+        parameters: {spatial_dimensions: 3}
+        reduction: {type: maximum}
+    - id: stationary_tank_impermeability
+      profile: fluids_and_gases
+      dimension: boundary_and_interface_conditions
+      criterion: Actual fluid-side velocities at wetted tank floor and walls have zero normal velocity. Sample all wetted stationary faces.
+      applicability:
+        requires: [Export collocated measured fluid velocities and unit normals at wetted stationary boundary samples.]
+        excludes: [The open top and dry wall patches.]
+      numeric_binding:
+        calculator: boundary.velocity_residual.v1
+        inputs:
+          boundary_velocity: fields.boundary_velocity
+          boundary_target_velocity: fields.boundary_target_velocity
+          boundary_normal: fields.boundary_normal
+          reference_velocity: scalars.reference_velocity
+        parameters: {condition: no_penetration, spatial_dimensions: 3}
+        reduction: {type: maximum}
+    - id: rotating_blade_impermeability
+      profile: fluids_and_gases
+      dimension: boundary_and_interface_conditions
+      criterion: Actual fluid-side velocity on wetted blade faces matches the normal component of omega(t) cross (x-center). Evaluate the blade separately so stationary wall samples cannot dilute its residual.
+      applicability:
+        requires: [Export nonempty collocated wetted blade samples, current rotated normals, measured fluid velocity, and analytic prescribed surface velocity.]
+        excludes: [Dry blade patches and substituting the target velocity for measured fluid velocity.]
+      numeric_binding:
+        calculator: boundary.velocity_residual.v1
+        inputs:
+          boundary_velocity: fields.blade_boundary_velocity
+          boundary_target_velocity: fields.blade_boundary_target_velocity
+          boundary_normal: fields.blade_boundary_normal
+          reference_velocity: scalars.reference_velocity
+        parameters: {condition: no_penetration, spatial_dimensions: 3}
+        reduction: {type: maximum}
+    - id: free_surface_kinematics
+      profile: fluids_and_gases
+      dimension: boundary_and_interface_conditions
+      criterion: The liquid-air level set is advected consistently with the actual collocated liquid velocity extended across a narrow air-side band; the solid boundary is not a liquid-air interface.
+      applicability:
+        requires: [Export a liquid-air signed level set and collocated extended velocity at every frame on the fixed xyz grid.]
+        excludes: [Treating tank or blade surfaces as liquid-air interfaces or exporting a static initial level set.]
+      numeric_binding:
+        calculator: interface.level_set_kinematic.v1
+        inputs:
+          level_set: fields.liquid_level_set
+          velocity_field: fields.velocity_field
+          grid_spacing: scalars.grid_spacing
+        parameters: {spatial_dimensions: 3, interface_band_cells: 1.5}
+        reduction: {type: maximum}

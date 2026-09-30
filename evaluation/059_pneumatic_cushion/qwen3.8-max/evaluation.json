@@ -1,0 +1,233 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 8362696,
+          "trajectory_frames": 101,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "Each deformable body retains its initial material mass. Mass transferred numerically between bodies must not cancel in an aggregate total; this scene has no material sources or sinks.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "initial_quantity": [
+            395.472
+          ],
+          "sample_count": 101,
+          "worst_frame_index": 0
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.0,
+        "profile": "deformable_solids",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "deformation.jacobian.v1",
+        "criterion": "Every volumetric material element retains det(F) > 0. Report the maximum fraction of nonpositive determinants across frames, including elements hidden inside the material.",
+        "criterion_id": "orientation_preserving_deformation",
+        "details": {
+          "sample_count": 101,
+          "worst_frame_index": 28
+        },
+        "dimension": "deformation_validity",
+        "domain": "physics",
+        "metric": "nonpositive_jacobian_fraction",
+        "normalized_error": 0.17162698412698413,
+        "profile": "deformable_solids",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 82.83730158730158
+      },
+      {
+        "calculator": "dynamics.momentum_budget.v1",
+        "criterion": "At every solved load or pose, each unconstrained material node has zero net force. Check nodes separately so opposite residuals cannot cancel across the object.",
+        "criterion_id": "quasistatic_nodal_force_balance",
+        "details": {
+          "mode": "quasistatic",
+          "sample_count": 101,
+          "sample_times": [
+            0.0,
+            0.02,
+            0.04,
+            0.06,
+            0.08,
+            0.1,
+            0.12,
+            0.14,
+            0.16,
+            0.18,
+            0.2,
+            0.22,
+            0.24,
+            0.26,
+            0.28,
+            0.3,
+            0.32,
+            0.34,
+            0.36,
+            0.38,
+            0.4,
+            0.42,
+            0.44,
+            0.46,
+            0.48,
+            0.5,
+            0.52,
+            0.54,
+            0.56,
+            0.58,
+            0.6,
+            0.62,
+            0.64,
+            0.66,
+            0.68,
+            0.7000000000000001,
+            0.72,
+            0.74,
+            0.76,
+            0.78,
+            0.8,
+            0.8200000000000001,
+            0.84,
+            0.86,
+            0.88,
+            0.9,
+            0.92,
+            0.9400000000000001,
+            0.96,
+            0.98,
+            1.0,
+            1.02,
+            1.04,
+            1.06,
+            1.08,
+            1.1,
+            1.12,
+            1.1400000000000001,
+            1.16,
+            1.18,
+            1.2,
+            1.22,
+            1.24,
+            1.26,
+            1.28,
+            1.3,
+            1.32,
+            1.34,
+            1.36,
+            1.3800000000000001,
+            1.4000000000000001,
+            1.42,
+            1.44,
+            1.46,
+            1.48,
+            1.5,
+            1.52,
+            1.54,
+            1.56,
+            1.58,
+            1.6,
+            1.62,
+            1.6400000000000001,
+            1.6600000000000001,
+            1.68,
+            1.7,
+            1.72,
+            1.74,
+            1.76,
+            1.78,
+            1.8,
+            1.82,
+            1.84,
+            1.86,
+            1.8800000000000001,
+            1.9000000000000001,
+            1.92,
+            1.94,
+            1.96,
+            1.98,
+            2.0
+          ],
+          "worst_frame_index": 60
+        },
+        "dimension": "momentum_and_force_balance",
+        "domain": "physics",
+        "metric": "linear_momentum_budget_residual",
+        "normalized_error": 0.0021324693652285225,
+        "profile": "deformable_solids",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 97.91205541344276
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.016,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.078
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.01624807680927192,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.026000000000000002
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.00894427190999916,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.01
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.0
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "059_pneumatic_cushion",
+  "visual_score": 0.0285,
+  "visual_fidelity_score": 2.85,
+  "physical_plausibility_score": 93.58311900024812,
+  "total_score": 48.216559500124056
+}

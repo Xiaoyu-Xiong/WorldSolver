@@ -1,0 +1,130 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 96097222,
+          "trajectory_frames": 351,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "Each particle species independently conserves its represented mass because the closed centrifuge has no material source or sink.",
+        "criterion_id": "species_mass_balance",
+        "details": {
+          "initial_quantity": [
+            1106.8753021245632,
+            2804.8069157520267
+          ],
+          "sample_count": 351,
+          "worst_frame_index": 0
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.0,
+        "profile": "particles_and_granular_materials",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "dynamics.linear_momentum_balance.v1",
+        "criterion": "Particle momentum change is consistent with gravity, wall forcing, and other exported external forces.",
+        "criterion_id": "particle_momentum_balance",
+        "details": {
+          "sample_count": 351,
+          "worst_frame_index": 141
+        },
+        "dimension": "momentum_and_force_balance",
+        "domain": "physics",
+        "metric": "momentum_balance_relative_l2",
+        "normalized_error": 0.9999766561717506,
+        "profile": "particles_and_granular_materials",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.0023343828249422494
+      },
+      {
+        "calculator": "contact.penetration.v1",
+        "criterion": "Grain-wall contacts maintain nonnegative signed gaps and no grain leaks through the rotating drum.",
+        "criterion_id": "nonpenetrating_drum_contact",
+        "details": {
+          "sample_count": 351,
+          "worst_frame_index": 39
+        },
+        "dimension": "contact_and_interface_conditions",
+        "domain": "physics",
+        "metric": "penetration_relative_max",
+        "normalized_error": 0.6285008966731203,
+        "profile": "particles_and_granular_materials",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 7.369187018788626
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.11232096865679178,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.532
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.007999999999999995,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.176
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.026532998322843202,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.124
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0447213595499958,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.8300000000000001
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "166_rotating_drum_radial_to_axial_segregation",
+  "visual_score": 0.41550000000000004,
+  "visual_fidelity_score": 41.550000000000004,
+  "physical_plausibility_score": 35.79050713387119,
+  "total_score": 38.6702535669356
+}

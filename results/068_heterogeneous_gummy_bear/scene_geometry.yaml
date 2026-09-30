@@ -1,0 +1,38 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: ground
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [3.2, 2.5, 0.025]
+    transform:
+      translation: [0.0, 0.0, -0.025]
+    material_id: ground_matte
+    collision_enabled: true
+  - id: soft_bear_exterior
+    semantic: deformable
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/gummy_bear_outer.obj
+      topology_asset: assets/gummy_bear_outer.obj
+    state_binding:
+      selector: body_id
+      value: 0
+    material_id: soft_gummy
+    collision_enabled: true
+  - id: stiff_bear_interior
+    semantic: deformable
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/gummy_bear_stiff.obj
+      topology_asset: assets/gummy_bear_stiff.obj
+    state_binding:
+      selector: body_id
+      value: 1
+    material_id: stiff_core
+    collision_enabled: false

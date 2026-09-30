@@ -1,0 +1,18 @@
+schema_version: 2
+profile: fiber_rods
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - object_id: elastic_rod
+    method: curve_tubes
+    material: silicone_green
+    color_rgb: [0.68, 0.92, 0.22]
+    subdivision: 2
+  - object_id: substrate
+    method: rigid_mesh
+    material: matte_black
+    color_rgb: [0.035, 0.045, 0.050]
+  - object_id: injector
+    method: rigid_mesh
+    material: brushed_steel
+    color_rgb: [0.62, 0.66, 0.69]

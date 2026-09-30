@@ -1,0 +1,41 @@
+schema_version: 1
+scene_id: 089_wilberforce_pendulum
+seed: 89089
+duration: 18.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+spring:
+  vertex_count: 145
+  coil_count: 12
+  coil_radius: 0.18
+  wire_radius: 0.012
+  equilibrium_top_z: 2.75
+  equilibrium_bottom_z: 0.91
+  total_mass: 0.16
+  upper_clamped_vertex_count: 3
+load:
+  mass: 1.2
+  radius: 0.22
+  height: 0.30
+  principal_inertia: [0.0198, 0.0198, 0.0290]
+  attachment_offset_body: [0.0, 0.0, 0.15]
+initial_conditions:
+  preparation: gravity_equilibrated_spring_load
+  release_time: 0.0
+  upward_displacement: 0.08
+  initial_linear_velocity: [0.0, 0.0, 0.0]
+  initial_angular_velocity: [0.0, 0.0, 0.0]
+coupled_mode_regime:
+  target_vertical_period: 1.20
+  target_torsional_period: 1.24
+  weak_translation_rotation_coupling: true
+  expected_first_rotation_peak_time: 4.5
+  expected_vertical_revival_time: 9.0
+camera:
+  position: [3.8, 3.6, 2.8]
+  look_at: [0.0, 0.0, 1.45]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

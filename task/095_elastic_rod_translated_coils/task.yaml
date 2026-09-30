@@ -1,0 +1,29 @@
+id: 095_elastic_rod_translated_coils
+title: Translated Elastic Rod Coils on a Moving Belt
+category: rods_and_strands
+source:
+  title: Coiling of elastic rods on rigid substrates
+  url: https://www.cs.columbia.edu/cg/elastic_coiling/coiling.pdf
+  anchor: Figure 1D, PDF page 2; Figure 3B(iv), PDF page 4; Movie S3
+goal: 'Recreate the source experiment: Nearly circular turns form a sequence whose centers advance along the
+  belt. Use elastic rods or strands; the numerical implementation is unrestricted.'
+scene_requirements:
+  required_elements:
+  - One long, inextensible elastic rod fed downward by a controlled injector.
+  - A rigid horizontal substrate below the injector and uniform downward gravity.
+  - The source sticking substrate condition for deposited material; no fluid or viscous-thread constitutive
+    model.
+  - A slowly translating belt with the source translated-coiling relation between belt and injection speeds.
+  - Choose the translated-coiling regime rather than alternating loops. Use the source quasi-static regime.
+    The source neglects self-contact of the deposited rod; do not add a multilayer collision requirement.
+  initial_state:
+  - Begin before a developed sequence of translated coils covers the belt.
+  required_events:
+  - The injector supplies rod material while the belt transports the deposited portion away.
+  - The contact point repeatedly circles around with the same winding direction.
+  - Nearly circular turns form a sequence whose centers advance along the belt.
+camera_requirements:
+- Use a fixed oblique view that shows the injector, suspended heel, contact point, and deposited pattern; keep
+  earlier deposited turns visible.
+- Keep the relevant objects visible before loading or contact, during the strongest response, and through the
+  stated outcome.

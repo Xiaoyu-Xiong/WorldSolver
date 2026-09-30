@@ -1,0 +1,15 @@
+schema_version: 2
+profile: granular_particles
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: ground, method: rigid_mesh, material: matte, color_rgb: [0.22, 0.25, 0.30]}
+  - object_id: sand
+    method: particle_instances
+    material: default
+    color_rgb: [0.86, 0.52, 0.16]
+    particle_radius_scale: 1.05
+  - object_id: ball
+    method: rigid_mesh
+    material: metal
+    color_rgb: [0.16, 0.18, 0.22]

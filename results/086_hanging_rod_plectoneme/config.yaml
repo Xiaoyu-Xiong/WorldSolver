@@ -1,0 +1,53 @@
+schema_version: 1
+scene_id: 086_hanging_rod_plectoneme
+seed: 8609
+duration: 18.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+camera:
+  position: [3.8, -5.8, 3.4]
+  look_at: [0.0, 0.0, 0.65]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50
+gravity: [0.0, 0.0, -9.81]
+ambient_drag:
+  enabled: true
+  description: isotropic_quiescent_air_drag
+  coefficient: 0.035
+rod:
+  vertex_count: 241
+  total_length: 7.35333
+  radius: 0.028
+  mass: 0.115
+  naturally_straight: true
+  isotropic: true
+  inextensible: true
+  finite_thickness_self_contact: true
+  initial_material_twist_turns: 0.0
+  initial_shape: planar_symmetric_hanging_curve
+end_controls:
+  controlled_vertices: [0, 240]
+  positions_fixed: true
+  left:
+    position: [-2.45, 0.0, 1.75]
+    outward_axis: [-1.0, 0.0, 0.0]
+    twist_sign: -1.0
+  right:
+    position: [2.45, 0.0, 1.75]
+    outward_axis: [1.0, 0.0, 0.0]
+    twist_sign: 1.0
+  twist_ramp:
+    hold_twist_free_until: 1.0
+    ramp_start: 1.0
+    ramp_end: 13.5
+    final_relative_turns: 8.0
+    interpolation: smoothstep
+  post_ramp_hold_until: 18.0
+event_windows:
+  planar_loading: [1.0, 4.5]
+  expected_out_of_plane_buckling: [4.5, 8.0]
+  expected_foldback_and_self_contact: [8.0, 12.5]
+  expected_plectoneme_growth: [12.5, 18.0]
+required_outcome: two_mutually_wound_branches_joined_by_small_end_loop

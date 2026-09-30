@@ -1,0 +1,21 @@
+schema_version: 1
+scene_id: 112_liquid_filled_toy_bounce
+seed: 112
+duration: 2.8
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+initial_conditions:
+  toy_center: [0.0, 0.0, 1.48]
+  initial_velocity: [0.0, 0.0, -1.15]
+  shell_wall_thickness: 0.035
+  cavity_fill_fraction: 1.0
+  coupling_requirement: two_way_dynamic
+  marker_behavior: passive_advected_tracers
+camera:
+  position: [3.9, -5.2, 2.75]
+  look_at: [0.0, 0.0, 0.95]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

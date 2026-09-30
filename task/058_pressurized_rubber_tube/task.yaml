@@ -1,0 +1,27 @@
+id: 058_pressurized_rubber_tube
+title: Inflation of an End-Constrained Rubber Tube
+category: elastic_solids
+source:
+  title: Locking-Proof Tetrahedra
+  url: https://research.chalmers.se/publication/524762/file/524762_Fulltext.pdf
+  anchor: Figure 1, PDF page 2; Figure 11 and Section 9, PDF page 14 (institutional cover included)
+goal: 'Recreate the source experiment: The pressurized tube retains a clearly expanded middle instead
+  of remaining a straight cylinder or expanding only at a few isolated vertices. The numerical implementation
+  is unrestricted; the deforming material is a three-dimensional solid.'
+scene_requirements:
+  required_elements:
+  - A hollow rubber tube with finite-thickness volumetric walls.
+  - Fixed upper and lower tube rims.
+  - Prescribed internal pressure applied to the cavity wall.
+  initial_state:
+  - The tube starts in its uninflated cylindrical shape with both end rims fixed.
+  required_events:
+  - As internal pressure is applied, the middle of the tube moves outward while the two end rims remain
+    in place.
+  - The side outline becomes curved, with the middle wider than the constrained ends.
+  - The pressurized tube retains a clearly expanded middle instead of remaining a straight cylinder or
+    expanding only at a few isolated vertices.
+camera_requirements:
+- Use a fixed side or three-quarter view showing both constrained rims and the entire bulging wall.
+- Keep the relevant objects visible before loading or contact, during the largest deformation, and during
+  the stated outcome.

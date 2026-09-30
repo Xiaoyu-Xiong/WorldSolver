@@ -1,0 +1,57 @@
+schema_version: 1
+scene_id: 088_rod_torque_transducer
+seed: 88088
+duration: 6.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, 0.0]
+experiment: torque_transducer
+rod:
+  length: 1.60
+  radius: 0.018
+  vertex_count: 65
+  density: 1150.0
+  naturally_straight: true
+  inextensible: true
+  resists_twist: true
+  endpoint_attachment: material_frame_clamped
+rigid_bodies:
+  driven:
+    center: [-0.55, 0.0, 0.0]
+    radius: 0.15
+    axial_length: 0.20
+    mass: 1.2
+  receiver:
+    center: [0.60, 0.0, 0.0]
+    radius: 0.095
+    axial_length: 0.16
+    mass: 0.18
+initial_conditions:
+  rod_start: [-0.80, 0.0, 0.0]
+  rod_end: [0.80, 0.0, 0.0]
+  all_at_rest: true
+  material_twist: 0.0
+excitation:
+  target: driven_body
+  type: applied_torque_pulse
+  axis: [1.0, 0.0, 0.0]
+  start_time: 0.20
+  rise_time: 0.25
+  hold_until: 0.85
+  end_time: 1.10
+  peak_torque: 0.75
+  receiver_direct_drive: false
+boundary_conditions:
+  rod_start: attached_to_driven_body
+  rod_end: attached_to_receiver_body
+  bodies_translation: constrained_to_rod_axis
+  bodies_rotation_about_rod_axis: dynamic
+camera:
+  projection: orthographic
+  orthographic_scale: 2.25
+  position: [0.15, -3.5, 1.75]
+  look_at: [0.0, 0.0, 0.0]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

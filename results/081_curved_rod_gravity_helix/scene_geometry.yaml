@@ -1,0 +1,25 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: upper_clamp
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [0.014, 0.012, 0.010]
+    transform:
+      translation: [0.0, 0.0, 0.170]
+    material_id: clamp_metal
+    collision_enabled: false
+  - id: curved_rod
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      radius: 0.0018
+      topology_asset: assets/rod_centerline.json
+    state_binding:
+      selector: all
+    material_id: rod_elastomer
+    collision_enabled: false

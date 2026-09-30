@@ -1,0 +1,28 @@
+id: 025_torus_ground_self_collision
+title: Torus Ground Self Collision
+category: elastic_solids
+source:
+  title: Optimization Integrator for Large Time Steps
+  url: https://math.ucdavis.edu/~jteran/papers/GSSJT15.pdf
+  anchor: Figure 7; PDF page 9
+goal: Recreate the observable physical phenomenon in which a deformable torus falls onto the ground and
+  undergoes ground contact and self-collision. The implementation method is unrestricted; the target is
+  the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Torus Ground Self Collision
+  - Deformable object named by the scene
+  - Collision obstacles or supports
+  - Gravity
+  initial_state:
+  - A deformable torus falls onto the ground and undergoes ground contact and self-collision.
+  required_events:
+  - Quantitative/qualitative - inversion/penetration
+  - Convergence
+  - Deformation
+  - Recovery
+camera_requirements:
+- Use a three-quarter view showing the full deformable body, loading or impact region, contacts, large
+  deformation, and recovered or final shape.
+parameter_notes:
+- 'Original paper parameters/configuration: Constraint ground collision and penalty self-collision.'

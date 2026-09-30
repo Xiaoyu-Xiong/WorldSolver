@@ -1,0 +1,40 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: clear_cylindrical_glass
+    semantic: boundary
+    motion: static
+    geometry:
+      type: axisymmetric_container
+      inner_profile:
+        - [0.225, 0.000]
+        - [0.250, 0.030]
+        - [0.250, 0.750]
+        - [0.255, 0.780]
+      wall_thickness: 0.012
+    material_id: clear_glass
+    collision_enabled: true
+  - id: pouring_source
+    semantic: emitter
+    motion: static
+    geometry:
+      type: cylinder
+      radius: 0.052
+      height: 0.18
+    transform:
+      translation: [-0.163, 0.0, 1.067]
+      rotation_xyzw: [0.0, 0.1269, 0.0, 0.9919]
+    material_id: red_wine
+    collision_enabled: false
+  - id: poured_water
+    semantic: liquid
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [-0.33, -0.33, 0.0]
+      bounds_max: [0.33, 0.33, 1.10]
+    state_binding:
+      selector: all
+    material_id: red_wine
+    collision_enabled: true

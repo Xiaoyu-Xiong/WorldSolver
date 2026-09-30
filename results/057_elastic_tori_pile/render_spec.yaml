@@ -1,0 +1,58 @@
+schema_version: 2
+profile: deformable_surface
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - {object_id: floor, method: rigid_mesh, material: warm_floor, color_rgb: [0.34, 0.30, 0.25]}
+  - {object_id: post_01, method: rigid_mesh, material: blue_posts, color_rgb: [0.10, 0.16, 0.48]}
+  - {object_id: post_02, method: rigid_mesh, material: blue_posts, color_rgb: [0.10, 0.16, 0.48]}
+  - {object_id: post_03, method: rigid_mesh, material: blue_posts, color_rgb: [0.10, 0.16, 0.48]}
+  - {object_id: post_04, method: rigid_mesh, material: blue_posts, color_rgb: [0.10, 0.16, 0.48]}
+  - {object_id: post_05, method: rigid_mesh, material: blue_posts, color_rgb: [0.10, 0.16, 0.48]}
+  - {object_id: post_06, method: rigid_mesh, material: blue_posts, color_rgb: [0.10, 0.16, 0.48]}
+  - {object_id: post_07, method: rigid_mesh, material: blue_posts, color_rgb: [0.10, 0.16, 0.48]}
+  - {object_id: post_08, method: rigid_mesh, material: blue_posts, color_rgb: [0.10, 0.16, 0.48]}
+  - {object_id: post_09, method: rigid_mesh, material: blue_posts, color_rgb: [0.10, 0.16, 0.48]}
+  - {object_id: post_10, method: rigid_mesh, material: blue_posts, color_rgb: [0.10, 0.16, 0.48]}
+  - {object_id: post_11, method: rigid_mesh, material: blue_posts, color_rgb: [0.10, 0.16, 0.48]}
+  - {object_id: post_12, method: rigid_mesh, material: blue_posts, color_rgb: [0.10, 0.16, 0.48]}
+  - {object_id: torus_01, method: deformed_mesh, material: elastic_0, color_rgb: [0.95, 0.50, 0.10], subdivision: 1}
+  - {object_id: torus_02, method: deformed_mesh, material: elastic_1, color_rgb: [0.93, 0.91, 0.82], subdivision: 1}
+  - {object_id: torus_03, method: deformed_mesh, material: elastic_2, color_rgb: [0.16, 0.09, 0.05], subdivision: 1}
+  - {object_id: torus_04, method: deformed_mesh, material: elastic_0, color_rgb: [0.95, 0.50, 0.10], subdivision: 1}
+  - {object_id: torus_05, method: deformed_mesh, material: elastic_1, color_rgb: [0.93, 0.91, 0.82], subdivision: 1}
+  - {object_id: torus_06, method: deformed_mesh, material: elastic_2, color_rgb: [0.16, 0.09, 0.05], subdivision: 1}
+  - {object_id: torus_07, method: deformed_mesh, material: elastic_0, color_rgb: [0.95, 0.50, 0.10], subdivision: 1}
+  - {object_id: torus_08, method: deformed_mesh, material: elastic_1, color_rgb: [0.93, 0.91, 0.82], subdivision: 1}
+  - {object_id: torus_09, method: deformed_mesh, material: elastic_2, color_rgb: [0.16, 0.09, 0.05], subdivision: 1}
+  - {object_id: torus_10, method: deformed_mesh, material: elastic_0, color_rgb: [0.95, 0.50, 0.10], subdivision: 1}
+  - {object_id: torus_11, method: deformed_mesh, material: elastic_1, color_rgb: [0.93, 0.91, 0.82], subdivision: 1}
+  - {object_id: torus_12, method: deformed_mesh, material: elastic_2, color_rgb: [0.16, 0.09, 0.05], subdivision: 1}
+  - {object_id: torus_13, method: deformed_mesh, material: elastic_0, color_rgb: [0.95, 0.50, 0.10], subdivision: 1}
+  - {object_id: torus_14, method: deformed_mesh, material: elastic_1, color_rgb: [0.93, 0.91, 0.82], subdivision: 1}
+  - {object_id: torus_15, method: deformed_mesh, material: elastic_2, color_rgb: [0.16, 0.09, 0.05], subdivision: 1}
+  - {object_id: torus_16, method: deformed_mesh, material: elastic_0, color_rgb: [0.95, 0.50, 0.10], subdivision: 1}
+  - {object_id: torus_17, method: deformed_mesh, material: elastic_1, color_rgb: [0.93, 0.91, 0.82], subdivision: 1}
+  - {object_id: torus_18, method: deformed_mesh, material: elastic_2, color_rgb: [0.16, 0.09, 0.05], subdivision: 1}
+  - {object_id: torus_19, method: deformed_mesh, material: elastic_0, color_rgb: [0.95, 0.50, 0.10], subdivision: 1}
+  - {object_id: torus_20, method: deformed_mesh, material: elastic_1, color_rgb: [0.93, 0.91, 0.82], subdivision: 1}
+  - {object_id: torus_21, method: deformed_mesh, material: elastic_2, color_rgb: [0.16, 0.09, 0.05], subdivision: 1}
+  - {object_id: torus_22, method: deformed_mesh, material: elastic_0, color_rgb: [0.95, 0.50, 0.10], subdivision: 1}
+  - {object_id: torus_23, method: deformed_mesh, material: elastic_1, color_rgb: [0.93, 0.91, 0.82], subdivision: 1}
+  - {object_id: torus_24, method: deformed_mesh, material: elastic_2, color_rgb: [0.16, 0.09, 0.05], subdivision: 1}
+  - {object_id: torus_25, method: deformed_mesh, material: elastic_0, color_rgb: [0.95, 0.50, 0.10], subdivision: 1}
+  - {object_id: torus_26, method: deformed_mesh, material: elastic_1, color_rgb: [0.93, 0.91, 0.82], subdivision: 1}
+  - {object_id: torus_27, method: deformed_mesh, material: elastic_2, color_rgb: [0.16, 0.09, 0.05], subdivision: 1}
+  - {object_id: torus_28, method: deformed_mesh, material: elastic_0, color_rgb: [0.95, 0.50, 0.10], subdivision: 1}
+  - {object_id: torus_29, method: deformed_mesh, material: elastic_1, color_rgb: [0.93, 0.91, 0.82], subdivision: 1}
+  - {object_id: torus_30, method: deformed_mesh, material: elastic_2, color_rgb: [0.16, 0.09, 0.05], subdivision: 1}
+  - {object_id: torus_31, method: deformed_mesh, material: elastic_0, color_rgb: [0.95, 0.50, 0.10], subdivision: 1}
+  - {object_id: torus_32, method: deformed_mesh, material: elastic_1, color_rgb: [0.93, 0.91, 0.82], subdivision: 1}
+  - {object_id: torus_33, method: deformed_mesh, material: elastic_2, color_rgb: [0.16, 0.09, 0.05], subdivision: 1}
+  - {object_id: torus_34, method: deformed_mesh, material: elastic_0, color_rgb: [0.95, 0.50, 0.10], subdivision: 1}
+  - {object_id: torus_35, method: deformed_mesh, material: elastic_1, color_rgb: [0.93, 0.91, 0.82], subdivision: 1}
+  - {object_id: torus_36, method: deformed_mesh, material: elastic_2, color_rgb: [0.16, 0.09, 0.05], subdivision: 1}
+  - {object_id: torus_37, method: deformed_mesh, material: elastic_0, color_rgb: [0.95, 0.50, 0.10], subdivision: 1}
+  - {object_id: torus_38, method: deformed_mesh, material: elastic_1, color_rgb: [0.93, 0.91, 0.82], subdivision: 1}
+  - {object_id: torus_39, method: deformed_mesh, material: elastic_2, color_rgb: [0.16, 0.09, 0.05], subdivision: 1}
+  - {object_id: torus_40, method: deformed_mesh, material: elastic_0, color_rgb: [0.95, 0.50, 0.10], subdivision: 1}

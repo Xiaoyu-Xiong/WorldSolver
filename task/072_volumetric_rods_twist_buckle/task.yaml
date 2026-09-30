@@ -1,0 +1,24 @@
+id: 072_volumetric_rods_twist_buckle
+title: Buckling of a Tightly Twisted Solid Rod Bundle
+category: elastic_solids
+source:
+  title: 'Incremental Potential Contact: Intersection- and Inversion-free, Large-Deformation Dynamics'
+  url: https://ipc-sim.github.io/file/IPC-paper-350ppi.pdf
+  anchor: Figure 4, PDF page 8; Section 7.2, Extreme and extended twisting, PDF page 14
+goal: 'Recreate the source experiment: The later bundle contains repeated buckled coils with neighboring
+  rod surfaces pressed closely together. The numerical implementation is unrestricted; the deforming material
+  is a three-dimensional solid.'
+scene_requirements:
+  required_elements:
+  - A bundle of separate thin volumetric elastic rods.
+  - Driven end regions that twist the bundle from both ends.
+  initial_state:
+  - The rods begin in the untwisted bundle arrangement before end rotation.
+  required_events:
+  - End rotations cause the separate rods to wind around one another.
+  - With further rotation, the initially regular helical bundle bends into visibly tighter loops and kinks.
+  - The later bundle contains repeated buckled coils with neighboring rod surfaces pressed closely together.
+camera_requirements:
+- Use a fixed oblique side view showing the entire bundle, both driven ends, and the buckled coils.
+- Keep the relevant objects visible before loading or contact, during the largest deformation, and during
+  the stated outcome.

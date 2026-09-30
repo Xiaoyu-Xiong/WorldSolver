@@ -1,0 +1,30 @@
+id: 121_sponge_saturation_and_wringing
+title: A Sponge Is Saturated and Wrung Out
+category: multiphysics_coupling
+source:
+  title: Multiphase Particle-Based Simulation of Poro-Elasto-Capillary Effects
+  url: https://webspace.science.uu.nl/~telea001/uploads/Bibtex/li25_multiphase.pdf
+  anchor: Figure 16; PDF page 11; Section 6.2 on page 7
+goal: 'Recreate the source two-way coupled experiment: The middle narrows as the sponge twists and stored water
+  is expelled. Prescribe only the stated supports and controls; the remaining solid response and fluid motion
+  must be dynamically coupled.'
+scene_requirements:
+  required_elements:
+  - A dry deformable porous kitchen sponge in a sink under a running faucet.
+  - Absorption and pore-liquid storage, with two end controls for the later lift and twist.
+  - Gravity and a receiving sink.
+  - Fluid forces must change the dynamic solid motion or deformation, and the evolving solid must alter the
+    resolved fluid flow. The numerical coupling method is unrestricted.
+  - Do not impose an impermeable sponge or constant mechanical energy during driven wringing.
+  initial_state:
+  - Begin before faucet water wets the sponge.
+  - Allow water to spread through the sponge before lifting it and twisting both ends as in the source.
+  required_events:
+  - Faucet water wets the initially dry sponge and the wet region spreads through it.
+  - The wet sponge is lifted and its two ends turn in opposite directions.
+  - The middle narrows as the sponge twists and stored water is expelled.
+camera_requirements:
+- Use a fixed oblique view showing faucet wetting, both grips during wringing, the sponge silhouette, and expelled
+  water falling into the sink.
+- Keep the onset, strongest interaction, and stated outcome visible in a continuous sequence. Passive tracer
+  or wetness colors must follow the simulated state rather than a scripted color change.

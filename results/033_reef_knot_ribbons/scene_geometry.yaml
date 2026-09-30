@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "units": "meters",
+  "up_axis": "z",
+  "objects": [
+    {
+      "id": "ribbon_1",
+      "semantic": "cloth",
+      "motion": "dynamic",
+      "geometry": {
+        "type": "triangle_mesh",
+        "topology_asset": "assets/ribbon_topology.json",
+        "grid_shape": [
+          29,
+          5
+        ]
+      },
+      "state_binding": {
+        "selector": "body_id",
+        "value": 0
+      },
+      "material_id": "gold_ribbon",
+      "collision_enabled": true
+    },
+    {
+      "id": "ribbon_2",
+      "semantic": "cloth",
+      "motion": "dynamic",
+      "geometry": {
+        "type": "triangle_mesh",
+        "topology_asset": "assets/ribbon_topology.json",
+        "grid_shape": [
+          29,
+          5
+        ]
+      },
+      "state_binding": {
+        "selector": "body_id",
+        "value": 1
+      },
+      "material_id": "blue_ribbon",
+      "collision_enabled": true
+    }
+  ]
+}
+

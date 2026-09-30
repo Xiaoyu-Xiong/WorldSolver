@@ -1,0 +1,31 @@
+id: 042_foam_tendril_tearing_enabled
+title: Foam Tendril Tearing Enabled
+category: plastic_and_complex_materials
+source:
+  title: 'Continuum Foam: A Material Point Method for Shear-Dependent Flows'
+  url: https://www.cs.columbia.edu/cg/foam/foam.pdf
+  anchor: Figure 7; PDF page 9
+goal: Recreate the observable physical phenomenon in which a deforming foam mass forms a thin tendril
+  with explicit tearing enabled. The implementation method is unrestricted; the target is the scene's
+  visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Foam Tendril Tearing Enabled
+  - Granular particles
+  - Contact floor or container
+  - Gravity
+  - A white shaving-foam mass, a dark upper plate, and a neutral floor with clear color separation
+  initial_state:
+  - A lower foam dollop is visibly connected to foam stuck under an upper plate by a narrowing white tendril.
+  required_events:
+  - Qualitative/quantitative - tendril thickness/lifetime
+  - Tear event
+  - Nonphysical thread artifacts
+  - Final state must show two visually disconnected foam fragments
+camera_requirements:
+- Use a three-quarter view showing release or inflow, contact zones, pile or fragment evolution, and the
+  final deposited state without major occlusion.
+- 'Match the source figure visually: white foam on darker supports, with the thin neck centered and not
+  hidden by the plate or floor. Avoid all-blue materials.'
+parameter_notes:
+- 'Original paper parameters/configuration: Explicit tearing = enabled; identical deformation history.'

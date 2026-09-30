@@ -1,0 +1,15 @@
+schema_version: 2
+profile: liquid_in_container
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: ground, method: rigid_mesh, material: matte, color_rgb: [0.22, 0.25, 0.30]}
+  - {object_id: catch_basin, method: rigid_mesh, material: metal, color_rgb: [0.22, 0.24, 0.28]}
+  - {object_id: lava_nozzle, method: rigid_mesh, material: metal, color_rgb: [0.52, 0.55, 0.60]}
+  - object_id: subject
+    method: reconstructed_surface
+    material: default
+    color_rgb: [1.0, 0.18, 0.02]
+    particle_radius_scale: 1.2
+    surface_pitch: 0.075
+    surface_smoothing: 1.5

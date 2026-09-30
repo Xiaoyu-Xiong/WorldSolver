@@ -1,0 +1,46 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: elastic_rod
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      topology_asset: assets/rod_topology.json
+      radius: 0.0016
+    state_binding:
+      selector: all
+    material_id: silicone_lime
+    collision_enabled: true
+  - id: conveyor_belt
+    semantic: boundary
+    motion: kinematic
+    geometry:
+      type: box
+      half_extents: [0.62, 0.20, 0.012]
+    transform:
+      translation: [0.22, 0.0, -0.012]
+    material_id: belt_charcoal
+    collision_enabled: true
+  - id: injector
+    semantic: emitter
+    motion: static
+    geometry:
+      type: cylinder
+      radius: 0.012
+      height: 0.030
+    transform:
+      translation: [0.0, 0.0, 0.518]
+    material_id: brushed_steel
+    collision_enabled: false
+  - id: belt_direction_marker
+    semantic: sensor
+    motion: static
+    geometry:
+      type: box
+      half_extents: [0.10, 0.002, 0.001]
+    transform:
+      translation: [-0.27, -0.175, 0.002]
+    material_id: direction_white
+    collision_enabled: false

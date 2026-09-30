@@ -1,0 +1,32 @@
+id: 104_boat_cargo_overload_sinking
+title: Cargo Overload Sinks a Floating Boat
+category: multiphysics_coupling
+source:
+  title: Two-way Coupling of Fluids to Rigid and Deformable Solids and Shells
+  url: https://www.cs.ucr.edu/~shinar/papers/2008_solid_fluid.pdf
+  anchor: Figure 2; PDF page 2
+goal: 'Recreate the source two-way coupled experiment: The overloaded boat sinks while the light sphere escapes
+  upward and bobs back to the water surface. Prescribe only the stated supports and controls; the remaining
+  solid response and fluid motion must be dynamically coupled.'
+scene_requirements:
+  required_elements:
+  - A dynamic, open-top, impermeable rigid boat floating in a pool of water.
+  - A light buoyant rigid sphere followed by a heavier rigid sphere, with boat-sphere and sphere-water interactions.
+  - A pool with a bottom and solid walls, and downward gravity.
+  - Fluid forces must change the dynamic solid motion or deformation, and the evolving solid must alter the
+    resolved fluid flow. The numerical coupling method is unrestricted.
+  - Do not replace cargo loading with a water jet filling the boat or with an animated sinking trajectory.
+  initial_state:
+  - The boat initially floats without flooding. Position the light sphere above its hull and release it before
+    the heavy sphere.
+  - Select the source loading regime in which the light sphere barely rocks the boat and the later heavy sphere
+    sinks it.
+  required_events:
+  - The light sphere falls into the hull and the boat rocks only slightly before the heavy sphere arrives.
+  - The later heavy sphere hits the boat and causes a much larger downward motion.
+  - The overloaded boat sinks while the light sphere escapes upward and bobs back to the water surface.
+camera_requirements:
+- Use a fixed oblique side view through transparent pool walls, showing the spheres, hull rim, waterline, and
+  bottom.
+- Keep the onset, strongest interaction, and stated outcome visible in a continuous sequence. Passive tracer
+  or wetness colors must follow the simulated state rather than a scripted color change.

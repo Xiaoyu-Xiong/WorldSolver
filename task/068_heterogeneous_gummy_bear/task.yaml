@@ -1,0 +1,27 @@
+id: 068_heterogeneous_gummy_bear
+title: Deformation of a Gummy Bear with a Stiff Interior
+category: elastic_solids
+source:
+  title: Mixed Variational Finite Elements for Implicit Simulation of Deformables
+  url: https://www.dgp.toronto.edu/projects/mixed-variational-fem/mfem_lowres.pdf
+  anchor: Figure 6, PDF page 6; Figure 7, PDF page 7; Table 1, PDF page 6
+goal: 'Recreate the source experiment: The stiff regions turn with the surrounding bear as its pose changes;
+  they do not remain fixed in space while the outer material moves past them. The numerical implementation
+  is unrestricted; the deforming material is a three-dimensional solid.'
+scene_requirements:
+  required_elements:
+  - A volumetric gummy-bear model with the source stiff interior regions and softer surrounding material.
+  - The deformation and release setup from the heterogeneous-bear example.
+  initial_state:
+  - The interior regions and outer material start bonded together in the prescribed initial configuration.
+  required_events:
+  - The bear leaves its initial configuration and visibly bends and turns during the deformation sequence.
+  - The soft outer material bends around the interior regions while the outlines of the stiff regions
+    change much less.
+  - The stiff regions turn with the surrounding bear as its pose changes; they do not remain fixed in
+    space while the outer material moves past them.
+camera_requirements:
+- Use a fixed three-quarter view with a translucent outer material or a consistent cutaway to show the
+  stiff interior and the outer silhouette together.
+- Keep the relevant objects visible before loading or contact, during the largest deformation, and during
+  the stated outcome.

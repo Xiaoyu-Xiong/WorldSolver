@@ -1,0 +1,27 @@
+schema_version: 1
+scene_id: 016_friction_ball_loop
+seed: 16016
+duration: 4.0
+sample_dt: 0.02
+gravity:
+- 0.0
+- 0.0
+- -9.81
+friction_coefficient: 0.18
+camera:
+  position:
+  - 4.0
+  - -4.8
+  - 3.4
+  look_at:
+  - 0.0
+  - 0.0
+  - 1.2
+  up:
+  - 0.0
+  - 0.0
+  - 1.0
+  width: 960
+  height: 640
+  fps: 50
+visual_judge_frame_count: 20

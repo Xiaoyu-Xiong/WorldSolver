@@ -1,0 +1,119 @@
+schema_version: 4
+task_id: 102_hairy_ball_strand_collisions
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The solver reaches the frozen end time, exports all required finite trajectory fields, and produces
+      a readable render within the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: Rapid sphere rotations swing the rooted strands away from their hanging positions.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: The moving strands collide with the sphere and neighboring strands and bend around those contacts.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: As the motion continues, strand groups rearrange and can separate again instead of remaining
+      trapped in clumps created by missed crossings.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: Strands do not pass through the sphere, detach at the roots, or jump to distant positions; do
+      not require every genuine tangle to disappear.
+  physics:
+  - id: material_mass_balance
+    profile: elastic_rods
+    dimension: conservation_and_source_balance
+    criterion: Each physical rod, strand, and attached rigid body retains its own initial mass. Errors on separate
+      bodies must not cancel in a combined total.
+    applicability:
+      requires:
+      - Export actual per-sample masses in attributes.mass_quantity [N,G], one fixed column per physical body
+        or deployed rod domain, with zeros outside that domain. Do not include render-only hair copies as additional
+        mass.
+      - Export fields.cumulative_mass_source as zeros [G]; include every material sample throughout the run.
+      excludes: []
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: linear_momentum_impulse_balance
+    profile: elastic_rods
+    dimension: momentum_and_force_balance
+    criterion: Over each adjacent output interval, each physical body linear momentum change equals its external
+      force integral plus recorded external impulses.
+    applicability:
+      requires:
+      - Export state.mass [N], state.velocity [N,3], and fields.budget_domain_weights [G,N]. Each row selects
+        one physical rod/strand or attached rigid body; preserve domain identity and include cross-domain attachment
+        and contact actions.
+      - Account for gravity, driven-root and sphere-surface reactions, cross-strand contacts, and any configured
+        external drag. Export smooth force terms in fields.budget_external_force [G,K,3] and accumulate rapidly
+        varying applied contact or constraint impulses from all internal substeps. Never count one contribution
+        in both force and impulse channels.
+      - All domains are closed material bodies; export zero cumulative inflow and outflow momentum. Force and
+        impulse records must come from actual applied updates, never from the momentum differences being checked.
+      - Export fields.budget_cumulative_external_impulse, fields.budget_cumulative_inflow_momentum, and fields.budget_cumulative_outflow_momentum
+        [G,3]. Freeze a positive scalars.reference_momentum from configured mass and speed scales before the
+        run.
+      excludes: []
+    numeric_binding:
+      calculator: dynamics.momentum_budget.v1
+      inputs:
+        mass: state.mass
+        velocity: state.velocity
+        domain_weights: fields.budget_domain_weights
+        external_force: fields.budget_external_force
+        cumulative_external_impulse: fields.budget_cumulative_external_impulse
+        cumulative_inflow_momentum: fields.budget_cumulative_inflow_momentum
+        cumulative_outflow_momentum: fields.budget_cumulative_outflow_momentum
+        reference_momentum: scalars.reference_momentum
+      parameters:
+        mode: dynamic
+        integration: trapezoidal
+        window: adjacent_frames
+      reduction:
+        type: maximum
+  - id: coulomb_friction_compliance
+    profile: elastic_rods
+    dimension: contact_constitutive_constraints
+    criterion: At sustained hair-hair and hair-body contacts, sticking tangential forces do not exceed 0.2
+      times the compressive normal force. Sliding friction opposes relative tangential motion with magnitude
+      0.2 times the normal force, and its power on relative sliding is nonpositive.
+    applicability:
+      requires:
+      - Export collocated contact normal force [C], tangential force [C,3], unit normal [C,3], and relative
+        surface velocity [C,3], using the same force-receiving side for each contact.
+      - Export static and dynamic friction coefficients as 0.2 for every contact; include both hair-hair and
+        hair-body contact families.
+      - The active mask selects sustained contacts independently of their metric residuals. Include the settled
+        support contacts and any sustained sliding contacts; exclude instantaneous impact-only samples. At
+        least one active sample from each contact family is required over the run.
+      - Export actual sustained contact forces separately from the cumulative impulses used for momentum bookkeeping.
+        If only impulses are available, a documented sustained-contact force reconstruction is required; do
+        not treat instantaneous impact impulses as forces.
+      - Freeze positive reference force, reference velocity, and stick-speed tolerance before the run.
+      excludes:
+      - Impact-only samples are evaluated by the momentum budget, not the sustained-force friction law.
+    numeric_binding:
+      calculator: contact.coulomb_law.v1
+      inputs:
+        normal_force: fields.friction_normal_force
+        tangential_force: fields.friction_tangential_force
+        relative_velocity: fields.friction_relative_velocity
+        normal: fields.friction_normal
+        static_coefficient: fields.friction_static_coefficient
+        dynamic_coefficient: fields.friction_dynamic_coefficient
+        active_mask: fields.friction_active_mask
+        stick_speed_tolerance: scalars.friction_stick_speed_tolerance
+        reference_force: scalars.reference_force
+        reference_velocity: scalars.reference_velocity
+      parameters:
+        contact_regime: sustained_dry
+        require_active_samples: true
+      reduction:
+        type: maximum

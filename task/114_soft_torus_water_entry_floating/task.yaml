@@ -1,0 +1,30 @@
+id: 114_soft_torus_water_entry_floating
+title: A Soft Torus Enters Water and Floats
+category: multiphysics_coupling
+source:
+  title: Two-way Coupling of Fluids to Reduced Deformable Bodies
+  url: https://diglib.eg.org/items/f2ce3691-7af7-4387-9b9e-25487c441cad
+  anchor: Figure 4; PDF page 5
+goal: 'Recreate the source two-way coupled experiment: The torus recoils and eventually floats partly submerged
+  in the tub. Prescribe only the stated supports and controls; the remaining solid response and fluid motion
+  must be dynamically coupled.'
+scene_requirements:
+  required_elements:
+  - A deformable elastic torus and a tub of free-surface water.
+  - Gravity, tub boundaries, and two-way fluid-solid interaction.
+  - The source material and density regime that ends with the torus floating.
+  - Fluid forces must change the dynamic solid motion or deformation, and the evolving solid must alter the
+    resolved fluid flow. The numerical coupling method is unrestricted.
+  - The numerical method is unrestricted; a full deformable model may replace the paper reduced model while
+    preserving the experiment.
+  initial_state:
+  - The torus starts above the tub water and is released without a prescribed floating trajectory.
+  - Use a deformable torus, not a rigid torus with animated surface details.
+  required_events:
+  - The falling torus enters the water and changes its ring outline and cross-sectional shape.
+  - The water surface is pushed down near the torus and waves spread outward.
+  - The torus recoils and eventually floats partly submerged in the tub.
+camera_requirements:
+- Use a fixed side-oblique view exposing the ring opening, deforming silhouette, waterline, and outward waves.
+- Keep the onset, strongest interaction, and stated outcome visible in a continuous sequence. Passive tracer
+  or wetness colors must follow the simulated state rather than a scripted color change.

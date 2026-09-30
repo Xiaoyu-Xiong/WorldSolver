@@ -1,0 +1,31 @@
+id: 020_hardening_bunny_metal_bar
+title: Hardening Bunny Metal Bar
+category: plastic_and_complex_materials
+source:
+  title: A Finite Element Method for Animating Large Viscoplastic Flow
+  url: https://graphics.cs.cmu.edu/projects/Bargteil-2007-AFE/Bargteil-2007-AFE.pdf
+  anchor: Figure 3; PDF page 3
+goal: Recreate the observable physical phenomenon in which a viscoplastic bunny falls onto a metal bar;
+  work hardening makes strongly deformed regions more elastic and produces post-impact jiggle. The implementation
+  method is unrestricted; the target is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Deformable bunny model
+  - Deformable object named by the scene
+  - Collision obstacles or supports
+  - Gravity
+  initial_state:
+  - A viscoplastic bunny falls onto a metal bar; work hardening makes strongly deformed regions more elastic
+    and produces post-impact jiggle.
+  required_events:
+  - Qualitative/quantitative - rebound height
+  - Oscillation decay
+  - Permanent deformation
+  - Hardening localization
+  - Element quality
+camera_requirements:
+- Use a three-quarter view showing the full deformable body, loading or impact region, contacts, large
+  deformation, and recovered or final shape.
+parameter_notes:
+- 'Original paper parameters/configuration: Work-hardening constitutive response; bunny dropped under
+  gravity onto a fixed metal bar.'

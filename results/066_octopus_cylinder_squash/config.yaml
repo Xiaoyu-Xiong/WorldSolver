@@ -1,0 +1,31 @@
+schema_version: 1
+scene_id: 066_octopus_cylinder_squash
+seed: 66011
+duration: 8.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+timeline:
+  settle: [0.0, 2.4]
+  upper_cylinder_descend: [2.4, 3.8]
+  maximum_compression_hold: [3.8, 4.5]
+  upper_cylinder_retract: [4.5, 5.5]
+  elastic_recovery: [5.5, 8.0]
+upper_cylinder_motion:
+  interpolation: piecewise_linear
+  keyframes:
+    - {time: 0.0, translation: [0.0, 0.0, 4.20]}
+    - {time: 2.4, translation: [0.0, 0.0, 4.20]}
+    - {time: 3.8, translation: [0.0, 0.0, 2.38]}
+    - {time: 4.5, translation: [0.0, 0.0, 2.38]}
+    - {time: 5.5, translation: [0.0, 0.0, 4.20]}
+    - {time: 8.0, translation: [0.0, 0.0, 4.20]}
+camera:
+  position: [6.8, -8.6, 5.7]
+  look_at: [0.0, 0.0, 1.85]
+  up: [0.0, 0.0, 1.0]
+  projection: perspective
+  fov_degrees: 38.0
+  width: 960
+  height: 640
+  fps: 50

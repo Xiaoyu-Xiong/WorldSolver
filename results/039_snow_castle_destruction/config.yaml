@@ -1,0 +1,35 @@
+schema_version: 1
+scene_id: 039_snow_castle_destruction
+seed: 3906
+duration: 4.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+initial_conditions:
+  snow_particle_spacing: 0.075
+  snow_bulk_density: 420.0
+  striker_velocity: [5.8, 0.0, 0.0]
+  striker_start: [-2.85, 0.05, 0.82]
+  striker_radius: 0.42
+  expected_first_contact_time: 0.45
+  minimum_post_contact_observation_time: 2.8
+  floor_friction_context: high
+  visual_requirements:
+    striker_color: saturated_orange_high_contrast
+    snow_castle_color: warm_off_white_with_light_gray_shadowing
+    impact_face: front_left_face_unoccluded
+    first_contact_must_be_visible: true
+    striker_must_remain_visible_after_contact_until: 0.80
+  event_sequence:
+    - intact_castle_and_incoming_striker
+    - visible_first_contact_before_frame_end
+    - left_side_impact_and_local_compaction
+    - progressive_fracture_and_rightward_collapse
+    - fragment_deposition_and_stable_pile
+camera:
+  position: [6.6, -7.4, 4.35]
+  look_at: [0.0, -0.05, 1.10]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

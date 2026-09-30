@@ -1,0 +1,25 @@
+id: 082_localized_helical_buckling
+title: Localized Helical Buckling of a Twisted Rod
+category: rods_and_strands
+source:
+  title: Discrete Elastic Rods
+  url: https://www.cs.columbia.edu/cg/rods/
+  anchor: Figure 7 and Section 9.2, Localized helical buckling; PDF page 9
+goal: 'Recreate the source experiment: A localized helix develops with a large central amplitude that decreases
+  toward both ends. Use elastic rods or strands; the numerical implementation is unrestricted.'
+scene_requirements:
+  required_elements:
+  - One naturally straight, isotropic, inextensible elastic rod.
+  - Two clamps that prescribe rod endpoint positions, tangents, and relative material-frame rotation.
+  - Use the quasi-static shortening protocol from the source and preserve its localized-buckling regime.
+  initial_state:
+  - The rod is nearly straight with the source imposed end twist, before the clamps approach each other.
+  - No obstacle forces the rod into a helix.
+  required_events:
+  - After the end twist is applied, the clamps move toward one another in small loading increments.
+  - The rod moves sideways most visibly near its middle as axial shortening increases.
+  - A localized helix develops with a large central amplitude that decreases toward both ends.
+camera_requirements:
+- Use a fixed oblique view showing both clamps and the varying amplitude of the helix.
+- Keep the relevant objects visible before loading or contact, during the strongest response, and through the
+  stated outcome.

@@ -1,0 +1,24 @@
+schema_version: 2
+profile: liquid_in_container
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: tank_floor
+    method: rigid_mesh
+    material: matte
+    color_rgb: [0.28, 0.32, 0.38]
+  - object_id: tank_left_wall
+    method: rigid_mesh
+    material: matte
+    color_rgb: [0.28, 0.32, 0.38]
+  - object_id: tank_right_wall
+    method: rigid_mesh
+    material: matte
+    color_rgb: [0.28, 0.32, 0.38]
+  - object_id: liquid
+    method: reconstructed_surface
+    material: default
+    color_rgb: [0.08, 0.40, 0.78]
+    surface_pitch: 0.06
+    surface_smoothing: 1.0
+    subdivision: 1

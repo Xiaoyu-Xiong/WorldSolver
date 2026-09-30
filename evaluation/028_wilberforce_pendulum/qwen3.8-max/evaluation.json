@@ -1,0 +1,154 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 16915902,
+          "trajectory_frames": 1201,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "For wilberforce pendulum, the mass change equals the cumulative prescribed inflow, outflow, or phase-transfer source; internal motion and contact do not create or delete mass.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "initial_quantity": [
+            0.11999999999999968,
+            1.0
+          ],
+          "sample_count": 1201,
+          "worst_frame_index": 0
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.0,
+        "profile": "cloth_thin_shells_and_fibers",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "dynamics.linear_momentum_balance.v1",
+        "criterion": "For wilberforce pendulum, the time rate of total linear momentum is consistent with the exported external forces; internal forces may redistribute momentum but cancel in the total balance.",
+        "criterion_id": "linear_momentum_balance",
+        "details": {
+          "sample_count": 1201,
+          "worst_frame_index": 40
+        },
+        "dimension": "momentum_and_force_balance",
+        "domain": "physics",
+        "metric": "momentum_balance_relative_l2",
+        "normalized_error": 0.9999999999985691,
+        "profile": "cloth_thin_shells_and_fibers",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 1.4308554341369017e-10
+      },
+      {
+        "calculator": "trajectory.kinematic_continuity.v1",
+        "criterion": "The suspended body's frame-to-frame displacement remains consistent with its exported velocity, without teleportation or discontinuous jumps during vertical and torsional exchange.",
+        "criterion_id": "pendulum_kinematic_continuity",
+        "details": {
+          "maximum_position_residual": 4.7647619138158764e-07,
+          "object_id": "suspended_weight",
+          "sample_count": 1201,
+          "worst_frame_index": 402
+        },
+        "dimension": "trajectory_continuity",
+        "domain": "physics",
+        "metric": "trajectory_kinematic_continuity_error",
+        "normalized_error": 0.3585256137454305,
+        "profile": "cloth_thin_shells_and_fibers",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 82.07371931272847
+      },
+      {
+        "calculator": "rod.attachment_inextensibility.v1",
+        "criterion": "The helical spring edge lengths and its attachment to the suspended body remain consistent with their initial rest geometry.",
+        "criterion_id": "spring_attachment_inextensibility",
+        "details": {
+          "attached_object_id": "suspended_weight",
+          "attached_vertex": 127,
+          "rod_object_id": "helical_spring",
+          "sample_count": 1201,
+          "worst_frame_index": 370
+        },
+        "dimension": "geometric_constraints",
+        "domain": "physics",
+        "metric": "rod_attachment_and_edge_strain",
+        "normalized_error": 0.0025371751687582344,
+        "profile": "coupled_rods_and_rigid_bodies",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 95.17070500915133
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.08717797887081347,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.13
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.0
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.0
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.95
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "028_wilberforce_pendulum",
+  "visual_score": 0.27,
+  "visual_fidelity_score": 27.0,
+  "physical_plausibility_score": 69.31110608050572,
+  "total_score": 48.15555304025286
+}

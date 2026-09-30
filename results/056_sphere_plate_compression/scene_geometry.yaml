@@ -1,0 +1,36 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: soft_sphere
+    semantic: deformable
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/soft_sphere.obj
+    transform:
+      translation: [0.0, 0.0, 0.0]
+    state_binding:
+      selector: all
+    material_id: soft_sphere
+    collision_enabled: true
+  - id: lower_plate
+    semantic: rigid
+    motion: kinematic
+    geometry:
+      type: box
+      half_extents: [3.25, 3.25, 0.12]
+    transform:
+      translation: [0.0, 0.0, -0.9706508084]
+    material_id: compression_plate
+    collision_enabled: true
+  - id: upper_plate
+    semantic: rigid
+    motion: kinematic
+    geometry:
+      type: box
+      half_extents: [3.25, 3.25, 0.12]
+    transform:
+      translation: [0.0, 0.0, 0.9706508084]
+    material_id: compression_plate
+    collision_enabled: true

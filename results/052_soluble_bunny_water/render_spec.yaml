@@ -1,0 +1,12 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - {object_id: checker_floor, method: rigid_mesh, material: matte_light_floor, color_rgb: [0.72, 0.72, 0.68]}
+  - {object_id: pipe_nozzle, method: rigid_mesh, material: brushed_aluminum, color_rgb: [0.56, 0.58, 0.60]}
+  - {object_id: soluble_bunny, method: deformed_mesh, material: saturated_pink_soluble_bunny, color_rgb: [1.0, 0.16, 0.38], subdivision: 1}
+  - {object_id: water_inflow, method: reconstructed_surface, material: transparent_blue_dynamic_water, color_rgb: [0.02, 0.48, 1.0], opacity: 0.50, surface_pitch: 0.055, surface_smoothing: 0.9}
+  - {object_id: mixing_domain, method: reconstructed_surface, material: transparent_receiving_water, color_rgb: [0.15, 0.55, 1.0], opacity: 0.32, surface_pitch: 0.065, surface_smoothing: 1.0}
+  - {object_id: water_red_concentration_overlay, method: diagnostic_points, material: red_solute_scalar_overlay, scalar_attribute: red_solute_concentration, scalar_range: [0.0, 1.0], opacity: 0.95, max_points: 5000}
+  - {object_id: mixture_red_concentration_overlay, method: diagnostic_points, material: red_solute_scalar_overlay, scalar_attribute: red_solute_concentration, scalar_range: [0.0, 1.0], opacity: 0.95, max_points: 5000}

@@ -1,0 +1,45 @@
+schema_version: 1
+scene_id: 047_boat_filled_and_sunk
+seed: 4707
+duration: 12.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+fluid_domain:
+  bounds_min: [-2.4, -1.8, 0.0]
+  bounds_max: [2.4, 1.8, 3.8]
+  initial_free_surface_z: 1.65
+  water_density: 1000.0
+boat:
+  mass: 82.0
+  initial_center: [0.0, 0.0, 1.82]
+  target_initial_draft: 0.28
+  thin_shell_thickness: 0.018
+  visual_asset: open_red_hull_with_visible_interior_and_gunwales
+  interior_water_level_must_be_visible: true
+inlet:
+  center: [0.0, 0.0, 3.35]
+  radius: 0.18
+  velocity: [0.0, 0.0, -2.6]
+  active_interval: [0.35, 6.2]
+  volumetric_flow_rate: 0.055
+expected_events:
+  floating_interval: [0.0, 2.0]
+  progressive_fill_interval: [0.35, 6.2]
+  sinking_interval: [4.5, 9.0]
+  bottom_impact_window: [7.0, 11.0]
+  leakage: permitted_over_gunwales_during_submergence
+visual_requirements:
+  boat_color: saturated_red
+  external_water_color: transparent_blue
+  internal_water_color: brighter_cyan
+  inlet_stream_visible: true
+  camera_must_see_inside_hull: true
+  bottom_contact_must_be_visible: true
+camera:
+  position: [4.6, -5.7, 3.55]
+  look_at: [0.0, 0.0, 1.52]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

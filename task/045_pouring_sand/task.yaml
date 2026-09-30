@@ -1,0 +1,36 @@
+id: 045_pouring_sand
+title: Pouring Sand
+category: plastic_and_complex_materials
+source:
+  title: Multi-Species Simulation of Porous Sand and Water Mixtures
+  url: https://www.museth.org/Ken/Publications_files/Pradhana-etal_SIG17.pdf
+  anchor: Figure 9; PDF page 9
+goal: Recreate the observable physical phenomenon in which a continuous stream of sand pours under gravity,
+  breaks into granular flow, forms a growing pile, and reaches a stable angle of repose. The implementation
+  method is unrestricted; the target is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Receiving pile region
+  - Granular particles
+  - Contact floor or container
+  - Gravity
+  initial_state:
+  - A continuous stream of sand pours under gravity, breaks into granular flow, forms a growing pile,
+    and reaches a stable angle of repose.
+  required_events:
+  - Quantitative/qualitative - volume gain/loss
+  - Pile shape
+  - Runout
+  - Stability
+  - The hopper/reservoir visibly contains a substantial amount of sand before and during discharge
+camera_requirements:
+- Use a three-quarter view showing release or inflow, contact zones, pile or fragment evolution, and the
+  final deposited state without major occlusion.
+- Render the hopper as transparent or cutaway enough that the remaining sand volume inside the bucket
+  can be seen while the stream falls and the pile grows.
+parameter_notes:
+- 'Merged source variants (pouring_sand_coarse_volume_fix_disabled, pouring_sand_coarse_volume_fix_enabled,
+  pouring_sand_fine_volume_fix_disabled, pouring_sand_fine_volume_fix_enabled). Original paper parameters/configurations:
+  Resolution = coarse (dx 1e-2 or 1e-3); volume correction = disabled. | Resolution = coarse (dx 1e-2
+  or 1e-3); volume correction = enabled. | Resolution = fine (dx 1e-2 or 1e-3); volume correction = disabled.
+  | Resolution = fine (dx 1e-2 or 1e-3); volume correction = enabled.'

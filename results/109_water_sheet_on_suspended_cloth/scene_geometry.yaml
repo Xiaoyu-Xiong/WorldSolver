@@ -1,0 +1,94 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: basin_floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [2.15, 1.90, 0.06]}
+    transform: {translation: [0.0, 0.0, -0.06]}
+    material_id: basin_dark
+    collision_enabled: true
+  - id: basin_back
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [2.15, 0.04, 0.38]}
+    transform: {translation: [0.0, 1.86, 0.38]}
+    material_id: basin_glass
+    collision_enabled: true
+  - id: basin_front
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [2.15, 0.04, 0.38]}
+    transform: {translation: [0.0, -1.86, 0.38]}
+    material_id: basin_glass
+    collision_enabled: true
+  - id: basin_left
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.04, 1.90, 0.38]}
+    transform: {translation: [-2.11, 0.0, 0.38]}
+    material_id: basin_glass
+    collision_enabled: true
+  - id: basin_right
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.04, 1.90, 0.38]}
+    transform: {translation: [2.11, 0.0, 0.38]}
+    material_id: basin_glass
+    collision_enabled: true
+  - id: support_nw
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 0.045, height: 2.05}
+    transform: {translation: [-1.325, 1.125, 1.025]}
+    material_id: support_metal
+    collision_enabled: true
+  - id: support_ne
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 0.045, height: 2.05}
+    transform: {translation: [1.325, 1.125, 1.025]}
+    material_id: support_metal
+    collision_enabled: true
+  - id: support_sw
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 0.045, height: 2.05}
+    transform: {translation: [-1.325, -1.125, 1.025]}
+    material_id: support_metal
+    collision_enabled: true
+  - id: support_se
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 0.045, height: 2.05}
+    transform: {translation: [1.325, -1.125, 1.025]}
+    material_id: support_metal
+    collision_enabled: true
+  - id: inflow_nozzle
+    semantic: emitter
+    motion: static
+    geometry: {type: cylinder, radius: 0.31, height: 0.52}
+    transform: {translation: [0.0, 0.0, 3.46]}
+    material_id: nozzle_metal
+    collision_enabled: true
+  - id: suspended_cloth
+    semantic: cloth
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      topology_asset: assets/suspended_cloth_topology.json
+      grid_shape: [25, 21]
+    state_binding: {selector: body_id, value: 0}
+    material_id: cloth_warm
+    collision_enabled: true
+  - id: water
+    semantic: liquid
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [-2.05, -1.80, 0.04]
+      bounds_max: [2.05, 1.80, 3.22]
+    state_binding: {selector: body_id, value: 1}
+    material_id: clear_water
+    collision_enabled: true

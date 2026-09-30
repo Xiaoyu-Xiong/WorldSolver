@@ -1,0 +1,35 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: anisotropic_rod
+    semantic: fiber
+    motion: dynamic
+    geometry:
+      type: curve_network
+      radius: 0.013
+      topology_asset: assets/v_rod_topology.json
+    state_binding:
+      selector: all
+    material_id: striped_flat_rod
+    collision_enabled: false
+  - id: driven_clamp
+    semantic: boundary
+    motion: kinematic
+    geometry:
+      type: box
+      half_extents: [0.035, 0.030, 0.025]
+    transform:
+      translation: [-0.48, 0.0, 0.18]
+    material_id: driven_clamp
+    collision_enabled: false
+  - id: fixed_clamp
+    semantic: boundary
+    motion: static
+    geometry:
+      type: box
+      half_extents: [0.035, 0.030, 0.025]
+    transform:
+      translation: [0.48, 0.0, 0.18]
+    material_id: fixed_clamp
+    collision_enabled: false

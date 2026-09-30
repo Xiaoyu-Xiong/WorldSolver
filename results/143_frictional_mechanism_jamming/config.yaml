@@ -1,0 +1,49 @@
+schema_version: 1
+scene_id: 143_frictional_mechanism_jamming
+seed: 15143
+duration: 8.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+variant: frictional_mechanism_jamming
+gravity: [0.0, 0.0, -9.81]
+contact: {friction: 0.55, restitution: 0.12, length_scale: 0.02}
+bodies:
+  - id: link_0
+    position: [-1.4,0,0.35]
+    orientation: [0,0,0,1]
+    mass: 0.8
+  - id: link_1
+    position: [-0.9999999999999999,0,0.7]
+    orientation: [0,0,0,1]
+    mass: 0.8
+  - id: link_2
+    position: [-0.5999999999999999,0,0.35]
+    orientation: [0,0,0,1]
+    mass: 0.8
+  - id: link_3
+    position: [-0.19999999999999973,0,0.7]
+    orientation: [0,0,0,1]
+    mass: 0.8
+  - id: link_4
+    position: [0.20000000000000018,0,0.35]
+    orientation: [0,0,0,1]
+    mass: 0.8
+  - id: link_5
+    position: [0.6000000000000001,0,0.7]
+    orientation: [0,0,0,1]
+    mass: 0.8
+  - id: link_6
+    position: [1.0000000000000004,0,0.35]
+    orientation: [0,0,0,1]
+    mass: 0.8
+  - id: link_7
+    position: [1.4000000000000004,0,0.7]
+    orientation: [0,0,0,1]
+    mass: 0.8
+camera:
+  position: [4.8, -7.2, 3.6]
+  look_at: [0.0, 0.0, 1.15]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

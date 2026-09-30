@@ -1,0 +1,161 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 1551506,
+          "trajectory_frames": 201,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "balance.source_aware.v1",
+        "criterion": "Each physical rod, strand, and attached rigid body retains its own initial mass. Errors on separate bodies must not cancel in a combined total.",
+        "criterion_id": "material_mass_balance",
+        "details": {
+          "initial_quantity": [
+            0.6514406526483794
+          ],
+          "sample_count": 201,
+          "worst_frame_index": 0
+        },
+        "dimension": "conservation_and_source_balance",
+        "domain": "physics",
+        "metric": "relative_budget_residual",
+        "normalized_error": 0.0,
+        "profile": "elastic_rods",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 100.0
+      },
+      {
+        "calculator": "rod.cantilever_inextensibility.v1",
+        "criterion": "Every evaluated material interval preserves its reference arc length. Changing the rod shape, coil pitch, or endpoint span must not be achieved by stretching its material.",
+        "criterion_id": "local_material_inextensibility",
+        "details": {
+          "reference_edge_length": 0.01875,
+          "sample_count": 201,
+          "worst_frame_index": 194
+        },
+        "dimension": "material_kinematic_constraints",
+        "domain": "physics",
+        "metric": "rod_actual_edge_strain",
+        "normalized_error": 8.696747026230394e-15,
+        "profile": "elastic_rods",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 99.99999999998262
+      },
+      {
+        "calculator": "rod.cantilever_force_balance.v1",
+        "criterion": "At each equilibrium sample, actual elastic cut forces and external loads sum to zero on every evaluated rod subdomain, not merely on the rod as a whole.",
+        "criterion_id": "local_static_force_balance",
+        "details": {
+          "check": "actual centerline, mass-weighted gravity, force locations, and clamp reaction",
+          "gravity": [
+            0.0,
+            0.0,
+            -9.81
+          ],
+          "sample_count": 201,
+          "worst_frame_index": 82
+        },
+        "dimension": "momentum_and_force_balance",
+        "domain": "physics",
+        "metric": "rod_actual_static_force_balance",
+        "normalized_error": 1.3898129452147023e-16,
+        "profile": "elastic_rods",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 99.99999999999987
+      },
+      {
+        "calculator": "rod.cantilever_moment_balance.v1",
+        "criterion": "At each equilibrium sample, force moments and free couples balance on every evaluated rod subdomain, including internal sections hidden from the camera.",
+        "criterion_id": "local_static_moment_balance",
+        "details": {
+          "check": "actual centerline, mass-weighted gravity, force locations, and clamp reaction",
+          "gravity": [
+            0.0,
+            0.0,
+            -9.81
+          ],
+          "sample_count": 201,
+          "worst_frame_index": 103
+        },
+        "dimension": "angular_momentum_and_torque_balance",
+        "domain": "physics",
+        "metric": "rod_actual_static_moment_balance",
+        "normalized_error": 2.316354908691171e-16,
+        "profile": "elastic_rods",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 99.99999999999977
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 1.0
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 1.1102230246251565e-16,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.9800000000000001
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 1.0
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.0,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 1.0
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "080_rod_cantilever_sag",
+  "visual_score": 0.995,
+  "visual_fidelity_score": 99.5,
+  "physical_plausibility_score": 99.99999999999557,
+  "total_score": 99.74999999999778
+}

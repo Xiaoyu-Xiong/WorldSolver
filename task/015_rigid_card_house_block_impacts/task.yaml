@@ -1,0 +1,33 @@
+id: 015_rigid_card_house_block_impacts
+title: Rigid Card House Block Impacts
+category: rigid_body_dynamics
+source:
+  title: Staggered Projections for Frictional Contact in Multibody Systems
+  url: https://www.cs.ubc.ca/labs/sensorimotor/projects/sp_sigasia08/KSJP08.pdf
+  anchor: Figures 2 and 7; PDF pages 4 and 10
+goal: Recreate the observable physical phenomenon in which a high-friction rigid card house begins in
+  static equilibrium and is hit successively by falling blocks, causing local collapses followed by new
+  equilibria. The implementation method is unrestricted; the target is the scene's visible motion, interaction,
+  and outcome.
+scene_requirements:
+  required_elements:
+  - Rigid card house
+  - Falling impact blocks
+  - Floor contact surface
+  - Gravity
+  - Rigid bodies named by the scene
+  - Contact surfaces
+  initial_state:
+  - A high-friction rigid card house begins in static equilibrium and is hit successively by falling blocks,
+    causing local collapses followed by new equilibria.
+  required_events:
+  - Qualitative/quantitative - pre-impact equilibrium drift
+  - Number of cards displaced
+  - Post-impact settling
+  - Contact residual
+camera_requirements:
+- Use a three-quarter view that exposes the important contact points, stack or mechanism, support surfaces,
+  and final configuration throughout the motion.
+parameter_notes:
+- 'Original paper parameters/configuration: Rigid cards; restitution e = 0.1 and friction coefficient
+  mu = 0.8; successive small-block impacts.'

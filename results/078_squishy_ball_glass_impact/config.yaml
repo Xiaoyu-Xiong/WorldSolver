@@ -1,0 +1,38 @@
+schema_version: 1
+scene_id: 078_squishy_ball_glass_impact
+seed: 78022
+duration: 1.20
+sample_dt: 0.02
+visual_judge_frame_count: 20
+initial_conditions:
+  squishy_ball:
+    center: [-0.78, 0.0, 0.42]
+    linear_velocity: [1.75, 0.0, 0.0]
+    angular_velocity: [0.0, 0.0, 0.0]
+  glass_wall:
+    fixed: true
+event_timing_targets:
+  first_tendril_contact: 0.30
+  greatest_compression: 0.56
+  recovery_visible: 0.92
+camera:
+  position: [-0.18, -2.35, 0.52]
+  look_at: [-0.34, 0.0, 0.42]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50
+  projection: perspective
+  vertical_fov_degrees: 31
+  view_id: side
+  views:
+    side:
+      position: [-0.18, -2.35, 0.52]
+      look_at: [-0.34, 0.0, 0.42]
+      up: [0.0, 0.0, 1.0]
+      vertical_fov_degrees: 31
+    through_glass:
+      position: [1.45, 0.0, 0.42]
+      look_at: [-0.06, 0.0, 0.42]
+      up: [0.0, 0.0, 1.0]
+      vertical_fov_degrees: 29

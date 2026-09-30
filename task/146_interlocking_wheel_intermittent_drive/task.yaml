@@ -1,0 +1,30 @@
+id: 146_interlocking_wheel_intermittent_drive
+title: Interlocking Wheel Intermittent Drive
+category: rigid_body_dynamics
+source:
+  title: Intersection-free Rigid Body Dynamics
+  url: https://ipc-sim.github.io/rigid-ipc/assets/rigid_ipc_paper_350ppi.pdf
+  anchor: Figure 2, middle row
+goal: >-
+  Recreate the paper's clearly visible interlocking wheel intermittent drive phenomenon. The implementation method is unrestricted;
+  evaluation targets rigid motion, contact response, event propagation, and the characteristic outcome.
+scene_requirements:
+  required_elements:
+  - Driven wheel with engagement pin
+  - Slotted follower wheel
+  - Fixed axles
+  - Prescribed driver rotation
+  initial_state:
+  - Both wheels begin aligned just before the driver enters an engagement slot.
+  required_events:
+  - The driver rotates and its pin enters the follower slot.
+  - Contact accelerates the follower through a discrete angular step while the rigid shapes remain separated.
+  - The follower pauses between engagements and advances again on the next cycle with repeatable timing.
+  - All bodies preserve rigid shape and contacts remain free of persistent overlap.
+camera_requirements:
+- Use a front view centered on both wheel axes and engagement region.
+- Keep the complete interaction chain in frame and use contrasting colors for neighboring bodies.
+parameter_notes:
+- Match the qualitative geometry, loading, and event ordering shown in Figure 2, middle row; object count may be reduced within resource limits.
+- Export body IDs, mass, position, velocity, external forces, interaction-force pairs, and signed contact distances.
+

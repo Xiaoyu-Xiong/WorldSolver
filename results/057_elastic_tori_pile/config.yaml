@@ -1,0 +1,22 @@
+schema_version: 1
+scene_id: 057_elastic_tori_pile
+seed: 57040
+duration: 10.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+initial_conditions:
+  torus_count: 40
+  torus_major_radius: 0.46
+  torus_tube_radius: 0.18
+  placement: deterministic_staggered_nonintersecting_column
+  receiving_region_radius: 2.22
+  volumetric_solid_required: true
+  incompressible_material_required: true
+camera:
+  position: [7.8, -9.2, 6.7]
+  look_at: [0.0, 0.0, 2.7]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

@@ -1,0 +1,26 @@
+id: 073_octocat_six_wall_compactor
+title: Six-Wall Compression and Release of an Octocat
+category: elastic_solids
+source:
+  title: 'Incremental Potential Contact: Intersection- and Inversion-free, Large-Deformation Dynamics'
+  url: https://ipc-sim.github.io/file/IPC-paper-350ppi.pdf
+  anchor: Figure 15, left; Section 7.2, Compactor test; PDF page 14
+goal: 'Recreate the source experiment: When the walls withdraw, previously pressed-together tentacles
+  separate and extend outward from the body. The numerical implementation is unrestricted; the deforming
+  material is a three-dimensional solid.'
+scene_requirements:
+  required_elements:
+  - A volumetric elastic Octocat with attached tentacles.
+  - Six rigid walls forming a moving box-shaped compactor.
+  initial_state:
+  - The Octocat begins with its tentacles distinguishable inside the open compactor.
+  required_events:
+  - The six walls move inward and progressively enclose the Octocat in a smaller box.
+  - The body and tentacles bend and flatten against the walls and against one another.
+  - When the walls withdraw, previously pressed-together tentacles separate and extend outward from the
+    body.
+camera_requirements:
+- Use a fixed three-quarter view; show occluding compactor walls transparently so the body remains visible
+  during compression.
+- Keep the relevant objects visible before loading or contact, during the largest deformation, and during
+  the stated outcome.

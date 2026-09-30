@@ -1,0 +1,152 @@
+{
+  "criteria": {
+    "execution": [
+      {
+        "criterion_id": "executable_and_evaluable",
+        "details": {
+          "diagnostics_success": true,
+          "trajectory_bytes": 1166960,
+          "trajectory_frames": 201,
+          "video_readable": true
+        },
+        "domain": "execution",
+        "passed": true,
+        "score": 1.0
+      }
+    ],
+    "physics": [
+      {
+        "calculator": "contact.penetration.v1",
+        "criterion": "During friction ball loop, solid-solid and solid-boundary contacts maintain nonnegative geometric gaps up to the contact tolerance and do not permit persistent interpenetration.",
+        "criterion_id": "nonpenetrating_contact",
+        "details": {
+          "sample_count": 201,
+          "worst_frame_index": 1
+        },
+        "dimension": "contact_and_interface_conditions",
+        "domain": "physics",
+        "metric": "penetration_relative_max",
+        "normalized_error": 0.00012903351869856622,
+        "profile": "rigid_bodies_and_contact",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 99.74259723429451
+      },
+      {
+        "calculator": "constraint.target.v1",
+        "criterion": "The rolling and unilateral track-contact conditions active in friction ball loop is satisfied throughout the intervals where that constraint applies.",
+        "criterion_id": "case_constraint_consistency",
+        "details": {
+          "sample_count": 201,
+          "worst_frame_index": 141
+        },
+        "dimension": "kinematic_and_constitutive_constraints",
+        "domain": "physics",
+        "metric": "constraint_relative_rms",
+        "normalized_error": 0.22747204117514325,
+        "profile": "rigid_bodies_and_contact",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 30.536958099124124
+      },
+      {
+        "calculator": "dynamics.linear_momentum_balance.v1",
+        "criterion": "The time rate of total linear momentum is consistent with the exported external forces; internal contact forces cancel in the aggregate.",
+        "criterion_id": "linear_momentum_balance",
+        "details": {
+          "sample_count": 201,
+          "worst_frame_index": 190
+        },
+        "dimension": "conservation_and_force_balance",
+        "domain": "physics",
+        "metric": "momentum_balance_relative_l2",
+        "normalized_error": 0.9999985555619406,
+        "profile": "rigid_bodies",
+        "reduction": {
+          "type": "maximum"
+        },
+        "unit": "dimensionless",
+        "score": 0.0001444438059383657
+      },
+      {
+        "calculator": "trajectory.center_of_mass_consistency.v1",
+        "criterion": "Each rigid body's mass-weighted center displacement agrees with the time integral of its mass-weighted velocity, using trapezoidal quadrature between exported frames.",
+        "criterion_id": "center_of_mass_consistency",
+        "details": {
+          "body_count": 1,
+          "body_reduction": "maximum",
+          "displacement_floor_meters": 1e-08,
+          "initial_frame_error": "zero (no preceding interval)",
+          "interval_count": 200,
+          "maximum_position_residual_meters": 0.011792313194110818,
+          "quadrature": "trapezoidal",
+          "sample_count": 201,
+          "worst_frame_index": 137
+        },
+        "dimension": "kinematic_consistency",
+        "domain": "physics",
+        "metric": "center_of_mass_kinematic_relative_residual",
+        "normalized_error": 0.022127988488180907,
+        "profile": "rigid_bodies",
+        "reduction": {
+          "type": "rms"
+        },
+        "unit": "dimensionless",
+        "score": 98.89360057559095
+      }
+    ],
+    "visual": [
+      {
+        "criterion_id": "visible_event_onset",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.10361467077590895,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.8019999999999999
+      },
+      {
+        "criterion_id": "visible_interaction_response",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.09830564581955606,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.794
+      },
+      {
+        "criterion_id": "visible_signature_outcome",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.05003998401278722,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.076
+      },
+      {
+        "criterion_id": "case_visual_coherence",
+        "details": {
+          "attempt_count": 5,
+          "attempt_std": 0.156,
+          "frame_count": 20
+        },
+        "domain": "visual",
+        "score": 0.738
+      }
+    ]
+  },
+  "execution_pass": true,
+  "status": "complete",
+  "task_id": "016_friction_ball_loop",
+  "visual_score": 0.6025,
+  "visual_fidelity_score": 60.25,
+  "physical_plausibility_score": 57.29332508820388,
+  "total_score": 58.77166254410194
+}

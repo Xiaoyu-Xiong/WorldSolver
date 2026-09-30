@@ -1,0 +1,30 @@
+id: 147_bike_chain_kinematic_sprocket
+title: Bicycle Chain on Sprockets
+category: rigid_body_dynamics
+source:
+  title: Intersection-free Rigid Body Dynamics
+  url: https://ipc-sim.github.io/rigid-ipc/assets/rigid_ipc_paper_350ppi.pdf
+  anchor: Figure 2, bottom row
+goal: >-
+  Recreate the paper's clearly visible bicycle chain on sprockets phenomenon. The implementation method is unrestricted;
+  evaluation targets rigid motion, contact response, event propagation, and the characteristic outcome.
+scene_requirements:
+  required_elements:
+  - Two toothed sprockets
+  - Closed chain of rigid links
+  - Fixed sprocket axles
+  - Prescribed drive torque
+  initial_state:
+  - The chain is looped tautly around aligned sprockets with links seated between teeth.
+  required_events:
+  - The driven sprocket begins rotating and engages successive links.
+  - Tension and contact pull the chain around both sprockets while links articulate through the straight and curved runs.
+  - The follower sprocket rotates coherently for multiple cycles without chain derailment, stretch, or tooth penetration.
+  - All bodies preserve rigid shape and contacts remain free of persistent overlap.
+camera_requirements:
+- Use a side view showing the entire loop, both sprockets, and individual links.
+- Keep the complete interaction chain in frame and use contrasting colors for neighboring bodies.
+parameter_notes:
+- Match the qualitative geometry, loading, and event ordering shown in Figure 2, bottom row; object count may be reduced within resource limits.
+- Export body IDs, mass, position, velocity, external forces, interaction-force pairs, and signed contact distances.
+

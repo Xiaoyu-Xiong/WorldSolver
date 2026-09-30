@@ -1,0 +1,30 @@
+id: 056_sphere_plate_compression
+title: Soft Sphere Compressed between Plates
+category: elastic_solids
+source:
+  title: Volume Conserving Finite Element Simulations of Deformable Models
+  url: https://www.cs.ucr.edu/~craigs/papers/2007-incompressible/paper.pdf
+  anchor: Section 5 and Figure 6 (volume-error plot); PDF page 5
+goal: 'Recreate the source experiment: At the smallest evaluated positive gap, the sphere forms a thin,
+  wide shape between the plates rather than a smaller round ball. The numerical implementation is unrestricted;
+  the deforming material is a three-dimensional solid.'
+scene_requirements:
+  required_elements:
+  - One incompressible elastic sphere with volumetric material.
+  - Two opposed rigid plates that move toward each other.
+  initial_state:
+  - The sphere is initially round and centered between the plates.
+  - The plates initially just touch opposite sides of the sphere.
+  required_events:
+  - The two plates move closer together and the sphere becomes shorter along the compression direction.
+  - As the plate gap narrows, the sphere spreads sideways beyond its original outline and develops broad
+    flat contact regions against both plates.
+  - At the smallest evaluated positive gap, the sphere forms a thin, wide shape between the plates rather
+    than a smaller round ball.
+camera_requirements:
+- Use a fixed side view showing both plates, their gap, and the full sideways spread of the sphere.
+- Keep the relevant objects visible before loading or contact, during the largest deformation, and during
+  the stated outcome.
+parameter_notes:
+- 'Evaluation scope: retain a positive plate gap; omit the zero-gap limiting endpoint of the paper stress
+  test.'

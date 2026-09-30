@@ -1,0 +1,14 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - {object_id: flume_floor, method: rigid_mesh, material: concrete, color_rgb: [0.50, 0.52, 0.54]}
+  - {object_id: back_side_wall, method: rigid_mesh, material: concrete, color_rgb: [0.56, 0.58, 0.60]}
+  - {object_id: front_side_wall, method: rigid_mesh, material: concrete, color_rgb: [0.64, 0.66, 0.68], opacity: 0.32}
+  - {object_id: reservoir_end_wall, method: rigid_mesh, material: concrete, color_rgb: [0.50, 0.52, 0.54]}
+  - {object_id: downstream_retaining_wall, method: rigid_mesh, material: concrete, color_rgb: [0.50, 0.52, 0.54]}
+  - {object_id: cohesive_sand_dam, method: particle_instances, material: dry_sand, color_rgb: [0.73, 0.55, 0.29], particle_radius_scale: 1.12}
+  - {object_id: sand_saturation_overlay, method: diagnostic_points, material: saturation_overlay, scalar_attribute: sand_saturation, scalar_range: [0.0, 1.0], opacity: 0.82, max_points: 18000}
+  - {object_id: reservoir_and_supply_water, method: reconstructed_surface, material: clear_water, color_rgb: [0.16, 0.54, 0.82], opacity: 0.58, surface_pitch: 0.07, surface_smoothing: 1.05}
+  - {object_id: supply_chute, method: rigid_mesh, material: concrete, color_rgb: [0.46, 0.49, 0.52]}

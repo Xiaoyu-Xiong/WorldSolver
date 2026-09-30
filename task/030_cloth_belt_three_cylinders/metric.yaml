@@ -1,0 +1,99 @@
+schema_version: 4
+task_id: 030_cloth_belt_three_cylinders
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The submitted solver runs to the frozen end time, produces a complete finite trajectory
+      with every required evaluation field, and produces a readable platform render without exceeding
+      the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: The upper cylinder visibly rises and tensions the closed belt into a triangular loop.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: Rotation of the two outer cylinders visibly transports belt material through friction rather
+      than allowing the cylinders to spin inside a stationary belt.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: Belt material moves in one direction, pauses, and then reverses while the three spans remain
+      taut and all cylinder contact arcs remain engaged.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: The belt remains a continuous finite-width loop without penetration, explosive motion,
+      strong chatter, sudden slackening, or loss of contact.
+  physics:
+  - id: material_mass_balance
+    profile: cloth_thin_shells_and_fibers
+    dimension: conservation_and_source_balance
+    criterion: Belt mass remains constant because the scene has no material sources or sinks.
+    applicability:
+      requires:
+      - Per-sample mass contributions and cumulative sources are exported.
+      excludes:
+      - Intentional material insertion, deletion, cutting, or remeshing loss.
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: orientation_preserving_deformation
+    profile: deformable_materials
+    dimension: deformation_constraints
+    criterion: Material elements retain a positive deformation Jacobian except where the case explicitly
+      performs a represented topology change.
+    applicability:
+      requires:
+      - A deformation gradient is exported for every active material element.
+      excludes:
+      - Elements belonging to an explicitly modeled tear, cut, merge, or remeshing event.
+    numeric_binding:
+      calculator: deformation.jacobian.v1
+      inputs:
+        deformation_gradient: attributes.deformation_gradient
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: nonpenetrating_contact
+    profile: contact_and_collision
+    dimension: boundary_and_interface_conditions
+    criterion: Solid-solid and solid-boundary contacts maintain nonnegative geometric gaps up to the contact
+      tolerance and do not permit persistent interpenetration.
+    applicability:
+      requires:
+      - Signed geometric gaps are exported for active and near-contact pairs.
+      excludes:
+      - Represented topology changes where contact pairs are intentionally merged.
+    numeric_binding:
+      calculator: contact.penetration.v1
+      inputs:
+        signed_distance: fields.contact_signed_distance
+        length_scale: scalars.contact_length_scale
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: belt_kinematic_continuity
+    profile: cloth_and_shells
+    dimension: trajectory_consistency
+    criterion: The bound object `closed_cloth_belt` has position increments consistent with its exported
+      velocity trace between consecutive trajectory frames.
+    applicability:
+      requires:
+      - The tracked object is bound to a stable scene object id and exports position and velocity.
+      excludes:
+      - Runs that intentionally reset or reinitialize the tracked object state.
+    numeric_binding:
+      calculator: trajectory.kinematic_continuity.v1
+      inputs:
+        position: state.position
+        velocity: state.velocity
+      parameters:
+        object_id: closed_cloth_belt
+        object_keywords:
+        - belt
+        - cloth
+      reduction:
+        type: maximum

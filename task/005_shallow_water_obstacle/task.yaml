@@ -1,0 +1,27 @@
+id: 005_shallow_water_obstacle
+title: Shallow Water Obstacle
+category: fluid_dynamics
+source:
+  title: 'Power Particles: An Incompressible Fluid Solver Based on Power Diagrams'
+  url: https://www.geometry.caltech.edu/pubs/dGWH%2B15.pdf
+  anchor: Figure 7; PDF page 7
+goal: Recreate the observable physical phenomenon in which a shallow-water height field propagates through
+  a square domain and interacts with a polygonal obstacle. The implementation method is unrestricted;
+  the target is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Visible density field
+  - Visible domain boundaries
+  initial_state:
+  - A shallow-water height field propagates through a square domain and interacts with a polygonal obstacle.
+  required_events:
+  - Quantitative/qualitative - height conservation
+  - Wave speed
+  - Compression/expansion of particle cells
+  - Reflected-wave stability
+camera_requirements:
+- Use a three-quarter or side view that keeps the source, main interaction region, free surface or plume,
+  obstacles, and final state visible; avoid occlusion and excessive top-down views.
+parameter_notes:
+- 'Original paper parameters/configuration: Two-dimensional compressible power-particle model; density
+  represents water height; square domain with polygonal obstacle.'

@@ -1,0 +1,25 @@
+id: 087_anisotropic_rod_twist_localization
+title: Twist Localization in a V-Shaped Anisotropic Rod
+category: rods_and_strands
+source:
+  title: Discrete Elastic Rods
+  url: https://www.cs.columbia.edu/cg/rods/
+  anchor: Figure 5, V-shaped example; Section 9.3, Asymmetry of twist; PDF pages 6 and 10
+goal: 'Recreate the source experiment: With further end rotation, visible twisting extends past the middle
+  bend into the other side. Use elastic rods or strands; the numerical implementation is unrestricted.'
+scene_requirements:
+  required_elements:
+  - One inextensible rod with the source V-shaped natural centerline and anisotropic cross-section.
+  - Two endpoint clamps, one fixed and the other controlling material-frame rotation.
+  - A flattened cross-section or a continuous surface stripe that reveals material orientation.
+  - Use the V-shaped example in Figure 5, sampled at equilibrated twist increments.
+  initial_state:
+  - The rod begins in its untwisted V-shaped reference configuration.
+  required_events:
+  - The driven end rotates while the other end remains clamped.
+  - The visible cross-section orientation initially changes much more on the driven side of the central bend.
+  - With further end rotation, visible twisting extends past the middle bend into the other side.
+camera_requirements:
+- Use a fixed close oblique view showing both arms of the V and the material-orientation marking.
+- Keep the relevant objects visible before loading or contact, during the strongest response, and through the
+  stated outcome.

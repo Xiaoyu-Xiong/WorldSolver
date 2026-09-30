@@ -1,0 +1,26 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: ground
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [6.0, 3.0, 0.08]}
+    transform: {translation: [0.0, 0.0, -0.08]}
+    material_id: ground
+    collision_enabled: true
+  - id: loop_track
+    semantic: boundary
+    motion: static
+    geometry: {type: triangle_mesh, asset: loop.stl}
+    transform: {translation: [0.0, 0.0, 1.2]}
+    material_id: track
+    collision_enabled: true
+  - id: ball
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: sphere, radius: 0.24}
+    transform: {translation: [0.0, 0.0, 0.64]}
+    state_binding: {selector: body_id, value: 0}
+    material_id: ball
+    collision_enabled: true

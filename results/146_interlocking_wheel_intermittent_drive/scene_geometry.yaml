@@ -1,0 +1,49 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [3.2, 2.2, 0.05]}
+    transform: {translation: [0.0, 0.0, -0.05]}
+    material_id: floor
+    collision_enabled: true
+  - id: driver_axle
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 0.12, height: 0.42}
+    transform: {translation: [-0.85, 0.0, 1.0], rotation_xyzw: [0.7071068, 0.0, 0.0, 0.7071068]}
+    material_id: axle
+    collision_enabled: true
+  - id: follower_axle
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 0.12, height: 0.42}
+    transform: {translation: [0.85, 0.0, 1.0], rotation_xyzw: [0.7071068, 0.0, 0.0, 0.7071068]}
+    material_id: axle
+    collision_enabled: true
+  - id: driver
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/geneva_driver.obj}
+    transform: {translation: [-0.85,0,1], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 0}
+    material_id: accent_a
+    collision_enabled: true
+  - id: follower
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/geneva_follower.obj}
+    transform: {translation: [0.85,0,1], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 1}
+    material_id: accent_b
+    collision_enabled: true
+  - id: drive_pin
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: sphere, radius: 0.14}
+    transform: {translation: [-0.2,0,1], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 2}
+    material_id: accent_a
+    collision_enabled: true

@@ -1,0 +1,23 @@
+schema_version: 2
+profile: granular_particles
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: contact_floor
+    method: rigid_mesh
+    material: matte_warm_gray_floor
+    color_rgb: [0.58, 0.56, 0.52]
+  - object_id: viscoplastic_comparison_body
+    method: reconstructed_surface
+    material: warm_coral_viscoplastic
+    color_rgb: [0.95, 0.30, 0.20]
+    surface_pitch: 0.035
+    surface_smoothing: 1.15
+    subdivision: 1
+  - object_id: oobleck_body
+    method: reconstructed_surface
+    material: saturated_yellow_green_oobleck
+    color_rgb: [0.62, 0.84, 0.12]
+    surface_pitch: 0.035
+    surface_smoothing: 1.15
+    subdivision: 1

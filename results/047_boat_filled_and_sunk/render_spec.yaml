@@ -1,0 +1,13 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - {object_id: tank_bottom, method: rigid_mesh, material: tank_dark, color_rgb: [0.10, 0.11, 0.12]}
+  - {object_id: tank_back, method: rigid_mesh, material: tank_wall, color_rgb: [0.55, 0.70, 0.82]}
+  - {object_id: tank_left, method: rigid_mesh, material: tank_wall, color_rgb: [0.55, 0.70, 0.82]}
+  - {object_id: tank_right, method: rigid_mesh, material: tank_wall, color_rgb: [0.55, 0.70, 0.82]}
+  - {object_id: boat_shell, method: rigid_mesh, material: boat_red, color_rgb: [0.86, 0.02, 0.03], subdivision: 1}
+  - {object_id: water, method: reconstructed_surface, material: transparent_blue_water, color_rgb: [0.04, 0.34, 0.92], surface_pitch: 0.10, surface_smoothing: 1.1}
+  - {object_id: overhead_inlet, method: rigid_mesh, material: inlet_metal, color_rgb: [0.55, 0.58, 0.60]}
+  - {object_id: visible_inlet_stream, method: reconstructed_surface, material: inlet_blue_stream, color_rgb: [0.00, 0.70, 1.0], surface_pitch: 0.07, surface_smoothing: 0.9}

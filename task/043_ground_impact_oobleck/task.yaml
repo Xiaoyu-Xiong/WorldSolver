@@ -1,0 +1,36 @@
+id: 043_ground_impact_oobleck
+title: Ground Impact Oobleck
+category: plastic_and_complex_materials
+source:
+  title: 'Continuum Foam: A Material Point Method for Shear-Dependent Flows'
+  url: https://www.cs.columbia.edu/cg/foam/foam.pdf
+  anchor: Figure 13; PDF page 12
+goal: Recreate the observable physical phenomenon in which a shaped body made of oobleck impacts the ground
+  twice. The implementation method is unrestricted; the target is the scene's visible motion, interaction,
+  and outcome.
+scene_requirements:
+  required_elements:
+  - Ground Impact Oobleck
+  - Granular particles
+  - Contact floor or container
+  - Gravity
+  - A visibly green/yellow-green oobleck body on a neutral non-blue ground plane
+  - A side-by-side comparison body may be included to match Figure 13, but the oobleck body must be
+    visually distinct and treated as the target phenomenon
+  initial_state:
+  - A shaped green/yellow-green oobleck body starts above the ground so its first impact, rebound,
+    second impact, and final spread can be read as one continuous event.
+  - When a comparison body is present, it should use a contrasting warm/red material and remain spatially
+    separated from the oobleck object.
+  required_events:
+  - Qualitative/quantitative - first rebound
+  - Second-impact flow
+  - Energy
+  - Final spread
+camera_requirements:
+- Use a three-quarter view showing release or inflow, contact zones, pile or fragment evolution, and the
+  final deposited state without major occlusion.
+- 'Match the source figure with strong material contrast: green/yellow-green oobleck, neutral gray floor,
+  and visible contact shadow. Avoid all-blue rendering.'
+parameter_notes:
+- 'Original paper parameters/configuration: Material = oobleck; identical geometry and impact state.'

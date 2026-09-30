@@ -1,0 +1,91 @@
+schema_version: 4
+task_id: 157_curtain_ball_flip_and_unravel
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The solver reaches the frozen end time, exports every required finite trajectory field, and produces a readable render within resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: The ball moves or falls, pulling the surrounding cloth into a flipping fold.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: Multiple layers collide and slide as the cloth turns over the ball without passing through itself.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: The cloth unwraps and hangs freely again while the ball separates and all folds remain coherent.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: The sheet moves continuously without teleportation, unintended topology change, fold-through, persistent penetration, or numerical explosion.
+  physics:
+  - id: material_mass_balance
+    profile: cloth_thin_shells_and_fibers
+    dimension: conservation_and_source_balance
+    criterion: Total represented sheet mass follows the exported cumulative source and remains conserved through deformation.
+    applicability:
+      requires:
+      - Per-sample sheet mass quantity and cumulative source are exported.
+      excludes:
+      - Deliberately untracked material injection or deletion.
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: linear_momentum_balance
+    profile: cloth_thin_shells_and_fibers
+    dimension: momentum_and_force_balance
+    criterion: The time rate of total sheet momentum is consistent with exported external forces.
+    applicability:
+      requires:
+      - Mass, velocity, and all external forces are exported at trajectory samples.
+      excludes:
+      - Frames spanning an unreported external impulse.
+    numeric_binding:
+      calculator: dynamics.linear_momentum_balance.v1
+      inputs:
+        mass: state.mass
+        velocity: state.velocity
+        external_force: fields.external_force
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: controlled_surface_strain
+    profile: cloth_thin_shells_and_fibers
+    dimension: deformation_constraints
+    criterion: Principal stretches in intact sheet elements remain inside the stated broad admissible interval.
+    applicability:
+      requires:
+      - Surface deformation gradients from current and rest triangle geometry are exported.
+      excludes:
+      - Elements intersected by an explicitly modeled tear, cut, or remeshing event.
+    numeric_binding:
+      calculator: deformation.strain_limit.v1
+      inputs:
+        deformation_gradient: attributes.deformation_gradient
+      parameters:
+        lower: 0.5
+        upper: 2.0
+      reduction:
+        type: maximum
+  - id: nonpenetrating_contact
+    profile: cloth_thin_shells_and_fibers
+    dimension: contact_and_interface_conditions
+    criterion: Cloth-solid and cloth-self contacts maintain nonnegative gaps up to the frozen thickness tolerance.
+    applicability:
+      requires:
+      - Signed gaps and a contact length scale are exported for active and near-contact pairs.
+      excludes:
+      - Newly separated opposing crack faces during an intentional tear.
+    numeric_binding:
+      calculator: contact.penetration.v1
+      inputs:
+        signed_distance: fields.contact_signed_distance
+        length_scale: scalars.contact_length_scale
+      parameters: {}
+      reduction:
+        type: maximum
+

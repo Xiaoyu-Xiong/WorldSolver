@@ -1,0 +1,15 @@
+schema_version: 2
+profile: granular_particles
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - object_id: floor
+    method: rigid_mesh
+    material: charcoal_floor
+  - object_id: impact_wall
+    method: rigid_mesh
+    material: cool_gray_wall
+  - object_id: snowball_particles
+    method: particle_instances
+    material: bright_snow
+    particle_radius_scale: 1.18

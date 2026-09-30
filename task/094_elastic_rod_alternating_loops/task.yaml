@@ -1,0 +1,30 @@
+id: 094_elastic_rod_alternating_loops
+title: Alternating Elastic Rod Loops on a Moving Belt
+category: rods_and_strands
+source:
+  title: Coiling of elastic rods on rigid substrates
+  url: https://www.cs.columbia.edu/cg/elastic_coiling/coiling.pdf
+  anchor: Figure 1C, PDF page 2; Figure 3B(iii), PDF page 4; Movie S2
+goal: 'Recreate the source experiment: A sequence of loops forms on alternating sides of the belt-aligned trace.
+  Use elastic rods or strands; the numerical implementation is unrestricted.'
+scene_requirements:
+  required_elements:
+  - One long, inextensible elastic rod fed downward by a controlled injector.
+  - A rigid horizontal substrate below the injector and uniform downward gravity.
+  - The source sticking substrate condition for deposited material; no fluid or viscous-thread constitutive
+    model.
+  - A translating belt with the source alternating-loop relation between belt and injection speeds.
+  - Choose the alternating-loop regime rather than simple meandering or one-sided translated coiling. Use the
+    source quasi-static regime. The source neglects self-contact of the deposited rod; do not add a multilayer
+    collision requirement.
+  initial_state:
+  - Begin before a developed sequence of alternating loops covers the belt.
+  required_events:
+  - The rod continuously deposits onto the moving belt.
+  - The contact point repeatedly turns back on alternating sides of the deposition path.
+  - A sequence of loops forms on alternating sides of the belt-aligned trace.
+camera_requirements:
+- Use a fixed oblique view that shows the injector, suspended heel, contact point, and deposited pattern; keep
+  earlier deposited turns visible.
+- Keep the relevant objects visible before loading or contact, during the strongest response, and through the
+  stated outcome.

@@ -1,0 +1,106 @@
+schema_version: 4
+task_id: 028_wilberforce_pendulum
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The submitted solver runs to the frozen end time, produces a complete finite trajectory
+      with every required evaluation field, and produces a readable platform render without exceeding
+      the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: After release, the suspended body and helical spring visibly begin with predominantly vertical
+      oscillation.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: As vertical oscillation weakens, a visibly stronger torsional oscillation develops about
+      the spring axis.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: The torsional motion later weakens while vertical oscillation reappears, demonstrating
+      repeated exchange between the two visible modes.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: Spring deformation and attached-body motion remain continuous, with no attachment slip,
+      teleportation, or discontinuous twist jumps.
+  physics:
+  - id: material_mass_balance
+    profile: cloth_thin_shells_and_fibers
+    dimension: conservation_and_source_balance
+    criterion: For wilberforce pendulum, the mass change equals the cumulative prescribed inflow, outflow,
+      or phase-transfer source; internal motion and contact do not create or delete mass.
+    applicability:
+      requires:
+      - prescribed sources and sinks are exported
+      - Per-sample mass contributions are exported for every evaluated material.
+      excludes:
+      - Unreported particle deletion or remeshing loss.
+    numeric_binding:
+      calculator: balance.source_aware.v1
+      inputs:
+        quantity: attributes.mass_quantity
+        cumulative_source: fields.cumulative_mass_source
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: linear_momentum_balance
+    profile: cloth_thin_shells_and_fibers
+    dimension: momentum_and_force_balance
+    criterion: For wilberforce pendulum, the time rate of total linear momentum is consistent with the
+      exported external forces; internal forces may redistribute momentum but cancel in the total balance.
+    applicability:
+      requires:
+      - Mass, velocity, and all external forces are exported at the trajectory sampling times.
+      excludes:
+      - Frames spanning an unreported impulsive external intervention.
+    numeric_binding:
+      calculator: dynamics.linear_momentum_balance.v1
+      inputs:
+        mass: state.mass
+        velocity: state.velocity
+        external_force: fields.external_force
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: pendulum_kinematic_continuity
+    profile: cloth_thin_shells_and_fibers
+    dimension: trajectory_continuity
+    criterion: The suspended body's frame-to-frame displacement remains consistent with its exported velocity,
+      without teleportation or discontinuous jumps during vertical and torsional exchange.
+    applicability:
+      requires:
+      - The suspended body is bound to a stable scene object id and exports position and velocity.
+      excludes:
+      - Runs that intentionally reset or reinitialize the suspended body state.
+    numeric_binding:
+      calculator: trajectory.kinematic_continuity.v1
+      inputs:
+        position: state.position
+        velocity: state.velocity
+      parameters:
+        object_id: pendulum_body
+        object_keywords:
+        - pendulum
+        - weight
+        - mass
+      reduction:
+        type: maximum
+  - id: spring_attachment_inextensibility
+    profile: coupled_rods_and_rigid_bodies
+    dimension: geometric_constraints
+    criterion: The helical spring edge lengths and its attachment to the suspended body remain consistent
+      with their initial rest geometry.
+    applicability:
+      requires:
+      - The spring topology asset exports rod edges and the suspended body is bound in scene geometry.
+      excludes:
+      - Runs with intentional spring cutting, detachment, or remeshing.
+    numeric_binding:
+      calculator: rod.attachment_inextensibility.v1
+      inputs:
+        position: state.position
+      parameters:
+        rod_object_id: helical_spring
+        attached_object_id: suspended_weight
+      reduction:
+        type: maximum

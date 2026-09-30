@@ -1,0 +1,30 @@
+id: 127_brittle_bowl_edge_drop
+title: Brittle Bowl Edge Drop
+category: plastic_and_complex_materials
+source:
+  title: Graphical Modeling and Animation of Brittle Fracture
+  url: https://graphics.cs.cmu.edu/?p=677
+  anchor: Figure 11
+goal: >-
+  Recreate the paper's clearly visible brittle bowl edge drop phenomenon. The implementation method is unrestricted;
+  evaluation targets the observable motion, material response, interaction sequence, and final state.
+scene_requirements:
+  required_elements:
+  - Thin brittle bowl
+  - Rigid floor
+  - Gravity
+  - Fracture and fragment contact
+  initial_state:
+  - An intact bowl begins above the floor with its rim tilted toward the first contact point.
+  required_events:
+  - The bowl falls and its rim makes a concentrated impact with the floor.
+  - A crack network spreads away from the edge impact and releases distinct curved fragments.
+  - Fragments bounce and settle while the remaining bowl preserves a visibly chipped, asymmetric fracture shape.
+  - Material motion remains continuous, with no unexplained teleportation or numerical explosion.
+camera_requirements:
+- Use a close three-quarter view that resolves first rim contact, crack paths, and final fragments.
+- Keep material and rigid obstacles visually distinct and preserve enough contrast to read deformation and contacts.
+parameter_notes:
+- Match the qualitative scale, material regime, and event ordering shown in Figure 11; geometric simplification is allowed.
+- Export per-sample mass, velocity, external force, deformation gradient, and near-contact signed distance for scoring.
+

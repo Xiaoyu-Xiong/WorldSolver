@@ -1,0 +1,201 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [3.2, 2.2, 0.05]}
+    transform: {translation: [0.0, 0.0, -0.05]}
+    material_id: floor
+    collision_enabled: true
+  - id: axle_left
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 0.12, height: 0.42}
+    transform: {translation: [-1.15, 0.0, 1.15], rotation_xyzw: [0.7071068, 0.0, 0.0, 0.7071068]}
+    material_id: axle
+    collision_enabled: true
+  - id: axle_right
+    semantic: boundary
+    motion: static
+    geometry: {type: cylinder, radius: 0.12, height: 0.42}
+    transform: {translation: [1.15, 0.0, 1.15], rotation_xyzw: [0.7071068, 0.0, 0.0, 0.7071068]}
+    material_id: axle
+    collision_enabled: true
+  - id: chain_0
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/chain_link.obj}
+    transform: {translation: [1.65,0,1.15], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 0}
+    material_id: accent_a
+    collision_enabled: true
+  - id: chain_1
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/chain_link.obj}
+    transform: {translation: [1.5692432518870032,0,1.372492235949962], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 1}
+    material_id: accent_b
+    collision_enabled: true
+  - id: chain_2
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/chain_link.obj}
+    transform: {translation: [1.3348780407186631,0,1.5732053816505807], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 2}
+    material_id: accent_a
+    collision_enabled: true
+  - id: chain_3
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/chain_link.obj}
+    transform: {translation: [0.9698456662825806,0,1.732492235949962], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 3}
+    material_id: accent_b
+    collision_enabled: true
+  - id: chain_4
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/chain_link.obj}
+    transform: {translation: [0.5098780407186633,0,1.8347606917325106], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 4}
+    material_id: accent_a
+    collision_enabled: true
+  - id: chain_5
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/chain_link.obj}
+    transform: {translation: [1.0103336092965664e-16,0,1.8699999999999999], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 5}
+    material_id: accent_b
+    collision_enabled: true
+  - id: chain_6
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/chain_link.obj}
+    transform: {translation: [-0.509878040718663,0,1.8347606917325106], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 6}
+    material_id: accent_a
+    collision_enabled: true
+  - id: chain_7
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/chain_link.obj}
+    transform: {translation: [-0.9698456662825804,0,1.732492235949962], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 7}
+    material_id: accent_b
+    collision_enabled: true
+  - id: chain_8
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/chain_link.obj}
+    transform: {translation: [-1.3348780407186631,0,1.5732053816505807], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 8}
+    material_id: accent_a
+    collision_enabled: true
+  - id: chain_9
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/chain_link.obj}
+    transform: {translation: [-1.5692432518870032,0,1.372492235949962], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 9}
+    material_id: accent_b
+    collision_enabled: true
+  - id: chain_10
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/chain_link.obj}
+    transform: {translation: [-1.65,0,1.15], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 10}
+    material_id: accent_a
+    collision_enabled: true
+  - id: chain_11
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/chain_link.obj}
+    transform: {translation: [-1.5692432518870036,0,0.9275077640500382], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 11}
+    material_id: accent_b
+    collision_enabled: true
+  - id: chain_12
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/chain_link.obj}
+    transform: {translation: [-1.3348780407186633,0,0.7267946183494194], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 12}
+    material_id: accent_a
+    collision_enabled: true
+  - id: chain_13
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/chain_link.obj}
+    transform: {translation: [-0.9698456662825808,0,0.5675077640500379], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 13}
+    material_id: accent_b
+    collision_enabled: true
+  - id: chain_14
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/chain_link.obj}
+    transform: {translation: [-0.5098780407186635,0,0.4652393082674894], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 14}
+    material_id: accent_a
+    collision_enabled: true
+  - id: chain_15
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/chain_link.obj}
+    transform: {translation: [-3.031000827889699e-16,0,0.42999999999999994], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 15}
+    material_id: accent_b
+    collision_enabled: true
+  - id: chain_16
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/chain_link.obj}
+    transform: {translation: [0.5098780407186629,0,0.46523930826748927], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 16}
+    material_id: accent_a
+    collision_enabled: true
+  - id: chain_17
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/chain_link.obj}
+    transform: {translation: [0.9698456662825803,0,0.5675077640500377], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 17}
+    material_id: accent_b
+    collision_enabled: true
+  - id: chain_18
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/chain_link.obj}
+    transform: {translation: [1.3348780407186631,0,0.7267946183494192], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 18}
+    material_id: accent_a
+    collision_enabled: true
+  - id: chain_19
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/chain_link.obj}
+    transform: {translation: [1.5692432518870032,0,0.9275077640500377], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 19}
+    material_id: accent_b
+    collision_enabled: true
+  - id: sprocket_left
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/sprocket.obj}
+    transform: {translation: [-1.15,0,1.15], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 20}
+    material_id: accent_a
+    collision_enabled: true
+  - id: sprocket_right
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/sprocket.obj}
+    transform: {translation: [1.15,0,1.15], rotation_xyzw: [0,0,0,1]}
+    state_binding: {selector: body_id, value: 21}
+    material_id: accent_b
+    collision_enabled: true

@@ -1,0 +1,37 @@
+id: 047_boat_filled_and_sunk
+title: Boat Filled And Sunk
+category: multiphysics_coupling
+source:
+  title: Coupling Water and Smoke to Thin Deformable and Rigid Shells
+  url: https://graphics.stanford.edu/papers/thin_shells_fluid_coupling-sig05/thin_shells_fluid_coupling.pdf
+  anchor: Figure 7; PDF page 6
+goal: Recreate the observable physical phenomenon in which a dynamic thin-shell boat initially floats,
+  is filled by a water stream, loses buoyancy, sinks, and collides with the bottom. The implementation
+  method is unrestricted; the target is the scene's visible motion, interaction, and outcome.
+scene_requirements:
+  required_elements:
+  - Boat Filled And Sunk
+  - Coupled materials named by the scene
+  - Interface/contact region
+  - Domain or support boundaries
+  - Open boat hull asset with visible interior
+  - Visible inlet stream and distinguishable water level inside the hull
+  initial_state:
+  - A dynamic thin-shell boat initially floats, is filled by a water stream, loses buoyancy, sinks, and
+    collides with the bottom.
+  required_events:
+  - Quantitative/qualitative - floating height
+  - Water mass in hull
+  - Sink timing
+  - Rigid-body trajectory
+  - Leakage
+  - Ground impact
+  - Progressive loss of buoyancy as the visible hull water level rises
+camera_requirements:
+- Use a three-quarter view that simultaneously exposes each coupled phase or body, their interface, the
+  main transfer or contact region, and the final distribution.
+- Use high color contrast and a cutaway/open view so the red hull, blue water, incoming stream,
+  internal water fill, and bottom impact are all visible.
+parameter_notes:
+- 'Original paper parameters/configuration: 148 x 148 x 111 uniform grid; 2.5K-triangle dynamic boat heavier
+  than water but initially buoyant.'

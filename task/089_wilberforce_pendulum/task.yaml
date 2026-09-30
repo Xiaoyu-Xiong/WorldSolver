@@ -1,0 +1,31 @@
+id: 089_wilberforce_pendulum
+title: Wilberforce Pendulum Translation-Rotation Exchange
+category: rods_and_strands
+source:
+  title: Discrete Elastic Rods
+  url: https://www.cs.columbia.edu/cg/rods/
+  anchor: Figure 11 and Section 9.4, Wilberforce pendulum; PDF page 11
+goal: 'Recreate the source experiment: Later, rotational oscillation weakens and vertical motion grows again,
+  showing an exchange between the two motions. Use elastic rods or strands; the numerical implementation is
+  unrestricted.'
+scene_requirements:
+  required_elements:
+  - One helically shaped elastic rod acting as a spring, fixed at its upper end.
+  - One rigid load attached to the lower end with a visible orientation marker.
+  - Uniform downward gravity.
+  - Resolve the attached load inertia. This experiment tests coupled spring and rigid-body motion, not finite-speed
+    torsional waves in the rod.
+  initial_state:
+  - First establish the spring-load equilibrium under gravity.
+  - Displace the load slightly upward and release it without directly driving its subsequent translation or
+    rotation.
+  - Use the source coupled-mode regime so the exchange can be observed within the run.
+  required_events:
+  - After release, the load initially moves predominantly up and down.
+  - Its vertical oscillation becomes smaller while rotation about the spring axis becomes more pronounced.
+  - Later, rotational oscillation weakens and vertical motion grows again, showing an exchange between the
+    two motions.
+camera_requirements:
+- Use a fixed oblique view showing the full spring, vertical load travel, and the load orientation marker.
+- Keep the relevant objects visible before loading or contact, during the strongest response, and through the
+  stated outcome.

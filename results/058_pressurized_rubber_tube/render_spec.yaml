@@ -1,0 +1,19 @@
+schema_version: 2
+profile: deformable_surface
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - object_id: rubber_tube
+    method: deformed_mesh
+    material: silicone_red
+    color_rgb: [0.78, 0.16, 0.20]
+    opacity: 1.0
+    subdivision: 1
+  - object_id: lower_rim_marker
+    method: rigid_mesh
+    material: fixture_dark
+    color_rgb: [0.10, 0.11, 0.13]
+  - object_id: upper_rim_marker
+    method: rigid_mesh
+    material: fixture_dark
+    color_rgb: [0.10, 0.11, 0.13]

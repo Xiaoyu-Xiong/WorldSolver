@@ -1,0 +1,30 @@
+id: 162_cloth_narrow_funnel_self_contact
+title: Cloth through a Narrow Funnel
+category: cloth_and_shells
+source:
+  title: Robust Treatment of Simultaneous Collisions
+  url: https://www.cs.columbia.edu/cg/pdfs/RTSC.pdf
+  anchor: Figure 1
+goal: >-
+  Recreate the paper's clearly visible cloth through a narrow funnel phenomenon. The implementation method is unrestricted;
+  evaluation targets thin-material motion, folds or tears, contact response, and the characteristic outcome.
+scene_requirements:
+  required_elements:
+  - Large cloth sheet
+  - Narrow rigid funnel
+  - Gravity or prescribed feed
+  - Dense cloth self-contact
+  initial_state:
+  - A cloth sheet begins above a funnel whose throat is much narrower than the sheet width.
+  required_events:
+  - The sheet descends and first contacts the funnel rim.
+  - Material gathers into many simultaneous folds that slide and compress toward the throat.
+  - Cloth feeds through or forms a stable jam without self-intersection, rim penetration, or explosive ejection.
+  - Motion remains temporally coherent and all non-tearing regions preserve sheet connectivity.
+camera_requirements:
+- Use a side three-quarter view showing the upper sheet, rim contacts, throat, and exiting cloth.
+- Use lighting and material contrast that make folds, wrinkles, contacts, and any crack tip readable.
+parameter_notes:
+- Match the qualitative geometry, stiffness regime, and event ordering shown in Figure 1; mesh resolution may be adapted.
+- Export cloth mass, position, velocity, external force, surface deformation gradients, and signed contact distances.
+

@@ -1,0 +1,20 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - {object_id: tank_floor, method: rigid_mesh, material: glass, color_rgb: [0.72, 0.82, 0.88], opacity: 0.32}
+  - {object_id: tank_back, method: rigid_mesh, material: glass, color_rgb: [0.72, 0.82, 0.88], opacity: 0.18}
+  - {object_id: tank_front, method: rigid_mesh, material: glass, color_rgb: [0.72, 0.82, 0.88], opacity: 0.12}
+  - {object_id: tank_left, method: rigid_mesh, material: glass, color_rgb: [0.72, 0.82, 0.88], opacity: 0.22}
+  - {object_id: tank_right, method: rigid_mesh, material: glass, color_rgb: [0.72, 0.82, 0.88], opacity: 0.22}
+  - {object_id: porous_duck, method: deformed_mesh, material: duck_wetness, color_rgb: [1.0, 0.72, 0.08], subdivision: 1}
+  - object_id: duck_porous_interior
+    method: diagnostic_points
+    material: duck_wetness
+    scalar_attribute: saturation
+    scalar_range: [0.0, 1.0]
+    color_rgb: [1.0, 0.72, 0.08]
+    particle_radius_scale: 0.58
+    max_points: 8000
+  - {object_id: water, method: reconstructed_surface, material: water, color_rgb: [0.12, 0.48, 0.82], opacity: 0.72, surface_pitch: 0.055, surface_smoothing: 1.0}

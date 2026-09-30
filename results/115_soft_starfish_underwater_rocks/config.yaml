@@ -1,0 +1,27 @@
+schema_version: 1
+scene_id: 115_soft_starfish_underwater_rocks
+seed: 115
+duration: 4.5
+sample_dt: 0.02
+visual_judge_frame_count: 20
+gravity: [0.0, 0.0, -9.81]
+water:
+  initial_free_surface_z: 0.40
+  density: 1000.0
+  domain_bounds: [[-0.50, -0.50, 0.0], [0.50, 0.50, 0.72]]
+starfish:
+  density: 1080.0
+  release_center: [0.0, 0.0, 0.58]
+  initial_velocity: [0.0, 0.0, -0.10]
+  arms_unconstrained: true
+coupling:
+  two_way_solid_fluid_required: true
+  free_surface_required: true
+  starfish_rock_contact_required: true
+camera:
+  position: [1.18, -1.42, 0.88]
+  look_at: [0.0, 0.02, 0.29]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

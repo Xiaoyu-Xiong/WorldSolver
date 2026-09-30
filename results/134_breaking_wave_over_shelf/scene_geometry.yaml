@@ -1,0 +1,53 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: ground
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [3.2, 1.4, 0.05]}
+    transform: {translation: [0.0, 0.0, -0.05]}
+    material_id: ground
+    collision_enabled: true
+  - id: tank_side_left
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [3.2,0.06,0.55]}
+    transform: {translation: [0.0,-0.98,0.55]}
+    material_id: tank_wall
+    collision_enabled: true
+  - id: tank_side_right
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [3.2,0.06,0.55]}
+    transform: {translation: [0.0,0.98,0.55]}
+    material_id: tank_wall
+    collision_enabled: true
+  - id: tank_end_wall
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.06,0.98,0.55]}
+    transform: {translation: [3.12,0.0,0.55]}
+    material_id: tank_wall
+    collision_enabled: true
+  - id: submerged_shelf
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [1.20,0.84,0.30]}
+    transform: {translation: [1.45,0,0.30]}
+    material_id: obstacle
+    collision_enabled: true
+  - id: dam_gate
+    semantic: boundary
+    motion: kinematic
+    geometry: {type: box, half_extents: [0.04,0.72,0.55]}
+    transform: {translation: [-0.45,0,0.55]}
+    material_id: gate
+    collision_enabled: true
+  - id: subject
+    semantic: liquid
+    motion: dynamic
+    geometry: {type: particle_domain, bounds_min: [-2.7,-0.76,0.0], bounds_max: [-0.45,0.76,1.35], grid_shape: [20,14,16]}
+    state_binding: {selector: all}
+    material_id: subject
+    collision_enabled: true

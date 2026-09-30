@@ -1,0 +1,87 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: tank_floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [1.55, 0.65, 0.04]}
+    transform: {translation: [0.0, 0.0, 0.0]}
+    material_id: tank_glass
+    collision_enabled: true
+  - id: tank_back
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [1.55, 0.035, 1.4]}
+    transform: {translation: [0.0, 0.615, 1.4]}
+    material_id: tank_glass
+    collision_enabled: true
+  - id: tank_left
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.035, 0.65, 1.4]}
+    transform: {translation: [-1.515, 0.0, 1.4]}
+    material_id: tank_glass
+    collision_enabled: true
+  - id: tank_right
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [0.035, 0.65, 1.4]}
+    transform: {translation: [1.515, 0.0, 1.4]}
+    material_id: tank_glass
+    collision_enabled: true
+  - id: marker_fluid
+    semantic: liquid
+    motion: dynamic
+    geometry: {type: particle_domain, bounds_min: [-1.45, -0.55, 0.08], bounds_max: [1.45, 0.55, 2.65]}
+    state_binding: {selector: body_id, value: 0}
+    material_id: water_markers
+    collision_enabled: false
+  - id: ultralight_black_sphere
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: sphere, radius: 0.25}
+    transform: {translation: [-0.92, 0.0, 2.14]}
+    state_binding: {selector: body_id, value: 1}
+    material_id: density_ultralight
+    collision_enabled: true
+  - id: light_blue_body
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: capsule, radius: 0.22, height: 0.20}
+    transform: {translation: [-0.88, 0.06, 1.58], rotation_xyzw: [0.116, 0.341, -0.042, 0.932]}
+    state_binding: {selector: body_id, value: 2}
+    material_id: density_light_yellow
+    collision_enabled: true
+  - id: buoyant_green_block
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.29, 0.20, 0.18]}
+    transform: {translation: [0.08, 0.0, 1.72], rotation_xyzw: [0.074, 0.194, 0.056, 0.977]}
+    state_binding: {selector: body_id, value: 3}
+    material_id: density_buoyant
+    collision_enabled: true
+  - id: slightly_heavy_rock
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: capsule, radius: 0.24, height: 0.18}
+    transform: {translation: [0.05, 0.0, 0.78], rotation_xyzw: [-0.070, 0.560, 0.103, 0.819]}
+    state_binding: {selector: body_id, value: 4}
+    material_id: density_heavy_orange
+    collision_enabled: true
+  - id: heavy_red_cube
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: box, half_extents: [0.20, 0.20, 0.20]}
+    transform: {translation: [0.32, -0.02, 0.39], rotation_xyzw: [0.034, 0.070, 0.234, 0.969]}
+    state_binding: {selector: body_id, value: 5}
+    material_id: density_very_heavy
+    collision_enabled: true
+  - id: densest_white_sphere
+    semantic: rigid
+    motion: dynamic
+    geometry: {type: sphere, radius: 0.23}
+    transform: {translation: [0.95, 0.0, 0.62]}
+    state_binding: {selector: body_id, value: 6}
+    material_id: density_densest
+    collision_enabled: true

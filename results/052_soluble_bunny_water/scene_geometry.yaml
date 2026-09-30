@@ -1,0 +1,64 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: checker_floor
+    semantic: boundary
+    motion: static
+    geometry: {type: box, half_extents: [3.8, 2.7, 0.06]}
+    transform: {translation: [0.2, 0.0, -0.06]}
+    material_id: checkerboard_gray
+  - id: pipe_nozzle
+    semantic: emitter
+    motion: static
+    geometry: {type: cylinder, radius: 0.38, height: 1.25}
+    transform:
+      translation: [-1.12, 0.0, 1.30]
+      rotation_xyzw: [0.0, 0.70710678, 0.0, 0.70710678]
+    material_id: brushed_aluminum
+  - id: soluble_bunny
+    semantic: deformable
+    motion: dynamic
+    geometry: {type: triangle_mesh, asset: assets/bunny.obj}
+    transform: {translation: [0.35, 0.0, 0.0]}
+    state_binding: {selector: attribute, attribute_name: material_label, value: 1}
+    material_id: soluble_red
+  - id: water_inflow
+    semantic: liquid
+    motion: field
+    geometry:
+      type: particle_domain
+      bounds_min: [-0.92, -0.28, 0.86]
+      bounds_max: [0.32, 0.28, 1.55]
+    state_binding: {selector: attribute, attribute_name: material_label, value: 2}
+    material_id: clear_water
+  - id: mixing_domain
+    semantic: liquid
+    motion: field
+    geometry:
+      type: particle_domain
+      bounds_min: [-0.55, -1.25, 0.04]
+      bounds_max: [2.45, 1.25, 1.65]
+    state_binding: {selector: attribute, attribute_name: material_label, value: 3}
+    material_id: red_water_mixture
+    collision_enabled: false
+  - id: water_red_concentration_overlay
+    semantic: liquid
+    motion: static
+    geometry:
+      type: particle_domain
+      bounds_min: [-0.92, -0.28, 0.04]
+      bounds_max: [2.45, 1.25, 1.65]
+    state_binding: {selector: attribute, attribute_name: material_label, value: 2}
+    material_id: red_solute_concentration_overlay
+    collision_enabled: false
+  - id: mixture_red_concentration_overlay
+    semantic: liquid
+    motion: static
+    geometry:
+      type: particle_domain
+      bounds_min: [-0.55, -1.25, 0.04]
+      bounds_max: [2.45, 1.25, 1.65]
+    state_binding: {selector: attribute, attribute_name: material_label, value: 3}
+    material_id: red_solute_concentration_overlay
+    collision_enabled: false

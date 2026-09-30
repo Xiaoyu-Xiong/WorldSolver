@@ -1,0 +1,28 @@
+schema_version: 1
+scene_id: 165_cylindrical_centrifuge_axial_particle_bands
+seed: 22165
+duration: 14.0
+sample_dt: 0.04
+visual_judge_frame_count: 20
+family: suspension
+gravity: [0.0, 0.0, -9.81]
+centrifuge:
+  radius: 0.92
+  length: 4.8
+  center_height: 1.05
+  fill_fraction: 1
+  angular_velocity_rad_s: 7.5
+  spacing: 0.14
+  particle_density: 1550
+
+  species_count: 2
+  field_grid_shape: [40, 18, 18]
+camera:
+  position: [2.4, -8.8, 5.6]
+  look_at: [0.0, 0.0, 1.0]
+  up: [0.0, 0.0, 1.0]
+  projection: orthographic
+  orthographic_height: 4.0
+  width: 960
+  height: 640
+  fps: 50

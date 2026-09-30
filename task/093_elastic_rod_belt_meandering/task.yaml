@@ -1,0 +1,32 @@
+id: 093_elastic_rod_belt_meandering
+title: Elastic Rod Meandering on a Moving Belt
+category: rods_and_strands
+source:
+  title: Coiling of elastic rods on rigid substrates
+  url: https://www.cs.columbia.edu/cg/elastic_coiling/coiling.pdf
+  anchor: Figure 1B, PDF page 2; Figure 4A-B and The Straight-to-Meandering Transition, PDF page 4
+goal: 'Recreate the source experiment: A continuous meandering trace forms; after the belt speed is matched
+  to injection speed, the meanders decay into a straight trace. Use elastic rods or strands; the numerical
+  implementation is unrestricted.'
+scene_requirements:
+  required_elements:
+  - One long, inextensible elastic rod fed downward by a controlled injector.
+  - A rigid horizontal substrate below the injector and uniform downward gravity.
+  - The source sticking substrate condition for deposited material; no fluid or viscous-thread constitutive
+    model.
+  - The naturally straight rod is fed onto a translating belt, initially in the source meandering speed regime.
+  - Use the speed-matching switch from Figure 4A-B after the meandering pattern is established. Use the source
+    quasi-static regime. The source neglects self-contact of the deposited rod; do not add a multilayer collision
+    requirement.
+  initial_state:
+  - Start injection and belt translation before a long patterned trace has accumulated.
+  required_events:
+  - The rod contacts the translating belt while the injector continues to supply material.
+  - The contact point moves from side to side and the belt carries away the newly deposited strand.
+  - A continuous meandering trace forms; after the belt speed is matched to injection speed, the meanders decay
+    into a straight trace.
+camera_requirements:
+- Use a fixed oblique view that shows the injector, suspended heel, contact point, and deposited pattern; keep
+  earlier deposited turns visible.
+- Keep the relevant objects visible before loading or contact, during the strongest response, and through the
+  stated outcome.

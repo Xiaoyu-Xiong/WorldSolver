@@ -1,0 +1,103 @@
+schema_version: 4
+task_id: 015_rigid_card_house_block_impacts
+criteria:
+  execution:
+  - id: executable_and_evaluable
+    criterion: The submitted solver runs to the frozen end time, produces a complete finite trajectory
+      with every required evaluation field, and produces a readable platform render without exceeding
+      the resource limits.
+  visual:
+  - id: visible_event_onset
+    dimension: event_sequence
+    criterion: The high-friction card house remains visibly at rest before the first falling block reaches
+      it.
+  - id: visible_interaction_response
+    dimension: interaction_response
+    criterion: Each falling-block impact produces a localized collapse in the contacted portion of the
+      structure.
+  - id: visible_signature_outcome
+    dimension: signature_phenomenon
+    criterion: Between successive impacts, the remaining cards visibly settle into a new temporary equilibrium.
+  - id: case_visual_coherence
+    dimension: temporal_coherence
+    criterion: Cards and blocks preserve rigid shapes and accumulate without visible interpenetration,
+      teleportation, or persistent post-settling jitter.
+  physics:
+  - id: nonpenetrating_contact
+    profile: rigid_bodies_and_contact
+    dimension: contact_and_interface_conditions
+    criterion: During rigid card house block impacts, solid-solid and solid-boundary contacts maintain
+      nonnegative geometric gaps up to the contact tolerance and do not permit persistent interpenetration.
+    applicability:
+      requires:
+      - Signed geometric gaps are exported for active and near-contact pairs.
+      excludes:
+      - Pairs intentionally allowed to pass through or merge.
+    numeric_binding:
+      calculator: contact.penetration.v1
+      inputs:
+        signed_distance: fields.contact_signed_distance
+        length_scale: scalars.contact_length_scale
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: linear_momentum_balance
+    profile: rigid_bodies_and_contact
+    dimension: momentum_and_force_balance
+    criterion: For rigid card house block impacts, the time rate of total linear momentum is consistent
+      with the exported external forces; internal forces may redistribute momentum but cancel in the total
+      balance.
+    applicability:
+      requires:
+      - Mass, velocity, and all external forces are exported at the trajectory sampling times.
+      excludes:
+      - Frames spanning an unreported impulsive external intervention.
+    numeric_binding:
+      calculator: dynamics.linear_momentum_balance.v1
+      inputs:
+        mass: state.mass
+        velocity: state.velocity
+        external_force: fields.external_force
+      parameters: {}
+      reduction:
+        type: maximum
+  - id: center_of_mass_consistency
+    profile: rigid_bodies
+    dimension: kinematic_consistency
+    criterion: Each rigid body's mass-weighted center displacement agrees with the time integral
+      of its mass-weighted velocity, using trapezoidal quadrature between exported frames.
+    applicability:
+      requires:
+      - Persistent body_id values and positive total mass for every evaluated rigid body.
+      - Position, velocity, and mass samples describe the same body mass distribution.
+      - Sampling resolves the motion; unresolved impulses can introduce quadrature error.
+      excludes:
+      - Bodies with mass exchange, changing identity, or inconsistent center-of-mass samples.
+    numeric_binding:
+      calculator: trajectory.center_of_mass_consistency.v1
+      inputs:
+        position: state.position
+        velocity: state.velocity
+        mass: state.mass
+        body_id: state.body_id
+      parameters:
+        displacement_floor: 1.0e-8
+      reduction:
+        type: rms
+  - id: internal_interaction_force_balance
+    profile: coupled_contact_systems
+    dimension: conservation_and_force_balance
+    criterion: Exported paired internal contact or coupling forces are equal and opposite in aggregate,
+      so they do not create net system momentum.
+    applicability:
+      requires:
+      - Both sides of every internal contact or coupling force pair are exported.
+      excludes:
+      - External actuator, gravity, prescribed boundary, or one-sided environment reaction forces.
+    numeric_binding:
+      calculator: coupling.force_balance.v1
+      inputs:
+        interaction_force: fields.interaction_force
+      parameters: {}
+      reduction:
+        type: maximum

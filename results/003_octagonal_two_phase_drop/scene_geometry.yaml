@@ -1,0 +1,38 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: octagonal_basin
+    semantic: boundary
+    motion: static
+    geometry:
+      type: triangle_mesh
+      asset: assets/octagonal_basin.obj
+    material_id: basin_glass
+    collision_enabled: true
+  - id: heavy_blue_liquid
+    semantic: liquid
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [-0.48, -0.48, 1.55]
+      bounds_max: [0.48, 0.48, 2.75]
+    state_binding:
+      selector: attribute
+      attribute_name: phase_id
+      value: 0
+    material_id: heavy_blue
+    collision_enabled: true
+  - id: light_pink_liquid
+    semantic: liquid
+    motion: dynamic
+    geometry:
+      type: particle_domain
+      bounds_min: [-0.42, -0.42, 3.15]
+      bounds_max: [0.42, 0.42, 4.15]
+    state_binding:
+      selector: attribute
+      attribute_name: phase_id
+      value: 1
+    material_id: light_pink
+    collision_enabled: true

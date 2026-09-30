@@ -1,0 +1,21 @@
+schema_version: 2
+profile: granular_particles
+environment: studio_dark
+camera: frozen_config
+bindings:
+  - {object_id: ground, method: rigid_mesh, material: matte, color_rgb: [0.22, 0.25, 0.30]}
+  - {object_id: wall_row_0, method: rigid_mesh, material: masonry, color_rgb: [0.62, 0.58, 0.52]}
+  - {object_id: wall_row_1, method: rigid_mesh, material: masonry, color_rgb: [0.72, 0.68, 0.60]}
+  - {object_id: wall_row_2, method: rigid_mesh, material: masonry, color_rgb: [0.62, 0.58, 0.52]}
+  - {object_id: wall_row_3, method: rigid_mesh, material: masonry, color_rgb: [0.72, 0.68, 0.60]}
+  - {object_id: wall_row_4, method: rigid_mesh, material: masonry, color_rgb: [0.62, 0.58, 0.52]}
+  - {object_id: wall_row_5, method: rigid_mesh, material: masonry, color_rgb: [0.72, 0.68, 0.60]}
+  - {object_id: wall_row_6, method: rigid_mesh, material: masonry, color_rgb: [0.62, 0.58, 0.52]}
+  - {object_id: wall_row_7, method: rigid_mesh, material: masonry, color_rgb: [0.72, 0.68, 0.60]}
+  - {object_id: wrecking_ball, method: rigid_mesh, material: matte, color_rgb: [0.12, 0.14, 0.17]}
+  - {object_id: cable, method: rigid_mesh, material: steel, color_rgb: [0.45, 0.48, 0.52]}
+  - object_id: subject
+    method: particle_instances
+    material: default
+    color_rgb: [0.78, 0.30, 0.08]
+    particle_radius_scale: 0.80

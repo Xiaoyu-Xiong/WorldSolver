@@ -1,0 +1,30 @@
+id: 159_paper_sheet_crumpling
+title: Paper Sheet Crumpling
+category: cloth_and_shells
+source:
+  title: Folding and Crumpling Adaptive Sheets
+  url: https://graphics.berkeley.edu/papers/Narain-FCA-2013-07/Narain-FCA-2013-07.pdf
+  anchor: Figure 1
+goal: >-
+  Recreate the paper's clearly visible paper sheet crumpling phenomenon. The implementation method is unrestricted;
+  evaluation targets thin-material motion, folds or tears, contact response, and the characteristic outcome.
+scene_requirements:
+  required_elements:
+  - Thin paper-like sheet
+  - Confining hands or moving walls
+  - Prescribed compression
+  - Sheet self-contact
+  initial_state:
+  - A mostly flat paper-like sheet begins between separated confining boundaries.
+  required_events:
+  - The boundaries close and impose large-scale compression.
+  - The sheet buckles into sharp ridges and vertices while many layers enter self-contact.
+  - A compact crumpled shape forms with persistent crease structure and no fold-through.
+  - Motion remains temporally coherent and all non-tearing regions preserve sheet connectivity.
+camera_requirements:
+- Use a three-quarter view that exposes compression motion, outer silhouette, and major creases.
+- Use lighting and material contrast that make folds, wrinkles, contacts, and any crack tip readable.
+parameter_notes:
+- Match the qualitative geometry, stiffness regime, and event ordering shown in Figure 1; mesh resolution may be adapted.
+- Export cloth mass, position, velocity, external force, surface deformation gradients, and signed contact distances.
+

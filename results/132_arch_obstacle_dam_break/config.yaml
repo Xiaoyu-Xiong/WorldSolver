@@ -1,0 +1,22 @@
+schema_version: 1
+scene_id: 132_arch_obstacle_dam_break
+seed: 12132
+duration: 7.0
+sample_dt: 0.03333333333333333
+visual_judge_frame_count: 20
+scene_family: liquid
+variant: arch_obstacle_dam_break
+gravity: [0.0, 0.0, -9.81]
+sampling:
+  spacing: 0.14
+  density: 1000
+  blocks:
+  - [-2.55,-0.55,0.1,-1.65,0.55,1.05]
+  field_grid_shape: [24, 16, 28]
+camera:
+  position: [4.8, -7.2, 3.0]
+  look_at: [0.0, 0.0, 0.8]
+  up: [0.0, 0.0, 1.0]
+  width: 960
+  height: 640
+  fps: 50

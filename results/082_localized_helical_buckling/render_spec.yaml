@@ -1,0 +1,12 @@
+schema_version: 2
+profile: fiber_rods
+environment: studio_neutral
+camera: frozen_config
+bindings:
+  - {object_id: left_clamp, method: rigid_mesh, material: clamp_metal, color_rgb: [0.20, 0.23, 0.27]}
+  - {object_id: right_clamp, method: rigid_mesh, material: clamp_metal, color_rgb: [0.20, 0.23, 0.27]}
+  - object_id: twisted_rod
+    method: curve_tubes
+    material: rod_polymer
+    color_rgb: [0.78, 0.24, 0.12]
+    subdivision: 2

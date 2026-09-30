@@ -1,0 +1,31 @@
+id: 145_piston_crank_tight_contact
+title: Piston-Crank Tight Contact Mechanism
+category: rigid_body_dynamics
+source:
+  title: Intersection-free Rigid Body Dynamics
+  url: https://ipc-sim.github.io/rigid-ipc/assets/rigid_ipc_paper_350ppi.pdf
+  anchor: Figure 2, top row
+goal: >-
+  Recreate the paper's clearly visible piston-crank tight contact mechanism phenomenon. The implementation method is unrestricted;
+  evaluation targets rigid motion, contact response, event propagation, and the characteristic outcome.
+scene_requirements:
+  required_elements:
+  - Rotating crank
+  - Connecting rod
+  - Sliding piston
+  - Tight rigid guide
+  - Prescribed motor
+  initial_state:
+  - The assembled mechanism begins in a valid aligned configuration inside its guide.
+  required_events:
+  - The motor rotates the crank from rest.
+  - The connecting rod transfers motion and the piston reciprocates while maintaining tight guide contact.
+  - Several cycles complete smoothly without locking, separation, or geometric overlap.
+  - All bodies preserve rigid shape and contacts remain free of persistent overlap.
+camera_requirements:
+- Use a side view aligned with the piston axis and showing every joint.
+- Keep the complete interaction chain in frame and use contrasting colors for neighboring bodies.
+parameter_notes:
+- Match the qualitative geometry, loading, and event ordering shown in Figure 2, top row; object count may be reduced within resource limits.
+- Export body IDs, mass, position, velocity, external forces, interaction-force pairs, and signed contact distances.
+

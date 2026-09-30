@@ -1,0 +1,46 @@
+schema_version: 1
+scene_id: 005_shallow_water_obstacle
+seed: 5005
+duration: 3.0
+sample_dt: 0.02
+visual_judge_frame_count: 20
+spatial_dimensions: 2
+gravity: [0.0, 0.0, -9.81]
+domain:
+  bounds_min: [-1.0, -1.0, 0.0]
+  bounds_max: [1.0, 1.0, 1.2]
+  grid_shape: [64, 64]
+  field_axes: [x, y]
+  boundary_condition: reflecting_no_penetration
+fluid:
+  density: 1000.0
+initial_conditions:
+  high_water_height: 0.92
+  low_water_height: 0.34
+  step_x: 0.46
+  high_water_side: positive_x
+  initial_velocity: [0.0, 0.0]
+  sustained_inflow: false
+obstacle:
+  shape: regular_octagonal_prism
+  center: [-0.32, 0.0]
+  circumradius: 0.235
+  rotation_radians: 0.39269908169872414
+  height: 1.2
+  asset: assets/octagonal_obstacle.obj
+observables:
+  density_field: water_height_in_meters
+  required_events: [wave_propagation, obstacle_reflection, wall_reflection, height_integral_conservation]
+  sample_positions: cell_centers_with_z_equal_half_water_height
+camera:
+  projection: orthographic
+  orthographic_height: 2.6
+  position: [0.0, 0.0, 6.0]
+  look_at: [0.0, 0.0, 0.0]
+  up: [0.0, 1.0, 0.0]
+  point_radius: 4.4
+  shadows: false
+  background_rgb: [0.035, 0.045, 0.065]
+  width: 960
+  height: 640
+  fps: 50

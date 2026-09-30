@@ -1,0 +1,36 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+  - id: rubber_tube
+    semantic: deformable
+    motion: dynamic
+    geometry:
+      type: triangle_mesh
+      asset: assets/hollow_tube.obj
+    state_binding:
+      selector: all
+    material_id: silicone_red
+    collision_enabled: false
+  - id: lower_rim_marker
+    semantic: boundary
+    motion: static
+    geometry:
+      type: cylinder
+      radius: 0.505
+      height: 0.035
+    transform:
+      translation: [0.0, 0.0, -0.80]
+    material_id: fixture_dark
+    collision_enabled: false
+  - id: upper_rim_marker
+    semantic: boundary
+    motion: static
+    geometry:
+      type: cylinder
+      radius: 0.505
+      height: 0.035
+    transform:
+      translation: [0.0, 0.0, 0.80]
+    material_id: fixture_dark
+    collision_enabled: false
