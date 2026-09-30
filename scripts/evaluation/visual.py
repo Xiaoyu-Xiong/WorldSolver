@@ -160,7 +160,6 @@ def evaluate_visual_criteria(
     video_path: Path,
     criteria: list[dict[str, Any]],
     model_config: dict[str, Any],
-    result_dir: Path,
     *,
     frame_count: int = VISUAL_JUDGE_FRAME_COUNT,
 ) -> list[dict[str, Any]]:
@@ -185,27 +184,7 @@ def evaluate_visual_criteria(
     content.append({"type": "text", "text": build_user_prompt(rubric)})
 
     response_text = _judge_frames(model_config, system, content, timeout_seconds=300)
-    try:
-        response = _parse_json(response_text)
-    except Exception:
-        # Keep the raw VLM output so a malformed response is diagnosable.
-        result_dir.mkdir(parents=True, exist_ok=True)
-        (result_dir / "visual_judge_raw.txt").write_text(response_text, encoding="utf-8")
-        raise
-
-    result_dir.mkdir(parents=True, exist_ok=True)
-    (result_dir / "visual_judge_trace.jsonl").write_text(
-        json.dumps(
-            {
-                "model": model_config.get("model"),
-                "frame_count": frame_count,
-                "response": response,
-            },
-            ensure_ascii=False,
-        )
-        + "\n",
-        encoding="utf-8",
-    )
+    response = _parse_json(response_text)
 
     by_id = {item["criterion_id"]: item for item in response.get("criteria", [])}
     results = []

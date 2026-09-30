@@ -79,3 +79,40 @@ def attach_scores(report: dict[str, Any]) -> dict[str, Any]:
         }
     )
     return report
+
+
+def compact_evaluation(
+    report: dict[str, Any], metric: dict[str, Any]
+) -> dict[str, Any]:
+    """Return the public, minimal evaluation result."""
+
+    visual_by_id = {
+        item.get("criterion_id"): item for item in report["criteria"]["visual"]
+    }
+    physics_by_id = {
+        item.get("criterion_id"): item for item in report["criteria"]["physics"]
+    }
+    return {
+        "execution": int(bool(report["execution_pass"])),
+        "visual_fidelity": {
+            "criteria": [
+                {
+                    "dimension": criterion["dimension"],
+                    "score": visual_by_id.get(criterion["id"], {}).get("score"),
+                }
+                for criterion in metric["criteria"]["visual"]
+            ],
+            "score": report.get("visual_fidelity_score"),
+        },
+        "physical_plausibility": {
+            "criteria": [
+                {
+                    "dimension": criterion["dimension"],
+                    "score": physics_by_id.get(criterion["id"], {}).get("score", 0.0),
+                }
+                for criterion in metric["criteria"]["physics"]
+            ],
+            "score": report.get("physical_plausibility_score", 0.0),
+        },
+        "total_score": report.get("total_score"),
+    }

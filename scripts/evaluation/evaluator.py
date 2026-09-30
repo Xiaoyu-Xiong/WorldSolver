@@ -14,7 +14,7 @@ from worldsolver.evaluation.aggregation import aggregate_evaluation
 from worldsolver.evaluation.calculators import CALCULATORS
 from worldsolver.evaluation.calculators.base import EvaluationContext
 from worldsolver.evaluation.reduction import reduce_values
-from worldsolver.evaluation.scoring import attach_scores
+from worldsolver.evaluation.scoring import attach_scores, compact_evaluation
 from worldsolver.evaluation.visual import VISUAL_JUDGE_FRAME_COUNT, evaluate_visual_criteria
 from worldsolver.trajectory import TrajectoryReader, validate_trajectory
 
@@ -84,7 +84,6 @@ class Evaluator:
                     video_path,
                     metric["criteria"]["visual"],
                     visual_model_config,
-                    result_dir,
                     frame_count=_visual_judge_frame_count(result_dir),
                 )
             except (KeyError, ValueError, RuntimeError, TimeoutError, json.JSONDecodeError) as exc:
@@ -109,8 +108,9 @@ class Evaluator:
         )
         report["task_id"] = metric["task_id"]
         attach_scores(report)
+        public_report = compact_evaluation(report, metric)
         (result_dir / "evaluation.json").write_text(
-            json.dumps(report, indent=2, sort_keys=True), encoding="utf-8"
+            json.dumps(public_report, indent=2), encoding="utf-8"
         )
         return report
 

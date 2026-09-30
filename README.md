@@ -8,7 +8,7 @@ For every task, WorldSolver provides a fixed code scaffold containing the scene 
 
 ## WorldSolver Workflow
 
-![WorldSolver workflow](main.png)
+![WorldSolver workflow](assets/main.png)
 
 Each task begins with a physical phenomenon selected from the computer graphics literature. A task description and fixed scaffold are then provided to an LLM agent, which generates `solver.py`. The solver advances the physical state over time, exports a trajectory, and produces a video through the fixed renderer.
 
@@ -22,6 +22,9 @@ Each task begins with a physical phenomenon selected from the computer graphics 
 
 ```text
 WorldSolver/
+├── assets/
+│   ├── main.pdf                     # paper workflow figure
+│   └── main.png                     # README rendering of the workflow figure
 ├── task/
 │   └── <task-id>/
 │       ├── task.yaml                 # task description
@@ -40,8 +43,9 @@ WorldSolver/
 ├── evaluation/
 │   └── <task-id>/<model>/
 │       └── evaluation.json           # published evaluation result
-├── scripts/                           # runtime, rendering, and evaluation code
-├── evaluate.py                        # evaluation entry point
+├── scripts/
+│   ├── evaluate.py                    # evaluation entry point
+│   └── ...                            # runtime, rendering, and evaluation code
 └── pyproject.toml
 ```
 
@@ -59,7 +63,7 @@ Rendering uses `pyrender` and requires a working OpenGL or EGL environment.
 
 ## Evaluation
 
-Visual evaluation uses an OpenAI-compatible multimodal Chat Completions endpoint. Create `visual_judge.yaml` in the repository root and provide the judge model, endpoint, and API key:
+Visual evaluation uses an OpenAI-compatible multimodal Chat Completions endpoint. Create `scripts/visual_judge.yaml` and provide the judge model, endpoint, and API key:
 
 ```yaml
 model: your-vision-model
@@ -70,7 +74,7 @@ api_key: your-api-key
 Run one published solver by specifying its task ID and model name:
 
 ```bash
-python evaluate.py --task-id 001_2d_dam_break --model gpt-5.6-sol
+python scripts/evaluate.py --task-id 001_2d_dam_break --model gpt-5.6-sol
 ```
 
 Task IDs are the directory names under `task/`. Model names are the filenames under `result/<task-id>/`, without the `.py` extension.
@@ -86,7 +90,7 @@ outputs/<task-id>/<model>/
 └── evaluation.json
 ```
 
-`evaluation.json` contains criterion-level results together with `visual_fidelity_score`, `physical_plausibility_score`, and `total_score`, all reported on a 0-100 scale. Solver execution has a fixed 600-second wall-clock limit. An execution failure receives zero visual, physical, and total scores.
+`evaluation.json` contains only the execution flag, dimension-level visual and physical scores, their aggregate scores, and the final score. Visual criterion scores use a 0-1 scale; aggregate visual, physical, and final scores use a 0-100 scale. Solver execution has a fixed 600-second wall-clock limit. An execution failure receives zero visual, physical, and total scores.
 
 ## Citation
 
