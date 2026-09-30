@@ -26,9 +26,8 @@ WorldSolver/
 │   └── <task-id>/
 │       ├── task.yaml                 # task description
 │       └── metric.yaml               # evaluation criteria
-├── results/
+├── scaffolds/
 │   └── <task-id>/
-│       ├── solvers/<model>.py        # generated solver for each model
 │       ├── scene.py                  # scene definition
 │       ├── config.yaml               # simulation configuration
 │       ├── scene_geometry.yaml       # scene geometry
@@ -36,6 +35,8 @@ WorldSolver/
 │       ├── run.py
 │       ├── render.py
 │       └── assets/                   # task assets, when required
+├── result/
+│   └── <task-id>/<model>.py          # generated solver for each model
 ├── evaluation/
 │   └── <task-id>/<model>/
 │       └── evaluation.json           # published evaluation result
@@ -72,7 +73,7 @@ Run one published solver by specifying its task ID and model name:
 python evaluate.py --task-id 001_2d_dam_break --model gpt-5.6-sol
 ```
 
-Task IDs are the directory names under `task/`. Model names are the filenames under `results/<task-id>/solvers/`, without the `.py` extension.
+Task IDs are the directory names under `task/`. Model names are the filenames under `result/<task-id>/`, without the `.py` extension.
 
 The command runs the solver, validates the generated trajectory, renders the simulation, computes the physical metrics, and performs visual evaluation. Visual evaluation samples 20 evenly spaced video frames and repeats the evaluation five times.
 

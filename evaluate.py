@@ -204,15 +204,15 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    task_root = ROOT / "results" / args.task_id
-    solver = task_root / "solvers" / f"{args.model}.py"
+    scaffold_root = ROOT / "scaffolds" / args.task_id
+    solver = ROOT / "result" / args.task_id / f"{args.model}.py"
     metric = ROOT / "task" / args.task_id / "metric.yaml"
 
     required = [
-        task_root / "scene.py",
-        task_root / "config.yaml",
-        task_root / "scene_geometry.yaml",
-        task_root / "render_spec.yaml",
+        scaffold_root / "scene.py",
+        scaffold_root / "config.yaml",
+        scaffold_root / "scene_geometry.yaml",
+        scaffold_root / "render_spec.yaml",
         solver,
         metric,
     ]
@@ -230,7 +230,7 @@ def main() -> int:
 
     with tempfile.TemporaryDirectory(prefix="worldsolver-") as temporary:
         workspace = Path(temporary) / "workspace"
-        shutil.copytree(task_root, workspace, ignore=shutil.ignore_patterns("solvers"))
+        shutil.copytree(scaffold_root, workspace)
         (workspace / "solver").mkdir()
         shutil.copy2(solver, workspace / "solver" / "solver.py")
 
