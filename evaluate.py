@@ -111,11 +111,14 @@ def load_visual_judge() -> dict | None:
         return None
     config = load_yaml(path)
     required = ("model", "base_url", "api_key")
-    populated = [bool(str(config.get(key, "")).strip()) for key in required]
-    if not any(populated):
+    values = {
+        key: str(config.get(key) or "").strip()
+        for key in required
+    }
+    if not values["base_url"] and not values["api_key"]:
         return None
-    if not all(populated):
-        missing = [key for key, present in zip(required, populated, strict=True) if not present]
+    missing = [key for key in required if not values[key]]
+    if missing:
         raise ValueError(f"visual_judge.yaml is missing values for: {', '.join(missing)}")
     return config
 
