@@ -21,7 +21,7 @@ Each task begins with a physical phenomenon selected from the computer graphics 
 ## Repository Structure
 
 ```text
-WorldSolver-Official/
+WorldSolver/
 ├── task/
 │   └── <task-id>/
 │       ├── task.yaml                 # task description
