@@ -1,0 +1,68 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_neutral
+camera: frozen_config
+bindings:
+- object_id: cup
+  method: rigid_mesh
+  material: glass
+  color_rgb:
+  - 0.89
+  - 0.96
+  - 1
+- object_id: press_mount_bookkeeping_collision
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.14
+  - 0.16
+  - 0.18
+- object_id: slide_carriage_collision
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.24
+  - 0.27
+  - 0.3
+- object_id: piston_disk_collision
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.67
+  - 0.7
+  - 0.73
+- object_id: piston_rod_collision
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.24
+  - 0.27
+  - 0.3
+- object_id: block_1
+  method: deformed_mesh
+  material: rubber
+  color_rgb:
+  - 1
+  - 0.235
+  - 0.035
+- object_id: block_2
+  method: deformed_mesh
+  material: rubber
+  color_rgb:
+  - 1
+  - 0.235
+  - 0.035
+- object_id: block_3
+  method: deformed_mesh
+  material: rubber
+  color_rgb:
+  - 1
+  - 0.235
+  - 0.035
+- object_id: block_4
+  method: deformed_mesh
+  material: rubber
+  color_rgb:
+  - 1
+  - 0.235
+  - 0.035

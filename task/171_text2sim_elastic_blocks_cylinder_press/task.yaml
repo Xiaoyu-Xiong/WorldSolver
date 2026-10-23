@@ -1,0 +1,40 @@
+id: 171_text2sim_elastic_blocks_cylinder_press
+title: 'Text2Sim: Elastic Blocks under a Rotating Cylinder Press'
+category: multiphysics
+source:
+  title: 'Text2Sim: Agentic Physics-Based Simulation Generation with Distilled Expertise'
+  url: https://arxiv.org/abs/2609.36593
+  anchor: soft_elastic_blocks_cylinder_press_rigid_soft_two_way
+goal: Recreate four-block compression and shear inside the original hollow cup with two-way rigid-soft contact and
+  finite-force serial press actuation.
+scene_requirements:
+  required_elements:
+  - cup
+  - press_mount_bookkeeping_collision
+  - slide_carriage_collision
+  - piston_disk_collision
+  - piston_rod_collision
+  - block_1
+  - block_2
+  - block_3
+  - block_4
+  initial_state:
+  - Read the exact frozen mesh/initial-state assets and assets/scene_contract.json.
+  - All original physical geometry and actor counts must remain intact.
+  required_events:
+  - Four separate orange volumetric elastic blocks settle inside the original hollow glass cup with its integral
+    bottom as the sole support.
+  - The serial finite-force piston descends and visibly compresses the blocks while receiving equal-and-opposite
+    contact loads.
+  - The piston rotates while maintaining pressure, producing frictional shear, inter-block slip and lateral deformation.
+  - All four blocks, the exact concave cup, complete piston disk/rod/carriage/mount and two active joint dynamics
+    are retained.
+parameter_notes:
+- This is an independently added Text2Sim extension; it is not part of the original 168-task WorldSolver release.
+- The source engine and recorded trajectory are not exposed. Implement all physical dynamics yourself.
+- The prescribed controller is public task input, not a motion solution. Its bounded forces must interact with contact
+  dynamics.
+- Render the original pinhole camera pose, field of view, geometry, colors and material cues.
+- 'Read contact_material_semantics in assets/scene_contract.json: IPC uses rigid coup_friction, FEM friction_mu,
+  geometric-mean pair friction, harmonic-mean contact resistance, and zero added restitution.'
+- Use the exact logarithmic-Ic StableNeoHookean material law and effective damping semantics in assets/scene_contract.json.

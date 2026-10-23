@@ -1,0 +1,43 @@
+{
+  "task_id": "169_text2sim_twisting_rod_bundle",
+  "source_root": "/data/xiongxiaoyu/workspaces/suites/dataset_test_merged_20260729_passes_plus_promoted/soft_twisting_rod_bundle_self_contact_deformable",
+  "source_sha256": {
+    "src/action.py": "330a596acc6d700e8629913405696c9e3546ec39a56b87208fc5853a9fde77cd",
+    "src/body.py": "8b46cef32fd9d8306a6df9d76cb298946b623b0b45bac68b92dae8c754a7896b",
+    "src/main.py": "f735c2febb9c5cc2684d8ff65b710a1cd14ce77d2ae904a489db4a30acb1fce2",
+    "src/rendering.py": "b551173e4a08bbacc71b1a0ee7d734f4f433d4b70062ebac9604ffa0cdeafe55",
+    "src/scene.py": "2d9590cee4b26ddf43cb4efc7285708fb7d1a95dc49f8b96c6c228293bfa9919",
+    "assets/asset_manifest.json": "145d0e9b11fe7df38e86cdbcb94cf2def0a90381d25ede77521b0c28deded950",
+    "artifacts/state_cache/manifest.json": "a3195aab302ce7e3dffcdbcdf6359dea1a3b53d06e10042b13de2d3e5494fc5e",
+    "artifacts/render_stats.json": "8236e14a0a102c97f87e893348edb701f6f1f8e5a776a47f20623ebc3517ff43",
+    "inputs/user_prompt.md": "17be519462522508b77bd26bdc3212c2409e0e8197f93328a7872a890ed04f8c",
+    "assets/xml/00_dual_end_twist_clamp_rig/dual_end_twist_clamp_rig.xml": "6395b7c80e26a6b323036b9b7cc36b8ddd5bcf77319c4f19deff15966557601f"
+  },
+  "source_unchanged": true,
+  "published_benchmark_task": false,
+  "no_answer_trajectory_exported": true,
+  "source_initial_state_basis": "procedural rest mesh regeneration for169; original step-zero state for171; exact source geometry formula for170",
+  "sampling_difference": "251 output samples at0..10s versus source250 video samples; physics duration is unchanged.",
+  "scaffold_files": {
+    "assets/articulation.xml": "6395b7c80e26a6b323036b9b7cc36b8ddd5bcf77319c4f19deff15966557601f",
+    "assets/floor_visual.npz": "f70dc894bd1bb5e6e800134867dd5fb8fc9ea17e84c6ef7cbd18fb7bec162bee",
+    "assets/floor_visual.obj": "ab11c4a8de5a998c8ef3773b8eea9893bd8e5e4f95821861f34e3edfb4b96e97",
+    "assets/initial_state.npz": "f656392c4d8ed01fbc68cdf6baaf549d3308c1cfb43e1bfb67bf56e2c539741a",
+    "assets/prescribed_controls.py": "72702096485d652a165e55f4511d95131abdcb50bf00864e19e40338ebfb1ae2",
+    "assets/rod_coral.npz": "22fc48e47138ff001000bbde9439a54ad44e26a5bb4cff766f1927e7df7dda1f",
+    "assets/rod_coral.png": "e593f1367b7a9e054dee47855b99d1ee2922e5ba574693b38296c341b37f325f",
+    "assets/rod_gold.npz": "a55ec4fc1cd0c0aad7f89d07573e121ea9e521a77e6899af4ee48ceae20e3687",
+    "assets/rod_gold.png": "40683cbcdd060a067e2f26eb8b0e34c8edade984b2e29cdca9b5fc744ee4c606",
+    "assets/rod_teal.npz": "8ad5cc48d8254fef6fde9c77112a954744d95ed349a1a590d34f88a80607018f",
+    "assets/rod_teal.png": "d514c6ba9bc9db4f1ef9cc742ea1e8c4e273149ee605bca2a8092384eeec61f3",
+    "assets/scene_contract.json": "04a79cb80caa8ff2d42b46fed17774ce74d44f5a70704d4d7999f44f52318872",
+    "config.yaml": "928c9a6024da0464aee538b220a504bafca14c0af2a8c41b7a0ec4ac909f92e5",
+    "render.py": "d28ebb3644a5d6d15581d90a0eb1e5fc241eec3af66dae33df057fed69e75b54",
+    "render_spec.yaml": "58c8e5c832f6c8071c251b03f1345ef4a56189b74fa29b7fb31a6fb2cd6fc690",
+    "run.py": "6ec6f564489da3dc98d9a34c837cb6f35763ba5ffe7e781dba2b3f1bd93a0deb",
+    "scene.py": "89237b44a2b32029f78a7c492e64c049bc1f0cfa05f8020cb76a3d3afd08c6ff",
+    "scene_geometry.yaml": "bb1de98414311fb8881ef79720aab709d2167d08fd32e0acb88e41497fd57e0a"
+  },
+  "geometry_count": 17,
+  "state_samples": 12831
+}

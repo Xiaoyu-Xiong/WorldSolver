@@ -1,0 +1,37 @@
+{
+  "task_id": "170_text2sim_pendulum_convex_pile",
+  "source_root": "/data/xiongxiaoyu/workspaces/suites/dataset_test_merged_20260729_passes_plus_promoted/rigid_pendulum_ball_colored_convex_pile_impact_contact",
+  "source_sha256": {
+    "src/action.py": "4a0d98d35a9cdceb38aaac1134a0746f890ac43c52ff8419d32aab6250b119b5",
+    "src/body.py": "a2909749cc7e6a0665b7aa4b8235294eab98de79a366a493804b1bacfb5bce6a",
+    "src/main.py": "e085f7cfaaf7aa43fff8adda1b4d9c7a87e67d8de99e940efef3ba9e64927115",
+    "src/rendering.py": "74ffe249ccda8274e8c65e9efa8e8f68c0f52369da0ac2da29e63e749e4927ca",
+    "src/scene.py": "9770cef30fe32b02110324027ea6c6cfd786160b2354131f61cd14112f3f9c67",
+    "artifacts/state_cache/manifest.json": "eefdfb4d1fbf8bcd02b3af57ab317b5e94aa602c0a0c8a97299dce85877dc0d8",
+    "artifacts/render_stats.json": "a0d97f39aeb2a9e2c9ab75a1c00aa6ad5533e6dc7c0abb3fc4c7f3a93e078e16",
+    "inputs/user_prompt.md": "af8b7d4c3afafcd9f50e8f35f073b8cb21713e043f122e9c1b64adbff7c01052"
+  },
+  "source_unchanged": true,
+  "published_benchmark_task": false,
+  "no_answer_trajectory_exported": true,
+  "source_initial_state_basis": "procedural rest mesh regeneration for169; original step-zero state for171; exact source geometry formula for170",
+  "sampling_difference": "251 output samples at0..10s versus source250 video samples; physics duration is unchanged.",
+  "scaffold_files": {
+    "assets/initial_state.npz": "d12fade977d28f6b01bb6eeae93a94ec8815c547c639cd8396730074810ef539",
+    "assets/pivot.npz": "05651bca38cfd84f51038a711ffb1f203ca2eff3ac32039451d97752489eec03",
+    "assets/pivot.obj": "4546e44479d1433e604b2fdbb843810eec6ca7e5f20e2700ee3fb27ad29c879f",
+    "assets/ring.npz": "858afc4922c6ae2666fc0dacd4ab3d0e795f104d33aa2d96b53e875134193f47",
+    "assets/ring.obj": "d1aa77772a786c2b461ea4c5dd3ae26c903459cff3de734739bab06160d034d1",
+    "assets/scene_contract.json": "6a7ba5241f44a9540e8c0705d476879acd1601eb2f6f73880be9541c3736aa8c",
+    "assets/sphere_with_integral_eye.npz": "6db2bca98f76161737ddc74243e5c079d9cd99cfe7dbff8f2ca8088a0a44aa2a",
+    "assets/sphere_with_integral_eye.obj": "ef420947b5d22786dff04107ae36bfad3a9895451a04dbc15ca8601e386b9b78",
+    "config.yaml": "f8798bbf0b4b950d2c1abe351cf899646774a1505591677dcf2bf48596bce682",
+    "render.py": "d28ebb3644a5d6d15581d90a0eb1e5fc241eec3af66dae33df057fed69e75b54",
+    "render_spec.yaml": "95246a98d0931b1e7b86652d326e73e1c4dad854a0877a9f12a7ed12c0d1df29",
+    "run.py": "6ec6f564489da3dc98d9a34c837cb6f35763ba5ffe7e781dba2b3f1bd93a0deb",
+    "scene.py": "89237b44a2b32029f78a7c492e64c049bc1f0cfa05f8020cb76a3d3afd08c6ff",
+    "scene_geometry.yaml": "2b60c523aea8332c0b9484cb7fda9f54d83cbcce3828a9cafeb97cde73f45122"
+  },
+  "geometry_count": 528,
+  "state_samples": 526
+}

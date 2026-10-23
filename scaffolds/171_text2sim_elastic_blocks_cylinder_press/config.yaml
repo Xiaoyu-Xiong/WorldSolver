@@ -1,0 +1,108 @@
+scene_id: 171_text2sim_elastic_blocks_cylinder_press
+seed: 0
+duration: 10.0
+sample_dt: 0.04
+gravity:
+- 0
+- 0
+- -9.81
+source_sim_dt: 0.01
+source_sim_substeps: 1
+source_steps: 1000
+camera:
+  position:
+  - 0.7849866050575446
+  - -0.9914697139632415
+  - 0.695629332615916
+  look_at:
+  - 0.00033980607986450195
+  - -0.0003369152545928955
+  - 0.145
+  up:
+  - 0.0
+  - 0.0
+  - 1.0
+  yfov_degrees: 38.0
+  width: 640
+  height: 480
+  fps: 25
+  near: 0.02
+  far: 5.0
+extension:
+  origin: Text2Sim
+  published_worldsolver_task: false
+  source_case: soft_elastic_blocks_cylinder_press_rigid_soft_two_way
+  public_contract: assets/scene_contract.json
+render_materials:
+  cup:
+    type: glass
+    ior: 1.34
+    roughness: 0.025
+    transmission: 1.0
+    color_rgb:
+    - 0.89
+    - 0.96
+    - 1.0
+  press_mount_bookkeeping_collision:
+    color_rgb:
+    - 0.43
+    - 0.49
+    - 0.58
+    roughness: 0.3
+  slide_carriage_collision:
+    color_rgb:
+    - 0.43
+    - 0.49
+    - 0.58
+    roughness: 0.3
+  piston_disk_collision:
+    color_rgb:
+    - 0.43
+    - 0.49
+    - 0.58
+    roughness: 0.3
+  piston_rod_collision:
+    color_rgb:
+    - 0.43
+    - 0.49
+    - 0.58
+    roughness: 0.3
+luisa_lights:
+- name: warm_soft_key
+  pos:
+  - 3.8
+  - -4.5
+  - 6.5
+  color:
+  - 1.0
+  - 0.82
+  - 0.68
+  intensity: 12.5
+  radius: 1.35
+- name: cool_soft_fill
+  pos:
+  - -4.2
+  - -6.5
+  - 4.8
+  color:
+  - 0.68
+  - 0.8
+  - 1.0
+  intensity: 4.6
+  radius: 1.2
+- name: neutral_rim
+  pos:
+  - 4.6
+  - 3.8
+  - 7.5
+  color:
+  - 0.94
+  - 0.97
+  - 1.0
+  intensity: 8.2
+  radius: 0.95
+luisa_environment_color:
+- 0.48
+- 0.5
+- 0.53
+physics_contract_reference: assets/scene_contract.json

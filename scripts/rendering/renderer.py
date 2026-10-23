@@ -720,6 +720,7 @@ def render_trajectory(
     *,
     render_spec_path: Path | None = None,
     geometry_path: Path | None = None,
+    backend: str | None = None,
 ) -> None:
     config = load_yaml(config_path)
     camera = config.get("camera", {})
@@ -731,6 +732,18 @@ def render_trajectory(
         candidate = config_path.with_name("scene_geometry.yaml")
         geometry_path = candidate if candidate.is_file() else None
     geometry = load_scene_geometry(geometry_path)
+    renderer_options = config.get("renderer", {})
+    configured_backend = renderer_options if isinstance(renderer_options, str) else renderer_options.get("backend")
+    backend = backend or os.environ.get("WORLDSOLVER_RENDERER") or configured_backend or "luisa"
+    if backend == "luisa":
+        from .luisa_renderer import render_trajectory_luisa
+
+        render_trajectory_luisa(
+            trajectory, config, destination, spec=spec, geometry=geometry, asset_root=config_path.parent
+        )
+        return
+    if backend != "pyrender":
+        raise ValueError(f"Unknown rendering backend {backend!r}; choose luisa or pyrender")
     _configure_opengl_platform()
     import pyrender  # type: ignore[import-untyped]
 
@@ -740,7 +753,7 @@ def render_trajectory(
         point_size=float(camera.get("point_radius", 4)) * 2.0,
     )
     try:
-        frames = [
+        frames = (
             _render_opengl(
                 frame,
                 camera,
@@ -750,10 +763,10 @@ def render_trajectory(
                 geometry=geometry,
             )
             for frame in TrajectoryReader(trajectory)
-        ]
+        )
+        write_video(destination, frames, int(camera.get("fps", 30)))
     finally:
         renderer.delete()
-    write_video(destination, frames, int(camera.get("fps", 30)))
 
 
 def scene_render_main() -> int:
@@ -763,6 +776,7 @@ def scene_render_main() -> int:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--render-spec", type=Path, default=None)
     parser.add_argument("--geometry", type=Path, default=None)
+    parser.add_argument("--renderer", choices=("luisa", "pyrender"), default=None)
     arguments = parser.parse_args()
     render_trajectory(
         arguments.trajectory,
@@ -770,6 +784,7 @@ def scene_render_main() -> int:
         arguments.output,
         render_spec_path=arguments.render_spec,
         geometry_path=arguments.geometry,
+        backend=arguments.renderer,
     )
     return 0
 

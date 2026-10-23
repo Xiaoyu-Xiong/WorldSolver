@@ -1,0 +1,1397 @@
+{
+  "version": 1,
+  "source_case": "soft_twisting_rod_bundle_self_contact_deformable",
+  "task_id": "169_text2sim_twisting_rod_bundle",
+  "representation": "World-space FEM nodes and rigid geometric-origin samples, orientation xyzw.",
+  "geometry_is_frozen": true,
+  "initial_velocity": "All dynamic actors initially at rest.",
+  "bodies": [
+    {
+      "id": 0,
+      "name": "rod_coral",
+      "kind": "volumetric_deformable",
+      "fixed": false,
+      "rest_asset": "assets/rod_coral.npz",
+      "node_count": 4232,
+      "tet_count": 19172,
+      "face_count": 4418,
+      "mass": 0.9223797807893916,
+      "material": {
+        "model": "stable_neohookean",
+        "youngs_modulus": 200000.0,
+        "poisson_ratio": 0.35,
+        "density": 1000,
+        "friction": 0.45,
+        "contact_resistance": 10000000.0,
+        "energy_definition": "material_constitutive_law"
+      },
+      "endpoint_constraints": {
+        "nodes": {
+          "left": [
+            0,
+            1,
+            3,
+            5,
+            6,
+            10,
+            12,
+            13,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            29,
+            31,
+            34,
+            36,
+            38,
+            41,
+            44,
+            48,
+            53,
+            57,
+            60,
+            1696,
+            1697,
+            2114,
+            2115,
+            2715,
+            2716,
+            3103,
+            3104,
+            3330,
+            3775,
+            3911,
+            3980,
+            3981,
+            4007,
+            4215
+          ],
+          "right": [
+            2,
+            4,
+            7,
+            8,
+            9,
+            11,
+            15,
+            17,
+            19,
+            21,
+            23,
+            25,
+            27,
+            28,
+            30,
+            32,
+            33,
+            35,
+            37,
+            40,
+            43,
+            47,
+            52,
+            59,
+            61,
+            877,
+            1217,
+            1302,
+            1303,
+            1304,
+            1546,
+            1576,
+            1904,
+            2353,
+            2412,
+            2587,
+            2706,
+            2901,
+            2938,
+            2939,
+            3068,
+            3099,
+            3189,
+            3214,
+            3229,
+            3278,
+            3336,
+            3353,
+            3427,
+            3449,
+            3810,
+            3923,
+            3931,
+            4040,
+            4066,
+            4189,
+            4217
+          ]
+        },
+        "stiffness": 100000.0,
+        "type": "one_way_finite_stiffness_link_targets",
+        "left_link": "left_rotor_link",
+        "right_link": "right_rotor_link",
+        "stiffness_argument_semantics": "Legacy stiffness=1e5 is the source API argument. Under IPC it is dimensionless strength_ratio, not a uniform spring stiffness in N/m.",
+        "strength_ratio": 100000.0,
+        "source_reference_step_seconds": 0.01,
+        "source_incremental_potential": "0.5*strength_ratio*m_i*||x_i-target_i||^2; the inertial potential is 0.5*m_i*||x_i-x_predict_i||^2 and physical strain/contact potentials are multiplied by dt^2.",
+        "equivalent_reference_spring_stiffness": "k_i = strength_ratio*m_i/(0.01^2) N/m, using the frozen tetrahedral lumped vertex mass. This is a per-node mass-scaled finite penalty, not k=1e5 N/m.",
+        "step_change_rule": "For physical force integration use the reference k_i above. For an inertia-scaled incremental potential at a different internal step h use strength_ratio_h=strength_ratio*(h/0.01)^2.",
+        "target_motion": "Targets follow the current finite-mass rotor-link pose; retain each initial vertex position in that link frame. They are not prescribed controller-target poses.",
+        "one_way_semantics": "The endpoint target penalty acts on the FEM vertices only, as in the source. Rod-clamp collision transfers equal-and-opposite contact loads to the finite-mass articulation.",
+        "source_evidence": [
+          "genesis/engine/entities/fem_entity.py:FEMEntity.set_vertex_constraints",
+          "genesis/engine/couplers/ipc_coupler/coupler.py:_update_fem_vertex_constraint_targets",
+          "libuipc/src/backends/cuda/finite_element/constraints/soft_position_constraint.cu"
+        ]
+      }
+    },
+    {
+      "id": 1,
+      "name": "rod_teal",
+      "kind": "volumetric_deformable",
+      "fixed": false,
+      "rest_asset": "assets/rod_teal.npz",
+      "node_count": 4322,
+      "tet_count": 19751,
+      "face_count": 4438,
+      "mass": 0.9223796617963007,
+      "material": {
+        "model": "stable_neohookean",
+        "youngs_modulus": 200000.0,
+        "poisson_ratio": 0.35,
+        "density": 1000,
+        "friction": 0.45,
+        "contact_resistance": 10000000.0,
+        "energy_definition": "material_constitutive_law"
+      },
+      "endpoint_constraints": {
+        "nodes": {
+          "left": [
+            0,
+            1,
+            3,
+            5,
+            6,
+            10,
+            12,
+            13,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            29,
+            31,
+            34,
+            36,
+            38,
+            41,
+            44,
+            48,
+            53,
+            57,
+            60,
+            1939,
+            1946,
+            1992,
+            2350,
+            2351,
+            2441,
+            2709,
+            2827,
+            3159,
+            3270,
+            3517,
+            3775,
+            3832,
+            3899,
+            3956,
+            4234,
+            4250
+          ],
+          "right": [
+            2,
+            4,
+            7,
+            8,
+            9,
+            11,
+            15,
+            17,
+            19,
+            21,
+            23,
+            25,
+            27,
+            28,
+            30,
+            32,
+            33,
+            35,
+            37,
+            40,
+            43,
+            47,
+            52,
+            59,
+            61,
+            877,
+            1217,
+            1302,
+            1303,
+            1304,
+            1547,
+            1565,
+            1745,
+            1769,
+            1943,
+            2404,
+            2626,
+            2663,
+            2724,
+            2753,
+            3127,
+            3137,
+            3195,
+            3323,
+            3667,
+            3800,
+            3908,
+            4024,
+            4139,
+            4263,
+            4280
+          ]
+        },
+        "stiffness": 100000.0,
+        "type": "one_way_finite_stiffness_link_targets",
+        "left_link": "left_rotor_link",
+        "right_link": "right_rotor_link",
+        "stiffness_argument_semantics": "Legacy stiffness=1e5 is the source API argument. Under IPC it is dimensionless strength_ratio, not a uniform spring stiffness in N/m.",
+        "strength_ratio": 100000.0,
+        "source_reference_step_seconds": 0.01,
+        "source_incremental_potential": "0.5*strength_ratio*m_i*||x_i-target_i||^2; the inertial potential is 0.5*m_i*||x_i-x_predict_i||^2 and physical strain/contact potentials are multiplied by dt^2.",
+        "equivalent_reference_spring_stiffness": "k_i = strength_ratio*m_i/(0.01^2) N/m, using the frozen tetrahedral lumped vertex mass. This is a per-node mass-scaled finite penalty, not k=1e5 N/m.",
+        "step_change_rule": "For physical force integration use the reference k_i above. For an inertia-scaled incremental potential at a different internal step h use strength_ratio_h=strength_ratio*(h/0.01)^2.",
+        "target_motion": "Targets follow the current finite-mass rotor-link pose; retain each initial vertex position in that link frame. They are not prescribed controller-target poses.",
+        "one_way_semantics": "The endpoint target penalty acts on the FEM vertices only, as in the source. Rod-clamp collision transfers equal-and-opposite contact loads to the finite-mass articulation.",
+        "source_evidence": [
+          "genesis/engine/entities/fem_entity.py:FEMEntity.set_vertex_constraints",
+          "genesis/engine/couplers/ipc_coupler/coupler.py:_update_fem_vertex_constraint_targets",
+          "libuipc/src/backends/cuda/finite_element/constraints/soft_position_constraint.cu"
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "name": "rod_gold",
+      "kind": "volumetric_deformable",
+      "fixed": false,
+      "rest_asset": "assets/rod_gold.npz",
+      "node_count": 4265,
+      "tet_count": 19519,
+      "face_count": 4372,
+      "mass": 0.9223796613490514,
+      "material": {
+        "model": "stable_neohookean",
+        "youngs_modulus": 200000.0,
+        "poisson_ratio": 0.35,
+        "density": 1000,
+        "friction": 0.45,
+        "contact_resistance": 10000000.0,
+        "energy_definition": "material_constitutive_law"
+      },
+      "endpoint_constraints": {
+        "nodes": {
+          "left": [
+            0,
+            1,
+            3,
+            5,
+            6,
+            10,
+            12,
+            13,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            29,
+            31,
+            34,
+            36,
+            38,
+            41,
+            44,
+            48,
+            53,
+            57,
+            60,
+            1842,
+            2077,
+            2660,
+            2767,
+            2827,
+            2869,
+            3013,
+            3062,
+            3074,
+            3365,
+            3389,
+            3418,
+            3601,
+            4010,
+            4131,
+            4191
+          ],
+          "right": [
+            2,
+            4,
+            7,
+            8,
+            9,
+            11,
+            15,
+            17,
+            19,
+            21,
+            23,
+            25,
+            27,
+            28,
+            30,
+            32,
+            33,
+            35,
+            37,
+            40,
+            43,
+            47,
+            52,
+            59,
+            61,
+            877,
+            1217,
+            1302,
+            1303,
+            1304,
+            1544,
+            1571,
+            1627,
+            1752,
+            1947,
+            2306,
+            2623,
+            2790,
+            2819,
+            2982,
+            3202,
+            3356,
+            3453,
+            3478,
+            3774,
+            3885,
+            4028,
+            4036,
+            4199,
+            4200
+          ]
+        },
+        "stiffness": 100000.0,
+        "type": "one_way_finite_stiffness_link_targets",
+        "left_link": "left_rotor_link",
+        "right_link": "right_rotor_link",
+        "stiffness_argument_semantics": "Legacy stiffness=1e5 is the source API argument. Under IPC it is dimensionless strength_ratio, not a uniform spring stiffness in N/m.",
+        "strength_ratio": 100000.0,
+        "source_reference_step_seconds": 0.01,
+        "source_incremental_potential": "0.5*strength_ratio*m_i*||x_i-target_i||^2; the inertial potential is 0.5*m_i*||x_i-x_predict_i||^2 and physical strain/contact potentials are multiplied by dt^2.",
+        "equivalent_reference_spring_stiffness": "k_i = strength_ratio*m_i/(0.01^2) N/m, using the frozen tetrahedral lumped vertex mass. This is a per-node mass-scaled finite penalty, not k=1e5 N/m.",
+        "step_change_rule": "For physical force integration use the reference k_i above. For an inertia-scaled incremental potential at a different internal step h use strength_ratio_h=strength_ratio*(h/0.01)^2.",
+        "target_motion": "Targets follow the current finite-mass rotor-link pose; retain each initial vertex position in that link frame. They are not prescribed controller-target poses.",
+        "one_way_semantics": "The endpoint target penalty acts on the FEM vertices only, as in the source. Rod-clamp collision transfers equal-and-opposite contact loads to the finite-mass articulation.",
+        "source_evidence": [
+          "genesis/engine/entities/fem_entity.py:FEMEntity.set_vertex_constraints",
+          "genesis/engine/couplers/ipc_coupler/coupler.py:_update_fem_vertex_constraint_targets",
+          "libuipc/src/backends/cuda/finite_element/constraints/soft_position_constraint.cu"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "name": "fixed_base_bookkeeping_cube",
+      "kind": "rigid",
+      "fixed": true,
+      "mass": 8.000000000000001e-06,
+      "initial_position": [
+        0.0,
+        0.0,
+        2.2
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "articulation_link": "dual_end_twist_clamp_rig_base",
+      "joint_ancestors": [],
+      "geom_local_position": [
+        0.0,
+        0.0,
+        1.5
+      ],
+      "source_geom_attributes": {
+        "name": "fixed_base_bookkeeping_cube",
+        "type": "box",
+        "pos": "0 0 1.5",
+        "size": "0.001 0.001 0.001",
+        "material": "bookkeeping_dark",
+        "density": "1000",
+        "contype": "1",
+        "conaffinity": "1"
+      },
+      "friction": 0.6,
+      "coup_friction": 0.55,
+      "coup_restitution": 0.0,
+      "contact_resistance": 10000000.0,
+      "effective_contact_friction": 0.55
+    },
+    {
+      "id": 4,
+      "name": "left_axial_carriage_geom",
+      "kind": "rigid",
+      "fixed": false,
+      "mass": 0.21059999999999998,
+      "initial_position": [
+        -0.4525,
+        0.0,
+        0.7
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "articulation_link": "left_axial_carriage",
+      "joint_ancestors": [
+        "left_axial_joint"
+      ],
+      "geom_local_position": [
+        -0.0925,
+        0.0,
+        0.0
+      ],
+      "source_geom_attributes": {
+        "name": "left_axial_carriage_geom",
+        "type": "box",
+        "pos": "-0.0925 0 0",
+        "size": "0.0075 0.13 0.015",
+        "material": "housing_satin",
+        "density": "1800",
+        "contype": "1",
+        "conaffinity": "1"
+      },
+      "friction": 0.6,
+      "coup_friction": 0.55,
+      "coup_restitution": 0.0,
+      "contact_resistance": 10000000.0,
+      "effective_contact_friction": 0.55
+    },
+    {
+      "id": 5,
+      "name": "left_lateral_stage_geom",
+      "kind": "rigid",
+      "fixed": false,
+      "mass": 0.0756,
+      "initial_position": [
+        -0.42,
+        0.0,
+        0.7
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "articulation_link": "left_lateral_stage",
+      "joint_ancestors": [
+        "left_axial_joint",
+        "left_lateral_joint"
+      ],
+      "geom_local_position": [
+        -0.06,
+        0.0,
+        0.0
+      ],
+      "source_geom_attributes": {
+        "name": "left_lateral_stage_geom",
+        "type": "box",
+        "pos": "-0.06 0 0",
+        "size": "0.005 0.105 0.01",
+        "material": "stage_satin",
+        "density": "1800",
+        "contype": "1",
+        "conaffinity": "1"
+      },
+      "friction": 0.6,
+      "coup_friction": 0.55,
+      "coup_restitution": 0.0,
+      "contact_resistance": 10000000.0,
+      "effective_contact_friction": 0.55
+    },
+    {
+      "id": 6,
+      "name": "left_rotor_support_geom",
+      "kind": "rigid",
+      "fixed": false,
+      "mass": 0.11196636217394022,
+      "initial_position": [
+        -0.391,
+        0.0,
+        0.7
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.7071067811865476,
+        0.0,
+        0.7071067811865476
+      ],
+      "articulation_link": "left_rotor_link",
+      "joint_ancestors": [
+        "left_axial_joint",
+        "left_lateral_joint",
+        "left_twist_joint"
+      ],
+      "geom_local_position": [
+        -0.031,
+        0.0,
+        0.0
+      ],
+      "source_geom_attributes": {
+        "name": "left_rotor_support_geom",
+        "type": "cylinder",
+        "pos": "-0.031 0 0",
+        "size": "0.045 0.004",
+        "quat": "0.7071067811865476 0 0.7071067811865476 0",
+        "material": "rotor_satin",
+        "density": "2200",
+        "contype": "1",
+        "conaffinity": "1"
+      },
+      "friction": 0.6,
+      "coup_friction": 0.55,
+      "coup_restitution": 0.0,
+      "contact_resistance": 10000000.0,
+      "effective_contact_friction": 0.55
+    },
+    {
+      "id": 7,
+      "name": "left_pod_1_geom",
+      "kind": "rigid",
+      "fixed": false,
+      "mass": 0.02304,
+      "initial_position": [
+        -0.36,
+        0.03,
+        0.7
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "articulation_link": "left_rotor_link",
+      "joint_ancestors": [
+        "left_axial_joint",
+        "left_lateral_joint",
+        "left_twist_joint"
+      ],
+      "geom_local_position": [
+        0.0,
+        0.03,
+        0.0
+      ],
+      "source_geom_attributes": {
+        "name": "left_pod_1_geom",
+        "type": "box",
+        "pos": "0 0.03 0",
+        "size": "0.012 0.01 0.01",
+        "material": "rod_1_accent",
+        "density": "2400",
+        "contype": "1",
+        "conaffinity": "1"
+      },
+      "friction": 0.6,
+      "coup_friction": 0.55,
+      "coup_restitution": 0.0,
+      "contact_resistance": 10000000.0,
+      "effective_contact_friction": 0.55
+    },
+    {
+      "id": 8,
+      "name": "left_pod_2_geom",
+      "kind": "rigid",
+      "fixed": false,
+      "mass": 0.02304,
+      "initial_position": [
+        -0.36,
+        -0.015,
+        0.7259807621134999
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "articulation_link": "left_rotor_link",
+      "joint_ancestors": [
+        "left_axial_joint",
+        "left_lateral_joint",
+        "left_twist_joint"
+      ],
+      "geom_local_position": [
+        0.0,
+        -0.015,
+        0.0259807621135
+      ],
+      "source_geom_attributes": {
+        "name": "left_pod_2_geom",
+        "type": "box",
+        "pos": "0 -0.015 0.0259807621135",
+        "size": "0.012 0.01 0.01",
+        "material": "rod_2_accent",
+        "density": "2400",
+        "contype": "1",
+        "conaffinity": "1"
+      },
+      "friction": 0.6,
+      "coup_friction": 0.55,
+      "coup_restitution": 0.0,
+      "contact_resistance": 10000000.0,
+      "effective_contact_friction": 0.55
+    },
+    {
+      "id": 9,
+      "name": "left_pod_3_geom",
+      "kind": "rigid",
+      "fixed": false,
+      "mass": 0.02304,
+      "initial_position": [
+        -0.36,
+        -0.015,
+        0.6740192378865
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "articulation_link": "left_rotor_link",
+      "joint_ancestors": [
+        "left_axial_joint",
+        "left_lateral_joint",
+        "left_twist_joint"
+      ],
+      "geom_local_position": [
+        0.0,
+        -0.015,
+        -0.0259807621135
+      ],
+      "source_geom_attributes": {
+        "name": "left_pod_3_geom",
+        "type": "box",
+        "pos": "0 -0.015 -0.0259807621135",
+        "size": "0.012 0.01 0.01",
+        "material": "rod_3_accent",
+        "density": "2400",
+        "contype": "1",
+        "conaffinity": "1"
+      },
+      "friction": 0.6,
+      "coup_friction": 0.55,
+      "coup_restitution": 0.0,
+      "contact_resistance": 10000000.0,
+      "effective_contact_friction": 0.55
+    },
+    {
+      "id": 10,
+      "name": "right_axial_carriage_geom",
+      "kind": "rigid",
+      "fixed": false,
+      "mass": 0.21059999999999998,
+      "initial_position": [
+        0.4525,
+        0.0,
+        0.7
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "articulation_link": "right_axial_carriage",
+      "joint_ancestors": [
+        "right_axial_joint"
+      ],
+      "geom_local_position": [
+        0.0925,
+        0.0,
+        0.0
+      ],
+      "source_geom_attributes": {
+        "name": "right_axial_carriage_geom",
+        "type": "box",
+        "pos": "0.0925 0 0",
+        "size": "0.0075 0.13 0.015",
+        "material": "housing_satin",
+        "density": "1800",
+        "contype": "1",
+        "conaffinity": "1"
+      },
+      "friction": 0.6,
+      "coup_friction": 0.55,
+      "coup_restitution": 0.0,
+      "contact_resistance": 10000000.0,
+      "effective_contact_friction": 0.55
+    },
+    {
+      "id": 11,
+      "name": "right_lateral_stage_geom",
+      "kind": "rigid",
+      "fixed": false,
+      "mass": 0.0756,
+      "initial_position": [
+        0.42,
+        0.0,
+        0.7
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "articulation_link": "right_lateral_stage",
+      "joint_ancestors": [
+        "right_axial_joint",
+        "right_lateral_joint"
+      ],
+      "geom_local_position": [
+        0.06,
+        0.0,
+        0.0
+      ],
+      "source_geom_attributes": {
+        "name": "right_lateral_stage_geom",
+        "type": "box",
+        "pos": "0.06 0 0",
+        "size": "0.005 0.105 0.01",
+        "material": "stage_satin",
+        "density": "1800",
+        "contype": "1",
+        "conaffinity": "1"
+      },
+      "friction": 0.6,
+      "coup_friction": 0.55,
+      "coup_restitution": 0.0,
+      "contact_resistance": 10000000.0,
+      "effective_contact_friction": 0.55
+    },
+    {
+      "id": 12,
+      "name": "right_rotor_support_geom",
+      "kind": "rigid",
+      "fixed": false,
+      "mass": 0.11196636217394022,
+      "initial_position": [
+        0.391,
+        0.0,
+        0.7
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.7071067811865476,
+        0.0,
+        0.7071067811865476
+      ],
+      "articulation_link": "right_rotor_link",
+      "joint_ancestors": [
+        "right_axial_joint",
+        "right_lateral_joint",
+        "right_twist_joint"
+      ],
+      "geom_local_position": [
+        0.031,
+        0.0,
+        0.0
+      ],
+      "source_geom_attributes": {
+        "name": "right_rotor_support_geom",
+        "type": "cylinder",
+        "pos": "0.031 0 0",
+        "size": "0.045 0.004",
+        "quat": "0.7071067811865476 0 0.7071067811865476 0",
+        "material": "rotor_satin",
+        "density": "2200",
+        "contype": "1",
+        "conaffinity": "1"
+      },
+      "friction": 0.6,
+      "coup_friction": 0.55,
+      "coup_restitution": 0.0,
+      "contact_resistance": 10000000.0,
+      "effective_contact_friction": 0.55
+    },
+    {
+      "id": 13,
+      "name": "right_pod_1_geom",
+      "kind": "rigid",
+      "fixed": false,
+      "mass": 0.02304,
+      "initial_position": [
+        0.36,
+        0.03,
+        0.7
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "articulation_link": "right_rotor_link",
+      "joint_ancestors": [
+        "right_axial_joint",
+        "right_lateral_joint",
+        "right_twist_joint"
+      ],
+      "geom_local_position": [
+        0.0,
+        0.03,
+        0.0
+      ],
+      "source_geom_attributes": {
+        "name": "right_pod_1_geom",
+        "type": "box",
+        "pos": "0 0.03 0",
+        "size": "0.012 0.01 0.01",
+        "material": "rod_1_accent",
+        "density": "2400",
+        "contype": "1",
+        "conaffinity": "1"
+      },
+      "friction": 0.6,
+      "coup_friction": 0.55,
+      "coup_restitution": 0.0,
+      "contact_resistance": 10000000.0,
+      "effective_contact_friction": 0.55
+    },
+    {
+      "id": 14,
+      "name": "right_pod_2_geom",
+      "kind": "rigid",
+      "fixed": false,
+      "mass": 0.02304,
+      "initial_position": [
+        0.36,
+        -0.015,
+        0.7259807621134999
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "articulation_link": "right_rotor_link",
+      "joint_ancestors": [
+        "right_axial_joint",
+        "right_lateral_joint",
+        "right_twist_joint"
+      ],
+      "geom_local_position": [
+        0.0,
+        -0.015,
+        0.0259807621135
+      ],
+      "source_geom_attributes": {
+        "name": "right_pod_2_geom",
+        "type": "box",
+        "pos": "0 -0.015 0.0259807621135",
+        "size": "0.012 0.01 0.01",
+        "material": "rod_2_accent",
+        "density": "2400",
+        "contype": "1",
+        "conaffinity": "1"
+      },
+      "friction": 0.6,
+      "coup_friction": 0.55,
+      "coup_restitution": 0.0,
+      "contact_resistance": 10000000.0,
+      "effective_contact_friction": 0.55
+    },
+    {
+      "id": 15,
+      "name": "right_pod_3_geom",
+      "kind": "rigid",
+      "fixed": false,
+      "mass": 0.02304,
+      "initial_position": [
+        0.36,
+        -0.015,
+        0.6740192378865
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "articulation_link": "right_rotor_link",
+      "joint_ancestors": [
+        "right_axial_joint",
+        "right_lateral_joint",
+        "right_twist_joint"
+      ],
+      "geom_local_position": [
+        0.0,
+        -0.015,
+        -0.0259807621135
+      ],
+      "source_geom_attributes": {
+        "name": "right_pod_3_geom",
+        "type": "box",
+        "pos": "0 -0.015 -0.0259807621135",
+        "size": "0.012 0.01 0.01",
+        "material": "rod_3_accent",
+        "density": "2400",
+        "contype": "1",
+        "conaffinity": "1"
+      },
+      "friction": 0.6,
+      "coup_friction": 0.55,
+      "coup_restitution": 0.0,
+      "contact_resistance": 10000000.0,
+      "effective_contact_friction": 0.55
+    },
+    {
+      "id": 16,
+      "name": "genesis_static_floor",
+      "kind": "rigid",
+      "fixed": true,
+      "mass": 1.0,
+      "initial_position": [
+        0,
+        0,
+        0
+      ],
+      "initial_orientation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "friction": 0.45,
+      "physical_geometry": {
+        "type": "infinite_plane",
+        "normal": [
+          0,
+          0,
+          1
+        ],
+        "offset": 0
+      },
+      "visual_size": [
+        8,
+        6
+      ],
+      "coup_friction": 0.45,
+      "coup_restitution": 0.0,
+      "contact_resistance": 10000000.0,
+      "effective_contact_friction": 0.45
+    }
+  ],
+  "physics": {
+    "friction": 0.3,
+    "tet_resolution": 2,
+    "fem_max_scene_tets": 700000,
+    "genesis_precision": "32",
+    "fem_density_default": 1000.0,
+    "fem_density_min": 300.0,
+    "fem_density_max": 3000.0,
+    "fem_youngs_modulus_default": 100000.0,
+    "fem_youngs_modulus_min": 10000.0,
+    "fem_youngs_modulus_max": 5000000.0,
+    "fem_poisson_ratio_default": 0.35,
+    "fem_poisson_ratio_min": 0.0,
+    "fem_poisson_ratio_max": 0.45,
+    "fem_model": "stable_neohookean",
+    "fem_hydroelastic_modulus": 10000000.0,
+    "fem_contact_resistance": null,
+    "fem_hessian_invariant": false,
+    "fem_cloth_enabled": true,
+    "cloth_density_default": 200.0,
+    "cloth_density_min": 50.0,
+    "cloth_density_max": 1000.0,
+    "cloth_youngs_modulus_default": 10000.0,
+    "cloth_youngs_modulus_min": 1000.0,
+    "cloth_youngs_modulus_max": 1000000.0,
+    "cloth_poisson_ratio_default": 0.48,
+    "cloth_poisson_ratio_min": 0.0,
+    "cloth_poisson_ratio_max": 0.499,
+    "cloth_thickness_default": 0.001,
+    "cloth_thickness_min": 0.0002,
+    "cloth_thickness_max": 0.01,
+    "cloth_bending_stiffness_default": 3.0,
+    "cloth_bending_stiffness_min": 0.0,
+    "cloth_bending_stiffness_max": 300.0,
+    "cloth_friction_mu_default": 0.5,
+    "cloth_grid_resolution_default": 20,
+    "cloth_target_edge_length_default": 0.01,
+    "cloth_max_faces": 20000,
+    "enabled": true,
+    "ipc_newton_max_iterations": null,
+    "ipc_newton_min_iterations": 2,
+    "ipc_newton_tolerance": null,
+    "ipc_newton_ccd_tolerance": null,
+    "ipc_newton_use_adaptive_tolerance": true,
+    "ipc_newton_translation_tolerance": null,
+    "ipc_newton_semi_implicit_enable": null,
+    "ipc_newton_semi_implicit_beta_tolerance": null,
+    "ipc_n_linesearch_iterations": null,
+    "ipc_linesearch_report_energy": null,
+    "ipc_linear_system_solver": "fused_pcg",
+    "ipc_linear_system_tolerance": null,
+    "ipc_contact_enable": null,
+    "ipc_contact_d_hat": 0.0004,
+    "ipc_contact_d_hat_adaptive": true,
+    "ipc_contact_friction_enable": true,
+    "ipc_contact_resistance_default": 10000000.0,
+    "ipc_contact_resistance_min": 3000000.0,
+    "ipc_contact_resistance_max": 100000000.0,
+    "ipc_contact_eps_velocity": 0.01,
+    "ipc_contact_constitution": "ipc",
+    "ipc_collision_detection_method": "info_stackless_bvh",
+    "ipc_cfl_enable": true,
+    "ipc_sanity_check_enable": true,
+    "ipc_constraint_strength_translation_default": 30,
+    "ipc_constraint_strength_translation_min": 10,
+    "ipc_constraint_strength_translation_max": 100,
+    "ipc_constraint_strength_rotation_default": 30,
+    "ipc_constraint_strength_rotation_min": 10,
+    "ipc_constraint_strength_rotation_max": 100,
+    "ipc_enable_rigid_ground_contact": false,
+    "ipc_enable_rigid_rigid_contact": true,
+    "ipc_two_way_coupling": true,
+    "ipc_enable_rigid_dofs_sync": true,
+    "ipc_free_base_driven_by_ipc": true,
+    "ipc_contact_resistance": 10000000.0,
+    "ipc_constraint_strength_translation": 30,
+    "ipc_constraint_strength_rotation": 30,
+    "ipc_enabled": true
+  },
+  "gravity": [
+    0,
+    0,
+    -9.81
+  ],
+  "simulation_time": {
+    "duration": 10.0,
+    "source_dt": 0.01,
+    "source_substeps": 1
+  },
+  "rules": [
+    "Keep every physical shape, count, initial transform, physical material and controller.",
+    "Numerical discretization/internal steps may change; remap outputs to frozen vertices.",
+    "Articulations are finite-mass dynamics with bounded force/torque actuation, not prescribed motion.",
+    "No existing physics engine, stored answer trajectory or source simulator is provided."
+  ],
+  "articulation": {
+    "asset": "assets/articulation.xml",
+    "root_translation": [
+      0,
+      0,
+      0.7
+    ],
+    "links": [
+      {
+        "name": "dual_end_twist_clamp_rig_base",
+        "parent": null,
+        "local_position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "joint": null,
+        "geometry_body_ids": [
+          3
+        ]
+      },
+      {
+        "name": "left_axial_carriage",
+        "parent": "dual_end_twist_clamp_rig_base",
+        "local_position": [
+          -0.36,
+          0.0,
+          0.0
+        ],
+        "joint": {
+          "name": "left_axial_joint",
+          "type": "slide",
+          "axis": "1 0 0",
+          "limited": "true",
+          "range": "0 0.055",
+          "damping": "35",
+          "armature": "0.01"
+        },
+        "geometry_body_ids": [
+          4
+        ]
+      },
+      {
+        "name": "left_lateral_stage",
+        "parent": "left_axial_carriage",
+        "local_position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "joint": {
+          "name": "left_lateral_joint",
+          "type": "slide",
+          "axis": "0 0 1",
+          "limited": "true",
+          "range": "-0.06 0.06",
+          "damping": "28",
+          "armature": "0.008"
+        },
+        "geometry_body_ids": [
+          5
+        ]
+      },
+      {
+        "name": "left_rotor_link",
+        "parent": "left_lateral_stage",
+        "local_position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "joint": {
+          "name": "left_twist_joint",
+          "type": "hinge",
+          "axis": "1 0 0",
+          "limited": "false",
+          "damping": "3.5",
+          "armature": "0.004"
+        },
+        "geometry_body_ids": [
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "name": "right_axial_carriage",
+        "parent": "dual_end_twist_clamp_rig_base",
+        "local_position": [
+          0.36,
+          0.0,
+          0.0
+        ],
+        "joint": {
+          "name": "right_axial_joint",
+          "type": "slide",
+          "axis": "-1 0 0",
+          "limited": "true",
+          "range": "0 0.055",
+          "damping": "35",
+          "armature": "0.01"
+        },
+        "geometry_body_ids": [
+          10
+        ]
+      },
+      {
+        "name": "right_lateral_stage",
+        "parent": "right_axial_carriage",
+        "local_position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "joint": {
+          "name": "right_lateral_joint",
+          "type": "slide",
+          "axis": "0 0 1",
+          "limited": "true",
+          "range": "-0.06 0.06",
+          "damping": "28",
+          "armature": "0.008"
+        },
+        "geometry_body_ids": [
+          11
+        ]
+      },
+      {
+        "name": "right_rotor_link",
+        "parent": "right_lateral_stage",
+        "local_position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "joint": {
+          "name": "right_twist_joint",
+          "type": "hinge",
+          "axis": "1 0 0",
+          "limited": "false",
+          "damping": "3.5",
+          "armature": "0.004"
+        },
+        "geometry_body_ids": [
+          12,
+          13,
+          14,
+          15
+        ]
+      }
+    ],
+    "body_samples": "Each geom has one sample at its own geometric center. Geoms on the same link form ONE rigid body, not independently moving bodies.",
+    "source_xml_actuators_overridden_by_public_controller": true
+  },
+  "fem_damping": 0.0,
+  "controller": {
+    "joint_order": [
+      "left_axial_joint",
+      "left_lateral_joint",
+      "left_twist_joint",
+      "right_axial_joint",
+      "right_lateral_joint",
+      "right_twist_joint"
+    ],
+    "initial_q": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "kp": [
+      420,
+      320,
+      20,
+      420,
+      320,
+      20
+    ],
+    "kv": [
+      36,
+      28,
+      1.6,
+      36,
+      28,
+      1.6
+    ],
+    "force_limit": [
+      18,
+      12,
+      4,
+      18,
+      12,
+      4
+    ],
+    "reference": "assets/prescribed_controls.py",
+    "law": "clip(kp*(q_target-q)+kv*(qd_target-qd), -force_limit, force_limit); also retain authored joint damping/armature.",
+    "phases": [
+      [
+        0,
+        1,
+        "settle"
+      ],
+      [
+        1,
+        6,
+        "opposed twist to +/-2pi"
+      ],
+      [
+        6,
+        7,
+        "compress to .026 and twist +/-6.65"
+      ],
+      [
+        7,
+        8,
+        "compress .030, lateral +/- .025, twist +/-6.8"
+      ],
+      [
+        8,
+        10,
+        "hold fixed targets"
+      ]
+    ]
+  },
+  "state_sample_count": 12831,
+  "contact_material_semantics": {
+    "friction_selection": "FEM: material.friction (source friction_mu). Rigid and plane: coup_friction. The legacy physics.friction is only a default, not a per-body override.",
+    "pair_friction": "mu_ij = sqrt(mu_i * mu_j)",
+    "pair_contact_resistance": "kappa_ij = 2*kappa_i*kappa_j/(kappa_i+kappa_j)",
+    "contact_resistance_fallback": 10000000.0,
+    "restitution": 0.0,
+    "restitution_note": "Source Rigid.coup_restitution is zero; IPC uses dissipative barrier/friction contact, with no added restitution impulse.",
+    "rigid_rigid_contact_enabled": true,
+    "rigid_infinite_plane_contact_enabled": false,
+    "finite_rigid_floor_note": "The plane flag concerns infinite planes only. A finite mesh/box floor is an ordinary rigid actor and uses the rigid-rigid flag.",
+    "source_evidence": [
+      "genesis/engine/couplers/ipc_coupler/coupler.py:_register_contact_pairs",
+      "genesis/engine/materials/rigid.py:Rigid.coup_restitution"
+    ],
+    "named_pair_friction": {
+      "rod_rod": 0.45,
+      "rod_floor": 0.45,
+      "rod_clamp": 0.49749371855331,
+      "clamp_clamp": 0.55,
+      "clamp_floor_disabled_by_source_plane_flag": 0.49749371855331
+    }
+  },
+  "material_constitutive_law": {
+    "model": "libuipc StableNeoHookean, logarithmic Ic variant",
+    "lame_parameters": "mu0=E/(2*(1+nu)); lambda0=E*nu/((1+nu)*(1-2*nu))",
+    "constitutive_parameters": "mu=4*mu0/3; lambda=lambda0+5*mu0/6; alpha=1+3*mu/(4*lambda)",
+    "invariants": "F=deformation gradient, Ic=trace(F.T@F), J=det(F)",
+    "energy_density": "psi(F)=0.5*lambda*(J-alpha)^2 + 0.5*mu*(Ic-3) - 0.5*mu*log(Ic+1), up to a constant",
+    "first_piola_stress": "P=mu*(1-1/(Ic+1))*F + lambda*(J-alpha)*cofactor(F)",
+    "parameter_scope": "Use each body material E and nu. This exact material law is frozen; numerical discretization and integration remain solver choices.",
+    "source_evidence": [
+      "libuipc/src/constitution/stable_neo_hookean.cpp:StableNeoHookean::apply_to",
+      "libuipc/src/backends/cuda/finite_element/constitutions/detail/stable_neo_hookean_3d.inl"
+    ]
+  },
+  "fem_damping_authored_option": 1.0,
+  "fem_damping_semantics": {
+    "effective_linear_velocity_damping": 0.0,
+    "explanation": "FEMOptions.damping is retained as provenance only. FEMSolver.substep_pre_coupling skips its FEM integrator under IPCCoupler; the IPC path does not apply this option. Preserve friction, authored joint damping, and numerical dissipation; do not add FEM velocity damping from the inactive option.",
+    "source_evidence": [
+      "genesis/engine/solvers/fem_solver.py:FEMSolver.substep_pre_coupling",
+      "genesis/engine/couplers/ipc_coupler/coupler.py:IPCCoupler.couple"
+    ]
+  },
+  "semantics_revision": "2026-10-23-source-material-and-constraint-clarification"
+}

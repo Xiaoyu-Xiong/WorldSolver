@@ -1,0 +1,657 @@
+{
+  "version": 1,
+  "source_case": "soft_elastic_blocks_cylinder_press_rigid_soft_two_way",
+  "task_id": "171_text2sim_elastic_blocks_cylinder_press",
+  "representation": "World-space FEM nodes and rigid geometric-origin samples, orientation xyzw.",
+  "geometry_is_frozen": true,
+  "initial_velocity": "All dynamic actors initially at rest.",
+  "bodies": [
+    {
+      "id": 0,
+      "name": "cup",
+      "kind": "rigid",
+      "fixed": true,
+      "mass": 1.0,
+      "initial_position": [
+        -3.287520000000432e-05,
+        -0.00034099840000001436,
+        0.072422896
+      ],
+      "initial_orientation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "friction": 0.6,
+      "density": 2500,
+      "coup_friction": 0.6,
+      "coup_restitution": 0.0,
+      "contact_resistance": 10000000.0,
+      "effective_contact_friction": 0.6
+    },
+    {
+      "id": 1,
+      "name": "press_mount_bookkeeping_collision",
+      "kind": "rigid",
+      "fixed": true,
+      "mass": 0.001,
+      "initial_position": [
+        0.34,
+        0.0,
+        0.96
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "articulation_link": "press_mount",
+      "joint_ancestors": [],
+      "geom_local_position": [
+        0.34,
+        0.0,
+        0.96
+      ],
+      "source_geom_attributes": {
+        "name": "press_mount_bookkeeping_collision",
+        "type": "sphere",
+        "pos": "0.34 0 0.96",
+        "size": "0.003",
+        "mass": "0.001",
+        "contype": "1",
+        "conaffinity": "1",
+        "condim": "3",
+        "friction": "0.6 0.01 0.001",
+        "material": "press_mount_dark"
+      },
+      "effective_contact_friction": 0.75,
+      "friction": 0.75,
+      "coup_friction": 0.75,
+      "coup_restitution": 0.0,
+      "contact_resistance": 10000000.0
+    },
+    {
+      "id": 2,
+      "name": "slide_carriage_collision",
+      "kind": "rigid",
+      "fixed": false,
+      "mass": 1.2,
+      "initial_position": [
+        0.0,
+        0.0,
+        0.946
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "articulation_link": "slide_carriage",
+      "joint_ancestors": [
+        "press_z"
+      ],
+      "geom_local_position": [
+        0.0,
+        0.0,
+        0.946
+      ],
+      "source_geom_attributes": {
+        "name": "slide_carriage_collision",
+        "type": "cylinder",
+        "pos": "0 0 0.946",
+        "size": "0.043 0.012",
+        "mass": "1.2",
+        "contype": "1",
+        "conaffinity": "1",
+        "condim": "6",
+        "friction": "0.7 0.02 0.002",
+        "material": "press_rod_dark_metal"
+      },
+      "effective_contact_friction": 0.75,
+      "friction": 0.75,
+      "coup_friction": 0.75,
+      "coup_restitution": 0.0,
+      "contact_resistance": 10000000.0
+    },
+    {
+      "id": 3,
+      "name": "piston_disk_collision",
+      "kind": "rigid",
+      "fixed": false,
+      "mass": 8.0,
+      "initial_position": [
+        0.0,
+        0.0,
+        0.3
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "articulation_link": "rotor_link",
+      "joint_ancestors": [
+        "press_z",
+        "press_spin"
+      ],
+      "geom_local_position": [
+        0.0,
+        0.0,
+        0.3
+      ],
+      "source_geom_attributes": {
+        "name": "piston_disk_collision",
+        "type": "cylinder",
+        "pos": "0 0 0.30",
+        "size": "0.245 0.014",
+        "mass": "8.0",
+        "contype": "1",
+        "conaffinity": "1",
+        "condim": "6",
+        "friction": "1.0 0.045 0.004",
+        "material": "press_disk_satin"
+      },
+      "effective_contact_friction": 0.75,
+      "friction": 0.75,
+      "coup_friction": 0.75,
+      "coup_restitution": 0.0,
+      "contact_resistance": 10000000.0
+    },
+    {
+      "id": 4,
+      "name": "piston_rod_collision",
+      "kind": "rigid",
+      "fixed": false,
+      "mass": 1.8,
+      "initial_position": [
+        0.0,
+        0.0,
+        0.622
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "articulation_link": "rotor_link",
+      "joint_ancestors": [
+        "press_z",
+        "press_spin"
+      ],
+      "geom_local_position": [
+        0.0,
+        0.0,
+        0.622
+      ],
+      "source_geom_attributes": {
+        "name": "piston_rod_collision",
+        "type": "cylinder",
+        "pos": "0 0 0.622",
+        "size": "0.024 0.308",
+        "mass": "1.8",
+        "contype": "1",
+        "conaffinity": "1",
+        "condim": "6",
+        "friction": "0.82 0.03 0.003",
+        "material": "press_rod_dark_metal"
+      },
+      "effective_contact_friction": 0.75,
+      "friction": 0.75,
+      "coup_friction": 0.75,
+      "coup_restitution": 0.0,
+      "contact_resistance": 10000000.0
+    },
+    {
+      "id": 5,
+      "name": "block_1",
+      "kind": "volumetric_deformable",
+      "fixed": false,
+      "rest_asset": "assets/block_1.npz",
+      "node_count": 1317,
+      "tet_count": 5746,
+      "face_count": 1400,
+      "mass": 1.7965498312614414,
+      "material": {
+        "model": "stable_neohookean",
+        "youngs_modulus": 20000.0,
+        "poisson_ratio": 0.35,
+        "density": 1000,
+        "friction": 0.65,
+        "contact_resistance": 10000000.0,
+        "energy_definition": "material_constitutive_law"
+      }
+    },
+    {
+      "id": 6,
+      "name": "block_2",
+      "kind": "volumetric_deformable",
+      "fixed": false,
+      "rest_asset": "assets/block_2.npz",
+      "node_count": 1317,
+      "tet_count": 5746,
+      "face_count": 1400,
+      "mass": 1.7965498153821886,
+      "material": {
+        "model": "stable_neohookean",
+        "youngs_modulus": 20000.0,
+        "poisson_ratio": 0.35,
+        "density": 1000,
+        "friction": 0.65,
+        "contact_resistance": 10000000.0,
+        "energy_definition": "material_constitutive_law"
+      }
+    },
+    {
+      "id": 7,
+      "name": "block_3",
+      "kind": "volumetric_deformable",
+      "fixed": false,
+      "rest_asset": "assets/block_3.npz",
+      "node_count": 1265,
+      "tet_count": 5603,
+      "face_count": 1306,
+      "mass": 1.7965497609216086,
+      "material": {
+        "model": "stable_neohookean",
+        "youngs_modulus": 20000.0,
+        "poisson_ratio": 0.35,
+        "density": 1000,
+        "friction": 0.65,
+        "contact_resistance": 10000000.0,
+        "energy_definition": "material_constitutive_law"
+      }
+    },
+    {
+      "id": 8,
+      "name": "block_4",
+      "kind": "volumetric_deformable",
+      "fixed": false,
+      "rest_asset": "assets/block_4.npz",
+      "node_count": 1181,
+      "tet_count": 5163,
+      "face_count": 1258,
+      "mass": 1.7965498070445076,
+      "material": {
+        "model": "stable_neohookean",
+        "youngs_modulus": 20000.0,
+        "poisson_ratio": 0.35,
+        "density": 1000,
+        "friction": 0.65,
+        "contact_resistance": 10000000.0,
+        "energy_definition": "material_constitutive_law"
+      }
+    }
+  ],
+  "physics": {
+    "friction": 0.3,
+    "tet_resolution": 2,
+    "fem_max_scene_tets": 700000,
+    "genesis_precision": "32",
+    "fem_density_default": 1000.0,
+    "fem_density_min": 300.0,
+    "fem_density_max": 3000.0,
+    "fem_youngs_modulus_default": 100000.0,
+    "fem_youngs_modulus_min": 10000.0,
+    "fem_youngs_modulus_max": 5000000.0,
+    "fem_poisson_ratio_default": 0.35,
+    "fem_poisson_ratio_min": 0.0,
+    "fem_poisson_ratio_max": 0.45,
+    "fem_model": "stable_neohookean",
+    "fem_hydroelastic_modulus": 10000000.0,
+    "fem_contact_resistance": null,
+    "fem_hessian_invariant": false,
+    "fem_cloth_enabled": true,
+    "cloth_density_default": 200.0,
+    "cloth_density_min": 50.0,
+    "cloth_density_max": 1000.0,
+    "cloth_youngs_modulus_default": 10000.0,
+    "cloth_youngs_modulus_min": 1000.0,
+    "cloth_youngs_modulus_max": 1000000.0,
+    "cloth_poisson_ratio_default": 0.48,
+    "cloth_poisson_ratio_min": 0.0,
+    "cloth_poisson_ratio_max": 0.499,
+    "cloth_thickness_default": 0.001,
+    "cloth_thickness_min": 0.0002,
+    "cloth_thickness_max": 0.01,
+    "cloth_bending_stiffness_default": 3.0,
+    "cloth_bending_stiffness_min": 0.0,
+    "cloth_bending_stiffness_max": 300.0,
+    "cloth_friction_mu_default": 0.5,
+    "cloth_grid_resolution_default": 20,
+    "cloth_target_edge_length_default": 0.01,
+    "cloth_max_faces": 20000,
+    "enabled": true,
+    "ipc_newton_max_iterations": null,
+    "ipc_newton_min_iterations": 2,
+    "ipc_newton_tolerance": null,
+    "ipc_newton_ccd_tolerance": null,
+    "ipc_newton_use_adaptive_tolerance": true,
+    "ipc_newton_translation_tolerance": null,
+    "ipc_newton_semi_implicit_enable": null,
+    "ipc_newton_semi_implicit_beta_tolerance": null,
+    "ipc_n_linesearch_iterations": null,
+    "ipc_linesearch_report_energy": null,
+    "ipc_linear_system_solver": "fused_pcg",
+    "ipc_linear_system_tolerance": null,
+    "ipc_contact_enable": null,
+    "ipc_contact_d_hat": 0.0012000000000000001,
+    "ipc_contact_d_hat_adaptive": true,
+    "ipc_contact_friction_enable": true,
+    "ipc_contact_resistance_default": 10000000.0,
+    "ipc_contact_resistance_min": 3000000.0,
+    "ipc_contact_resistance_max": 100000000.0,
+    "ipc_contact_eps_velocity": 0.01,
+    "ipc_contact_constitution": "ipc",
+    "ipc_collision_detection_method": "info_stackless_bvh",
+    "ipc_cfl_enable": true,
+    "ipc_sanity_check_enable": true,
+    "ipc_constraint_strength_translation_default": 30,
+    "ipc_constraint_strength_translation_min": 10,
+    "ipc_constraint_strength_translation_max": 100,
+    "ipc_constraint_strength_rotation_default": 30,
+    "ipc_constraint_strength_rotation_min": 10,
+    "ipc_constraint_strength_rotation_max": 100,
+    "ipc_enable_rigid_ground_contact": false,
+    "ipc_enable_rigid_rigid_contact": true,
+    "ipc_two_way_coupling": true,
+    "ipc_enable_rigid_dofs_sync": true,
+    "ipc_free_base_driven_by_ipc": true,
+    "ipc_contact_resistance": 10000000.0,
+    "ipc_constraint_strength_translation": 30,
+    "ipc_constraint_strength_rotation": 30,
+    "ipc_enabled": true
+  },
+  "gravity": [
+    0,
+    0,
+    -9.81
+  ],
+  "simulation_time": {
+    "duration": 10.0,
+    "source_dt": 0.01,
+    "source_substeps": 1
+  },
+  "rules": [
+    "Keep every physical shape, count, initial transform, physical material and controller.",
+    "Numerical discretization/internal steps may change; remap outputs to frozen vertices.",
+    "Articulations are finite-mass dynamics with bounded force/torque actuation, not prescribed motion.",
+    "No existing physics engine, stored answer trajectory or source simulator is provided."
+  ],
+  "articulation": {
+    "asset": "assets/articulation.xml",
+    "root_translation": [
+      0,
+      0,
+      0
+    ],
+    "links": [
+      {
+        "name": "press_mount",
+        "parent": null,
+        "local_position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "joint": null,
+        "geometry_body_ids": [
+          1
+        ]
+      },
+      {
+        "name": "slide_carriage",
+        "parent": "press_mount",
+        "local_position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "joint": {
+          "name": "press_z",
+          "type": "slide",
+          "pos": "0 0 0",
+          "axis": "0 0 1",
+          "limited": "true",
+          "range": "-0.24 0",
+          "damping": "120",
+          "armature": "0.04",
+          "frictionloss": "0.8"
+        },
+        "geometry_body_ids": [
+          2
+        ]
+      },
+      {
+        "name": "rotor_link",
+        "parent": "slide_carriage",
+        "local_position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "joint": {
+          "name": "press_spin",
+          "type": "hinge",
+          "pos": "0 0 0",
+          "axis": "0 0 1",
+          "limited": "true",
+          "range": "-25 25",
+          "damping": "0.4",
+          "armature": "0.035",
+          "frictionloss": "0.08"
+        },
+        "geometry_body_ids": [
+          3,
+          4
+        ]
+      }
+    ],
+    "body_samples": "Each geom has one sample at its own geometric center. Geoms on the same link form ONE rigid body, not independently moving bodies.",
+    "source_xml_actuators_overridden_by_public_controller": true
+  },
+  "fem_damping": 0.0,
+  "cup_geometry": {
+    "cavity_validation": {
+      "bounds_max": [
+        0.319795792,
+        0.3198372928,
+        0.131720736
+      ],
+      "bounds_min": [
+        -0.3197300416,
+        -0.319155296,
+        -0.072422896
+      ],
+      "detected_inner_radius": 0.29318276180866826,
+      "detected_outer_radius": 0.31949376279859243,
+      "detected_wall_thickness": 0.02631100098992417,
+      "extent": [
+        0.6395258336,
+        0.6389925888,
+        0.20414363200000002
+      ],
+      "inner_floor_top_offset": 0.028243399746969794,
+      "integral_flat_bottom_probes": true,
+      "open_top_and_unobstructed_center_probes": true,
+      "probe_hits": {
+        "+0.013,+0.017": [
+          -0.07230143005269926,
+          -0.044131998631433314
+        ],
+        "+0.043,+0.137": [
+          -0.07218530082616666,
+          -0.044216291242217085
+        ],
+        "+0.087,-0.041": [
+          -0.07220142373479403,
+          -0.04421902312759802
+        ],
+        "-0.119,+0.061": [
+          -0.07230956435196811,
+          -0.044150672010872416
+        ]
+      },
+      "straight_wall_band_present": true,
+      "triangle_count_inspected": 5024,
+      "vertex_count_inspected": 2514,
+      "wall_vertex_samples": 689
+    },
+    "collision": true,
+    "convexify": false,
+    "detected_inner_radius": 0.29318276180866826,
+    "detected_outer_radius": 0.31949376279859243,
+    "file_meshes_are_zup": false,
+    "height_diameter_ratio": 0.3193440601611155,
+    "inner_floor_top_z": 0.028243399746969794,
+    "inner_radius": 0.29118276180866826,
+    "integral_bottom_is_only_support": true,
+    "outer_base_z": 0.0,
+    "position": [
+      -3.287520000000432e-05,
+      -0.00034099840000001436,
+      0.072422896
+    ],
+    "relative_extent_errors": [
+      0.000740884999999962,
+      0.001574080000000047,
+      0.02071816000000004
+    ],
+    "requested_extent": [
+      0.64,
+      0.64,
+      0.2
+    ],
+    "scale": 0.32,
+    "volume": 0.013740719853117114,
+    "wall_top_z": 0.20414363200000002,
+    "world_extent": [
+      0.6395258336,
+      0.6389925888,
+      0.20414363200000002
+    ]
+  },
+  "controller": {
+    "type": "finite_force_serial_slide_and_spin",
+    "source": "assets/prescribed_controls.py",
+    "joint_names": [
+      "press_z",
+      "press_spin"
+    ],
+    "initial_q": [
+      0,
+      0
+    ],
+    "press_kp": 3000,
+    "press_kv_approach": 215,
+    "press_kv_loaded": 55,
+    "press_force_limit": 480,
+    "spin_kv": 18,
+    "spin_torque_limit": 28,
+    "working_z": -0.2133566002530302,
+    "home_z": 0,
+    "gravity_compensation": "Use actual total slide-descendant mass times 9.81; retain authored joint damping/armature/frictionloss.",
+    "velocity_filter_tau": 0.04,
+    "velocity_clamp": 0.45,
+    "controller_sample_dt": 0.01,
+    "free_space_target": "At t=1 use actual measured home z and actual settled block top. travel=min(.25*(home-working_z), .70*(.286+home-block_top-3*d_hat)); audit_z=home-travel.",
+    "phases": [
+      [
+        0,
+        1,
+        "settle/home"
+      ],
+      [
+        1,
+        1.7,
+        "free-space audit descent"
+      ],
+      [
+        1.7,
+        2,
+        "audit hold"
+      ],
+      [
+        2,
+        4.1,
+        "press descent"
+      ],
+      [
+        4.1,
+        4.8,
+        "pressure dwell"
+      ],
+      [
+        4.8,
+        5.5,
+        "spin ramp"
+      ],
+      [
+        5.5,
+        9,
+        "spin .85rad/s"
+      ],
+      [
+        9,
+        9.5,
+        "spin decelerate"
+      ],
+      [
+        9.5,
+        10,
+        "terminal pressure hold"
+      ]
+    ],
+    "vertical_law": "clip(gravity_compensation+3000*(z_target-z)+kv*(z_target_velocity-filtered_velocity),-480,480)",
+    "spin_law": "clip(18*(spin_velocity_target-spin_velocity),-28,28)"
+  },
+  "state_sample_count": 5083,
+  "contact_material_semantics": {
+    "friction_selection": "FEM: material.friction (source friction_mu). Rigid and plane: coup_friction. The legacy physics.friction is only a default, not a per-body override.",
+    "pair_friction": "mu_ij = sqrt(mu_i * mu_j)",
+    "pair_contact_resistance": "kappa_ij = 2*kappa_i*kappa_j/(kappa_i+kappa_j)",
+    "contact_resistance_fallback": 10000000.0,
+    "restitution": 0.0,
+    "restitution_note": "Source Rigid.coup_restitution is zero; IPC uses dissipative barrier/friction contact, with no added restitution impulse.",
+    "rigid_rigid_contact_enabled": true,
+    "rigid_infinite_plane_contact_enabled": false,
+    "finite_rigid_floor_note": "The plane flag concerns infinite planes only. A finite mesh/box floor is an ordinary rigid actor and uses the rigid-rigid flag.",
+    "source_evidence": [
+      "genesis/engine/couplers/ipc_coupler/coupler.py:_register_contact_pairs",
+      "genesis/engine/materials/rigid.py:Rigid.coup_restitution"
+    ],
+    "named_pair_friction": {
+      "block_block": 0.65,
+      "block_cup": 0.6244997998398398,
+      "block_press": 0.6982120021884471,
+      "press_cup": 0.6708203932499369
+    }
+  },
+  "material_constitutive_law": {
+    "model": "libuipc StableNeoHookean, logarithmic Ic variant",
+    "lame_parameters": "mu0=E/(2*(1+nu)); lambda0=E*nu/((1+nu)*(1-2*nu))",
+    "constitutive_parameters": "mu=4*mu0/3; lambda=lambda0+5*mu0/6; alpha=1+3*mu/(4*lambda)",
+    "invariants": "F=deformation gradient, Ic=trace(F.T@F), J=det(F)",
+    "energy_density": "psi(F)=0.5*lambda*(J-alpha)^2 + 0.5*mu*(Ic-3) - 0.5*mu*log(Ic+1), up to a constant",
+    "first_piola_stress": "P=mu*(1-1/(Ic+1))*F + lambda*(J-alpha)*cofactor(F)",
+    "parameter_scope": "Use each body material E and nu. This exact material law is frozen; numerical discretization and integration remain solver choices.",
+    "source_evidence": [
+      "libuipc/src/constitution/stable_neo_hookean.cpp:StableNeoHookean::apply_to",
+      "libuipc/src/backends/cuda/finite_element/constitutions/detail/stable_neo_hookean_3d.inl"
+    ]
+  },
+  "fem_damping_authored_option": 0.0,
+  "fem_damping_semantics": {
+    "effective_linear_velocity_damping": 0.0,
+    "explanation": "FEMOptions.damping is retained as provenance only. FEMSolver.substep_pre_coupling skips its FEM integrator under IPCCoupler; the IPC path does not apply this option. Preserve friction, authored joint damping, and numerical dissipation; do not add FEM velocity damping from the inactive option.",
+    "source_evidence": [
+      "genesis/engine/solvers/fem_solver.py:FEMSolver.substep_pre_coupling",
+      "genesis/engine/couplers/ipc_coupler/coupler.py:IPCCoupler.couple"
+    ]
+  },
+  "semantics_revision": "2026-10-23-source-material-and-constraint-clarification"
+}

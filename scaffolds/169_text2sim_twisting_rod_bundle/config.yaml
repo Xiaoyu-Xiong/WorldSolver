@@ -1,0 +1,87 @@
+scene_id: 169_text2sim_twisting_rod_bundle
+seed: 0
+duration: 10.0
+sample_dt: 0.04
+gravity:
+- 0
+- 0
+- -9.81
+source_sim_dt: 0.01
+source_sim_substeps: 1
+source_steps: 1000
+camera:
+  position:
+  - -0.18273749169340475
+  - -1.2381068126289052
+  - 1.182358486590804
+  look_at:
+  - 6.16908073425293e-06
+  - 0.0019394569098949432
+  - 0.6602337415218353
+  up:
+  - 0.0
+  - 0.0
+  - 1.0
+  yfov_degrees: 38.0
+  width: 640
+  height: 480
+  fps: 25
+  near: 0.03
+  far: 6.0
+extension:
+  origin: Text2Sim
+  published_worldsolver_task: false
+  source_case: soft_twisting_rod_bundle_self_contact_deformable
+  public_contract: assets/scene_contract.json
+render_materials:
+  rod_coral:
+    texture_asset: assets/rod_coral.png
+    roughness: 0.58
+    uv_asset: assets/rod_coral.npz
+  rod_teal:
+    texture_asset: assets/rod_teal.png
+    roughness: 0.58
+    uv_asset: assets/rod_teal.npz
+  rod_gold:
+    texture_asset: assets/rod_gold.png
+    roughness: 0.58
+    uv_asset: assets/rod_gold.npz
+luisa_lights:
+- name: warm_key
+  pos:
+  - 2.8
+  - -3.2
+  - 4.5
+  color:
+  - 1.0
+  - 0.84
+  - 0.7
+  intensity: 13.0
+  radius: 0.55
+- name: cool_fill
+  pos:
+  - -2.6
+  - 2.8
+  - 3.7
+  color:
+  - 0.66
+  - 0.82
+  - 1.0
+  intensity: 7.0
+  radius: 0.48
+- name: neutral_rim
+  pos:
+  - 0.2
+  - 3.2
+  - 4.8
+  color:
+  - 0.95
+  - 0.98
+  - 1.0
+  intensity: 6.0
+  radius: 0.42
+luisa_environment_color:
+- 0.3
+- 0.37
+- 0.44
+physics_contract_reference: assets/scene_contract.json

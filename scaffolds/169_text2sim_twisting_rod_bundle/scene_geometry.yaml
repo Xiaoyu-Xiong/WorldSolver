@@ -1,0 +1,361 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+- id: rod_coral
+  semantic: deformable
+  motion: dynamic
+  geometry:
+    type: triangle_mesh
+    topology_asset: assets/rod_coral.npz
+  state_binding:
+    selector: body_id
+    value: 0
+  material_id: rod_coral
+  collision_enabled: true
+- id: rod_teal
+  semantic: deformable
+  motion: dynamic
+  geometry:
+    type: triangle_mesh
+    topology_asset: assets/rod_teal.npz
+  state_binding:
+    selector: body_id
+    value: 1
+  material_id: rod_teal
+  collision_enabled: true
+- id: rod_gold
+  semantic: deformable
+  motion: dynamic
+  geometry:
+    type: triangle_mesh
+    topology_asset: assets/rod_gold.npz
+  state_binding:
+    selector: body_id
+    value: 2
+  material_id: rod_gold
+  collision_enabled: true
+- id: fixed_base_bookkeeping_cube
+  semantic: boundary
+  motion: static
+  geometry:
+    type: box
+    half_extents:
+    - 0.001
+    - 0.001
+    - 0.001
+  transform:
+    translation:
+    - 0.0
+    - 0.0
+    - 2.2
+    rotation_xyzw:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  material_id: fixed_base_bookkeeping_cube
+  collision_enabled: true
+- id: left_axial_carriage_geom
+  semantic: rigid
+  motion: dynamic
+  geometry:
+    type: box
+    half_extents:
+    - 0.0075
+    - 0.13
+    - 0.015
+  transform:
+    translation:
+    - -0.4525
+    - 0.0
+    - 0.7
+    rotation_xyzw:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  material_id: left_axial_carriage_geom
+  collision_enabled: true
+  state_binding:
+    selector: body_id
+    value: 4
+- id: left_lateral_stage_geom
+  semantic: rigid
+  motion: dynamic
+  geometry:
+    type: box
+    half_extents:
+    - 0.005
+    - 0.105
+    - 0.01
+  transform:
+    translation:
+    - -0.42
+    - 0.0
+    - 0.7
+    rotation_xyzw:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  material_id: left_lateral_stage_geom
+  collision_enabled: true
+  state_binding:
+    selector: body_id
+    value: 5
+- id: left_rotor_support_geom
+  semantic: rigid
+  motion: dynamic
+  geometry:
+    type: cylinder
+    radius: 0.045
+    height: 0.008
+  transform:
+    translation:
+    - -0.391
+    - 0.0
+    - 0.7
+    rotation_xyzw:
+    - 0.0
+    - 0.7071067811865476
+    - 0.0
+    - 0.7071067811865476
+  material_id: left_rotor_support_geom
+  collision_enabled: true
+  state_binding:
+    selector: body_id
+    value: 6
+- id: left_pod_1_geom
+  semantic: rigid
+  motion: dynamic
+  geometry:
+    type: box
+    half_extents:
+    - 0.012
+    - 0.01
+    - 0.01
+  transform:
+    translation:
+    - -0.36
+    - 0.03
+    - 0.7
+    rotation_xyzw:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  material_id: left_pod_1_geom
+  collision_enabled: true
+  state_binding:
+    selector: body_id
+    value: 7
+- id: left_pod_2_geom
+  semantic: rigid
+  motion: dynamic
+  geometry:
+    type: box
+    half_extents:
+    - 0.012
+    - 0.01
+    - 0.01
+  transform:
+    translation:
+    - -0.36
+    - -0.015
+    - 0.7259807621134999
+    rotation_xyzw:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  material_id: left_pod_2_geom
+  collision_enabled: true
+  state_binding:
+    selector: body_id
+    value: 8
+- id: left_pod_3_geom
+  semantic: rigid
+  motion: dynamic
+  geometry:
+    type: box
+    half_extents:
+    - 0.012
+    - 0.01
+    - 0.01
+  transform:
+    translation:
+    - -0.36
+    - -0.015
+    - 0.6740192378865
+    rotation_xyzw:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  material_id: left_pod_3_geom
+  collision_enabled: true
+  state_binding:
+    selector: body_id
+    value: 9
+- id: right_axial_carriage_geom
+  semantic: rigid
+  motion: dynamic
+  geometry:
+    type: box
+    half_extents:
+    - 0.0075
+    - 0.13
+    - 0.015
+  transform:
+    translation:
+    - 0.4525
+    - 0.0
+    - 0.7
+    rotation_xyzw:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  material_id: right_axial_carriage_geom
+  collision_enabled: true
+  state_binding:
+    selector: body_id
+    value: 10
+- id: right_lateral_stage_geom
+  semantic: rigid
+  motion: dynamic
+  geometry:
+    type: box
+    half_extents:
+    - 0.005
+    - 0.105
+    - 0.01
+  transform:
+    translation:
+    - 0.42
+    - 0.0
+    - 0.7
+    rotation_xyzw:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  material_id: right_lateral_stage_geom
+  collision_enabled: true
+  state_binding:
+    selector: body_id
+    value: 11
+- id: right_rotor_support_geom
+  semantic: rigid
+  motion: dynamic
+  geometry:
+    type: cylinder
+    radius: 0.045
+    height: 0.008
+  transform:
+    translation:
+    - 0.391
+    - 0.0
+    - 0.7
+    rotation_xyzw:
+    - 0.0
+    - 0.7071067811865476
+    - 0.0
+    - 0.7071067811865476
+  material_id: right_rotor_support_geom
+  collision_enabled: true
+  state_binding:
+    selector: body_id
+    value: 12
+- id: right_pod_1_geom
+  semantic: rigid
+  motion: dynamic
+  geometry:
+    type: box
+    half_extents:
+    - 0.012
+    - 0.01
+    - 0.01
+  transform:
+    translation:
+    - 0.36
+    - 0.03
+    - 0.7
+    rotation_xyzw:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  material_id: right_pod_1_geom
+  collision_enabled: true
+  state_binding:
+    selector: body_id
+    value: 13
+- id: right_pod_2_geom
+  semantic: rigid
+  motion: dynamic
+  geometry:
+    type: box
+    half_extents:
+    - 0.012
+    - 0.01
+    - 0.01
+  transform:
+    translation:
+    - 0.36
+    - -0.015
+    - 0.7259807621134999
+    rotation_xyzw:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  material_id: right_pod_2_geom
+  collision_enabled: true
+  state_binding:
+    selector: body_id
+    value: 14
+- id: right_pod_3_geom
+  semantic: rigid
+  motion: dynamic
+  geometry:
+    type: box
+    half_extents:
+    - 0.012
+    - 0.01
+    - 0.01
+  transform:
+    translation:
+    - 0.36
+    - -0.015
+    - 0.6740192378865
+    rotation_xyzw:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  material_id: right_pod_3_geom
+  collision_enabled: true
+  state_binding:
+    selector: body_id
+    value: 15
+- id: genesis_static_floor
+  semantic: boundary
+  motion: static
+  geometry:
+    type: triangle_mesh
+    asset: assets/floor_visual.obj
+    topology_asset: assets/floor_visual.npz
+  transform:
+    translation:
+    - 0
+    - 0
+    - 0
+    rotation_xyzw:
+    - 0
+    - 0
+    - 0
+    - 1
+  material_id: genesis_static_floor
+  collision_enabled: true

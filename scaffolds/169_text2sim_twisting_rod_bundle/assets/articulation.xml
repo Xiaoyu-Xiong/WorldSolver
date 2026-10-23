@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco model="dual_end_twist_clamp_rig">
+  <asset>
+    <material name="housing_satin" rgba="0.29 0.34 0.40 1"/>
+    <material name="stage_satin" rgba="0.48 0.55 0.62 1"/>
+    <material name="rotor_satin" rgba="0.18 0.22 0.27 1"/>
+    <material name="rod_1_accent" rgba="0.91 0.27 0.22 1"/>
+    <material name="rod_2_accent" rgba="0.20 0.64 0.91 1"/>
+    <material name="rod_3_accent" rgba="0.96 0.65 0.16 1"/>
+    <material name="bookkeeping_dark" rgba="0.12 0.14 0.17 1"/>
+  </asset>
+
+  <worldbody>
+    <body name="dual_end_twist_clamp_rig_base">
+      <!--
+        Fixed-base IPC bookkeeping collider: a 0.002 m cube centered at
+        world (0, 0, 1.5), safely remote from the complete mechanism sweep.
+      -->
+      <geom name="fixed_base_bookkeeping_cube" type="box"
+            pos="0 0 1.5" size="0.001 0.001 0.001"
+            material="bookkeeping_dark" density="1000"
+            contype="1" conaffinity="1"/>
+
+      <body name="left_axial_carriage" pos="-0.36 0 0">
+        <joint name="left_axial_joint" type="slide" axis="1 0 0"
+               limited="true" range="0 0.055" damping="35" armature="0.01"/>
+        <geom name="left_axial_carriage_geom" type="box"
+              pos="-0.0925 0 0" size="0.0075 0.13 0.015"
+              material="housing_satin" density="1800"
+              contype="1" conaffinity="1"/>
+
+        <body name="left_lateral_stage">
+          <joint name="left_lateral_joint" type="slide" axis="0 0 1"
+                 limited="true" range="-0.06 0.06" damping="28" armature="0.008"/>
+          <geom name="left_lateral_stage_geom" type="box"
+                pos="-0.06 0 0" size="0.005 0.105 0.01"
+                material="stage_satin" density="1800"
+                contype="1" conaffinity="1"/>
+
+          <body name="left_rotor_link">
+            <joint name="left_twist_joint" type="hinge" axis="1 0 0"
+                   limited="false" damping="3.5" armature="0.004"/>
+            <geom name="left_rotor_support_geom" type="cylinder"
+                  pos="-0.031 0 0" size="0.045 0.004"
+                  quat="0.7071067811865476 0 0.7071067811865476 0"
+                  material="rotor_satin" density="2200"
+                  contype="1" conaffinity="1"/>
+
+            <geom name="left_pod_1_geom" type="box"
+                  pos="0 0.03 0" size="0.012 0.01 0.01"
+                  material="rod_1_accent" density="2400"
+                  contype="1" conaffinity="1"/>
+            <geom name="left_pod_2_geom" type="box"
+                  pos="0 -0.015 0.0259807621135" size="0.012 0.01 0.01"
+                  material="rod_2_accent" density="2400"
+                  contype="1" conaffinity="1"/>
+            <geom name="left_pod_3_geom" type="box"
+                  pos="0 -0.015 -0.0259807621135" size="0.012 0.01 0.01"
+                  material="rod_3_accent" density="2400"
+                  contype="1" conaffinity="1"/>
+          </body>
+        </body>
+      </body>
+
+      <body name="right_axial_carriage" pos="0.36 0 0">
+        <joint name="right_axial_joint" type="slide" axis="-1 0 0"
+               limited="true" range="0 0.055" damping="35" armature="0.01"/>
+        <geom name="right_axial_carriage_geom" type="box"
+              pos="0.0925 0 0" size="0.0075 0.13 0.015"
+              material="housing_satin" density="1800"
+              contype="1" conaffinity="1"/>
+
+        <body name="right_lateral_stage">
+          <joint name="right_lateral_joint" type="slide" axis="0 0 1"
+                 limited="true" range="-0.06 0.06" damping="28" armature="0.008"/>
+          <geom name="right_lateral_stage_geom" type="box"
+                pos="0.06 0 0" size="0.005 0.105 0.01"
+                material="stage_satin" density="1800"
+                contype="1" conaffinity="1"/>
+
+          <body name="right_rotor_link">
+            <joint name="right_twist_joint" type="hinge" axis="1 0 0"
+                   limited="false" damping="3.5" armature="0.004"/>
+            <geom name="right_rotor_support_geom" type="cylinder"
+                  pos="0.031 0 0" size="0.045 0.004"
+                  quat="0.7071067811865476 0 0.7071067811865476 0"
+                  material="rotor_satin" density="2200"
+                  contype="1" conaffinity="1"/>
+
+            <geom name="right_pod_1_geom" type="box"
+                  pos="0 0.03 0" size="0.012 0.01 0.01"
+                  material="rod_1_accent" density="2400"
+                  contype="1" conaffinity="1"/>
+            <geom name="right_pod_2_geom" type="box"
+                  pos="0 -0.015 0.0259807621135" size="0.012 0.01 0.01"
+                  material="rod_2_accent" density="2400"
+                  contype="1" conaffinity="1"/>
+            <geom name="right_pod_3_geom" type="box"
+                  pos="0 -0.015 -0.0259807621135" size="0.012 0.01 0.01"
+                  material="rod_3_accent" density="2400"
+                  contype="1" conaffinity="1"/>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <position name="left_axial_actuator" joint="left_axial_joint"
+              kp="1800" kv="120" ctrllimited="true" ctrlrange="0 0.055"
+              forcelimited="true" forcerange="-900 900"/>
+    <position name="right_axial_actuator" joint="right_axial_joint"
+              kp="1800" kv="120" ctrllimited="true" ctrlrange="0 0.055"
+              forcelimited="true" forcerange="-900 900"/>
+    <position name="left_lateral_actuator" joint="left_lateral_joint"
+              kp="1400" kv="95" ctrllimited="true" ctrlrange="-0.06 0.06"
+              forcelimited="true" forcerange="-700 700"/>
+    <position name="right_lateral_actuator" joint="right_lateral_joint"
+              kp="1400" kv="95" ctrllimited="true" ctrlrange="-0.06 0.06"
+              forcelimited="true" forcerange="-700 700"/>
+    <position name="left_twist_actuator" joint="left_twist_joint"
+              kp="110" kv="12" ctrllimited="true"
+              ctrlrange="-12.5663706143592 12.5663706143592"
+              forcelimited="true" forcerange="-180 180"/>
+    <position name="right_twist_actuator" joint="right_twist_joint"
+              kp="110" kv="12" ctrllimited="true"
+              ctrlrange="-12.5663706143592 12.5663706143592"
+              forcelimited="true" forcerange="-180 180"/>
+  </actuator>
+</mujoco>

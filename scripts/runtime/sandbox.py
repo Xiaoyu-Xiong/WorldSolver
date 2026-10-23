@@ -19,7 +19,15 @@ class SandboxLimits:
 
 
 def clean_environment(python_path: str | None = None) -> dict[str, str]:
-    allowed = ("SYSTEMROOT", "WINDIR", "PATH", "PATHEXT", "TEMP", "TMP")
+    allowed = (
+        "SYSTEMROOT", "WINDIR", "PATH", "PATHEXT", "TEMP", "TMP", "TMPDIR",
+        "CUDA_VISIBLE_DEVICES", "CUDA_DEVICE_ORDER", "CUDA_HOME", "CUDA_PATH",
+        "LD_LIBRARY_PATH", "NUMBA_CUDA_DRIVER", "NUMBA_CUDA_DEFAULT_PTX_CC",
+        "NUMBA_CACHE_DIR", "NUMBA_CUDA_ENABLE_MINOR_VERSION_COMPATIBILITY",
+        "CUPY_CACHE_DIR", "CUPY_CUDA_LIB_PATH", "XDG_CACHE_HOME", "HOME",
+        "OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
+        "EGL_DEVICE_ID", "PYOPENGL_PLATFORM",
+    )
     env = {key: value for key, value in os.environ.items() if key.upper() in allowed}
     env.update({"PYTHONHASHSEED": "0", "PYTHONDONTWRITEBYTECODE": "1"})
     if python_path:

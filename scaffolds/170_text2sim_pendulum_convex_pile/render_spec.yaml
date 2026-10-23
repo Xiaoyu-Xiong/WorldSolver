@@ -1,0 +1,3701 @@
+schema_version: 2
+profile: rigid_contact
+environment: studio_neutral
+camera: frozen_config
+bindings:
+- object_id: floor
+  method: rigid_mesh
+  material: default
+  color_rgb:
+  - 0.52
+  - 0.56
+  - 0.58
+- object_id: pivot
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.17
+  - 0.19
+  - 0.23
+- object_id: ring_00
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.11
+  - 0.13
+  - 0.16
+- object_id: ring_01
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.11
+  - 0.13
+  - 0.16
+- object_id: ring_02
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.11
+  - 0.13
+  - 0.16
+- object_id: ring_03
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.11
+  - 0.13
+  - 0.16
+- object_id: ring_04
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.11
+  - 0.13
+  - 0.16
+- object_id: ring_05
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.11
+  - 0.13
+  - 0.16
+- object_id: ring_06
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.11
+  - 0.13
+  - 0.16
+- object_id: ring_07
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.11
+  - 0.13
+  - 0.16
+- object_id: ring_08
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.11
+  - 0.13
+  - 0.16
+- object_id: ring_09
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.11
+  - 0.13
+  - 0.16
+- object_id: ring_10
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.11
+  - 0.13
+  - 0.16
+- object_id: ring_11
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.11
+  - 0.13
+  - 0.16
+- object_id: ring_12
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.11
+  - 0.13
+  - 0.16
+- object_id: sphere
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.34
+  - 0.36
+  - 0.39
+- object_id: cube_000
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.24
+  - 0.5599999999999999
+  - 0.68
+- object_id: cube_001
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3057142857142857
+  - 0.5485714285714286
+  - 0.6371428571428572
+- object_id: cube_002
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.37142857142857144
+  - 0.5371428571428571
+  - 0.5942857142857143
+- object_id: cube_003
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.43714285714285717
+  - 0.5257142857142857
+  - 0.5514285714285715
+- object_id: cube_004
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5028571428571429
+  - 0.5142857142857142
+  - 0.5085714285714287
+- object_id: cube_005
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5685714285714286
+  - 0.5028571428571429
+  - 0.46571428571428575
+- object_id: cube_006
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6342857142857143
+  - 0.49142857142857144
+  - 0.42285714285714293
+- object_id: cube_007
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7
+  - 0.48
+  - 0.38000000000000006
+- object_id: cube_008
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.24
+  - 0.5857142857142856
+  - 0.6585714285714286
+- object_id: cube_009
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3057142857142857
+  - 0.5742857142857143
+  - 0.6157142857142858
+- object_id: cube_010
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.37142857142857144
+  - 0.5628571428571428
+  - 0.5728571428571428
+- object_id: cube_011
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.43714285714285717
+  - 0.5514285714285714
+  - 0.53
+- object_id: cube_012
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5028571428571429
+  - 0.5399999999999999
+  - 0.48714285714285727
+- object_id: cube_013
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5685714285714286
+  - 0.5285714285714286
+  - 0.44428571428571434
+- object_id: cube_014
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6342857142857143
+  - 0.5171428571428571
+  - 0.4014285714285715
+- object_id: cube_015
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7
+  - 0.5057142857142857
+  - 0.35857142857142865
+- object_id: cube_016
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.24
+  - 0.6114285714285713
+  - 0.6371428571428572
+- object_id: cube_017
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3057142857142857
+  - 0.6
+  - 0.5942857142857144
+- object_id: cube_018
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.37142857142857144
+  - 0.5885714285714285
+  - 0.5514285714285715
+- object_id: cube_019
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.43714285714285717
+  - 0.5771428571428571
+  - 0.5085714285714287
+- object_id: cube_020
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5028571428571429
+  - 0.5657142857142856
+  - 0.4657142857142858
+- object_id: cube_021
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5685714285714286
+  - 0.5542857142857143
+  - 0.4228571428571429
+- object_id: cube_022
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6342857142857143
+  - 0.5428571428571428
+  - 0.38000000000000006
+- object_id: cube_023
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7
+  - 0.5314285714285714
+  - 0.3371428571428572
+- object_id: cube_024
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.24
+  - 0.6371428571428571
+  - 0.6157142857142858
+- object_id: cube_025
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3057142857142857
+  - 0.6257142857142858
+  - 0.572857142857143
+- object_id: cube_026
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.37142857142857144
+  - 0.6142857142857143
+  - 0.53
+- object_id: cube_027
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.43714285714285717
+  - 0.6028571428571429
+  - 0.4871428571428572
+- object_id: cube_028
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5028571428571429
+  - 0.5914285714285714
+  - 0.4442857142857144
+- object_id: cube_029
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5685714285714286
+  - 0.5800000000000001
+  - 0.40142857142857147
+- object_id: cube_030
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6342857142857143
+  - 0.5685714285714286
+  - 0.35857142857142865
+- object_id: cube_031
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7
+  - 0.5571428571428572
+  - 0.3157142857142858
+- object_id: cube_032
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.24
+  - 0.6628571428571428
+  - 0.5942857142857143
+- object_id: cube_033
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3057142857142857
+  - 0.6514285714285715
+  - 0.5514285714285715
+- object_id: cube_034
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.37142857142857144
+  - 0.64
+  - 0.5085714285714286
+- object_id: cube_035
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.43714285714285717
+  - 0.6285714285714286
+  - 0.46571428571428575
+- object_id: cube_036
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5028571428571429
+  - 0.6171428571428571
+  - 0.42285714285714293
+- object_id: cube_037
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5685714285714286
+  - 0.6057142857142858
+  - 0.38
+- object_id: cube_038
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6342857142857143
+  - 0.5942857142857143
+  - 0.3371428571428572
+- object_id: cube_039
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7
+  - 0.5828571428571429
+  - 0.2942857142857144
+- object_id: cube_040
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.24
+  - 0.6885714285714285
+  - 0.572857142857143
+- object_id: cube_041
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3057142857142857
+  - 0.6771428571428572
+  - 0.5300000000000001
+- object_id: cube_042
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.37142857142857144
+  - 0.6657142857142857
+  - 0.48714285714285716
+- object_id: cube_043
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.43714285714285717
+  - 0.6542857142857142
+  - 0.44428571428571434
+- object_id: cube_044
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5028571428571429
+  - 0.6428571428571428
+  - 0.4014285714285715
+- object_id: cube_045
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5685714285714286
+  - 0.6314285714285715
+  - 0.3585714285714286
+- object_id: cube_046
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6342857142857143
+  - 0.62
+  - 0.3157142857142858
+- object_id: cube_047
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7
+  - 0.6085714285714285
+  - 0.2728571428571429
+- object_id: cube_048
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.24
+  - 0.7142857142857143
+  - 0.5514285714285715
+- object_id: cube_049
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3057142857142857
+  - 0.702857142857143
+  - 0.5085714285714287
+- object_id: cube_050
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.37142857142857144
+  - 0.6914285714285715
+  - 0.46571428571428575
+- object_id: cube_051
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.43714285714285717
+  - 0.68
+  - 0.42285714285714293
+- object_id: cube_052
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5028571428571429
+  - 0.6685714285714286
+  - 0.3800000000000001
+- object_id: cube_053
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5685714285714286
+  - 0.6571428571428573
+  - 0.3371428571428572
+- object_id: cube_054
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6342857142857143
+  - 0.6457142857142858
+  - 0.2942857142857144
+- object_id: cube_055
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7
+  - 0.6342857142857143
+  - 0.2514285714285715
+- object_id: cube_056
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.24
+  - 0.7399999999999999
+  - 0.53
+- object_id: cube_057
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3057142857142857
+  - 0.7285714285714285
+  - 0.4871428571428572
+- object_id: cube_058
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.37142857142857144
+  - 0.7171428571428571
+  - 0.4442857142857143
+- object_id: cube_059
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.43714285714285717
+  - 0.7057142857142856
+  - 0.40142857142857147
+- object_id: cube_060
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5028571428571429
+  - 0.6942857142857142
+  - 0.35857142857142865
+- object_id: cube_061
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5685714285714286
+  - 0.6828571428571428
+  - 0.3157142857142857
+- object_id: cube_062
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6342857142857143
+  - 0.6714285714285714
+  - 0.2728571428571429
+- object_id: cube_063
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7
+  - 0.6599999999999999
+  - 0.23000000000000007
+- object_id: cube_064
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.26
+  - 0.5599999999999999
+  - 0.6914285714285715
+- object_id: cube_065
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.32571428571428573
+  - 0.5485714285714286
+  - 0.6485714285714287
+- object_id: cube_066
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.39142857142857146
+  - 0.5371428571428571
+  - 0.6057142857142858
+- object_id: cube_067
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4571428571428572
+  - 0.5257142857142857
+  - 0.562857142857143
+- object_id: cube_068
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5228571428571429
+  - 0.5142857142857142
+  - 0.5200000000000001
+- object_id: cube_069
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5885714285714286
+  - 0.5028571428571429
+  - 0.4771428571428572
+- object_id: cube_070
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6542857142857144
+  - 0.49142857142857144
+  - 0.4342857142857144
+- object_id: cube_071
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.72
+  - 0.48
+  - 0.3914285714285715
+- object_id: cube_072
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.26
+  - 0.5857142857142856
+  - 0.67
+- object_id: cube_073
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.32571428571428573
+  - 0.5742857142857143
+  - 0.6271428571428572
+- object_id: cube_074
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.39142857142857146
+  - 0.5628571428571428
+  - 0.5842857142857143
+- object_id: cube_075
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4571428571428572
+  - 0.5514285714285714
+  - 0.5414285714285715
+- object_id: cube_076
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5228571428571429
+  - 0.5399999999999999
+  - 0.4985714285714287
+- object_id: cube_077
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5885714285714286
+  - 0.5285714285714286
+  - 0.4557142857142858
+- object_id: cube_078
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6542857142857144
+  - 0.5171428571428571
+  - 0.412857142857143
+- object_id: cube_079
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.72
+  - 0.5057142857142857
+  - 0.3700000000000001
+- object_id: cube_080
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.26
+  - 0.6114285714285713
+  - 0.6485714285714287
+- object_id: cube_081
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.32571428571428573
+  - 0.6
+  - 0.6057142857142859
+- object_id: cube_082
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.39142857142857146
+  - 0.5885714285714285
+  - 0.562857142857143
+- object_id: cube_083
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4571428571428572
+  - 0.5771428571428571
+  - 0.5200000000000001
+- object_id: cube_084
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5228571428571429
+  - 0.5657142857142856
+  - 0.47714285714285726
+- object_id: cube_085
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5885714285714286
+  - 0.5542857142857143
+  - 0.43428571428571433
+- object_id: cube_086
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6542857142857144
+  - 0.5428571428571428
+  - 0.3914285714285715
+- object_id: cube_087
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.72
+  - 0.5314285714285714
+  - 0.34857142857142864
+- object_id: cube_088
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.26
+  - 0.6371428571428571
+  - 0.6271428571428572
+- object_id: cube_089
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.32571428571428573
+  - 0.6257142857142858
+  - 0.5842857142857144
+- object_id: cube_090
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.39142857142857146
+  - 0.6142857142857143
+  - 0.5414285714285715
+- object_id: cube_091
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4571428571428572
+  - 0.6028571428571429
+  - 0.49857142857142867
+- object_id: cube_092
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5228571428571429
+  - 0.5914285714285714
+  - 0.45571428571428585
+- object_id: cube_093
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5885714285714286
+  - 0.5800000000000001
+  - 0.4128571428571429
+- object_id: cube_094
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6542857142857144
+  - 0.5685714285714286
+  - 0.3700000000000001
+- object_id: cube_095
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.72
+  - 0.5571428571428572
+  - 0.32714285714285724
+- object_id: cube_096
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.26
+  - 0.6628571428571428
+  - 0.6057142857142858
+- object_id: cube_097
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.32571428571428573
+  - 0.6514285714285715
+  - 0.562857142857143
+- object_id: cube_098
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.39142857142857146
+  - 0.64
+  - 0.52
+- object_id: cube_099
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4571428571428572
+  - 0.6285714285714286
+  - 0.4771428571428572
+- object_id: cube_100
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5228571428571429
+  - 0.6171428571428571
+  - 0.4342857142857144
+- object_id: cube_101
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5885714285714286
+  - 0.6057142857142858
+  - 0.39142857142857146
+- object_id: cube_102
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6542857142857144
+  - 0.5942857142857143
+  - 0.34857142857142864
+- object_id: cube_103
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.72
+  - 0.5828571428571429
+  - 0.3057142857142858
+- object_id: cube_104
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.26
+  - 0.6885714285714285
+  - 0.5842857142857144
+- object_id: cube_105
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.32571428571428573
+  - 0.6771428571428572
+  - 0.5414285714285716
+- object_id: cube_106
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.39142857142857146
+  - 0.6657142857142857
+  - 0.4985714285714286
+- object_id: cube_107
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4571428571428572
+  - 0.6542857142857142
+  - 0.4557142857142858
+- object_id: cube_108
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5228571428571429
+  - 0.6428571428571428
+  - 0.412857142857143
+- object_id: cube_109
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5885714285714286
+  - 0.6314285714285715
+  - 0.37000000000000005
+- object_id: cube_110
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6542857142857144
+  - 0.62
+  - 0.32714285714285724
+- object_id: cube_111
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.72
+  - 0.6085714285714285
+  - 0.28428571428571436
+- object_id: cube_112
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.26
+  - 0.7142857142857143
+  - 0.562857142857143
+- object_id: cube_113
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.32571428571428573
+  - 0.702857142857143
+  - 0.5200000000000001
+- object_id: cube_114
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.39142857142857146
+  - 0.6914285714285715
+  - 0.4771428571428572
+- object_id: cube_115
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4571428571428572
+  - 0.68
+  - 0.4342857142857144
+- object_id: cube_116
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5228571428571429
+  - 0.6685714285714286
+  - 0.39142857142857157
+- object_id: cube_117
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5885714285714286
+  - 0.6571428571428573
+  - 0.34857142857142864
+- object_id: cube_118
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6542857142857144
+  - 0.6457142857142858
+  - 0.3057142857142858
+- object_id: cube_119
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.72
+  - 0.6342857142857143
+  - 0.26285714285714296
+- object_id: cube_120
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.26
+  - 0.7399999999999999
+  - 0.5414285714285715
+- object_id: cube_121
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.32571428571428573
+  - 0.7285714285714285
+  - 0.49857142857142867
+- object_id: cube_122
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.39142857142857146
+  - 0.7171428571428571
+  - 0.45571428571428574
+- object_id: cube_123
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4571428571428572
+  - 0.7057142857142856
+  - 0.4128571428571429
+- object_id: cube_124
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5228571428571429
+  - 0.6942857142857142
+  - 0.3700000000000001
+- object_id: cube_125
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5885714285714286
+  - 0.6828571428571428
+  - 0.3271428571428572
+- object_id: cube_126
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6542857142857144
+  - 0.6714285714285714
+  - 0.28428571428571436
+- object_id: cube_127
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.72
+  - 0.6599999999999999
+  - 0.2414285714285715
+- object_id: cube_128
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.27999999999999997
+  - 0.5599999999999999
+  - 0.702857142857143
+- object_id: cube_129
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3457142857142857
+  - 0.5485714285714286
+  - 0.6600000000000001
+- object_id: cube_130
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4114285714285714
+  - 0.5371428571428571
+  - 0.6171428571428572
+- object_id: cube_131
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.47714285714285715
+  - 0.5257142857142857
+  - 0.5742857142857144
+- object_id: cube_132
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5428571428571429
+  - 0.5142857142857142
+  - 0.5314285714285716
+- object_id: cube_133
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6085714285714287
+  - 0.5028571428571429
+  - 0.4885714285714286
+- object_id: cube_134
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6742857142857144
+  - 0.49142857142857144
+  - 0.4457142857142858
+- object_id: cube_135
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.74
+  - 0.48
+  - 0.4028571428571429
+- object_id: cube_136
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.27999999999999997
+  - 0.5857142857142856
+  - 0.6814285714285715
+- object_id: cube_137
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3457142857142857
+  - 0.5742857142857143
+  - 0.6385714285714287
+- object_id: cube_138
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4114285714285714
+  - 0.5628571428571428
+  - 0.5957142857142858
+- object_id: cube_139
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.47714285714285715
+  - 0.5514285714285714
+  - 0.5528571428571429
+- object_id: cube_140
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5428571428571429
+  - 0.5399999999999999
+  - 0.5100000000000001
+- object_id: cube_141
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6085714285714287
+  - 0.5285714285714286
+  - 0.4671428571428572
+- object_id: cube_142
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6742857142857144
+  - 0.5171428571428571
+  - 0.4242857142857144
+- object_id: cube_143
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.74
+  - 0.5057142857142857
+  - 0.3814285714285715
+- object_id: cube_144
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.27999999999999997
+  - 0.6114285714285713
+  - 0.6600000000000001
+- object_id: cube_145
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3457142857142857
+  - 0.6
+  - 0.6171428571428573
+- object_id: cube_146
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4114285714285714
+  - 0.5885714285714285
+  - 0.5742857142857144
+- object_id: cube_147
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.47714285714285715
+  - 0.5771428571428571
+  - 0.5314285714285716
+- object_id: cube_148
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5428571428571429
+  - 0.5657142857142856
+  - 0.48857142857142866
+- object_id: cube_149
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6085714285714287
+  - 0.5542857142857143
+  - 0.44571428571428573
+- object_id: cube_150
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6742857142857144
+  - 0.5428571428571428
+  - 0.4028571428571429
+- object_id: cube_151
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.74
+  - 0.5314285714285714
+  - 0.36000000000000004
+- object_id: cube_152
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.27999999999999997
+  - 0.6371428571428571
+  - 0.6385714285714287
+- object_id: cube_153
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3457142857142857
+  - 0.6257142857142858
+  - 0.5957142857142859
+- object_id: cube_154
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4114285714285714
+  - 0.6142857142857143
+  - 0.5528571428571429
+- object_id: cube_155
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.47714285714285715
+  - 0.6028571428571429
+  - 0.5100000000000001
+- object_id: cube_156
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5428571428571429
+  - 0.5914285714285714
+  - 0.46714285714285725
+- object_id: cube_157
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6085714285714287
+  - 0.5800000000000001
+  - 0.4242857142857143
+- object_id: cube_158
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6742857142857144
+  - 0.5685714285714286
+  - 0.3814285714285715
+- object_id: cube_159
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.74
+  - 0.5571428571428572
+  - 0.33857142857142863
+- object_id: cube_160
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.27999999999999997
+  - 0.6628571428571428
+  - 0.6171428571428572
+- object_id: cube_161
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3457142857142857
+  - 0.6514285714285715
+  - 0.5742857142857144
+- object_id: cube_162
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4114285714285714
+  - 0.64
+  - 0.5314285714285715
+- object_id: cube_163
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.47714285714285715
+  - 0.6285714285714286
+  - 0.4885714285714286
+- object_id: cube_164
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5428571428571429
+  - 0.6171428571428571
+  - 0.4457142857142858
+- object_id: cube_165
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6085714285714287
+  - 0.6057142857142858
+  - 0.40285714285714286
+- object_id: cube_166
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6742857142857144
+  - 0.5942857142857143
+  - 0.36000000000000004
+- object_id: cube_167
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.74
+  - 0.5828571428571429
+  - 0.3171428571428572
+- object_id: cube_168
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.27999999999999997
+  - 0.6885714285714285
+  - 0.5957142857142859
+- object_id: cube_169
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3457142857142857
+  - 0.6771428571428572
+  - 0.552857142857143
+- object_id: cube_170
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4114285714285714
+  - 0.6657142857142857
+  - 0.51
+- object_id: cube_171
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.47714285714285715
+  - 0.6542857142857142
+  - 0.4671428571428572
+- object_id: cube_172
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5428571428571429
+  - 0.6428571428571428
+  - 0.4242857142857144
+- object_id: cube_173
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6085714285714287
+  - 0.6314285714285715
+  - 0.38142857142857145
+- object_id: cube_174
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6742857142857144
+  - 0.62
+  - 0.33857142857142863
+- object_id: cube_175
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.74
+  - 0.6085714285714285
+  - 0.29571428571428576
+- object_id: cube_176
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.27999999999999997
+  - 0.7142857142857143
+  - 0.5742857142857144
+- object_id: cube_177
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3457142857142857
+  - 0.702857142857143
+  - 0.5314285714285716
+- object_id: cube_178
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4114285714285714
+  - 0.6914285714285715
+  - 0.4885714285714286
+- object_id: cube_179
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.47714285714285715
+  - 0.68
+  - 0.4457142857142858
+- object_id: cube_180
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5428571428571429
+  - 0.6685714285714286
+  - 0.40285714285714297
+- object_id: cube_181
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6085714285714287
+  - 0.6571428571428573
+  - 0.36000000000000004
+- object_id: cube_182
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6742857142857144
+  - 0.6457142857142858
+  - 0.3171428571428572
+- object_id: cube_183
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.74
+  - 0.6342857142857143
+  - 0.27428571428571435
+- object_id: cube_184
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.27999999999999997
+  - 0.7399999999999999
+  - 0.5528571428571429
+- object_id: cube_185
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3457142857142857
+  - 0.7285714285714285
+  - 0.5100000000000001
+- object_id: cube_186
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4114285714285714
+  - 0.7171428571428571
+  - 0.46714285714285714
+- object_id: cube_187
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.47714285714285715
+  - 0.7057142857142856
+  - 0.4242857142857143
+- object_id: cube_188
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5428571428571429
+  - 0.6942857142857142
+  - 0.3814285714285715
+- object_id: cube_189
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6085714285714287
+  - 0.6828571428571428
+  - 0.3385714285714286
+- object_id: cube_190
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6742857142857144
+  - 0.6714285714285714
+  - 0.29571428571428576
+- object_id: cube_191
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.74
+  - 0.6599999999999999
+  - 0.25285714285714295
+- object_id: cube_192
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3
+  - 0.5599999999999999
+  - 0.7142857142857143
+- object_id: cube_193
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3657142857142857
+  - 0.5485714285714286
+  - 0.6714285714285715
+- object_id: cube_194
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.43142857142857144
+  - 0.5371428571428571
+  - 0.6285714285714286
+- object_id: cube_195
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.49714285714285716
+  - 0.5257142857142857
+  - 0.5857142857142857
+- object_id: cube_196
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.562857142857143
+  - 0.5142857142857142
+  - 0.5428571428571429
+- object_id: cube_197
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6285714285714287
+  - 0.5028571428571429
+  - 0.5
+- object_id: cube_198
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6942857142857144
+  - 0.49142857142857144
+  - 0.45714285714285724
+- object_id: cube_199
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.76
+  - 0.48
+  - 0.41428571428571437
+- object_id: cube_200
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3
+  - 0.5857142857142856
+  - 0.6928571428571428
+- object_id: cube_201
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3657142857142857
+  - 0.5742857142857143
+  - 0.65
+- object_id: cube_202
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.43142857142857144
+  - 0.5628571428571428
+  - 0.6071428571428571
+- object_id: cube_203
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.49714285714285716
+  - 0.5514285714285714
+  - 0.5642857142857143
+- object_id: cube_204
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.562857142857143
+  - 0.5399999999999999
+  - 0.5214285714285716
+- object_id: cube_205
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6285714285714287
+  - 0.5285714285714286
+  - 0.47857142857142865
+- object_id: cube_206
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6942857142857144
+  - 0.5171428571428571
+  - 0.43571428571428583
+- object_id: cube_207
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.76
+  - 0.5057142857142857
+  - 0.39285714285714296
+- object_id: cube_208
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3
+  - 0.6114285714285713
+  - 0.6714285714285715
+- object_id: cube_209
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3657142857142857
+  - 0.6
+  - 0.6285714285714287
+- object_id: cube_210
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.43142857142857144
+  - 0.5885714285714285
+  - 0.5857142857142857
+- object_id: cube_211
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.49714285714285716
+  - 0.5771428571428571
+  - 0.5428571428571429
+- object_id: cube_212
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.562857142857143
+  - 0.5657142857142856
+  - 0.5000000000000001
+- object_id: cube_213
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6285714285714287
+  - 0.5542857142857143
+  - 0.4571428571428572
+- object_id: cube_214
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6942857142857144
+  - 0.5428571428571428
+  - 0.41428571428571437
+- object_id: cube_215
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.76
+  - 0.5314285714285714
+  - 0.3714285714285715
+- object_id: cube_216
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3
+  - 0.6371428571428571
+  - 0.65
+- object_id: cube_217
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3657142857142857
+  - 0.6257142857142858
+  - 0.6071428571428572
+- object_id: cube_218
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.43142857142857144
+  - 0.6142857142857143
+  - 0.5642857142857143
+- object_id: cube_219
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.49714285714285716
+  - 0.6028571428571429
+  - 0.5214285714285715
+- object_id: cube_220
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.562857142857143
+  - 0.5914285714285714
+  - 0.4785714285714287
+- object_id: cube_221
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6285714285714287
+  - 0.5800000000000001
+  - 0.4357142857142858
+- object_id: cube_222
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6942857142857144
+  - 0.5685714285714286
+  - 0.39285714285714296
+- object_id: cube_223
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.76
+  - 0.5571428571428572
+  - 0.3500000000000001
+- object_id: cube_224
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3
+  - 0.6628571428571428
+  - 0.6285714285714286
+- object_id: cube_225
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3657142857142857
+  - 0.6514285714285715
+  - 0.5857142857142857
+- object_id: cube_226
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.43142857142857144
+  - 0.64
+  - 0.5428571428571428
+- object_id: cube_227
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.49714285714285716
+  - 0.6285714285714286
+  - 0.5
+- object_id: cube_228
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.562857142857143
+  - 0.6171428571428571
+  - 0.45714285714285724
+- object_id: cube_229
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6285714285714287
+  - 0.6057142857142858
+  - 0.4142857142857143
+- object_id: cube_230
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6942857142857144
+  - 0.5942857142857143
+  - 0.3714285714285715
+- object_id: cube_231
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.76
+  - 0.5828571428571429
+  - 0.3285714285714287
+- object_id: cube_232
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3
+  - 0.6885714285714285
+  - 0.6071428571428572
+- object_id: cube_233
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3657142857142857
+  - 0.6771428571428572
+  - 0.5642857142857144
+- object_id: cube_234
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.43142857142857144
+  - 0.6657142857142857
+  - 0.5214285714285715
+- object_id: cube_235
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.49714285714285716
+  - 0.6542857142857142
+  - 0.47857142857142865
+- object_id: cube_236
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.562857142857143
+  - 0.6428571428571428
+  - 0.43571428571428583
+- object_id: cube_237
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6285714285714287
+  - 0.6314285714285715
+  - 0.3928571428571429
+- object_id: cube_238
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6942857142857144
+  - 0.62
+  - 0.3500000000000001
+- object_id: cube_239
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.76
+  - 0.6085714285714285
+  - 0.3071428571428572
+- object_id: cube_240
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3
+  - 0.7142857142857143
+  - 0.5857142857142857
+- object_id: cube_241
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3657142857142857
+  - 0.702857142857143
+  - 0.5428571428571429
+- object_id: cube_242
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.43142857142857144
+  - 0.6914285714285715
+  - 0.5
+- object_id: cube_243
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.49714285714285716
+  - 0.68
+  - 0.45714285714285724
+- object_id: cube_244
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.562857142857143
+  - 0.6685714285714286
+  - 0.4142857142857144
+- object_id: cube_245
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6285714285714287
+  - 0.6571428571428573
+  - 0.3714285714285715
+- object_id: cube_246
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6942857142857144
+  - 0.6457142857142858
+  - 0.3285714285714287
+- object_id: cube_247
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.76
+  - 0.6342857142857143
+  - 0.2857142857142858
+- object_id: cube_248
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3
+  - 0.7399999999999999
+  - 0.5642857142857143
+- object_id: cube_249
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.3657142857142857
+  - 0.7285714285714285
+  - 0.5214285714285715
+- object_id: cube_250
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.43142857142857144
+  - 0.7171428571428571
+  - 0.4785714285714286
+- object_id: cube_251
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.49714285714285716
+  - 0.7057142857142856
+  - 0.4357142857142858
+- object_id: cube_252
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.562857142857143
+  - 0.6942857142857142
+  - 0.39285714285714296
+- object_id: cube_253
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6285714285714287
+  - 0.6828571428571428
+  - 0.35000000000000003
+- object_id: cube_254
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6942857142857144
+  - 0.6714285714285714
+  - 0.3071428571428572
+- object_id: cube_255
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.76
+  - 0.6599999999999999
+  - 0.26428571428571435
+- object_id: cube_256
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.32
+  - 0.5599999999999999
+  - 0.7257142857142858
+- object_id: cube_257
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.38571428571428573
+  - 0.5485714285714286
+  - 0.6828571428571429
+- object_id: cube_258
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.45142857142857146
+  - 0.5371428571428571
+  - 0.64
+- object_id: cube_259
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5171428571428571
+  - 0.5257142857142857
+  - 0.5971428571428572
+- object_id: cube_260
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5828571428571429
+  - 0.5142857142857142
+  - 0.5542857142857144
+- object_id: cube_261
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6485714285714286
+  - 0.5028571428571429
+  - 0.5114285714285715
+- object_id: cube_262
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7142857142857143
+  - 0.49142857142857144
+  - 0.46857142857142864
+- object_id: cube_263
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7799999999999999
+  - 0.48
+  - 0.42571428571428577
+- object_id: cube_264
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.32
+  - 0.5857142857142856
+  - 0.7042857142857143
+- object_id: cube_265
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.38571428571428573
+  - 0.5742857142857143
+  - 0.6614285714285715
+- object_id: cube_266
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.45142857142857146
+  - 0.5628571428571428
+  - 0.6185714285714285
+- object_id: cube_267
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5171428571428571
+  - 0.5514285714285714
+  - 0.5757142857142857
+- object_id: cube_268
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5828571428571429
+  - 0.5399999999999999
+  - 0.532857142857143
+- object_id: cube_269
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6485714285714286
+  - 0.5285714285714286
+  - 0.49000000000000005
+- object_id: cube_270
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7142857142857143
+  - 0.5171428571428571
+  - 0.44714285714285723
+- object_id: cube_271
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7799999999999999
+  - 0.5057142857142857
+  - 0.40428571428571436
+- object_id: cube_272
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.32
+  - 0.6114285714285713
+  - 0.6828571428571429
+- object_id: cube_273
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.38571428571428573
+  - 0.6
+  - 0.6400000000000001
+- object_id: cube_274
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.45142857142857146
+  - 0.5885714285714285
+  - 0.5971428571428572
+- object_id: cube_275
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5171428571428571
+  - 0.5771428571428571
+  - 0.5542857142857144
+- object_id: cube_276
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5828571428571429
+  - 0.5657142857142856
+  - 0.5114285714285716
+- object_id: cube_277
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6485714285714286
+  - 0.5542857142857143
+  - 0.4685714285714286
+- object_id: cube_278
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7142857142857143
+  - 0.5428571428571428
+  - 0.42571428571428577
+- object_id: cube_279
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7799999999999999
+  - 0.5314285714285714
+  - 0.3828571428571429
+- object_id: cube_280
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.32
+  - 0.6371428571428571
+  - 0.6614285714285715
+- object_id: cube_281
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.38571428571428573
+  - 0.6257142857142858
+  - 0.6185714285714287
+- object_id: cube_282
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.45142857142857146
+  - 0.6142857142857143
+  - 0.5757142857142857
+- object_id: cube_283
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5171428571428571
+  - 0.6028571428571429
+  - 0.5328571428571429
+- object_id: cube_284
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5828571428571429
+  - 0.5914285714285714
+  - 0.4900000000000001
+- object_id: cube_285
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6485714285714286
+  - 0.5800000000000001
+  - 0.4471428571428572
+- object_id: cube_286
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7142857142857143
+  - 0.5685714285714286
+  - 0.40428571428571436
+- object_id: cube_287
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7799999999999999
+  - 0.5571428571428572
+  - 0.3614285714285715
+- object_id: cube_288
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.32
+  - 0.6628571428571428
+  - 0.64
+- object_id: cube_289
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.38571428571428573
+  - 0.6514285714285715
+  - 0.5971428571428572
+- object_id: cube_290
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.45142857142857146
+  - 0.64
+  - 0.5542857142857143
+- object_id: cube_291
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5171428571428571
+  - 0.6285714285714286
+  - 0.5114285714285715
+- object_id: cube_292
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5828571428571429
+  - 0.6171428571428571
+  - 0.46857142857142864
+- object_id: cube_293
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6485714285714286
+  - 0.6057142857142858
+  - 0.4257142857142857
+- object_id: cube_294
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7142857142857143
+  - 0.5942857142857143
+  - 0.3828571428571429
+- object_id: cube_295
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7799999999999999
+  - 0.5828571428571429
+  - 0.3400000000000001
+- object_id: cube_296
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.32
+  - 0.6885714285714285
+  - 0.6185714285714287
+- object_id: cube_297
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.38571428571428573
+  - 0.6771428571428572
+  - 0.5757142857142858
+- object_id: cube_298
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.45142857142857146
+  - 0.6657142857142857
+  - 0.5328571428571429
+- object_id: cube_299
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5171428571428571
+  - 0.6542857142857142
+  - 0.49000000000000005
+- object_id: cube_300
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5828571428571429
+  - 0.6428571428571428
+  - 0.44714285714285723
+- object_id: cube_301
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6485714285714286
+  - 0.6314285714285715
+  - 0.4042857142857143
+- object_id: cube_302
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7142857142857143
+  - 0.62
+  - 0.3614285714285715
+- object_id: cube_303
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7799999999999999
+  - 0.6085714285714285
+  - 0.3185714285714286
+- object_id: cube_304
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.32
+  - 0.7142857142857143
+  - 0.5971428571428572
+- object_id: cube_305
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.38571428571428573
+  - 0.702857142857143
+  - 0.5542857142857144
+- object_id: cube_306
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.45142857142857146
+  - 0.6914285714285715
+  - 0.5114285714285715
+- object_id: cube_307
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5171428571428571
+  - 0.68
+  - 0.46857142857142864
+- object_id: cube_308
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5828571428571429
+  - 0.6685714285714286
+  - 0.4257142857142858
+- object_id: cube_309
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6485714285714286
+  - 0.6571428571428573
+  - 0.3828571428571429
+- object_id: cube_310
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7142857142857143
+  - 0.6457142857142858
+  - 0.3400000000000001
+- object_id: cube_311
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7799999999999999
+  - 0.6342857142857143
+  - 0.2971428571428572
+- object_id: cube_312
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.32
+  - 0.7399999999999999
+  - 0.5757142857142857
+- object_id: cube_313
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.38571428571428573
+  - 0.7285714285714285
+  - 0.5328571428571429
+- object_id: cube_314
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.45142857142857146
+  - 0.7171428571428571
+  - 0.49
+- object_id: cube_315
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5171428571428571
+  - 0.7057142857142856
+  - 0.4471428571428572
+- object_id: cube_316
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5828571428571429
+  - 0.6942857142857142
+  - 0.40428571428571436
+- object_id: cube_317
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6485714285714286
+  - 0.6828571428571428
+  - 0.36142857142857143
+- object_id: cube_318
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7142857142857143
+  - 0.6714285714285714
+  - 0.3185714285714286
+- object_id: cube_319
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7799999999999999
+  - 0.6599999999999999
+  - 0.2757142857142858
+- object_id: cube_320
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.33999999999999997
+  - 0.5599999999999999
+  - 0.7371428571428572
+- object_id: cube_321
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4057142857142857
+  - 0.5485714285714286
+  - 0.6942857142857144
+- object_id: cube_322
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4714285714285714
+  - 0.5371428571428571
+  - 0.6514285714285715
+- object_id: cube_323
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5371428571428571
+  - 0.5257142857142857
+  - 0.6085714285714287
+- object_id: cube_324
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6028571428571429
+  - 0.5142857142857142
+  - 0.5657142857142858
+- object_id: cube_325
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6685714285714286
+  - 0.5028571428571429
+  - 0.5228571428571429
+- object_id: cube_326
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7342857142857143
+  - 0.49142857142857144
+  - 0.4800000000000001
+- object_id: cube_327
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7999999999999999
+  - 0.48
+  - 0.4371428571428572
+- object_id: cube_328
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.33999999999999997
+  - 0.5857142857142856
+  - 0.7157142857142857
+- object_id: cube_329
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4057142857142857
+  - 0.5742857142857143
+  - 0.6728571428571429
+- object_id: cube_330
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4714285714285714
+  - 0.5628571428571428
+  - 0.63
+- object_id: cube_331
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5371428571428571
+  - 0.5514285714285714
+  - 0.5871428571428572
+- object_id: cube_332
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6028571428571429
+  - 0.5399999999999999
+  - 0.5442857142857144
+- object_id: cube_333
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6685714285714286
+  - 0.5285714285714286
+  - 0.5014285714285714
+- object_id: cube_334
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7342857142857143
+  - 0.5171428571428571
+  - 0.4585714285714287
+- object_id: cube_335
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7999999999999999
+  - 0.5057142857142857
+  - 0.4157142857142858
+- object_id: cube_336
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.33999999999999997
+  - 0.6114285714285713
+  - 0.6942857142857144
+- object_id: cube_337
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4057142857142857
+  - 0.6
+  - 0.6514285714285716
+- object_id: cube_338
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4714285714285714
+  - 0.5885714285714285
+  - 0.6085714285714287
+- object_id: cube_339
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5371428571428571
+  - 0.5771428571428571
+  - 0.5657142857142858
+- object_id: cube_340
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6028571428571429
+  - 0.5657142857142856
+  - 0.5228571428571429
+- object_id: cube_341
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6685714285714286
+  - 0.5542857142857143
+  - 0.48000000000000004
+- object_id: cube_342
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7342857142857143
+  - 0.5428571428571428
+  - 0.4371428571428572
+- object_id: cube_343
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7999999999999999
+  - 0.5314285714285714
+  - 0.39428571428571435
+- object_id: cube_344
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.33999999999999997
+  - 0.6371428571428571
+  - 0.6728571428571429
+- object_id: cube_345
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4057142857142857
+  - 0.6257142857142858
+  - 0.6300000000000001
+- object_id: cube_346
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4714285714285714
+  - 0.6142857142857143
+  - 0.5871428571428572
+- object_id: cube_347
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5371428571428571
+  - 0.6028571428571429
+  - 0.5442857142857144
+- object_id: cube_348
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6028571428571429
+  - 0.5914285714285714
+  - 0.5014285714285716
+- object_id: cube_349
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6685714285714286
+  - 0.5800000000000001
+  - 0.45857142857142863
+- object_id: cube_350
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7342857142857143
+  - 0.5685714285714286
+  - 0.4157142857142858
+- object_id: cube_351
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7999999999999999
+  - 0.5571428571428572
+  - 0.37285714285714294
+- object_id: cube_352
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.33999999999999997
+  - 0.6628571428571428
+  - 0.6514285714285715
+- object_id: cube_353
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4057142857142857
+  - 0.6514285714285715
+  - 0.6085714285714287
+- object_id: cube_354
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4714285714285714
+  - 0.64
+  - 0.5657142857142857
+- object_id: cube_355
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5371428571428571
+  - 0.6285714285714286
+  - 0.5228571428571429
+- object_id: cube_356
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6028571428571429
+  - 0.6171428571428571
+  - 0.4800000000000001
+- object_id: cube_357
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6685714285714286
+  - 0.6057142857142858
+  - 0.43714285714285717
+- object_id: cube_358
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7342857142857143
+  - 0.5942857142857143
+  - 0.39428571428571435
+- object_id: cube_359
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7999999999999999
+  - 0.5828571428571429
+  - 0.35142857142857153
+- object_id: cube_360
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.33999999999999997
+  - 0.6885714285714285
+  - 0.6300000000000001
+- object_id: cube_361
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4057142857142857
+  - 0.6771428571428572
+  - 0.5871428571428573
+- object_id: cube_362
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4714285714285714
+  - 0.6657142857142857
+  - 0.5442857142857143
+- object_id: cube_363
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5371428571428571
+  - 0.6542857142857142
+  - 0.5014285714285714
+- object_id: cube_364
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6028571428571429
+  - 0.6428571428571428
+  - 0.4585714285714287
+- object_id: cube_365
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6685714285714286
+  - 0.6314285714285715
+  - 0.41571428571428576
+- object_id: cube_366
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7342857142857143
+  - 0.62
+  - 0.37285714285714294
+- object_id: cube_367
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7999999999999999
+  - 0.6085714285714285
+  - 0.33000000000000007
+- object_id: cube_368
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.33999999999999997
+  - 0.7142857142857143
+  - 0.6085714285714287
+- object_id: cube_369
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4057142857142857
+  - 0.702857142857143
+  - 0.5657142857142858
+- object_id: cube_370
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4714285714285714
+  - 0.6914285714285715
+  - 0.5228571428571429
+- object_id: cube_371
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5371428571428571
+  - 0.68
+  - 0.4800000000000001
+- object_id: cube_372
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6028571428571429
+  - 0.6685714285714286
+  - 0.4371428571428573
+- object_id: cube_373
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6685714285714286
+  - 0.6571428571428573
+  - 0.39428571428571435
+- object_id: cube_374
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7342857142857143
+  - 0.6457142857142858
+  - 0.35142857142857153
+- object_id: cube_375
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7999999999999999
+  - 0.6342857142857143
+  - 0.30857142857142866
+- object_id: cube_376
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.33999999999999997
+  - 0.7399999999999999
+  - 0.5871428571428572
+- object_id: cube_377
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4057142857142857
+  - 0.7285714285714285
+  - 0.5442857142857144
+- object_id: cube_378
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4714285714285714
+  - 0.7171428571428571
+  - 0.5014285714285714
+- object_id: cube_379
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5371428571428571
+  - 0.7057142857142856
+  - 0.45857142857142863
+- object_id: cube_380
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6028571428571429
+  - 0.6942857142857142
+  - 0.4157142857142858
+- object_id: cube_381
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6685714285714286
+  - 0.6828571428571428
+  - 0.3728571428571429
+- object_id: cube_382
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7342857142857143
+  - 0.6714285714285714
+  - 0.33000000000000007
+- object_id: cube_383
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7999999999999999
+  - 0.6599999999999999
+  - 0.2871428571428572
+- object_id: cube_384
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.36
+  - 0.5599999999999999
+  - 0.7485714285714287
+- object_id: cube_385
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4257142857142857
+  - 0.5485714285714286
+  - 0.7057142857142858
+- object_id: cube_386
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.49142857142857144
+  - 0.5371428571428571
+  - 0.6628571428571429
+- object_id: cube_387
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5571428571428572
+  - 0.5257142857142857
+  - 0.6200000000000001
+- object_id: cube_388
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6228571428571429
+  - 0.5142857142857142
+  - 0.5771428571428573
+- object_id: cube_389
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6885714285714286
+  - 0.5028571428571429
+  - 0.5342857142857144
+- object_id: cube_390
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7542857142857143
+  - 0.49142857142857144
+  - 0.4914285714285715
+- object_id: cube_391
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.82
+  - 0.48
+  - 0.4485714285714286
+- object_id: cube_392
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.36
+  - 0.5857142857142856
+  - 0.7271428571428572
+- object_id: cube_393
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4257142857142857
+  - 0.5742857142857143
+  - 0.6842857142857144
+- object_id: cube_394
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.49142857142857144
+  - 0.5628571428571428
+  - 0.6414285714285715
+- object_id: cube_395
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5571428571428572
+  - 0.5514285714285714
+  - 0.5985714285714286
+- object_id: cube_396
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6228571428571429
+  - 0.5399999999999999
+  - 0.5557142857142858
+- object_id: cube_397
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6885714285714286
+  - 0.5285714285714286
+  - 0.5128571428571429
+- object_id: cube_398
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7542857142857143
+  - 0.5171428571428571
+  - 0.4700000000000001
+- object_id: cube_399
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.82
+  - 0.5057142857142857
+  - 0.4271428571428572
+- object_id: cube_400
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.36
+  - 0.6114285714285713
+  - 0.7057142857142858
+- object_id: cube_401
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4257142857142857
+  - 0.6
+  - 0.662857142857143
+- object_id: cube_402
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.49142857142857144
+  - 0.5885714285714285
+  - 0.6200000000000001
+- object_id: cube_403
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5571428571428572
+  - 0.5771428571428571
+  - 0.5771428571428573
+- object_id: cube_404
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6228571428571429
+  - 0.5657142857142856
+  - 0.5342857142857144
+- object_id: cube_405
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6885714285714286
+  - 0.5542857142857143
+  - 0.49142857142857144
+- object_id: cube_406
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7542857142857143
+  - 0.5428571428571428
+  - 0.4485714285714286
+- object_id: cube_407
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.82
+  - 0.5314285714285714
+  - 0.40571428571428575
+- object_id: cube_408
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.36
+  - 0.6371428571428571
+  - 0.6842857142857144
+- object_id: cube_409
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4257142857142857
+  - 0.6257142857142858
+  - 0.6414285714285716
+- object_id: cube_410
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.49142857142857144
+  - 0.6142857142857143
+  - 0.5985714285714286
+- object_id: cube_411
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5571428571428572
+  - 0.6028571428571429
+  - 0.5557142857142858
+- object_id: cube_412
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6228571428571429
+  - 0.5914285714285714
+  - 0.512857142857143
+- object_id: cube_413
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6885714285714286
+  - 0.5800000000000001
+  - 0.47000000000000003
+- object_id: cube_414
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7542857142857143
+  - 0.5685714285714286
+  - 0.4271428571428572
+- object_id: cube_415
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.82
+  - 0.5571428571428572
+  - 0.38428571428571434
+- object_id: cube_416
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.36
+  - 0.6628571428571428
+  - 0.6628571428571429
+- object_id: cube_417
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4257142857142857
+  - 0.6514285714285715
+  - 0.6200000000000001
+- object_id: cube_418
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.49142857142857144
+  - 0.64
+  - 0.5771428571428572
+- object_id: cube_419
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5571428571428572
+  - 0.6285714285714286
+  - 0.5342857142857144
+- object_id: cube_420
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6228571428571429
+  - 0.6171428571428571
+  - 0.4914285714285715
+- object_id: cube_421
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6885714285714286
+  - 0.6057142857142858
+  - 0.44857142857142857
+- object_id: cube_422
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7542857142857143
+  - 0.5942857142857143
+  - 0.40571428571428575
+- object_id: cube_423
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.82
+  - 0.5828571428571429
+  - 0.36285714285714293
+- object_id: cube_424
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.36
+  - 0.6885714285714285
+  - 0.6414285714285716
+- object_id: cube_425
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4257142857142857
+  - 0.6771428571428572
+  - 0.5985714285714288
+- object_id: cube_426
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.49142857142857144
+  - 0.6657142857142857
+  - 0.5557142857142857
+- object_id: cube_427
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5571428571428572
+  - 0.6542857142857142
+  - 0.5128571428571429
+- object_id: cube_428
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6228571428571429
+  - 0.6428571428571428
+  - 0.4700000000000001
+- object_id: cube_429
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6885714285714286
+  - 0.6314285714285715
+  - 0.42714285714285716
+- object_id: cube_430
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7542857142857143
+  - 0.62
+  - 0.38428571428571434
+- object_id: cube_431
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.82
+  - 0.6085714285714285
+  - 0.34142857142857147
+- object_id: cube_432
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.36
+  - 0.7142857142857143
+  - 0.6200000000000001
+- object_id: cube_433
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4257142857142857
+  - 0.702857142857143
+  - 0.5771428571428573
+- object_id: cube_434
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.49142857142857144
+  - 0.6914285714285715
+  - 0.5342857142857144
+- object_id: cube_435
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5571428571428572
+  - 0.68
+  - 0.4914285714285715
+- object_id: cube_436
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6228571428571429
+  - 0.6685714285714286
+  - 0.4485714285714287
+- object_id: cube_437
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6885714285714286
+  - 0.6571428571428573
+  - 0.40571428571428575
+- object_id: cube_438
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7542857142857143
+  - 0.6457142857142858
+  - 0.36285714285714293
+- object_id: cube_439
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.82
+  - 0.6342857142857143
+  - 0.32000000000000006
+- object_id: cube_440
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.36
+  - 0.7399999999999999
+  - 0.5985714285714286
+- object_id: cube_441
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.4257142857142857
+  - 0.7285714285714285
+  - 0.5557142857142858
+- object_id: cube_442
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.49142857142857144
+  - 0.7171428571428571
+  - 0.5128571428571429
+- object_id: cube_443
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5571428571428572
+  - 0.7057142857142856
+  - 0.47000000000000003
+- object_id: cube_444
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6228571428571429
+  - 0.6942857142857142
+  - 0.4271428571428572
+- object_id: cube_445
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6885714285714286
+  - 0.6828571428571428
+  - 0.3842857142857143
+- object_id: cube_446
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7542857142857143
+  - 0.6714285714285714
+  - 0.34142857142857147
+- object_id: cube_447
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.82
+  - 0.6599999999999999
+  - 0.29857142857142865
+- object_id: cube_448
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.38
+  - 0.5599999999999999
+  - 0.76
+- object_id: cube_449
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.44571428571428573
+  - 0.5485714285714286
+  - 0.7171428571428572
+- object_id: cube_450
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5114285714285715
+  - 0.5371428571428571
+  - 0.6742857142857143
+- object_id: cube_451
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5771428571428572
+  - 0.5257142857142857
+  - 0.6314285714285715
+- object_id: cube_452
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6428571428571429
+  - 0.5142857142857142
+  - 0.5885714285714286
+- object_id: cube_453
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7085714285714286
+  - 0.5028571428571429
+  - 0.5457142857142857
+- object_id: cube_454
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7742857142857144
+  - 0.49142857142857144
+  - 0.5028571428571429
+- object_id: cube_455
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.84
+  - 0.48
+  - 0.4600000000000001
+- object_id: cube_456
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.38
+  - 0.5857142857142856
+  - 0.7385714285714285
+- object_id: cube_457
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.44571428571428573
+  - 0.5742857142857143
+  - 0.6957142857142857
+- object_id: cube_458
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5114285714285715
+  - 0.5628571428571428
+  - 0.6528571428571428
+- object_id: cube_459
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5771428571428572
+  - 0.5514285714285714
+  - 0.61
+- object_id: cube_460
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6428571428571429
+  - 0.5399999999999999
+  - 0.5671428571428573
+- object_id: cube_461
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7085714285714286
+  - 0.5285714285714286
+  - 0.5242857142857144
+- object_id: cube_462
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7742857142857144
+  - 0.5171428571428571
+  - 0.48142857142857154
+- object_id: cube_463
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.84
+  - 0.5057142857142857
+  - 0.43857142857142867
+- object_id: cube_464
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.38
+  - 0.6114285714285713
+  - 0.7171428571428572
+- object_id: cube_465
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.44571428571428573
+  - 0.6
+  - 0.6742857142857144
+- object_id: cube_466
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5114285714285715
+  - 0.5885714285714285
+  - 0.6314285714285715
+- object_id: cube_467
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5771428571428572
+  - 0.5771428571428571
+  - 0.5885714285714286
+- object_id: cube_468
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6428571428571429
+  - 0.5657142857142856
+  - 0.5457142857142858
+- object_id: cube_469
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7085714285714286
+  - 0.5542857142857143
+  - 0.5028571428571429
+- object_id: cube_470
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7742857142857144
+  - 0.5428571428571428
+  - 0.4600000000000001
+- object_id: cube_471
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.84
+  - 0.5314285714285714
+  - 0.4171428571428572
+- object_id: cube_472
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.38
+  - 0.6371428571428571
+  - 0.6957142857142857
+- object_id: cube_473
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.44571428571428573
+  - 0.6257142857142858
+  - 0.6528571428571429
+- object_id: cube_474
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5114285714285715
+  - 0.6142857142857143
+  - 0.61
+- object_id: cube_475
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5771428571428572
+  - 0.6028571428571429
+  - 0.5671428571428572
+- object_id: cube_476
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6428571428571429
+  - 0.5914285714285714
+  - 0.5242857142857144
+- object_id: cube_477
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7085714285714286
+  - 0.5800000000000001
+  - 0.4814285714285715
+- object_id: cube_478
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7742857142857144
+  - 0.5685714285714286
+  - 0.43857142857142867
+- object_id: cube_479
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.84
+  - 0.5571428571428572
+  - 0.3957142857142858
+- object_id: cube_480
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.38
+  - 0.6628571428571428
+  - 0.6742857142857143
+- object_id: cube_481
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.44571428571428573
+  - 0.6514285714285715
+  - 0.6314285714285715
+- object_id: cube_482
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5114285714285715
+  - 0.64
+  - 0.5885714285714285
+- object_id: cube_483
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5771428571428572
+  - 0.6285714285714286
+  - 0.5457142857142857
+- object_id: cube_484
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6428571428571429
+  - 0.6171428571428571
+  - 0.5028571428571429
+- object_id: cube_485
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7085714285714286
+  - 0.6057142857142858
+  - 0.46
+- object_id: cube_486
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7742857142857144
+  - 0.5942857142857143
+  - 0.4171428571428572
+- object_id: cube_487
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.84
+  - 0.5828571428571429
+  - 0.3742857142857144
+- object_id: cube_488
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.38
+  - 0.6885714285714285
+  - 0.6528571428571429
+- object_id: cube_489
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.44571428571428573
+  - 0.6771428571428572
+  - 0.6100000000000001
+- object_id: cube_490
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5114285714285715
+  - 0.6657142857142857
+  - 0.5671428571428572
+- object_id: cube_491
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5771428571428572
+  - 0.6542857142857142
+  - 0.5242857142857144
+- object_id: cube_492
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6428571428571429
+  - 0.6428571428571428
+  - 0.48142857142857154
+- object_id: cube_493
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7085714285714286
+  - 0.6314285714285715
+  - 0.4385714285714286
+- object_id: cube_494
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7742857142857144
+  - 0.62
+  - 0.3957142857142858
+- object_id: cube_495
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.84
+  - 0.6085714285714285
+  - 0.3528571428571429
+- object_id: cube_496
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.38
+  - 0.7142857142857143
+  - 0.6314285714285715
+- object_id: cube_497
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.44571428571428573
+  - 0.702857142857143
+  - 0.5885714285714286
+- object_id: cube_498
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5114285714285715
+  - 0.6914285714285715
+  - 0.5457142857142857
+- object_id: cube_499
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5771428571428572
+  - 0.68
+  - 0.5028571428571429
+- object_id: cube_500
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6428571428571429
+  - 0.6685714285714286
+  - 0.46000000000000013
+- object_id: cube_501
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7085714285714286
+  - 0.6571428571428573
+  - 0.4171428571428572
+- object_id: cube_502
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7742857142857144
+  - 0.6457142857142858
+  - 0.3742857142857144
+- object_id: cube_503
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.84
+  - 0.6342857142857143
+  - 0.3314285714285715
+- object_id: cube_504
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.38
+  - 0.7399999999999999
+  - 0.61
+- object_id: cube_505
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.44571428571428573
+  - 0.7285714285714285
+  - 0.5671428571428572
+- object_id: cube_506
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5114285714285715
+  - 0.7171428571428571
+  - 0.5242857142857142
+- object_id: cube_507
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.5771428571428572
+  - 0.7057142857142856
+  - 0.4814285714285715
+- object_id: cube_508
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.6428571428571429
+  - 0.6942857142857142
+  - 0.43857142857142867
+- object_id: cube_509
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7085714285714286
+  - 0.6828571428571428
+  - 0.39571428571428574
+- object_id: cube_510
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.7742857142857144
+  - 0.6714285714285714
+  - 0.3528571428571429
+- object_id: cube_511
+  method: rigid_mesh
+  material: plastic
+  color_rgb:
+  - 0.84
+  - 0.6599999999999999
+  - 0.31000000000000005

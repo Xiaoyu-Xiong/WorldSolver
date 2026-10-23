@@ -1,0 +1,124 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_neutral
+camera: frozen_config
+bindings:
+- object_id: rod_coral
+  method: deformed_mesh
+  material: rubber
+  color_rgb:
+  - 0.78
+  - 0.3
+  - 0.26
+- object_id: rod_teal
+  method: deformed_mesh
+  material: rubber
+  color_rgb:
+  - 0.18
+  - 0.55
+  - 0.62
+- object_id: rod_gold
+  method: deformed_mesh
+  material: rubber
+  color_rgb:
+  - 0.8
+  - 0.57
+  - 0.18
+- object_id: fixed_base_bookkeeping_cube
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.12
+  - 0.14
+  - 0.17
+- object_id: left_axial_carriage_geom
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.29
+  - 0.34
+  - 0.4
+- object_id: left_lateral_stage_geom
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.48
+  - 0.55
+  - 0.62
+- object_id: left_rotor_support_geom
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.18
+  - 0.22
+  - 0.27
+- object_id: left_pod_1_geom
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.91
+  - 0.27
+  - 0.22
+- object_id: left_pod_2_geom
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.2
+  - 0.64
+  - 0.91
+- object_id: left_pod_3_geom
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.96
+  - 0.65
+  - 0.16
+- object_id: right_axial_carriage_geom
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.29
+  - 0.34
+  - 0.4
+- object_id: right_lateral_stage_geom
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.48
+  - 0.55
+  - 0.62
+- object_id: right_rotor_support_geom
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.18
+  - 0.22
+  - 0.27
+- object_id: right_pod_1_geom
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.91
+  - 0.27
+  - 0.22
+- object_id: right_pod_2_geom
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.2
+  - 0.64
+  - 0.91
+- object_id: right_pod_3_geom
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.96
+  - 0.65
+  - 0.16
+- object_id: genesis_static_floor
+  method: rigid_mesh
+  material: default
+  color_rgb:
+  - 0.58
+  - 0.64
+  - 0.68

@@ -1,0 +1,122 @@
+<mujoco model="coaxial_press_piston_mjcf">
+  <compiler angle="radian" autolimits="true"/>
+
+  <asset>
+    <material name="press_disk_satin"
+              rgba="0.67 0.70 0.73 1"
+              specular="0.55"
+              shininess="0.35"/>
+    <material name="press_rod_dark_metal"
+              rgba="0.24 0.27 0.30 1"
+              specular="0.48"
+              shininess="0.30"/>
+    <material name="press_mount_dark"
+              rgba="0.14 0.16 0.18 1"
+              specular="0.22"
+              shininess="0.18"/>
+  </asset>
+
+  <worldbody>
+    <body name="press_mount" pos="0 0 0">
+      <!--
+        Explicit fixed-base IPC bookkeeping collision. Its 6 mm diameter,
+        x=0.34 m radial offset, and z=0.96 m height keep it remote from the
+        cup opening, the piston path, and the soft-body sweep.
+      -->
+      <geom name="press_mount_bookkeeping_collision"
+            type="sphere"
+            pos="0.34 0 0.96"
+            size="0.003"
+            mass="0.001"
+            contype="1"
+            conaffinity="1"
+            condim="3"
+            friction="0.6 0.01 0.001"
+            material="press_mount_dark"/>
+
+      <body name="slide_carriage" pos="0 0 0">
+        <joint name="press_z"
+               type="slide"
+               pos="0 0 0"
+               axis="0 0 1"
+               limited="true"
+               range="-0.24 0"
+               damping="120"
+               armature="0.04"
+               frictionloss="0.8"/>
+
+        <!-- A real collision-bearing carriage collar, remote from the cup. -->
+        <geom name="slide_carriage_collision"
+              type="cylinder"
+              pos="0 0 0.946"
+              size="0.043 0.012"
+              mass="1.2"
+              contype="1"
+              conaffinity="1"
+              condim="6"
+              friction="0.7 0.02 0.002"
+              material="press_rod_dark_metal"/>
+
+        <body name="rotor_link" pos="0 0 0">
+          <joint name="press_spin"
+                 type="hinge"
+                 pos="0 0 0"
+                 axis="0 0 1"
+                 limited="true"
+                 range="-25 25"
+                 damping="0.4"
+                 armature="0.035"
+                 frictionloss="0.08"/>
+
+          <!--
+            Active piston disk: radius 0.245 m and thickness 0.028 m.
+            At press_z=0 its lower face is z=0.286 m; at press_z=-0.24
+            the lower face is z=0.046 m.
+          -->
+          <geom name="piston_disk_collision"
+                type="cylinder"
+                pos="0 0 0.30"
+                size="0.245 0.014"
+                mass="8.0"
+                contype="1"
+                conaffinity="1"
+                condim="6"
+                friction="1.0 0.045 0.004"
+                material="press_disk_satin"/>
+
+          <!-- Straight coaxial rod, joined continuously to the disk top. -->
+          <geom name="piston_rod_collision"
+                type="cylinder"
+                pos="0 0 0.622"
+                size="0.024 0.308"
+                mass="1.8"
+                contype="1"
+                conaffinity="1"
+                condim="6"
+                friction="0.82 0.03 0.003"
+                material="press_rod_dark_metal"/>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <!-- Desired vertical displacement in meters; 0 m is the authored home. -->
+    <position name="press_z_actuator"
+              joint="press_z"
+              kp="6000"
+              ctrllimited="true"
+              ctrlrange="-0.24 0"
+              forcelimited="true"
+              forcerange="-800 800"/>
+
+    <!-- Desired angular velocity in radians/second; 0 rad/s holds no spin. -->
+    <velocity name="press_spin_actuator"
+              joint="press_spin"
+              kv="36"
+              ctrllimited="true"
+              ctrlrange="-1.5 1.5"
+              forcelimited="true"
+              forcerange="-50 50"/>
+  </actuator>
+</mujoco>

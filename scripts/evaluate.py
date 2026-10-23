@@ -187,6 +187,7 @@ def main() -> int:
     )
     parser.add_argument("--task-id", required=True)
     parser.add_argument("--model", required=True)
+    parser.add_argument("--renderer", choices=("luisa", "pyrender"), default=None)
     parser.add_argument(
         "--physical-only",
         action="store_true",
@@ -241,6 +242,7 @@ def main() -> int:
                     output / "video.mp4",
                     render_spec_path=workspace / "render_spec.yaml",
                     geometry_path=workspace / "scene_geometry.yaml",
+                    backend=args.renderer,
                 )
             report = Evaluator().evaluate(
                 output,

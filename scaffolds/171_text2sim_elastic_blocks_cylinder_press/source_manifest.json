@@ -1,0 +1,43 @@
+{
+  "task_id": "171_text2sim_elastic_blocks_cylinder_press",
+  "source_root": "/data/xiongxiaoyu/workspaces/suites/dataset_test_merged_20260729_passes_plus_promoted/soft_elastic_blocks_cylinder_press_rigid_soft_two_way",
+  "source_sha256": {
+    "src/action.py": "84f4341cc3815413f79994d3fd1936d3675a24e76ec8f10e11e6b8a187027f9e",
+    "src/body.py": "d71d594ad74a0aa0fa1043d9a0d0456cca41d0e8241ecda83dd8211ae82ac772",
+    "src/main.py": "7d3de88473e8056e152a0936a66ed7a695b80c4625a3e77e88c6399afc66cc1e",
+    "src/rendering.py": "29f7c7607e69fbcaf0252b0f437dcef3984ee32cc828df930edfac4f754b2fb2",
+    "src/scene.py": "6ed54cad88467024d58da638a178e4052e632ad5a4030285d1a4e7cd0f100e14",
+    "assets/asset_manifest.json": "90809482a6be4ee54cca57110226b3f01e490ad4a0f34d9fd5df3a8cbf5aeece",
+    "artifacts/state_cache/manifest.json": "1d26eac1eec9d46bdd885674e9f93dd4092195ef64999f3897000ea504a82db6",
+    "artifacts/render_stats.json": "eeddff8c8c89cf502bcdba6d5b26943e191e773b954f0773cbec6acf431c375d",
+    "inputs/user_prompt.md": "631326cd30a76ddb61d909a2d0d5ee97b802b4b5bd89316805982b827af19bf5",
+    "assets/mesh/00_glass_cylindrical_cup_shell/remesh/auto_faces_5000/processed/repaired.obj": "4beee80e9a5a65ed09a7b3e2b76f5fda0fd92a08a2b63f00c6b70df0c3a85114",
+    "assets/xml/00_coaxial_press_piston_mjcf/coaxial_press_piston_mjcf.xml": "8a981c00c38a2d4313252c2ac3b0e0417c3c174d9accac902a49273b13841f68"
+  },
+  "source_unchanged": true,
+  "published_benchmark_task": false,
+  "no_answer_trajectory_exported": true,
+  "source_initial_state_basis": "procedural rest mesh regeneration for169; original step-zero state for171; exact source geometry formula for170",
+  "sampling_difference": "251 output samples at0..10s versus source250 video samples; physics duration is unchanged.",
+  "scaffold_files": {
+    "assets/articulation.xml": "8a981c00c38a2d4313252c2ac3b0e0417c3c174d9accac902a49273b13841f68",
+    "assets/block_1.npz": "0bdc7a766c125297b2315a7f59b19338775f273cd76ed3735fc36674db817763",
+    "assets/block_2.npz": "167f76ee985f590430a7c02e33154ed077b6d2cbf5203e38ade6eabbc3b21f29",
+    "assets/block_3.npz": "b8adcde771e69b0ac5ec2f32c958d3cc9a5386c325aafe843f43de69f400de36",
+    "assets/block_4.npz": "18b4b1c94fbbf96faf3a5469c49b8b9ff0bfb3900ce6d3a8cff9c88c0a405f2c",
+    "assets/cup_exact.npz": "79b2b1549306903b3b109ce1a6a98cf19436cb3fbfaf404d5842e1038049ffed",
+    "assets/cup_exact.obj": "dcff18b35965c4b79ed356fdaabbe4488bdb9fb4edf2a25e5a1349e82b87a8ed",
+    "assets/cup_source.obj": "4beee80e9a5a65ed09a7b3e2b76f5fda0fd92a08a2b63f00c6b70df0c3a85114",
+    "assets/initial_state.npz": "a0a7a5acdb7cf8c18a1a7152dbba426e821ad0f0dd38c278a176eb797caab8a0",
+    "assets/prescribed_controls.py": "86b7acfd45ba494637a702f6d5d3637c5b93bfc09fdb36f16561745729a6608f",
+    "assets/scene_contract.json": "18bec565c7e379d84efb5e90dea12a979ba41bc1c0cb060c35531f8ed03b3515",
+    "config.yaml": "ddd996ea1ee4b3339ece7586f059c11c8d561218c9ee80c2f9782b4c6fbd1a1c",
+    "render.py": "d28ebb3644a5d6d15581d90a0eb1e5fc241eec3af66dae33df057fed69e75b54",
+    "render_spec.yaml": "aebb8dac68e0ed75ae11a156585c518760441a3ea3079b738d7876c04bf258a9",
+    "run.py": "6ec6f564489da3dc98d9a34c837cb6f35763ba5ffe7e781dba2b3f1bd93a0deb",
+    "scene.py": "89237b44a2b32029f78a7c492e64c049bc1f0cfa05f8020cb76a3d3afd08c6ff",
+    "scene_geometry.yaml": "9c08c25021db81f202d0ad0a395f8dee25c040ef030c68f603d663dd27ff0650"
+  },
+  "geometry_count": 9,
+  "state_samples": 5083
+}

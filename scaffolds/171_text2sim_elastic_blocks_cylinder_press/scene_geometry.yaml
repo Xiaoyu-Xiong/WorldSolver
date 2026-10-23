@@ -1,0 +1,151 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+- id: cup
+  semantic: boundary
+  motion: static
+  geometry:
+    type: triangle_mesh
+    asset: assets/cup_exact.obj
+    topology_asset: assets/cup_exact.npz
+  transform:
+    translation:
+    - -3.287520000000432e-05
+    - -0.00034099840000001436
+    - 0.072422896
+    rotation_xyzw:
+    - 0
+    - 0
+    - 0
+    - 1
+  material_id: cup
+  collision_enabled: true
+- id: press_mount_bookkeeping_collision
+  semantic: boundary
+  motion: static
+  geometry:
+    type: sphere
+    radius: 0.003
+  transform:
+    translation:
+    - 0.34
+    - 0.0
+    - 0.96
+    rotation_xyzw:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  material_id: press_mount_bookkeeping_collision
+  collision_enabled: true
+- id: slide_carriage_collision
+  semantic: rigid
+  motion: dynamic
+  geometry:
+    type: cylinder
+    radius: 0.043
+    height: 0.024
+  transform:
+    translation:
+    - 0.0
+    - 0.0
+    - 0.946
+    rotation_xyzw:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  material_id: slide_carriage_collision
+  collision_enabled: true
+  state_binding:
+    selector: body_id
+    value: 2
+- id: piston_disk_collision
+  semantic: rigid
+  motion: dynamic
+  geometry:
+    type: cylinder
+    radius: 0.245
+    height: 0.028
+  transform:
+    translation:
+    - 0.0
+    - 0.0
+    - 0.3
+    rotation_xyzw:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  material_id: piston_disk_collision
+  collision_enabled: true
+  state_binding:
+    selector: body_id
+    value: 3
+- id: piston_rod_collision
+  semantic: rigid
+  motion: dynamic
+  geometry:
+    type: cylinder
+    radius: 0.024
+    height: 0.616
+  transform:
+    translation:
+    - 0.0
+    - 0.0
+    - 0.622
+    rotation_xyzw:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  material_id: piston_rod_collision
+  collision_enabled: true
+  state_binding:
+    selector: body_id
+    value: 4
+- id: block_1
+  semantic: deformable
+  motion: dynamic
+  geometry:
+    type: triangle_mesh
+    topology_asset: assets/block_1.npz
+  state_binding:
+    selector: body_id
+    value: 5
+  material_id: block_1
+  collision_enabled: true
+- id: block_2
+  semantic: deformable
+  motion: dynamic
+  geometry:
+    type: triangle_mesh
+    topology_asset: assets/block_2.npz
+  state_binding:
+    selector: body_id
+    value: 6
+  material_id: block_2
+  collision_enabled: true
+- id: block_3
+  semantic: deformable
+  motion: dynamic
+  geometry:
+    type: triangle_mesh
+    topology_asset: assets/block_3.npz
+  state_binding:
+    selector: body_id
+    value: 7
+  material_id: block_3
+  collision_enabled: true
+- id: block_4
+  semantic: deformable
+  motion: dynamic
+  geometry:
+    type: triangle_mesh
+    topology_asset: assets/block_4.npz
+  state_binding:
+    selector: body_id
+    value: 8
+  material_id: block_4
+  collision_enabled: true

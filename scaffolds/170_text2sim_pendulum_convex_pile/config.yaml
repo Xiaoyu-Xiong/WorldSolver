@@ -1,0 +1,75 @@
+scene_id: 170_text2sim_pendulum_convex_pile
+seed: 0
+duration: 10.0
+sample_dt: 0.04
+gravity:
+- 0
+- 0
+- -9.81
+source_sim_dt: 0.01
+source_sim_substeps: 1
+source_steps: 1000
+camera:
+  position:
+  - -1.4141999531075509
+  - -17.034233004264447
+  - 8.663058779693507
+  look_at:
+  - 1.9276390409469608
+  - 0.0462774097919465
+  - 2.165038513476402
+  up:
+  - 0.067160422139014
+  - 0.3432643798216272
+  - 0.9368345869169131
+  yfov_degrees: 42.0
+  width: 640
+  height: 480
+  fps: 25
+  near: 0.05
+  far: 47.0247017749458
+extension:
+  origin: Text2Sim
+  published_worldsolver_task: false
+  source_case: rigid_pendulum_ball_colored_convex_pile_impact_contact
+  public_contract: assets/scene_contract.json
+render_materials: {}
+luisa_lights:
+- name: large_warm_key
+  pos:
+  - -4.0
+  - -2.0
+  - 15.0
+  color:
+  - 1.0
+  - 0.88
+  - 0.75
+  intensity: 23.0
+  radius: 1.25
+- name: cool_fill
+  pos:
+  - 8.0
+  - 2.0
+  - 14.5
+  color:
+  - 0.68
+  - 0.84
+  - 1.0
+  intensity: 11.0
+  radius: 1.2
+- name: soft_rim
+  pos:
+  - 2.0
+  - 5.0
+  - 16.0
+  color:
+  - 1.0
+  - 0.94
+  - 0.84
+  intensity: 16.0
+  radius: 1.05
+luisa_environment_color:
+- 0.55
+- 0.64
+- 0.72
+physics_contract_reference: assets/scene_contract.json

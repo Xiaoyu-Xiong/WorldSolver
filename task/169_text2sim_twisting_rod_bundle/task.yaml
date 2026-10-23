@@ -1,0 +1,52 @@
+id: 169_text2sim_twisting_rod_bundle
+title: 'Text2Sim: Twisting Rod Bundle with Self Contact'
+category: multiphysics
+source:
+  title: 'Text2Sim: Agentic Physics-Based Simulation Generation with Distilled Expertise'
+  url: https://arxiv.org/abs/2609.36593
+  anchor: soft_twisting_rod_bundle_self_contact_deformable
+goal: Recreate the full three-rod six-DOF clamp scene with volumetric elasticity, self contact and finite-force
+  control.
+scene_requirements:
+  required_elements:
+  - rod_coral
+  - rod_teal
+  - rod_gold
+  - fixed_base_bookkeeping_cube
+  - left_axial_carriage_geom
+  - left_lateral_stage_geom
+  - left_rotor_support_geom
+  - left_pod_1_geom
+  - left_pod_2_geom
+  - left_pod_3_geom
+  - right_axial_carriage_geom
+  - right_lateral_stage_geom
+  - right_rotor_support_geom
+  - right_pod_1_geom
+  - right_pod_2_geom
+  - right_pod_3_geom
+  - genesis_static_floor
+  initial_state:
+  - Read the exact frozen mesh/initial-state assets and assets/scene_contract.json.
+  - All original physical geometry and actor counts must remain intact.
+  required_events:
+  - Three separate volumetric coral, teal and gold rods form a visibly twisting contacting bundle.
+  - Two finite-force clamp branches counter-rotate, then compress and offset, while the rods respond through elastic
+    dynamics.
+  - Rod-rod self contact and rod-clamp contact remain active without merger, deletion, persistent penetration or
+    prescribed rod trajectories.
+  - Axial/diagonal surface stripes remain attached to the material and expose torsion; the final fixed target phase
+    allows settling.
+parameter_notes:
+- This is an independently added Text2Sim extension; it is not part of the original 168-task WorldSolver release.
+- The source engine and recorded trajectory are not exposed. Implement all physical dynamics yourself.
+- The prescribed controller is public task input, not a motion solution. Its bounded forces must interact with contact
+  dynamics.
+- Render the original pinhole camera pose, field of view, geometry, colors and material cues.
+- 'Read contact_material_semantics in assets/scene_contract.json: IPC uses rigid coup_friction, FEM friction_mu,
+  geometric-mean pair friction, harmonic-mean contact resistance, and zero added restitution.'
+- Clamp friction=0.60 and coup_friction=0.55; rod-clamp pair mu=sqrt(0.45*0.55)=0.49749371855331. Do not substitute
+  the generic physics.friction=0.3.
+- Endpoint stiffness=1e5 is the source IPC strength_ratio; use the exact per-vertex mass and reference-step semantics
+  in endpoint_constraints.
+- Use the exact logarithmic-Ic StableNeoHookean material law and effective damping semantics in assets/scene_contract.json.
