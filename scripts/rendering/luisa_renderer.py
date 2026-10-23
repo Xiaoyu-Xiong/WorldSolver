@@ -62,6 +62,29 @@ def _linear_rgb(rgb):
     return np.where(rgb <= 0.04045, rgb / 12.92, ((rgb + 0.055) / 1.055) ** 2.4)
 
 
+def _scalar_attribute_texture(frame, item, binding, vertex_count):
+    """Encode a declared two-color scalar map without averaging vertex values.
+
+    Luisa's mesh binding has UVs but no vertex-color channel. For a linear
+    low/high map, barycentric interpolation of these UVs followed by bilinear
+    texture sampling is the same linear RGB map. Both endpoint texels use the
+    legacy renderer's uint8 color precision (at most 0.5/255 rounding error).
+    """
+    from .renderer import _binding_indices
+
+    indices = _binding_indices(frame, item)
+    values = np.asarray(frame.attributes[binding.scalar_attribute], dtype=float)[indices]
+    if values.shape != (vertex_count,) or not np.isfinite(values).all():
+        raise ValueError(f"Scalar color/vertex mismatch or non-finite values for {item.id}")
+    low, high = binding.scalar_range
+    fraction = np.clip((values - low) / (high - low), 0.0, 1.0)
+    # A 2x1 image's texel centers are u=1/4 and u=3/4. Staying between
+    # them also prevents repeat-addressing from blending the opposite edge.
+    uvs = np.column_stack((0.25 + 0.5 * fraction, np.full(vertex_count, 0.5)))
+    texture = np.rint(np.asarray([[binding.scalar_color_low, binding.scalar_color_high]]) * 255).astype(np.uint8)
+    return uvs, texture
+
+
 class LuisaTrajectoryRenderer:
     def __init__(self, config, spec, geometry, destination):
         from .renderer import _camera_pose
@@ -180,7 +203,7 @@ class LuisaTrajectoryRenderer:
             self.scene.update_shape(shape)
             self.shapes[name] = shape
 
-    def _surface(self, primitive, rgba=None, object_id=None):
+    def _surface(self, primitive, rgba=None, object_id=None, scalar_texture=None):
         material = primitive.material
         color = np.asarray(material.baseColorFactor if rgba is None else rgba, dtype=float)
         roughness, metallic = float(material.roughnessFactor), float(material.metallicFactor)
@@ -203,10 +226,18 @@ class LuisaTrajectoryRenderer:
         source = None if texture is None else np.asarray(texture.source)
         if "texture_asset" in overrides:
             source = imageio.imread(overrides["texture_asset"])
+        if scalar_texture is not None:
+            # Diagnostic RGB values are linear vertex-color multipliers in
+            # pyrender's mesh shader, not sRGB image pixels. Retain that
+            # convention and keep the ramp fixed while only UVs change.
+            source = scalar_texture
+            color = np.asarray([1.0, 1.0, 1.0, binding.opacity if binding.opacity is not None else 1.0])
+        texture_encoding = "linear" if scalar_texture is not None else "srgb"
         key_data = (
             color.tobytes()
             + np.asarray([roughness, metallic]).tobytes()
             + json.dumps(overrides, sort_keys=True).encode()
+            + texture_encoding.encode()
         )
         if source is not None:
             key_data += source.tobytes()
@@ -225,7 +256,7 @@ class LuisaTrajectoryRenderer:
                 height=source.shape[0],
                 channel=3,
                 scale=(1.0, 1.0, 1.0) if "texture_asset" in overrides else color[:3],
-                encoding="srgb",
+                encoding=texture_encoding,
             )
             if source.shape[-1] == 4:
                 alpha = np.ascontiguousarray(source[..., 3:4])
@@ -341,6 +372,18 @@ class LuisaTrajectoryRenderer:
                             uvs = topology["uv"]
                         if len(uvs) != len(vertices):
                             raise ValueError(f"UV/vertex count mismatch for {object_id}")
+                scalar_texture = None
+                binding = self.bindings.get(object_id)
+                if (
+                    item is not None
+                    and binding is not None
+                    and binding.method == "deformed_mesh"
+                    and binding.scalar_attribute is not None
+                    and binding.scalar_color_low is not None
+                ):
+                    # Apply even to a currently uniform field: later frames
+                    # can then change colors through the same shape/material.
+                    uvs, scalar_texture = _scalar_attribute_texture(frame, item, binding, len(vertices))
                 if item is not None and item.geometry.type == "box":
                     # Shared corner normals make a planar tabletop look bent
                     # under path tracing. Keep its triangles and use the exact
@@ -353,16 +396,16 @@ class LuisaTrajectoryRenderer:
                     faces = np.arange(len(vertices)).reshape(-1, 3)
                 transforms = [pose] if primitive.poses is None else [pose @ p for p in primitive.poses]
                 color = None
-                if primitive.color_0 is not None:
+                if primitive.color_0 is not None and scalar_texture is None:
                     # A uniform vertex color can be represented exactly by a material.
                     colors = np.asarray(primitive.color_0)
                     if not np.allclose(colors, colors[0]):
                         raise ValueError(
-                            "Varying per-vertex diagnostic colors require pyrender; "
-                            "Luisa will not silently replace them with a uniform color"
+                            "Luisa supports deformed-mesh scalar_attribute colors with explicit "
+                            "linear low/high endpoints; other varying vertex colors require pyrender"
                         )
                     color = colors[0]
-                surface = self._surface(primitive, color, object_id)
+                surface = self._surface(primitive, color, object_id, scalar_texture=scalar_texture)
                 for instance_index, transform in enumerate(transforms):
                     name = f"{base_name}_{instance_index}"
                     world_vertices = trimesh.transform_points(vertices, transform)
