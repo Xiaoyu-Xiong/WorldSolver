@@ -33,8 +33,9 @@ scene_requirements:
   - Three separate volumetric coral, teal and gold rods form a visibly twisting contacting bundle.
   - Two finite-force clamp branches counter-rotate, then compress and offset, while the rods respond through elastic
     dynamics.
-  - Rod-rod self contact and rod-clamp contact remain active without merger, deletion, persistent penetration or
-    prescribed rod trajectories.
+  - Rod-rod self contact develops without merger, deletion, persistent penetration or prescribed rod trajectories.
+    Rod-clamp collisions remain enabled and are resolved whenever contact occurs; separated rods and clamps need
+    not generate contact.
   - Axial/diagonal surface stripes remain attached to the material and expose torsion; the final fixed target phase
     allows settling.
 parameter_notes:

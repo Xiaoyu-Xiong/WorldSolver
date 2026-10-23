@@ -15,8 +15,9 @@ criteria:
       through elastic dynamics.
   - id: event_2
     dimension: signature_phenomenon
-    criterion: Rod-rod self contact and rod-clamp contact remain active without merger, deletion, persistent penetration
-      or prescribed rod trajectories.
+    criterion: Rod-rod self contact develops without merger, deletion, persistent penetration or prescribed rod
+      trajectories. Rod-clamp collisions remain enabled and are resolved whenever contact occurs; separated rods
+      and clamps need not generate contact.
   - id: event_3
     dimension: temporal_coherence
     criterion: Axial/diagonal surface stripes remain attached to the material and expose torsion; the final fixed
