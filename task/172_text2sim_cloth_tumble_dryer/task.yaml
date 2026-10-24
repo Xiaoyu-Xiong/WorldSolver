@@ -1,0 +1,50 @@
+id: 172_text2sim_cloth_tumble_dryer
+title: Twelve cloth pieces tumbling inside a finite-torque rotating dryer drum
+category: multiphysics
+source:
+  title: 'Text2Sim: Agentic Physics-Based Simulation Generation with Distilled Expertise'
+  url: https://arxiv.org/abs/2609.36593
+  anchor: fem_cloth_tumble_dryer_rotating_drum_contact
+goal: Implement the full cloth/rigid contact dynamics from rest through 14 seconds, preserving the original 12-cloth
+  dryer scene and driven finite-inertia rotor.
+scene_requirements:
+  required_elements:
+  - rotor_link
+  - ipc_remote_base_bookkeeping_geom
+  - glass_screen
+  - studio_floor
+  - cloth_00
+  - cloth_01
+  - cloth_02
+  - cloth_03
+  - cloth_04
+  - cloth_05
+  - cloth_06
+  - cloth_07
+  - cloth_08
+  - cloth_09
+  - cloth_10
+  - cloth_11
+  initial_state:
+  - Read the frozen assets/initial_state.npz and exact per-cloth rest meshes, materials and controller in assets/scene_contract.json.
+  - All actors begin at rest at physical time zero; the first old video frame at 2.04 s is NOT an initial state.
+  required_events:
+  - Twelve distinct colored flexible square cloth pieces remain separately identifiable inside the original faceted
+    drum with four longitudinal baffles and a fixed transparent front screen.
+  - After the physical two-second start-up, finite-torque drum rotation lifts cloth through wall/baffle contact
+    and gravity causes repeated falling and tumbling during the twelve-second capture window.
+  - Cloth bends, folds and exchanges contact with other cloths, the rotating drum and fixed boundaries; no cloth
+    is replaced by a rigid plate or scripted trajectory.
+  - All twelve cloths remain contained without deletion, merging, persistent boundary crossing or obvious teleportation,
+    while the drum and glass preserve their shapes.
+parameter_notes:
+- This is an independent Text2Sim supplement, outside the original 168 WorldSolver tasks.
+- Implement all dynamics yourself. The source engine, original solver and recorded motion are not provided.
+- Use the effective StrainLimitingBaraffWitkinShell and volume-weighted DiscreteShellBending formulas, not the stale
+  NeoHookeanShell docstring or ignored FEM.Cloth.model field.
+- 'Shell thickness=.001 is one-sided: full thickness=.002; masses use rho*2*t*rest area.'
+- Control commands are held every .01 s; target velocity is not actual velocity. Apply bounded motor torque, passive
+  damping, inertia/armature, gravity and two-way cloth loads.
+- Raw output covers 0..14 s every .04 s (351 samples). Renderer uses the frozen source window 2.04..14 s (300 frames,
+  25 fps).
+- Preserve the source camera, colors, transparent front screen and actual 30 wall facets, rear disk and four baffles.

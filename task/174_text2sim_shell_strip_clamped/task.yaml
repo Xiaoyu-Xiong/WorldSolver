@@ -1,0 +1,33 @@
+id: 174_text2sim_shell_strip_clamped
+title: 'Text2Sim: Twisting Shell Strip with Clamped Ends'
+category: multiphysics
+source:
+  title: 'Text2Sim: Agentic Physics-Based Simulation Generation with Distilled Expertise'
+  url: https://arxiv.org/abs/2609.36593
+  anchor: deformable_twisting_shell_strip_clamped_ends
+goal: Simulate the original hyperelastic thin ribbon under invisible kinematic end-edge actuation, preserving membrane,
+  bending, thickness and self-contact semantics.
+scene_requirements:
+  required_elements:
+  - hyperelastic_shell_ribbon
+  initial_state:
+  - Read all frozen input assets and the complete scene_contract.json; initial state is the original undeformed
+    mesh, not a deformed cached frame.
+  required_events:
+  - A single initially flat warm-coral 1.20 by 0.16 m thin-shell ribbon remains in free space with zero gravity,
+    no floor and no visible clamps.
+  - Two complete short-edge targets counter-rotate, creating repeated helical deformation; subsequent frozen shortening
+    and small asymmetric endpoint offsets produce curled/writhed folds and near self-contact.
+  - Membrane elasticity, bending and nonlocal surface collision determine the interior motion; no prescribed interior
+    deformation, self-crossing shortcut, hidden pin or substitute volumetric rod is introduced.
+  - From 6.8 s through 10 s the endpoint targets hold fixed while remaining elastic oscillations settle; the original
+    topology, material and camera are retained.
+parameter_notes:
+- Independent Text2Sim supplement, outside the original WorldSolver 168 tasks.
+- The actual shell law is StrainLimitingBaraffWitkinShell plus DiscreteShellBending; see the exact public energy
+  and mass/thickness definitions.
+- Preserve physical material, all geometry, actuation and output sampling across quality profiles. Only numerical
+  approximations/internal steps may vary.
+- Report external constraint/actuator reaction forces separately from pairwise balanced internal/contact forces.
+- The provided control function is an input schedule only; it contains no material dynamics or stored answer trajectory.
+- Zero gravity and no floor/support; preserve the original fixed camera pose, field of view, colors and scene contents.

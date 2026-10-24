@@ -1,0 +1,12 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_neutral
+camera: frozen_config
+bindings:
+- object_id: hyperelastic_shell_ribbon
+  method: shell_surface
+  material: fabric
+  color_rgb:
+  - 0.84
+  - 0.27
+  - 0.16

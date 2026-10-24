@@ -1,0 +1,191 @@
+{
+  "task_id": "172_text2sim_cloth_tumble_dryer",
+  "source_root": "/data/xiongxiaoyu/workspaces/suites/dataset_train_batch_20260715_143600_six_case_path_tracing_sandbox_fixed_with_api_keys/fem_cloth_tumble_dryer_rotating_drum_contact",
+  "source_sha256": {
+    "src/action.py": "5c624d4d9f2f8c5abf4c404c9df77e6c96182284cbe6019c094eb54427b9f286",
+    "src/body.py": "74af952f8ddc1ee8d808a232cf4d800c4d3b175272d078b8f040b4ff070f9831",
+    "src/main.py": "05234f63235f721fbb579be2476f76ccfac3ef836407c0ca14659f43306f76e8",
+    "src/rendering.py": "1adfe45c5534c4f77f7945ec5392a1e13a14026523137d6bd77d2609e60ba0d4",
+    "src/scene.py": "adbc7d86dac306ae9ad0e57424967a8c48ea750d0390880edbdf2e6a7219adfa",
+    "assets/asset_manifest.json": "3e8b0b6209e2a5bb536e59305254fc7e3a4de217d166cbe6368109262c754926",
+    "contracts/timing.json": "45ffc43a18347c2dd5e8b9ca7481a73f96df22d91adc905912bda665ec3a958c",
+    "artifacts/render_stats.json": "0a19c94548cc09bc6ab489d86cfeda93d9a942530bd6fc2556fba475ef5a8582",
+    "artifacts/state_cache/manifest.json": "27e66f69af232a5708f0a3875514da0cc33d73e09b067ed8e740e9199bd6c3c9",
+    "artifacts/adaptive_ipc_config.json": "8ea2f5050855872d717fe0fe9bf0076a98ccc90ac7d862671d58a7954960bf86",
+    "inputs/user_prompt.md": "e09bfb21efbe4e9968ff72e769d7c3750b0bd4f19ce346056d7b192cf4f0d3db",
+    "assets/mesh/00_square_cloth_piece/square_cloth_piece.obj": "bc686062386a53620d47a239d4baf0316f73b98997b7a9f235b14ca32e624133",
+    "assets/mesh/00_square_cloth_piece/cloth_mesh_report.json": "5b6e2e07db2d6ecebab4e97836d8c8942d0d9e4db54d594b9f25ca302588b4aa",
+    "assets/xml/00_dryer_drum_mjcf/dryer_drum_mjcf.xml": "6f6dcc0ae52a072fe43535cec2292d91d0db62cd4bc05c4353332a3a0ec6f780"
+  },
+  "source_unchanged": true,
+  "published_benchmark_task": false,
+  "no_answer_trajectory_exported": true,
+  "no_solver_exported": true,
+  "source_initial_state_basis": "Original OBJ loaded in source trimesh order, source float32 translate/center/rotation procedure, original 12 poses; zero velocities. No cached dynamics frame used.",
+  "initial_state_limit": "Source cache starts at 2.04 s and has no saved t=0 array; equality to historical t=0 cannot be bytewise verified. Reconstructed geometry/transform algorithm and active source hashes are verified.",
+  "source_cache_physics_source_hashes_match_current": true,
+  "source_cache_rendering_only_change": {
+    "classification": "render_only",
+    "mismatched_files": [
+      "src/rendering.py"
+    ],
+    "physics_rerun_required": false,
+    "rationale": "Only src/rendering.py changed; this repair is limited to cache validation, render-only state application, camera capture, and render evidence and cannot alter cached physics."
+  },
+  "material_version_evidence": "Genesis commit 99ba1f10 (2026-04-09) and 92e32925 (2026-06-24) already select StrainLimitingBaraffWitkinShell, predating this July case. Current source contains the same selection. The cache does not record a full engine/libuipc build hash.",
+  "semantic_source_sha256": {
+    "/home/xiaoyu/Genesis/genesis/engine/entities/fem_entity.py": "9af180f2d5f7fba25257626ba3300f8518a5509a779be4497a07fdec78650ae3",
+    "/home/xiaoyu/Genesis/genesis/utils/geom.py": "15b55a1a7164c15e2171a0c6a4c9c0eee76b77b814ee019d66527a7e5b735405",
+    "/home/xiaoyu/Genesis/genesis/engine/couplers/ipc_coupler/coupler.py": "73fdc3bf0c347669ff5e3786a520d40777689000f533cb07ebebc6070af5bfa9",
+    "/home/xiaoyu/Genesis/genesis/engine/solvers/fem_solver.py": "28ab6592598fd7fce8d5d8e015cb0c8ae3d3131714661dd56c844d7ae199b1e5",
+    "/home/xiaoyu/libuipc/include/uipc/constitution/conversion.h": "43ebb56438a79d11b45772463d4a48526c4f1e60031515e30b54cb12ca4f1838",
+    "/home/xiaoyu/libuipc/src/geometry/compute_vertex_volume.cpp": "a39f863419a1adc6664f0b1034f0cd231ca69ecf8e80a31870085caa5503f2d8",
+    "/home/xiaoyu/libuipc/src/backends/cuda/finite_element/constitutions/strain_limiting_baraff_witkin_shell_2d.cu": "b6aab01e8dcc5a3e24255f3b0500a05f1e81b4dd06c8d6b0eb0f93393b9bf27d",
+    "/home/xiaoyu/libuipc/src/backends/cuda/finite_element/constitutions/strain_limiting_baraff_witkin_shell_2d.h": "28d222a651318af0ce27b71a7ce5356ac3543276dcb9502d510767a0094801cc",
+    "/home/xiaoyu/libuipc/src/backends/cuda/finite_element/constitutions/discrete_shell_bending.cu": "1f43b25d720824c89490d12577f7d303add95cc8374d509ff514d4c38facf495",
+    "/home/xiaoyu/libuipc/src/backends/cuda/finite_element/constitutions/discrete_shell_bending_function.h": "a3a77f7568cbe5f84c35b972423269e89b26d28efeb660c1f1a078d1d31514d8"
+  },
+  "cloth_initial_data": [
+    {
+      "name": "cloth_00",
+      "nodes": 256,
+      "faces": 450,
+      "mass": 0.032400000087037764,
+      "rest_area": 0.09000000024177157,
+      "minimum_triangle_area": 0.00019999959658857527,
+      "vertex_sha256": "fc9b57f16c345e7c50e20e5dd7de0d3bf40c26dab5279d54cb2d5c17c06ea0c3"
+    },
+    {
+      "name": "cloth_01",
+      "nodes": 256,
+      "faces": 450,
+      "mass": 0.032399998948524966,
+      "rest_area": 0.08999999707923603,
+      "minimum_triangle_area": 0.00019999963062401725,
+      "vertex_sha256": "0d0e9abe2865c9fd605c1de727d327db6bdc66fb93771bc81980eb790bdb86c6"
+    },
+    {
+      "name": "cloth_02",
+      "nodes": 256,
+      "faces": 450,
+      "mass": 0.03240000076834244,
+      "rest_area": 0.09000000213428457,
+      "minimum_triangle_area": 0.00019999970526933037,
+      "vertex_sha256": "d93506a6cea2865a5889d38bc574331d94475cda3be3cff250a05cd43decee5c"
+    },
+    {
+      "name": "cloth_03",
+      "nodes": 256,
+      "faces": 450,
+      "mass": 0.032400001308723135,
+      "rest_area": 0.09000000363534202,
+      "minimum_triangle_area": 0.0001999996692021935,
+      "vertex_sha256": "47d311042d1b44ac1ff0db36e12c38fca804f270cc42a39a302645b2bcc7773b"
+    },
+    {
+      "name": "cloth_04",
+      "nodes": 256,
+      "faces": 450,
+      "mass": 0.03240000169513338,
+      "rest_area": 0.09000000470870381,
+      "minimum_triangle_area": 0.00019999974280545145,
+      "vertex_sha256": "13db7523d7722a1b53abef7d5af82cbcc41569ed27f2875050e7fd0e9e00d607"
+    },
+    {
+      "name": "cloth_05",
+      "nodes": 256,
+      "faces": 450,
+      "mass": 0.03240000030059155,
+      "rest_area": 0.09000000083497653,
+      "minimum_triangle_area": 0.0001999997453612422,
+      "vertex_sha256": "57b75845daec528a87f4fd69d835957f841e74a067372b40c6996c31d2e8976e"
+    },
+    {
+      "name": "cloth_06",
+      "nodes": 256,
+      "faces": 450,
+      "mass": 0.03239999847806545,
+      "rest_area": 0.089999995772404,
+      "minimum_triangle_area": 0.00019999974556736538,
+      "vertex_sha256": "a9c1423451b95b61dc95b89ffcf132c5ab513490fc1d762ba90b3011eecbd11a"
+    },
+    {
+      "name": "cloth_07",
+      "nodes": 256,
+      "faces": 450,
+      "mass": 0.0324000005576518,
+      "rest_area": 0.09000000154903279,
+      "minimum_triangle_area": 0.00019999963062401725,
+      "vertex_sha256": "2f79d3dca42cd28125124e53fe9a2fc039dd9cce503103a2184bd0158cdf034a"
+    },
+    {
+      "name": "cloth_08",
+      "nodes": 256,
+      "faces": 450,
+      "mass": 0.03240000076834244,
+      "rest_area": 0.09000000213428457,
+      "minimum_triangle_area": 0.00019999970526933037,
+      "vertex_sha256": "aab5d6db230a397dfc664f1339836654af1825a391d14cd2325ae4868e9405a5"
+    },
+    {
+      "name": "cloth_09",
+      "nodes": 256,
+      "faces": 450,
+      "mass": 0.032400001308723135,
+      "rest_area": 0.09000000363534202,
+      "minimum_triangle_area": 0.0001999996692021935,
+      "vertex_sha256": "cfc8396fe88cf9ab275bd60cc85c49b90a29b66ef7a7614488ad90630da64b76"
+    },
+    {
+      "name": "cloth_10",
+      "nodes": 256,
+      "faces": 450,
+      "mass": 0.03240000169513338,
+      "rest_area": 0.09000000470870381,
+      "minimum_triangle_area": 0.00019999974280545145,
+      "vertex_sha256": "01fa39b51b73901df4c1e99e61b8a3835635ed6338de1eaf18c48fc59a5d86c6"
+    },
+    {
+      "name": "cloth_11",
+      "nodes": 256,
+      "faces": 450,
+      "mass": 0.032400000300591536,
+      "rest_area": 0.09000000083497649,
+      "minimum_triangle_area": 0.0001999997453612422,
+      "vertex_sha256": "aa324b2b5299c50903d8d4c8234fda0631c0eef0ab7a1944a52607684c3180dc"
+    }
+  ],
+  "geometry_count": 16,
+  "state_samples": 3073,
+  "cloth_nodes": 3072,
+  "cloth_faces": 5400,
+  "raw_frames": 351,
+  "video_frames": 300,
+  "scaffold_files": {
+    "assets/articulation.xml": "6f6dcc0ae52a072fe43535cec2292d91d0db62cd4bc05c4353332a3a0ec6f780",
+    "assets/cloth_00.npz": "f554c2a634091ec364334d8c7aedc27206ff9f031d9e92c481be57a3c8ee7595",
+    "assets/cloth_01.npz": "5500bae38d6e3cbc4b141da6cb1a0863c000b5c9914295940e8667b462313146",
+    "assets/cloth_02.npz": "47a6ac0a6634ab9176a8be78adc15ef1631fe3ee10dc8a0be2d45cc8ea149f36",
+    "assets/cloth_03.npz": "2b253a115c091793c6db22407cb5b1919704e8e76553e6ca42bd937b09404071",
+    "assets/cloth_04.npz": "e8f2c4eb735d75ae4184659e06f11e2520cfa2f184d5ee7173b9bc01ade6a134",
+    "assets/cloth_05.npz": "14a9d4635c81b14a2b69bd2596a028bbd717c3f92e249f229540283bc5374ae8",
+    "assets/cloth_06.npz": "e1d741859aebddc83f8151d9728631b14b55d3cd364c230dc9d4e88964bc9786",
+    "assets/cloth_07.npz": "b8c4c333d5a8bceb7d00aaa659fac72bc566926573d8948ec49f5032a73abfb3",
+    "assets/cloth_08.npz": "f6404dc2589e5d97ba21f2e1c369afb589304eb8ef373e7bcff9e1ffbfb3e3ed",
+    "assets/cloth_09.npz": "7dc68123a0b00b54944d44fc404dc0368bd203793f2611ffddc93b85c36c1f1e",
+    "assets/cloth_10.npz": "fe2b5fb937ca4efbed84cc096a79ff1d780f7f01e7f9a7965e061a48411b11cb",
+    "assets/cloth_11.npz": "82757283298e01e5d9c10fb67ed61e5c163b689f1048a67b9f7630c5edc0f462",
+    "assets/floor_visual.obj": "fdc0424102616c67dc6ca01fd759381366568a2c8111ec3a08d451e280d9e439",
+    "assets/initial_state.npz": "61549c2b4ed3d0b98d30c3f31dcd4b45e8732b1a49f8ce99cc301ed9c8158531",
+    "assets/prescribed_controls.py": "da7202794b394ea3b2bbfd82bcedb707d07e2109de3572391585d32157e0fab8",
+    "assets/rotor_visual.obj": "44fd148f9967c1a41fa6240e2e319ff6c5fc7489fe98fb57e0d003c10057a52c",
+    "assets/scene_contract.json": "5584a65ea768e03de744ef22e5a0db2d3cedbaa6d6bd9581bae96402c0308e0b",
+    "assets/square_cloth_piece.obj": "bc686062386a53620d47a239d4baf0316f73b98997b7a9f235b14ca32e624133",
+    "config.yaml": "247fe5ebc848cb53adcb5c90fefc119a60582cf66779f552a0354197bcce2a00",
+    "render.py": "d28ebb3644a5d6d15581d90a0eb1e5fc241eec3af66dae33df057fed69e75b54",
+    "render_spec.yaml": "89d033fb4b78e6fedbd31e750acf14041788e17788a42666131730661dd062ff",
+    "run.py": "6ec6f564489da3dc98d9a34c837cb6f35763ba5ffe7e781dba2b3f1bd93a0deb",
+    "scene.py": "79d8b9b689df5e1bf7ba6f72a2b211883063817041adeb1d80235eff0e5f6a7c",
+    "scene_geometry.yaml": "41adc0c9edf16d51aa98a8f479a9003d47d54bc83ac1b49578340b7810b2f41b"
+  }
+}

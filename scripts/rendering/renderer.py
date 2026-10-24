@@ -14,6 +14,7 @@ from worldsolver.trajectory import TrajectoryReader
 
 from .render_spec import RenderSpec, load_render_spec
 from .video_writer import write_video
+from .time_window import selected_video_frames
 
 
 def _configure_opengl_platform() -> None:
@@ -762,7 +763,7 @@ def render_trajectory(
                 spec=spec,
                 geometry=geometry,
             )
-            for frame in TrajectoryReader(trajectory)
+            for frame in selected_video_frames(TrajectoryReader(trajectory), config)
         )
         write_video(destination, frames, int(camera.get("fps", 30)))
     finally:

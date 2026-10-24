@@ -1,0 +1,1505 @@
+{
+  "version": 1,
+  "source_case": "soft_cloth_strip_twist_self_contact_deformable",
+  "task_id": "173_text2sim_cloth_strip_twist",
+  "representation": "World-space FEM nodes and rigid geometric-origin samples, orientation xyzw.",
+  "geometry_is_frozen": true,
+  "initial_velocity": "All dynamic actors initially at rest.",
+  "bodies": [
+    {
+      "id": 0,
+      "name": "cloth",
+      "kind": "cloth_shell",
+      "fixed": false,
+      "rest_asset": "assets/cloth.npz",
+      "node_count": 3535,
+      "face_count": 6800,
+      "mass": 0.19200001049041757,
+      "material": {
+        "model": "strain_limiting_baraff_witkin_shell",
+        "youngs_modulus": 100000.0,
+        "poisson_ratio": 0.48,
+        "density": 200.0,
+        "thickness": 0.001,
+        "full_thickness": 0.002,
+        "bending_stiffness": 0.08,
+        "friction": 0.5,
+        "contact_resistance": 10000000.0,
+        "strain_limiting_rate": 100
+      },
+      "endpoint_constraints": {
+        "type": "one_way_finite_strength_actual_rotor_link_targets",
+        "nodes": {
+          "left": [
+            1,
+            2,
+            3,
+            4,
+            102,
+            103,
+            104,
+            105,
+            202,
+            203,
+            204,
+            205,
+            206,
+            303,
+            304,
+            305,
+            306,
+            307,
+            404,
+            405,
+            406,
+            407,
+            408,
+            505,
+            506,
+            507,
+            508,
+            509,
+            606,
+            607,
+            608,
+            609,
+            610,
+            707,
+            708,
+            709,
+            710,
+            711,
+            808,
+            809,
+            810,
+            811,
+            812,
+            909,
+            910,
+            911,
+            912,
+            913,
+            1010,
+            1011,
+            1012,
+            1013,
+            1014,
+            1111,
+            1112,
+            1113,
+            1114,
+            1115,
+            1212,
+            1213,
+            1214,
+            1215,
+            1216,
+            1313,
+            1314,
+            1315,
+            1316,
+            1317,
+            1414,
+            1415,
+            1416,
+            1417,
+            1418,
+            1515,
+            1516,
+            1517,
+            1518,
+            1519,
+            1616,
+            1617,
+            1618,
+            1619,
+            1620,
+            1717,
+            1718,
+            1719,
+            1720,
+            1721,
+            1818,
+            1819,
+            1820,
+            1821,
+            1822,
+            1919,
+            1920,
+            1921,
+            1922,
+            1923,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2121,
+            2122,
+            2123,
+            2124,
+            2125,
+            2222,
+            2223,
+            2224,
+            2225,
+            2226,
+            2323,
+            2324,
+            2325,
+            2326,
+            2327,
+            2424,
+            2425,
+            2426,
+            2427,
+            2428,
+            2525,
+            2526,
+            2527,
+            2528,
+            2529,
+            2626,
+            2627,
+            2628,
+            2629,
+            2630,
+            2727,
+            2728,
+            2729,
+            2730,
+            2731,
+            2828,
+            2829,
+            2830,
+            2831,
+            2832,
+            2929,
+            2930,
+            2931,
+            2932,
+            2933,
+            3030,
+            3031,
+            3032,
+            3033,
+            3034,
+            3131,
+            3132,
+            3133,
+            3134,
+            3135,
+            3232,
+            3233,
+            3234,
+            3235,
+            3236,
+            3334,
+            3335,
+            3336,
+            3337,
+            3435,
+            3436,
+            3437,
+            3438
+          ],
+          "right": [
+            98,
+            99,
+            198,
+            199,
+            200,
+            201,
+            299,
+            300,
+            301,
+            302,
+            400,
+            401,
+            402,
+            403,
+            501,
+            502,
+            503,
+            504,
+            602,
+            603,
+            604,
+            605,
+            703,
+            704,
+            705,
+            706,
+            804,
+            805,
+            806,
+            807,
+            905,
+            906,
+            907,
+            908,
+            1006,
+            1007,
+            1008,
+            1009,
+            1107,
+            1108,
+            1109,
+            1110,
+            1208,
+            1209,
+            1210,
+            1211,
+            1309,
+            1310,
+            1311,
+            1312,
+            1410,
+            1411,
+            1412,
+            1413,
+            1511,
+            1512,
+            1513,
+            1514,
+            1612,
+            1613,
+            1614,
+            1615,
+            1713,
+            1714,
+            1715,
+            1716,
+            1814,
+            1815,
+            1816,
+            1817,
+            1915,
+            1916,
+            1917,
+            1918,
+            2016,
+            2017,
+            2018,
+            2019,
+            2117,
+            2118,
+            2119,
+            2120,
+            2218,
+            2219,
+            2220,
+            2221,
+            2319,
+            2320,
+            2321,
+            2322,
+            2420,
+            2421,
+            2422,
+            2423,
+            2521,
+            2522,
+            2523,
+            2524,
+            2622,
+            2623,
+            2624,
+            2625,
+            2723,
+            2724,
+            2725,
+            2726,
+            2824,
+            2825,
+            2826,
+            2827,
+            2925,
+            2926,
+            2927,
+            2928,
+            3026,
+            3027,
+            3028,
+            3029,
+            3127,
+            3128,
+            3129,
+            3130,
+            3228,
+            3229,
+            3230,
+            3231,
+            3329,
+            3330,
+            3331,
+            3332,
+            3430,
+            3431,
+            3432,
+            3433,
+            3532,
+            3533
+          ]
+        },
+        "strength_ratio": 60.0,
+        "source_reference_step_seconds": 0.01,
+        "equivalent_physical_stiffness": "k_i=60*m_i/(0.01^2) N/m; preserve this physical k_i when choosing a different integration step.",
+        "target_motion": "For each endpoint vertex keep its initial offset from that side rotor frame, then transform by the actual rotor link pose (not the desired control pose).",
+        "left_link": "left_clamp_rotor_link",
+        "right_link": "right_clamp_rotor_link",
+        "one_way_semantics": "The source soft position constraint acts on cloth only; do not add its force to the rotor. Cloth-jaw collision reactions are two-way.",
+        "external_force_reporting": "Include these one-way cloth endpoint penalty forces in external_force for total-system momentum balance, together with fixed articulation support forces. They are not internally balanced cloth-rotor contact pairs."
+      }
+    },
+    {
+      "id": 1,
+      "name": "left_ipc_dummy_mount_geom",
+      "kind": "rigid",
+      "fixed": true,
+      "mass": 0.015,
+      "initial_position": [
+        -1.585,
+        0.0,
+        0.5
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "articulation_link": "left_clamp_fixed_mount_link",
+      "joint_ancestors": [],
+      "link_origin_initial": [
+        -0.6,
+        0.0,
+        0.5
+      ],
+      "geom_local_position": [
+        -0.985,
+        0.0,
+        0.0
+      ],
+      "source_geom_attributes": {
+        "name": "left_ipc_dummy_mount_geom",
+        "type": "sphere",
+        "pos": "-0.985 0 0",
+        "size": "0.010",
+        "mass": "0.015",
+        "material": "left_clamp_dark_mount",
+        "friction": "0.45 0.01 0.001",
+        "contype": "1",
+        "conaffinity": "1"
+      },
+      "friction": 0.3,
+      "coup_friction": 0.5,
+      "effective_contact_friction": 0.5,
+      "coup_restitution": 0,
+      "contact_resistance": 10000000.0,
+      "ipc_collision_enabled": false
+    },
+    {
+      "id": 2,
+      "name": "left_approach_rail_geom",
+      "kind": "rigid",
+      "fixed": false,
+      "mass": 0.24,
+      "initial_position": [
+        -1.1600000000000001,
+        0.0,
+        0.5
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "articulation_link": "left_clamp_carriage_link",
+      "joint_ancestors": [
+        "left_approach_slide"
+      ],
+      "link_origin_initial": [
+        -1.1,
+        0.0,
+        0.5
+      ],
+      "geom_local_position": [
+        -0.06,
+        0.0,
+        0.0
+      ],
+      "source_geom_attributes": {
+        "name": "left_approach_rail_geom",
+        "type": "capsule",
+        "fromto": "-0.060 0 -0.150 -0.060 0 0.150",
+        "size": "0.030",
+        "mass": "0.24",
+        "material": "left_clamp_dark_mount",
+        "friction": "0.45 0.01 0.001",
+        "contype": "1",
+        "conaffinity": "1"
+      },
+      "friction": 0.3,
+      "coup_friction": 0.5,
+      "effective_contact_friction": 0.5,
+      "coup_restitution": 0,
+      "contact_resistance": 10000000.0,
+      "ipc_collision_enabled": false
+    },
+    {
+      "id": 3,
+      "name": "left_writhe_carriage_geom",
+      "kind": "rigid",
+      "fixed": false,
+      "mass": 0.22,
+      "initial_position": [
+        -1.07,
+        0.0,
+        0.5
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "articulation_link": "left_clamp_writhe_link",
+      "joint_ancestors": [
+        "left_approach_slide",
+        "left_writhe_slide"
+      ],
+      "link_origin_initial": [
+        -1.1,
+        0.0,
+        0.5
+      ],
+      "geom_local_position": [
+        0.03,
+        0.0,
+        0.0
+      ],
+      "source_geom_attributes": {
+        "name": "left_writhe_carriage_geom",
+        "type": "box",
+        "pos": "0.030 0 0",
+        "size": "0.055 0.040 0.040",
+        "mass": "0.22",
+        "material": "left_clamp_brushed_carriage",
+        "friction": "0.50 0.01 0.001",
+        "contype": "1",
+        "conaffinity": "1"
+      },
+      "friction": 0.3,
+      "coup_friction": 0.5,
+      "effective_contact_friction": 0.5,
+      "coup_restitution": 0,
+      "contact_resistance": 10000000.0,
+      "ipc_collision_enabled": false
+    },
+    {
+      "id": 4,
+      "name": "left_upper_jaw_geom",
+      "kind": "rigid",
+      "fixed": false,
+      "mass": 0.3,
+      "initial_position": [
+        -0.5725000000000001,
+        0.0,
+        0.535
+      ],
+      "initial_orientation_xyzw": [
+        -0.7071067811865475,
+        0.0,
+        0.0,
+        0.7071067811865476
+      ],
+      "articulation_link": "left_clamp_rotor_link",
+      "joint_ancestors": [
+        "left_approach_slide",
+        "left_writhe_slide",
+        "left_twist_hinge"
+      ],
+      "link_origin_initial": [
+        -0.6000000000000001,
+        0.0,
+        0.5
+      ],
+      "geom_local_position": [
+        0.0275,
+        0.0,
+        0.035
+      ],
+      "source_geom_attributes": {
+        "name": "left_upper_jaw_geom",
+        "type": "capsule",
+        "fromto": "0.0275 -0.182 0.035 0.0275 0.182 0.035",
+        "size": "0.028",
+        "mass": "0.30",
+        "material": "left_clamp_satin_jaw",
+        "friction": "0.82 0.015 0.001",
+        "contype": "1",
+        "conaffinity": "1"
+      },
+      "friction": 0.3,
+      "coup_friction": 0.5,
+      "effective_contact_friction": 0.5,
+      "coup_restitution": 0,
+      "contact_resistance": 10000000.0,
+      "ipc_collision_enabled": true
+    },
+    {
+      "id": 5,
+      "name": "left_lower_jaw_geom",
+      "kind": "rigid",
+      "fixed": false,
+      "mass": 0.3,
+      "initial_position": [
+        -0.5725000000000001,
+        0.0,
+        0.46499999999999997
+      ],
+      "initial_orientation_xyzw": [
+        -0.7071067811865475,
+        0.0,
+        0.0,
+        0.7071067811865476
+      ],
+      "articulation_link": "left_clamp_rotor_link",
+      "joint_ancestors": [
+        "left_approach_slide",
+        "left_writhe_slide",
+        "left_twist_hinge"
+      ],
+      "link_origin_initial": [
+        -0.6000000000000001,
+        0.0,
+        0.5
+      ],
+      "geom_local_position": [
+        0.0275,
+        0.0,
+        -0.035
+      ],
+      "source_geom_attributes": {
+        "name": "left_lower_jaw_geom",
+        "type": "capsule",
+        "fromto": "0.0275 -0.182 -0.035 0.0275 0.182 -0.035",
+        "size": "0.028",
+        "mass": "0.30",
+        "material": "left_clamp_satin_jaw",
+        "friction": "0.82 0.015 0.001",
+        "contype": "1",
+        "conaffinity": "1"
+      },
+      "friction": 0.3,
+      "coup_friction": 0.5,
+      "effective_contact_friction": 0.5,
+      "coup_restitution": 0,
+      "contact_resistance": 10000000.0,
+      "ipc_collision_enabled": true
+    },
+    {
+      "id": 6,
+      "name": "right_ipc_dummy_mount_geom",
+      "kind": "rigid",
+      "fixed": true,
+      "mass": 1e-05,
+      "initial_position": [
+        1.6099999999999999,
+        0.0,
+        0.5
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "articulation_link": "right_clamp_fixed_mount_link",
+      "joint_ancestors": [],
+      "link_origin_initial": [
+        0.582,
+        0.0,
+        0.5
+      ],
+      "geom_local_position": [
+        1.028,
+        0.0,
+        0.0
+      ],
+      "source_geom_attributes": {
+        "name": "right_ipc_dummy_mount_geom",
+        "type": "box",
+        "pos": "1.028 0 0",
+        "size": "0.002 0.002 0.002",
+        "material": "right_mount_dark",
+        "mass": "0.00001",
+        "friction": "0.40 0.01 0.001",
+        "contype": "1",
+        "conaffinity": "1"
+      },
+      "friction": 0.3,
+      "coup_friction": 0.5,
+      "effective_contact_friction": 0.5,
+      "coup_restitution": 0,
+      "contact_resistance": 10000000.0,
+      "ipc_collision_enabled": false
+    },
+    {
+      "id": 7,
+      "name": "right_writhe_rail_geom",
+      "kind": "rigid",
+      "fixed": false,
+      "mass": 0.035,
+      "initial_position": [
+        1.362,
+        0.0,
+        0.5
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "articulation_link": "right_clamp_carriage_link",
+      "joint_ancestors": [
+        "right_approach_slide"
+      ],
+      "link_origin_initial": [
+        0.582,
+        0.0,
+        0.5
+      ],
+      "geom_local_position": [
+        0.78,
+        0.0,
+        0.0
+      ],
+      "source_geom_attributes": {
+        "name": "right_writhe_rail_geom",
+        "type": "capsule",
+        "fromto": "0.78 0 -0.168 0.78 0 0.168",
+        "size": "0.012",
+        "material": "right_rail_metal",
+        "mass": "0.035",
+        "friction": "0.45 0.01 0.001",
+        "contype": "1",
+        "conaffinity": "1"
+      },
+      "friction": 0.3,
+      "coup_friction": 0.5,
+      "effective_contact_friction": 0.5,
+      "coup_restitution": 0,
+      "contact_resistance": 10000000.0,
+      "ipc_collision_enabled": false
+    },
+    {
+      "id": 8,
+      "name": "right_writhe_carriage_geom",
+      "kind": "rigid",
+      "fixed": false,
+      "mass": 0.045,
+      "initial_position": [
+        1.412,
+        0.0,
+        0.5
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "articulation_link": "right_clamp_writhe_link",
+      "joint_ancestors": [
+        "right_approach_slide",
+        "right_writhe_slide"
+      ],
+      "link_origin_initial": [
+        0.582,
+        0.0,
+        0.5
+      ],
+      "geom_local_position": [
+        0.83,
+        0.0,
+        0.0
+      ],
+      "source_geom_attributes": {
+        "name": "right_writhe_carriage_geom",
+        "type": "box",
+        "pos": "0.83 0 0",
+        "size": "0.022 0.030 0.025",
+        "material": "right_rail_metal",
+        "mass": "0.045",
+        "friction": "0.45 0.01 0.001",
+        "contype": "1",
+        "conaffinity": "1"
+      },
+      "friction": 0.3,
+      "coup_friction": 0.5,
+      "effective_contact_friction": 0.5,
+      "coup_restitution": 0,
+      "contact_resistance": 10000000.0,
+      "ipc_collision_enabled": false
+    },
+    {
+      "id": 9,
+      "name": "right_rotor_hub_geom",
+      "kind": "rigid",
+      "fixed": false,
+      "mass": 0.08,
+      "initial_position": [
+        0.6619999999999999,
+        0.0,
+        0.5
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.7071067811865476,
+        0.0,
+        0.7071067811865476
+      ],
+      "articulation_link": "right_clamp_rotor_link",
+      "joint_ancestors": [
+        "right_approach_slide",
+        "right_writhe_slide",
+        "right_twist_hinge"
+      ],
+      "link_origin_initial": [
+        0.582,
+        0.0,
+        0.5
+      ],
+      "geom_local_position": [
+        0.08,
+        0.0,
+        0.0
+      ],
+      "source_geom_attributes": {
+        "name": "right_rotor_hub_geom",
+        "type": "cylinder",
+        "pos": "0.08 0 0",
+        "quat": "0.707106781 0 0.707106781 0",
+        "size": "0.034 0.050",
+        "material": "right_rotor_metal",
+        "mass": "0.08",
+        "friction": "0.55 0.01 0.001",
+        "contype": "1",
+        "conaffinity": "1"
+      },
+      "friction": 0.3,
+      "coup_friction": 0.5,
+      "effective_contact_friction": 0.5,
+      "coup_restitution": 0,
+      "contact_resistance": 10000000.0,
+      "ipc_collision_enabled": true
+    },
+    {
+      "id": 10,
+      "name": "right_upper_jaw_geom",
+      "kind": "rigid",
+      "fixed": false,
+      "mass": 0.22,
+      "initial_position": [
+        0.582,
+        0.0,
+        0.528
+      ],
+      "initial_orientation_xyzw": [
+        -0.7071067811865475,
+        0.0,
+        0.0,
+        0.7071067811865476
+      ],
+      "articulation_link": "right_clamp_rotor_link",
+      "joint_ancestors": [
+        "right_approach_slide",
+        "right_writhe_slide",
+        "right_twist_hinge"
+      ],
+      "link_origin_initial": [
+        0.582,
+        0.0,
+        0.5
+      ],
+      "geom_local_position": [
+        0.0,
+        0.0,
+        0.028
+      ],
+      "source_geom_attributes": {
+        "name": "right_upper_jaw_geom",
+        "type": "capsule",
+        "fromto": "0 -0.190 0.028 0 0.190 0.028",
+        "size": "0.020",
+        "material": "right_jaw_satin",
+        "mass": "0.22",
+        "friction": "0.82 0.015 0.001",
+        "contype": "1",
+        "conaffinity": "1"
+      },
+      "friction": 0.3,
+      "coup_friction": 0.5,
+      "effective_contact_friction": 0.5,
+      "coup_restitution": 0,
+      "contact_resistance": 10000000.0,
+      "ipc_collision_enabled": true
+    },
+    {
+      "id": 11,
+      "name": "right_lower_jaw_geom",
+      "kind": "rigid",
+      "fixed": false,
+      "mass": 0.22,
+      "initial_position": [
+        0.582,
+        0.0,
+        0.472
+      ],
+      "initial_orientation_xyzw": [
+        -0.7071067811865475,
+        0.0,
+        0.0,
+        0.7071067811865476
+      ],
+      "articulation_link": "right_clamp_rotor_link",
+      "joint_ancestors": [
+        "right_approach_slide",
+        "right_writhe_slide",
+        "right_twist_hinge"
+      ],
+      "link_origin_initial": [
+        0.582,
+        0.0,
+        0.5
+      ],
+      "geom_local_position": [
+        0.0,
+        0.0,
+        -0.028
+      ],
+      "source_geom_attributes": {
+        "name": "right_lower_jaw_geom",
+        "type": "capsule",
+        "fromto": "0 -0.190 -0.028 0 0.190 -0.028",
+        "size": "0.020",
+        "material": "right_jaw_satin",
+        "mass": "0.22",
+        "friction": "0.82 0.015 0.001",
+        "contype": "1",
+        "conaffinity": "1"
+      },
+      "friction": 0.3,
+      "coup_friction": 0.5,
+      "effective_contact_friction": 0.5,
+      "coup_restitution": 0,
+      "contact_resistance": 10000000.0,
+      "ipc_collision_enabled": true
+    }
+  ],
+  "physics": {
+    "friction": 0.3,
+    "tet_resolution": 2,
+    "fem_max_scene_tets": 700000,
+    "genesis_precision": "32",
+    "fem_density_default": 1000.0,
+    "fem_density_min": 300.0,
+    "fem_density_max": 3000.0,
+    "fem_youngs_modulus_default": 100000.0,
+    "fem_youngs_modulus_min": 10000.0,
+    "fem_youngs_modulus_max": 5000000.0,
+    "fem_poisson_ratio_default": 0.35,
+    "fem_poisson_ratio_min": 0.0,
+    "fem_poisson_ratio_max": 0.45,
+    "fem_model": "stable_neohookean",
+    "fem_hydroelastic_modulus": 10000000.0,
+    "fem_contact_resistance": null,
+    "fem_hessian_invariant": false,
+    "fem_cloth_enabled": true,
+    "cloth_density_default": 200.0,
+    "cloth_density_min": 50.0,
+    "cloth_density_max": 1000.0,
+    "cloth_youngs_modulus_default": 10000.0,
+    "cloth_youngs_modulus_min": 1000.0,
+    "cloth_youngs_modulus_max": 1000000.0,
+    "cloth_poisson_ratio_default": 0.48,
+    "cloth_poisson_ratio_min": 0.0,
+    "cloth_poisson_ratio_max": 0.499,
+    "cloth_thickness_default": 0.001,
+    "cloth_thickness_min": 0.0002,
+    "cloth_thickness_max": 0.01,
+    "cloth_bending_stiffness_default": 3.0,
+    "cloth_bending_stiffness_min": 0.0,
+    "cloth_bending_stiffness_max": 300.0,
+    "cloth_friction_mu_default": 0.5,
+    "cloth_grid_resolution_default": 20,
+    "cloth_target_edge_length_default": 0.01,
+    "cloth_max_faces": 20000,
+    "enabled": true,
+    "ipc_newton_max_iterations": null,
+    "ipc_newton_min_iterations": 2,
+    "ipc_newton_tolerance": null,
+    "ipc_newton_ccd_tolerance": null,
+    "ipc_newton_use_adaptive_tolerance": true,
+    "ipc_newton_translation_tolerance": null,
+    "ipc_newton_semi_implicit_enable": null,
+    "ipc_newton_semi_implicit_beta_tolerance": null,
+    "ipc_n_linesearch_iterations": null,
+    "ipc_linesearch_report_energy": null,
+    "ipc_linear_system_solver": "fused_pcg",
+    "ipc_linear_system_tolerance": null,
+    "ipc_contact_enable": null,
+    "ipc_contact_d_hat": 0.0024000000000000024,
+    "ipc_contact_d_hat_adaptive": true,
+    "ipc_contact_friction_enable": true,
+    "ipc_contact_resistance_default": 10000000.0,
+    "ipc_contact_resistance_min": 3000000.0,
+    "ipc_contact_resistance_max": 100000000.0,
+    "ipc_contact_eps_velocity": 0.01,
+    "ipc_contact_constitution": "ipc",
+    "ipc_collision_detection_method": "info_stackless_bvh",
+    "ipc_cfl_enable": true,
+    "ipc_sanity_check_enable": true,
+    "ipc_constraint_strength_translation_default": 30,
+    "ipc_constraint_strength_translation_min": 10,
+    "ipc_constraint_strength_translation_max": 100,
+    "ipc_constraint_strength_rotation_default": 30,
+    "ipc_constraint_strength_rotation_min": 10,
+    "ipc_constraint_strength_rotation_max": 100,
+    "ipc_enable_rigid_ground_contact": false,
+    "ipc_enable_rigid_rigid_contact": true,
+    "ipc_two_way_coupling": true,
+    "ipc_enable_rigid_dofs_sync": true,
+    "ipc_free_base_driven_by_ipc": true,
+    "ipc_contact_resistance": 10000000.0,
+    "ipc_constraint_strength_translation": 30,
+    "ipc_constraint_strength_rotation": 30,
+    "ipc_enabled": true
+  },
+  "gravity": [
+    0,
+    0,
+    0
+  ],
+  "simulation_time": {
+    "duration": 10.0,
+    "source_dt": 0.01,
+    "source_substeps": 1
+  },
+  "rules": [
+    "Preserve every physical mesh, shape, actor, mass, material, initial transform and prescribed control schedule.",
+    "Numerical methods and internal step sizes may change; return states on every frozen original vertex.",
+    "Only endpoint patches/edges are constrained. No interior pins, gravity, floor, hidden supports or precomputed motion.",
+    "Implement dynamics independently; neither a source simulator nor an answer trajectory is supplied."
+  ],
+  "material_constitutive_law": {
+    "model": "StrainLimitingBaraffWitkinShell (libuipc UID 819) + DiscreteShellBending (UID 17)",
+    "authored_model_label": "stable_neohookean",
+    "label_caveat": "The public FEM.Cloth model label and docstrings do not select its IPC constitution. The accepted source uses StrainLimitingBaraffWitkinShell, already present in Genesis commit 92e32925 before these July runs.",
+    "lame_parameters": "mu=E/(2*(1+nu)); lambda=E*nu/((1+nu)*(1-nu)) (ElasticModuli2D, plane stress).",
+    "rest_basis": "Rotate each rest triangle normal to +Z by the shortest rotation, then take its XY edge matrix Dm. For these initially flat +Z meshes this is simply Dm=[X1-X0,X2-X0] in XY. Preserve the source material X/Y directions, not an edge-aligned basis.",
+    "deformation_gradient": "F=[x1-x0,x2-x0] @ inverse(Dm), a 3x2 matrix; u=norm(F[:,0]); v=norm(F[:,1]); s=dot(F[:,0],F[:,1]).",
+    "membrane_energy_density": "psi=lambda*((u-1)^2+(v-1)^2+100*max(u-1,0)^3+100*max(v-1,0)^3)+mu*s^2.",
+    "membrane_element_energy": "E_triangle=(2*thickness*rest_area)*psi. The source strain-limiting rate is fixed at 100.",
+    "thickness_semantics": "The supplied thickness=0.001 m is libuipc one-sided thickness/radius; full thickness is 0.002 m. Preserve this source convention despite nominal asset text describing 1 mm.",
+    "mass_lumping": "For each rest triangle add rho*(2*thickness)*rest_area/3 to each incident vertex. Frozen initial_state.npz contains these actual source-convention masses.",
+    "bending_energy": "For an interior edge of rest length L, let A=A1+A2 (sum of incident rest triangle areas), hbar=A/(3*L), Vbar=A*thickness. E_edge=kappa*(theta-theta_rest)^2*L/hbar*Vbar. kappa is the authored bending_stiffness. Do not omit Vbar or add an extra thickness^3 factor.",
+    "bending_rest_angle": "Use the dihedral angle of the frozen mesh, with consistent incident-face winding.",
+    "source_evidence": [
+      "genesis/engine/couplers/ipc_coupler/coupler.py:350-367",
+      "libuipc/src/backends/cuda/finite_element/constitutions/strain_limiting_baraff_witkin_shell_2d.cu",
+      "libuipc/src/backends/cuda/finite_element/constitutions/strain_limiting_baraff_witkin_shell_2d.h",
+      "libuipc/include/uipc/constitution/conversion.h:EP_to_lame_2D",
+      "libuipc/src/backends/cuda/finite_element/constitutions/discrete_shell_bending_function.h",
+      "libuipc/src/backends/cuda/finite_element/constitutions/discrete_shell_bending.cu:242",
+      "libuipc/src/geometry/compute_vertex_volume.cpp:89-98"
+    ]
+  },
+  "fem_damping_authored_option": 0.0,
+  "fem_damping": 0.0,
+  "fem_damping_semantics": "The source FEM integrator is skipped for IPCCoupler; FEMOptions.damping has no effect on these cloth actors. Preserve contact friction and actual joint damping, and disclose numerical damping rather than adding inactive FEM damping.",
+  "contact_material_semantics": {
+    "pair_friction": "sqrt(mu_i*mu_j)",
+    "pair_resistance": "2*kappa_i*kappa_j/(kappa_i+kappa_j)",
+    "thickness_gap": "For nonlocal cloth-cloth distance subtract t_i+t_j=0.002 m; for cloth-rigid subtract t_cloth=0.001 m (rigid thickness is zero). The barrier activation offset is d_hat in addition to those physical thicknesses.",
+    "adjacency": "Exclude topologically local incident primitive pairs from self collision, retaining nonlocal vertex-face and edge-edge surface contact.",
+    "restitution": 0.0
+  },
+  "quality_reference": {
+    "rest_bbox_diagonal_m": 1.2649111111889608,
+    "cloth_full_thickness_m": 0.002,
+    "cloth_area_m2": 0.480000026226044,
+    "source_contact_activation_offset_m": 0.0024000000000000024
+  },
+  "articulations": [
+    {
+      "asset": "assets/left_articulation.xml",
+      "root_translation": [
+        -0.6,
+        0.0,
+        0.5
+      ],
+      "links": [
+        {
+          "name": "left_clamp_fixed_mount_link",
+          "parent": null,
+          "local_position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "joint": null,
+          "geometry_body_ids": [
+            1
+          ]
+        },
+        {
+          "name": "left_clamp_carriage_link",
+          "parent": "left_clamp_fixed_mount_link",
+          "local_position": [
+            -0.5,
+            0.0,
+            0.0
+          ],
+          "joint": {
+            "name": "left_approach_slide",
+            "type": "slide",
+            "pos": "0 0 0",
+            "axis": "1 0 0",
+            "limited": "true",
+            "range": "0 0.22",
+            "damping": "3.0",
+            "armature": "0.040",
+            "frictionloss": "0.20"
+          },
+          "geometry_body_ids": [
+            2
+          ]
+        },
+        {
+          "name": "left_clamp_writhe_link",
+          "parent": "left_clamp_carriage_link",
+          "local_position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "joint": {
+            "name": "left_writhe_slide",
+            "type": "slide",
+            "pos": "0 0 0",
+            "axis": "0 0 1",
+            "limited": "true",
+            "range": "-0.10 0.10",
+            "damping": "2.2",
+            "armature": "0.030",
+            "frictionloss": "0.14"
+          },
+          "geometry_body_ids": [
+            3
+          ]
+        },
+        {
+          "name": "left_clamp_rotor_link",
+          "parent": "left_clamp_writhe_link",
+          "local_position": [
+            0.5,
+            0.0,
+            0.0
+          ],
+          "joint": {
+            "name": "left_twist_hinge",
+            "type": "hinge",
+            "pos": "0 0 0",
+            "axis": "1 0 0",
+            "limited": "true",
+            "range": "-9 9",
+            "damping": "0.10",
+            "armature": "0.004",
+            "frictionloss": "0.012"
+          },
+          "geometry_body_ids": [
+            4,
+            5
+          ]
+        }
+      ],
+      "source_xml_actuators_overridden_by_public_controller": true,
+      "body_samples": "One geometric-center sample per dynamic geom. Geoms on the same link form one rigid body; aggregate their exact authored masses/inertias.",
+      "ipc_collision_links": [
+        "left_clamp_rotor_link"
+      ]
+    },
+    {
+      "asset": "assets/right_articulation.xml",
+      "root_translation": [
+        0.582,
+        0.0,
+        0.5
+      ],
+      "links": [
+        {
+          "name": "right_clamp_fixed_mount_link",
+          "parent": null,
+          "local_position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "joint": null,
+          "geometry_body_ids": [
+            6
+          ]
+        },
+        {
+          "name": "right_clamp_carriage_link",
+          "parent": "right_clamp_fixed_mount_link",
+          "local_position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "joint": {
+            "name": "right_approach_slide",
+            "type": "slide",
+            "pos": "0 0 0",
+            "axis": "-1 0 0",
+            "limited": "true",
+            "range": "0 0.22",
+            "damping": "2.4",
+            "armature": "0.025",
+            "frictionloss": "0.18"
+          },
+          "geometry_body_ids": [
+            7
+          ]
+        },
+        {
+          "name": "right_clamp_writhe_link",
+          "parent": "right_clamp_carriage_link",
+          "local_position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "joint": {
+            "name": "right_writhe_slide",
+            "type": "slide",
+            "pos": "0 0 0",
+            "axis": "0 0 1",
+            "limited": "true",
+            "range": "-0.10 0.10",
+            "damping": "2.0",
+            "armature": "0.018",
+            "frictionloss": "0.12"
+          },
+          "geometry_body_ids": [
+            8
+          ]
+        },
+        {
+          "name": "right_clamp_rotor_link",
+          "parent": "right_clamp_writhe_link",
+          "local_position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "joint": {
+            "name": "right_twist_hinge",
+            "type": "hinge",
+            "pos": "0 0 0",
+            "axis": "1 0 0",
+            "limited": "true",
+            "range": "-9 9",
+            "damping": "0.10",
+            "armature": "0.0025",
+            "frictionloss": "0.010"
+          },
+          "geometry_body_ids": [
+            9,
+            10,
+            11
+          ]
+        }
+      ],
+      "source_xml_actuators_overridden_by_public_controller": true,
+      "body_samples": "One geometric-center sample per dynamic geom. Geoms on the same link form one rigid body; aggregate their exact authored masses/inertias.",
+      "ipc_collision_links": [
+        "right_clamp_rotor_link"
+      ]
+    }
+  ],
+  "controller": {
+    "type": "finite_force_six_dof_articulation",
+    "reference": "assets/prescribed_controls.py:target_at",
+    "joint_order_per_side": [
+      "approach_slide",
+      "writhe_slide",
+      "twist_hinge"
+    ],
+    "side_order": [
+      "left",
+      "right"
+    ],
+    "kp": [
+      120,
+      80,
+      8
+    ],
+    "kv": [
+      18,
+      12,
+      1.2
+    ],
+    "force_limit": [
+      32,
+      22,
+      2.5
+    ],
+    "initial_q": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "law": "clip(kp*(q_target-q)+kv*(qd_target-qd),-force_limit,force_limit); preserve XML joint damping, armature, frictionloss and physical limits.",
+    "sample_dt": 0.01,
+    "sample_timing": "At each original step k command target_at(k*0.01) before integrating [(k-1)*0.01,k*0.01]; hold this command through internal substeps.",
+    "keyframes": [
+      [
+        0.0,
+        [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      ],
+      [
+        1.0,
+        [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      ],
+      [
+        2.2,
+        [
+          [
+            0.04,
+            0.016,
+            2.5
+          ],
+          [
+            0.04,
+            -0.016,
+            -2.5
+          ]
+        ]
+      ],
+      [
+        3.4,
+        [
+          [
+            0.122,
+            0.034,
+            5.3
+          ],
+          [
+            0.118,
+            -0.034,
+            -5.3
+          ]
+        ]
+      ],
+      [
+        3.7,
+        [
+          [
+            0.122,
+            0.034,
+            5.3
+          ],
+          [
+            0.118,
+            -0.034,
+            -5.3
+          ]
+        ]
+      ],
+      [
+        4.4,
+        [
+          [
+            0.182,
+            0.046,
+            6.65
+          ],
+          [
+            0.178,
+            -0.046,
+            -6.65
+          ]
+        ]
+      ],
+      [
+        4.7,
+        [
+          [
+            0.182,
+            0.046,
+            6.65
+          ],
+          [
+            0.178,
+            -0.046,
+            -6.65
+          ]
+        ]
+      ],
+      [
+        5.3,
+        [
+          [
+            0.152,
+            0.01,
+            6.05
+          ],
+          [
+            0.148,
+            -0.01,
+            -6.05
+          ]
+        ]
+      ],
+      [
+        6.1,
+        [
+          [
+            0.184,
+            -0.036,
+            6.85
+          ],
+          [
+            0.18,
+            0.036,
+            -6.85
+          ]
+        ]
+      ],
+      [
+        6.35,
+        [
+          [
+            0.184,
+            -0.036,
+            6.85
+          ],
+          [
+            0.18,
+            0.036,
+            -6.85
+          ]
+        ]
+      ],
+      [
+        6.9,
+        [
+          [
+            0.158,
+            -0.004,
+            6.2
+          ],
+          [
+            0.154,
+            0.004,
+            -6.2
+          ]
+        ]
+      ],
+      [
+        7.6,
+        [
+          [
+            0.188,
+            0.038,
+            7.05
+          ],
+          [
+            0.182,
+            -0.038,
+            -7.05
+          ]
+        ]
+      ],
+      [
+        8.0,
+        [
+          [
+            0.188,
+            0.038,
+            7.05
+          ],
+          [
+            0.182,
+            -0.038,
+            -7.05
+          ]
+        ]
+      ],
+      [
+        8.9,
+        [
+          [
+            0.173,
+            0.006,
+            6.2
+          ],
+          [
+            0.172,
+            -0.006,
+            -6.2
+          ]
+        ]
+      ],
+      [
+        10.0,
+        [
+          [
+            0.173,
+            0.006,
+            6.2
+          ],
+          [
+            0.172,
+            -0.006,
+            -6.2
+          ]
+        ]
+      ]
+    ],
+    "interpolation": "quintic minimum jerk; targets are not actual body motion."
+  },
+  "state_sample_count": 3544
+}

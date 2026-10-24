@@ -1,0 +1,15 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+- id: hyperelastic_shell_ribbon
+  semantic: cloth
+  motion: dynamic
+  geometry:
+    type: triangle_mesh
+    topology_asset: assets/hyperelastic_shell_ribbon.npz
+  state_binding:
+    selector: body_id
+    value: 0
+  material_id: hyperelastic_shell_ribbon
+  collision_enabled: true

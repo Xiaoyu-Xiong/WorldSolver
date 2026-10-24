@@ -1,0 +1,164 @@
+scene_id: 172_text2sim_cloth_tumble_dryer
+seed: 0
+duration: 14.0
+sample_dt: 0.04
+gravity:
+- 0.0
+- 0.0
+- -9.81
+source_sim_dt: 0.01
+source_sim_substeps: 1
+source_steps: 1400
+camera:
+  position:
+  - -2.1504355061046825
+  - -2.019926468617293
+  - 1.5086995365562919
+  look_at:
+  - 0.0
+  - 0.0001796128749847359
+  - 0.7658218162655832
+  up:
+  - 0.17795803361506587
+  - 0.16717269824445583
+  - 0.9697341013048512
+  yfov_degrees: 40.0
+  width: 640
+  height: 480
+  fps: 25
+  near: 0.05
+  far: 8.0
+extension:
+  origin: Text2Sim
+  published_worldsolver_task: false
+  source_case: fem_cloth_tumble_dryer_rotating_drum_contact
+  public_contract: assets/scene_contract.json
+  video_window:
+    start: 2.04
+    end: 14.0
+    source_frame_count: 300
+luisa_lights:
+- pos:
+  - -3.0
+  - -3.2
+  - 3.6
+  radius: 0.9
+  color:
+  - 14.0
+  - 12.8
+  - 11.2
+  intensity: 1.0
+- pos:
+  - -0.3
+  - 3.8
+  - 4.0
+  radius: 1.25
+  color:
+  - 5.0
+  - 6.0
+  - 8.2
+  intensity: 1.0
+- pos:
+  - 2.8
+  - -1.8
+  - 2.4
+  radius: 0.65
+  color:
+  - 7.2
+  - 7.8
+  - 8.6
+  intensity: 1.0
+luisa_environment_color:
+- 0.76
+- 0.82
+- 0.88
+physics_contract_reference: assets/scene_contract.json
+render_materials:
+  rotor_link:
+    color_rgb:
+    - 0.36
+    - 0.39
+    - 0.43
+    roughness: 0.24
+    metallic: 1.0
+  glass_screen:
+    type: glass
+    ior: 1.25
+    roughness: 0.015
+    transmission: 1.0
+    color_rgb:
+    - 0.92
+    - 0.97
+    - 1.0
+  cloth_00:
+    color_rgb:
+    - 0.3
+    - 0.62
+    - 0.6
+    roughness: 0.78
+  cloth_01:
+    color_rgb:
+    - 0.35
+    - 0.48
+    - 0.74
+    roughness: 0.78
+  cloth_02:
+    color_rgb:
+    - 0.42
+    - 0.64
+    - 0.38
+    roughness: 0.78
+  cloth_03:
+    color_rgb:
+    - 0.83
+    - 0.52
+    - 0.27
+    roughness: 0.78
+  cloth_04:
+    color_rgb:
+    - 0.74
+    - 0.38
+    - 0.49
+    roughness: 0.78
+  cloth_05:
+    color_rgb:
+    - 0.56
+    - 0.46
+    - 0.72
+    roughness: 0.78
+  cloth_06:
+    color_rgb:
+    - 0.84
+    - 0.72
+    - 0.3
+    roughness: 0.78
+  cloth_07:
+    color_rgb:
+    - 0.67
+    - 0.42
+    - 0.31
+    roughness: 0.78
+  cloth_08:
+    color_rgb:
+    - 0.31
+    - 0.61
+    - 0.74
+    roughness: 0.78
+  cloth_09:
+    color_rgb:
+    - 0.58
+    - 0.38
+    - 0.57
+    roughness: 0.78
+  cloth_10:
+    color_rgb:
+    - 0.57
+    - 0.62
+    - 0.32
+    roughness: 0.78
+  cloth_11:
+    color_rgb:
+    - 0.8
+    - 0.43
+    - 0.37
+    roughness: 0.78

@@ -1,0 +1,117 @@
+schema_version: 2
+profile: multiphysics
+environment: studio_neutral
+camera: frozen_config
+bindings:
+- object_id: rotor_link
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.36
+  - 0.39
+  - 0.43
+- object_id: ipc_remote_base_bookkeeping_geom
+  method: rigid_mesh
+  material: metal
+  color_rgb:
+  - 0.36
+  - 0.39
+  - 0.43
+- object_id: glass_screen
+  method: rigid_mesh
+  material: glass
+  color_rgb:
+  - 0.92
+  - 0.97
+  - 1.0
+- object_id: studio_floor
+  method: rigid_mesh
+  material: default
+  color_rgb:
+  - 0.72
+  - 0.71
+  - 0.69
+- object_id: cloth_00
+  method: deformed_mesh
+  material: rubber
+  color_rgb:
+  - 0.3
+  - 0.62
+  - 0.6
+- object_id: cloth_01
+  method: deformed_mesh
+  material: rubber
+  color_rgb:
+  - 0.35
+  - 0.48
+  - 0.74
+- object_id: cloth_02
+  method: deformed_mesh
+  material: rubber
+  color_rgb:
+  - 0.42
+  - 0.64
+  - 0.38
+- object_id: cloth_03
+  method: deformed_mesh
+  material: rubber
+  color_rgb:
+  - 0.83
+  - 0.52
+  - 0.27
+- object_id: cloth_04
+  method: deformed_mesh
+  material: rubber
+  color_rgb:
+  - 0.74
+  - 0.38
+  - 0.49
+- object_id: cloth_05
+  method: deformed_mesh
+  material: rubber
+  color_rgb:
+  - 0.56
+  - 0.46
+  - 0.72
+- object_id: cloth_06
+  method: deformed_mesh
+  material: rubber
+  color_rgb:
+  - 0.84
+  - 0.72
+  - 0.3
+- object_id: cloth_07
+  method: deformed_mesh
+  material: rubber
+  color_rgb:
+  - 0.67
+  - 0.42
+  - 0.31
+- object_id: cloth_08
+  method: deformed_mesh
+  material: rubber
+  color_rgb:
+  - 0.31
+  - 0.61
+  - 0.74
+- object_id: cloth_09
+  method: deformed_mesh
+  material: rubber
+  color_rgb:
+  - 0.58
+  - 0.38
+  - 0.57
+- object_id: cloth_10
+  method: deformed_mesh
+  material: rubber
+  color_rgb:
+  - 0.57
+  - 0.62
+  - 0.32
+- object_id: cloth_11
+  method: deformed_mesh
+  material: rubber
+  color_rgb:
+  - 0.8
+  - 0.43
+  - 0.37

@@ -1,0 +1,215 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+- id: rotor_link
+  semantic: rigid
+  motion: dynamic
+  geometry:
+    type: triangle_mesh
+    asset: assets/rotor_visual.obj
+  transform:
+    translation:
+    - 0.03
+    - 0.0
+    - 0.78
+    rotation_xyzw:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  material_id: rotor_link
+  collision_enabled: true
+  state_binding:
+    selector: body_id
+    value: 0
+- id: ipc_remote_base_bookkeeping_geom
+  semantic: boundary
+  motion: static
+  geometry:
+    type: box
+    half_extents:
+    - 0.003
+    - 0.003
+    - 0.003
+  transform:
+    translation:
+    - 3.0
+    - 0.0
+    - 0.78
+    rotation_xyzw:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  material_id: ipc_remote_base_bookkeeping_geom
+  collision_enabled: false
+- id: glass_screen
+  semantic: boundary
+  motion: static
+  geometry:
+    type: cylinder
+    radius: 0.566
+    height: 0.008
+  transform:
+    translation:
+    - -0.3606
+    - 0.0
+    - 0.78
+    rotation_xyzw:
+    - 0.0
+    - 0.7071067811865475
+    - 0.0
+    - 0.7071067811865476
+  material_id: glass_screen
+  collision_enabled: true
+- id: studio_floor
+  semantic: boundary
+  motion: static
+  geometry:
+    type: triangle_mesh
+    asset: assets/floor_visual.obj
+  transform:
+    translation:
+    - 0.0
+    - 0.0
+    - 0.0
+    rotation_xyzw:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  material_id: studio_floor
+  collision_enabled: true
+- id: cloth_00
+  semantic: deformable
+  motion: dynamic
+  geometry:
+    type: triangle_mesh
+    topology_asset: assets/cloth_00.npz
+  state_binding:
+    selector: body_id
+    value: 4
+  material_id: cloth_00
+  collision_enabled: true
+- id: cloth_01
+  semantic: deformable
+  motion: dynamic
+  geometry:
+    type: triangle_mesh
+    topology_asset: assets/cloth_01.npz
+  state_binding:
+    selector: body_id
+    value: 5
+  material_id: cloth_01
+  collision_enabled: true
+- id: cloth_02
+  semantic: deformable
+  motion: dynamic
+  geometry:
+    type: triangle_mesh
+    topology_asset: assets/cloth_02.npz
+  state_binding:
+    selector: body_id
+    value: 6
+  material_id: cloth_02
+  collision_enabled: true
+- id: cloth_03
+  semantic: deformable
+  motion: dynamic
+  geometry:
+    type: triangle_mesh
+    topology_asset: assets/cloth_03.npz
+  state_binding:
+    selector: body_id
+    value: 7
+  material_id: cloth_03
+  collision_enabled: true
+- id: cloth_04
+  semantic: deformable
+  motion: dynamic
+  geometry:
+    type: triangle_mesh
+    topology_asset: assets/cloth_04.npz
+  state_binding:
+    selector: body_id
+    value: 8
+  material_id: cloth_04
+  collision_enabled: true
+- id: cloth_05
+  semantic: deformable
+  motion: dynamic
+  geometry:
+    type: triangle_mesh
+    topology_asset: assets/cloth_05.npz
+  state_binding:
+    selector: body_id
+    value: 9
+  material_id: cloth_05
+  collision_enabled: true
+- id: cloth_06
+  semantic: deformable
+  motion: dynamic
+  geometry:
+    type: triangle_mesh
+    topology_asset: assets/cloth_06.npz
+  state_binding:
+    selector: body_id
+    value: 10
+  material_id: cloth_06
+  collision_enabled: true
+- id: cloth_07
+  semantic: deformable
+  motion: dynamic
+  geometry:
+    type: triangle_mesh
+    topology_asset: assets/cloth_07.npz
+  state_binding:
+    selector: body_id
+    value: 11
+  material_id: cloth_07
+  collision_enabled: true
+- id: cloth_08
+  semantic: deformable
+  motion: dynamic
+  geometry:
+    type: triangle_mesh
+    topology_asset: assets/cloth_08.npz
+  state_binding:
+    selector: body_id
+    value: 12
+  material_id: cloth_08
+  collision_enabled: true
+- id: cloth_09
+  semantic: deformable
+  motion: dynamic
+  geometry:
+    type: triangle_mesh
+    topology_asset: assets/cloth_09.npz
+  state_binding:
+    selector: body_id
+    value: 13
+  material_id: cloth_09
+  collision_enabled: true
+- id: cloth_10
+  semantic: deformable
+  motion: dynamic
+  geometry:
+    type: triangle_mesh
+    topology_asset: assets/cloth_10.npz
+  state_binding:
+    selector: body_id
+    value: 14
+  material_id: cloth_10
+  collision_enabled: true
+- id: cloth_11
+  semantic: deformable
+  motion: dynamic
+  geometry:
+    type: triangle_mesh
+    topology_asset: assets/cloth_11.npz
+  state_binding:
+    selector: body_id
+    value: 15
+  material_id: cloth_11
+  collision_enabled: true

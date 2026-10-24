@@ -1,0 +1,2121 @@
+{
+  "version": 2,
+  "task_id": "172_text2sim_cloth_tumble_dryer",
+  "source_case": "fem_cloth_tumble_dryer_rotating_drum_contact",
+  "representation": "World-space cloth vertices and one drum center-of-mass state; orientation xyzw.",
+  "geometry_is_frozen": true,
+  "initial_velocity": "All 12 cloths and the drum start at rest at t=0.",
+  "bodies": [
+    {
+      "id": 0,
+      "name": "rotor_link",
+      "kind": "rigid",
+      "fixed": false,
+      "mass": 18.0,
+      "initial_position": [
+        0.03,
+        0.0,
+        0.78
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "friction": 0.85,
+      "coup_friction": 0.85,
+      "effective_contact_friction": 0.85,
+      "contact_resistance": 10000000.0,
+      "coup_restitution": 0.0,
+      "collision_enabled": true,
+      "articulation_link": "rotor_link",
+      "center_of_mass_in_hinge_frame": [
+        0.03,
+        0.0,
+        0.0
+      ],
+      "hinge_origin_world": [
+        0.0,
+        0.0,
+        0.78
+      ],
+      "inertia_at_com": [
+        [
+          5.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          3.1,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          3.1
+        ]
+      ],
+      "physical_geometry": {
+        "type": "union_of_original_analytic_primitives",
+        "primitives": [
+          {
+            "name": "drum_wall_facet_00",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              0.568,
+              0.0
+            ],
+            "rotation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_00",
+              "type": "box",
+              "pos": "0 0.568000 0.000000",
+              "euler": "0 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_01",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              0.555588,
+              0.118094
+            ],
+            "rotation_xyzw": [
+              0.10452846326765347,
+              0.0,
+              0.0,
+              0.9945218953682733
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_01",
+              "type": "box",
+              "pos": "0 0.555588 0.118094",
+              "euler": "12 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_02",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              0.518894,
+              0.231026
+            ],
+            "rotation_xyzw": [
+              0.20791169081775934,
+              0.0,
+              0.0,
+              0.9781476007338057
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_02",
+              "type": "box",
+              "pos": "0 0.518894 0.231026",
+              "euler": "24 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_03",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              0.459522,
+              0.333862
+            ],
+            "rotation_xyzw": [
+              0.3090169943749474,
+              0.0,
+              0.0,
+              0.9510565162951535
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_03",
+              "type": "box",
+              "pos": "0 0.459522 0.333862",
+              "euler": "36 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_04",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              0.380066,
+              0.422106
+            ],
+            "rotation_xyzw": [
+              0.4067366430758002,
+              0.0,
+              0.0,
+              0.9135454576426009
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_04",
+              "type": "box",
+              "pos": "0 0.380066 0.422106",
+              "euler": "48 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_05",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              0.284,
+              0.491902
+            ],
+            "rotation_xyzw": [
+              0.49999999999999994,
+              0.0,
+              0.0,
+              0.8660254037844387
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_05",
+              "type": "box",
+              "pos": "0 0.284000 0.491902",
+              "euler": "60 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_06",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              0.175522,
+              0.5402
+            ],
+            "rotation_xyzw": [
+              0.5877852522924731,
+              0.0,
+              0.0,
+              0.8090169943749475
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_06",
+              "type": "box",
+              "pos": "0 0.175522 0.540200",
+              "euler": "72 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_07",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              0.059372,
+              0.564888
+            ],
+            "rotation_xyzw": [
+              0.6691306063588582,
+              0.0,
+              0.0,
+              0.7431448254773942
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_07",
+              "type": "box",
+              "pos": "0 0.059372 0.564888",
+              "euler": "84 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_08",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              -0.059372,
+              0.564888
+            ],
+            "rotation_xyzw": [
+              0.7431448254773942,
+              0.0,
+              0.0,
+              0.6691306063588582
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_08",
+              "type": "box",
+              "pos": "0 -0.059372 0.564888",
+              "euler": "96 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_09",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              -0.175522,
+              0.5402
+            ],
+            "rotation_xyzw": [
+              0.8090169943749475,
+              0.0,
+              0.0,
+              0.5877852522924731
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_09",
+              "type": "box",
+              "pos": "0 -0.175522 0.540200",
+              "euler": "108 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_10",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              -0.284,
+              0.491902
+            ],
+            "rotation_xyzw": [
+              0.8660254037844386,
+              0.0,
+              0.0,
+              0.5000000000000001
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_10",
+              "type": "box",
+              "pos": "0 -0.284000 0.491902",
+              "euler": "120 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_11",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              -0.380066,
+              0.422106
+            ],
+            "rotation_xyzw": [
+              0.9135454576426009,
+              0.0,
+              0.0,
+              0.4067366430758002
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_11",
+              "type": "box",
+              "pos": "0 -0.380066 0.422106",
+              "euler": "132 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_12",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              -0.459522,
+              0.333862
+            ],
+            "rotation_xyzw": [
+              0.9510565162951535,
+              0.0,
+              0.0,
+              0.30901699437494745
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_12",
+              "type": "box",
+              "pos": "0 -0.459522 0.333862",
+              "euler": "144 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_13",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              -0.518894,
+              0.231026
+            ],
+            "rotation_xyzw": [
+              0.9781476007338056,
+              0.0,
+              0.0,
+              0.20791169081775945
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_13",
+              "type": "box",
+              "pos": "0 -0.518894 0.231026",
+              "euler": "156 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_14",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              -0.555588,
+              0.118094
+            ],
+            "rotation_xyzw": [
+              0.9945218953682733,
+              0.0,
+              0.0,
+              0.10452846326765346
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_14",
+              "type": "box",
+              "pos": "0 -0.555588 0.118094",
+              "euler": "168 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_15",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              -0.568,
+              0.0
+            ],
+            "rotation_xyzw": [
+              1.0,
+              0.0,
+              0.0,
+              6.123233995736766e-17
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_15",
+              "type": "box",
+              "pos": "0 -0.568000 0.000000",
+              "euler": "180 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_16",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              -0.555588,
+              -0.118094
+            ],
+            "rotation_xyzw": [
+              0.9945218953682733,
+              0.0,
+              0.0,
+              -0.10452846326765355
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_16",
+              "type": "box",
+              "pos": "0 -0.555588 -0.118094",
+              "euler": "192 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_17",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              -0.518894,
+              -0.231026
+            ],
+            "rotation_xyzw": [
+              0.9781476007338057,
+              0.0,
+              0.0,
+              -0.20791169081775934
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_17",
+              "type": "box",
+              "pos": "0 -0.518894 -0.231026",
+              "euler": "204 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_18",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              -0.459522,
+              -0.333862
+            ],
+            "rotation_xyzw": [
+              0.9510565162951536,
+              0.0,
+              0.0,
+              -0.30901699437494734
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_18",
+              "type": "box",
+              "pos": "0 -0.459522 -0.333862",
+              "euler": "216 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_19",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              -0.380066,
+              -0.422106
+            ],
+            "rotation_xyzw": [
+              0.9135454576426009,
+              0.0,
+              0.0,
+              -0.40673664307580026
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_19",
+              "type": "box",
+              "pos": "0 -0.380066 -0.422106",
+              "euler": "228 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_20",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              -0.284,
+              -0.491902
+            ],
+            "rotation_xyzw": [
+              0.8660254037844387,
+              0.0,
+              0.0,
+              -0.4999999999999998
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_20",
+              "type": "box",
+              "pos": "0 -0.284000 -0.491902",
+              "euler": "240 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_21",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              -0.175522,
+              -0.5402
+            ],
+            "rotation_xyzw": [
+              0.8090169943749475,
+              0.0,
+              0.0,
+              -0.587785252292473
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_21",
+              "type": "box",
+              "pos": "0 -0.175522 -0.540200",
+              "euler": "252 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_22",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              -0.059372,
+              -0.564888
+            ],
+            "rotation_xyzw": [
+              0.7431448254773942,
+              0.0,
+              0.0,
+              -0.6691306063588582
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_22",
+              "type": "box",
+              "pos": "0 -0.059372 -0.564888",
+              "euler": "264 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_23",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              0.059372,
+              -0.564888
+            ],
+            "rotation_xyzw": [
+              0.6691306063588583,
+              0.0,
+              0.0,
+              -0.743144825477394
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_23",
+              "type": "box",
+              "pos": "0 0.059372 -0.564888",
+              "euler": "276 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_24",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              0.175522,
+              -0.5402
+            ],
+            "rotation_xyzw": [
+              0.5877852522924732,
+              0.0,
+              0.0,
+              -0.8090169943749473
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_24",
+              "type": "box",
+              "pos": "0 0.175522 -0.540200",
+              "euler": "288 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_25",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              0.284,
+              -0.491902
+            ],
+            "rotation_xyzw": [
+              0.49999999999999994,
+              0.0,
+              0.0,
+              -0.8660254037844387
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_25",
+              "type": "box",
+              "pos": "0 0.284000 -0.491902",
+              "euler": "300 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_26",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              0.380066,
+              -0.422106
+            ],
+            "rotation_xyzw": [
+              0.40673664307580043,
+              0.0,
+              0.0,
+              -0.9135454576426008
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_26",
+              "type": "box",
+              "pos": "0 0.380066 -0.422106",
+              "euler": "312 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_27",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              0.459522,
+              -0.333862
+            ],
+            "rotation_xyzw": [
+              0.3090169943749475,
+              0.0,
+              0.0,
+              -0.9510565162951535
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_27",
+              "type": "box",
+              "pos": "0 0.459522 -0.333862",
+              "euler": "324 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_28",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              0.518894,
+              -0.231026
+            ],
+            "rotation_xyzw": [
+              0.20791169081775931,
+              0.0,
+              0.0,
+              -0.9781476007338057
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_28",
+              "type": "box",
+              "pos": "0 0.518894 -0.231026",
+              "euler": "336 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_wall_facet_29",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.356,
+                0.008,
+                0.059
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              0.555588,
+              -0.118094
+            ],
+            "rotation_xyzw": [
+              0.10452846326765373,
+              0.0,
+              0.0,
+              -0.9945218953682733
+            ],
+            "source_attributes": {
+              "name": "drum_wall_facet_29",
+              "type": "box",
+              "pos": "0 0.555588 -0.118094",
+              "euler": "348 0 0",
+              "size": "0.356 0.008 0.059",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_rear_disk",
+            "geometry": {
+              "type": "cylinder",
+              "radius": 0.568,
+              "height": 0.016
+            },
+            "local_position_in_hinge_frame": [
+              0.352,
+              0.0,
+              0.0
+            ],
+            "rotation_xyzw": [
+              0.0,
+              0.7071067811865475,
+              0.0,
+              0.7071067811865476
+            ],
+            "source_attributes": {
+              "name": "drum_rear_disk",
+              "type": "cylinder",
+              "pos": "0.352 0 0",
+              "euler": "0 90 0",
+              "size": "0.568 0.008",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "0.9 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_baffle_0",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.31,
+                0.038,
+                0.045
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              0.528,
+              0.0
+            ],
+            "rotation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "source_attributes": {
+              "name": "drum_baffle_0",
+              "type": "box",
+              "pos": "0 0.528 0",
+              "euler": "0 0 0",
+              "size": "0.310 0.038 0.045",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "1.0 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_baffle_1",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.31,
+                0.038,
+                0.045
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              0.0,
+              0.528
+            ],
+            "rotation_xyzw": [
+              0.7071067811865475,
+              0.0,
+              0.0,
+              0.7071067811865476
+            ],
+            "source_attributes": {
+              "name": "drum_baffle_1",
+              "type": "box",
+              "pos": "0 0 0.528",
+              "euler": "90 0 0",
+              "size": "0.310 0.038 0.045",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "1.0 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_baffle_2",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.31,
+                0.038,
+                0.045
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              -0.528,
+              0.0
+            ],
+            "rotation_xyzw": [
+              1.0,
+              0.0,
+              0.0,
+              6.123233995736766e-17
+            ],
+            "source_attributes": {
+              "name": "drum_baffle_2",
+              "type": "box",
+              "pos": "0 -0.528 0",
+              "euler": "180 0 0",
+              "size": "0.310 0.038 0.045",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "1.0 0.005 0.0001"
+            }
+          },
+          {
+            "name": "drum_baffle_3",
+            "geometry": {
+              "type": "box",
+              "half_extents": [
+                0.31,
+                0.038,
+                0.045
+              ]
+            },
+            "local_position_in_hinge_frame": [
+              0.0,
+              0.0,
+              -0.528
+            ],
+            "rotation_xyzw": [
+              0.7071067811865476,
+              0.0,
+              0.0,
+              -0.7071067811865475
+            ],
+            "source_attributes": {
+              "name": "drum_baffle_3",
+              "type": "box",
+              "pos": "0 0 -0.528",
+              "euler": "270 0 0",
+              "size": "0.310 0.038 0.045",
+              "material": "dryer_grey_metal",
+              "contype": "1",
+              "conaffinity": "1",
+              "condim": "3",
+              "friction": "1.0 0.005 0.0001"
+            }
+          }
+        ]
+      },
+      "mass_semantics": "Original explicit MJCF inertial overrides the sum of primitive densities. The 35 pieces form one rigid body."
+    },
+    {
+      "id": 1,
+      "name": "ipc_remote_base_bookkeeping_geom",
+      "kind": "rigid",
+      "fixed": true,
+      "mass": 0.001,
+      "initial_position": [
+        3.0,
+        0.0,
+        0.78
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "friction": 0.85,
+      "coup_friction": 0.85,
+      "effective_contact_friction": 0.85,
+      "contact_resistance": 10000000.0,
+      "coup_restitution": 0.0,
+      "collision_enabled": false,
+      "source_attributes": {
+        "name": "ipc_remote_base_bookkeeping_geom",
+        "type": "box",
+        "pos": "3.0 0 0",
+        "size": "0.003 0.003 0.003",
+        "material": "bookkeeping_dark",
+        "contype": "1",
+        "conaffinity": "1",
+        "condim": "3",
+        "friction": "0.8 0.005 0.0001",
+        "mass": "0.001"
+      },
+      "collision_exclusion_reason": "Original coup_collision_links=('rotor_link',) excludes the distant base only."
+    },
+    {
+      "id": 2,
+      "name": "glass_screen",
+      "kind": "rigid",
+      "fixed": true,
+      "mass": 1.0,
+      "initial_position": [
+        -0.3606,
+        0.0,
+        0.78
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.7071067811865475,
+        0.0,
+        0.7071067811865476
+      ],
+      "friction": 0.28,
+      "coup_friction": 0.28,
+      "effective_contact_friction": 0.28,
+      "contact_resistance": 10000000.0,
+      "coup_restitution": 0.0,
+      "collision_enabled": true,
+      "density": 2500.0,
+      "physical_role": "Fixed front boundary"
+    },
+    {
+      "id": 3,
+      "name": "studio_floor",
+      "kind": "rigid",
+      "fixed": true,
+      "mass": 1.0,
+      "initial_position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "initial_orientation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "friction": 0.45,
+      "coup_friction": 0.45,
+      "effective_contact_friction": 0.45,
+      "contact_resistance": 10000000.0,
+      "coup_restitution": 0.0,
+      "collision_enabled": true,
+      "density": 1800.0,
+      "physical_geometry": {
+        "type": "infinite_plane",
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "offset": 0.0
+      },
+      "visual_size": [
+        6.0,
+        6.0
+      ]
+    },
+    {
+      "id": 4,
+      "name": "cloth_00",
+      "kind": "shell_deformable",
+      "fixed": false,
+      "rest_asset": "assets/cloth_00.npz",
+      "node_count": 256,
+      "face_count": 450,
+      "mass": 0.032400000087037764,
+      "material": {
+        "model": "StrainLimitingBaraffWitkinShell",
+        "constitution_uid": 819,
+        "youngs_modulus": 12000.0,
+        "poisson_ratio": 0.35,
+        "density": 180.0,
+        "thickness": 0.001,
+        "thickness_semantics": "one-sided libuipc thickness",
+        "full_thickness": 0.002,
+        "bending_stiffness": 0.4,
+        "bending_model": "DiscreteShellBending",
+        "friction": 0.6,
+        "contact_resistance": 10000000.0,
+        "energy_definition": "material_constitutive_law"
+      },
+      "initial_pose": {
+        "position": [
+          -0.16,
+          -0.02,
+          0.35
+        ],
+        "euler_degrees": [
+          -1.2,
+          0.0,
+          0.0
+        ]
+      },
+      "self_contact_enabled": true,
+      "independent_entity": true,
+      "quality_reference": {
+        "rest_bbox_diagonal": 0.4242640692817443,
+        "rest_area": 0.09000000024177157,
+        "full_thickness": 0.002,
+        "rest_surface_asset": "assets/cloth_00.npz"
+      }
+    },
+    {
+      "id": 5,
+      "name": "cloth_01",
+      "kind": "shell_deformable",
+      "fixed": false,
+      "rest_asset": "assets/cloth_01.npz",
+      "node_count": 256,
+      "face_count": 450,
+      "mass": 0.032399998948524966,
+      "material": {
+        "model": "StrainLimitingBaraffWitkinShell",
+        "constitution_uid": 819,
+        "youngs_modulus": 12000.0,
+        "poisson_ratio": 0.35,
+        "density": 180.0,
+        "thickness": 0.001,
+        "thickness_semantics": "one-sided libuipc thickness",
+        "full_thickness": 0.002,
+        "bending_stiffness": 0.4,
+        "bending_model": "DiscreteShellBending",
+        "friction": 0.6,
+        "contact_resistance": 10000000.0,
+        "energy_definition": "material_constitutive_law"
+      },
+      "initial_pose": {
+        "position": [
+          -0.16,
+          0.02,
+          0.39
+        ],
+        "euler_degrees": [
+          0.9,
+          0.0,
+          0.0
+        ]
+      },
+      "self_contact_enabled": true,
+      "independent_entity": true,
+      "quality_reference": {
+        "rest_bbox_diagonal": 0.42426406182760706,
+        "rest_area": 0.08999999707923603,
+        "full_thickness": 0.002,
+        "rest_surface_asset": "assets/cloth_01.npz"
+      }
+    },
+    {
+      "id": 6,
+      "name": "cloth_02",
+      "kind": "shell_deformable",
+      "fixed": false,
+      "rest_asset": "assets/cloth_02.npz",
+      "node_count": 256,
+      "face_count": 450,
+      "mass": 0.03240000076834244,
+      "material": {
+        "model": "StrainLimitingBaraffWitkinShell",
+        "constitution_uid": 819,
+        "youngs_modulus": 12000.0,
+        "poisson_ratio": 0.35,
+        "density": 180.0,
+        "thickness": 0.001,
+        "thickness_semantics": "one-sided libuipc thickness",
+        "full_thickness": 0.002,
+        "bending_stiffness": 0.4,
+        "bending_model": "DiscreteShellBending",
+        "friction": 0.6,
+        "contact_resistance": 10000000.0,
+        "energy_definition": "material_constitutive_law"
+      },
+      "initial_pose": {
+        "position": [
+          -0.16,
+          0.0,
+          0.43
+        ],
+        "euler_degrees": [
+          -0.6,
+          0.0,
+          0.0
+        ]
+      },
+      "self_contact_enabled": true,
+      "independent_entity": true,
+      "quality_reference": {
+        "rest_bbox_diagonal": 0.4242640737424272,
+        "rest_area": 0.09000000213428457,
+        "full_thickness": 0.002,
+        "rest_surface_asset": "assets/cloth_02.npz"
+      }
+    },
+    {
+      "id": 7,
+      "name": "cloth_03",
+      "kind": "shell_deformable",
+      "fixed": false,
+      "rest_asset": "assets/cloth_03.npz",
+      "node_count": 256,
+      "face_count": 450,
+      "mass": 0.032400001308723135,
+      "material": {
+        "model": "StrainLimitingBaraffWitkinShell",
+        "constitution_uid": 819,
+        "youngs_modulus": 12000.0,
+        "poisson_ratio": 0.35,
+        "density": 180.0,
+        "thickness": 0.001,
+        "thickness_semantics": "one-sided libuipc thickness",
+        "full_thickness": 0.002,
+        "bending_stiffness": 0.4,
+        "bending_model": "DiscreteShellBending",
+        "friction": 0.6,
+        "contact_resistance": 10000000.0,
+        "energy_definition": "material_constitutive_law"
+      },
+      "initial_pose": {
+        "position": [
+          -0.16,
+          -0.03,
+          0.47
+        ],
+        "euler_degrees": [
+          1.1,
+          0.0,
+          0.0
+        ]
+      },
+      "self_contact_enabled": true,
+      "independent_entity": true,
+      "quality_reference": {
+        "rest_bbox_diagonal": 0.42426407728047455,
+        "rest_area": 0.09000000363534202,
+        "full_thickness": 0.002,
+        "rest_surface_asset": "assets/cloth_03.npz"
+      }
+    },
+    {
+      "id": 8,
+      "name": "cloth_04",
+      "kind": "shell_deformable",
+      "fixed": false,
+      "rest_asset": "assets/cloth_04.npz",
+      "node_count": 256,
+      "face_count": 450,
+      "mass": 0.03240000169513338,
+      "material": {
+        "model": "StrainLimitingBaraffWitkinShell",
+        "constitution_uid": 819,
+        "youngs_modulus": 12000.0,
+        "poisson_ratio": 0.35,
+        "density": 180.0,
+        "thickness": 0.001,
+        "thickness_semantics": "one-sided libuipc thickness",
+        "full_thickness": 0.002,
+        "bending_stiffness": 0.4,
+        "bending_model": "DiscreteShellBending",
+        "friction": 0.6,
+        "contact_resistance": 10000000.0,
+        "energy_definition": "material_constitutive_law"
+      },
+      "initial_pose": {
+        "position": [
+          -0.16,
+          0.03,
+          0.51
+        ],
+        "euler_degrees": [
+          -0.8,
+          0.0,
+          0.0
+        ]
+      },
+      "self_contact_enabled": true,
+      "independent_entity": true,
+      "quality_reference": {
+        "rest_bbox_diagonal": 0.42426407981039166,
+        "rest_area": 0.09000000470870381,
+        "full_thickness": 0.002,
+        "rest_surface_asset": "assets/cloth_04.npz"
+      }
+    },
+    {
+      "id": 9,
+      "name": "cloth_05",
+      "kind": "shell_deformable",
+      "fixed": false,
+      "rest_asset": "assets/cloth_05.npz",
+      "node_count": 256,
+      "face_count": 450,
+      "mass": 0.03240000030059155,
+      "material": {
+        "model": "StrainLimitingBaraffWitkinShell",
+        "constitution_uid": 819,
+        "youngs_modulus": 12000.0,
+        "poisson_ratio": 0.35,
+        "density": 180.0,
+        "thickness": 0.001,
+        "thickness_semantics": "one-sided libuipc thickness",
+        "full_thickness": 0.002,
+        "bending_stiffness": 0.4,
+        "bending_model": "DiscreteShellBending",
+        "friction": 0.6,
+        "contact_resistance": 10000000.0,
+        "energy_definition": "material_constitutive_law"
+      },
+      "initial_pose": {
+        "position": [
+          -0.16,
+          -0.01,
+          0.55
+        ],
+        "euler_degrees": [
+          0.5,
+          0.0,
+          0.0
+        ]
+      },
+      "self_contact_enabled": true,
+      "independent_entity": true,
+      "quality_reference": {
+        "rest_bbox_diagonal": 0.4242640706798784,
+        "rest_area": 0.09000000083497653,
+        "full_thickness": 0.002,
+        "rest_surface_asset": "assets/cloth_05.npz"
+      }
+    },
+    {
+      "id": 10,
+      "name": "cloth_06",
+      "kind": "shell_deformable",
+      "fixed": false,
+      "rest_asset": "assets/cloth_06.npz",
+      "node_count": 256,
+      "face_count": 450,
+      "mass": 0.03239999847806545,
+      "material": {
+        "model": "StrainLimitingBaraffWitkinShell",
+        "constitution_uid": 819,
+        "youngs_modulus": 12000.0,
+        "poisson_ratio": 0.35,
+        "density": 180.0,
+        "thickness": 0.001,
+        "thickness_semantics": "one-sided libuipc thickness",
+        "full_thickness": 0.002,
+        "bending_stiffness": 0.4,
+        "bending_model": "DiscreteShellBending",
+        "friction": 0.6,
+        "contact_resistance": 10000000.0,
+        "energy_definition": "material_constitutive_law"
+      },
+      "initial_pose": {
+        "position": [
+          0.16,
+          0.02,
+          0.35
+        ],
+        "euler_degrees": [
+          1.2,
+          0.0,
+          0.0
+        ]
+      },
+      "self_contact_enabled": true,
+      "independent_entity": true,
+      "quality_reference": {
+        "rest_bbox_diagonal": 0.4242640587473431,
+        "rest_area": 0.089999995772404,
+        "full_thickness": 0.002,
+        "rest_surface_asset": "assets/cloth_06.npz"
+      }
+    },
+    {
+      "id": 11,
+      "name": "cloth_07",
+      "kind": "shell_deformable",
+      "fixed": false,
+      "rest_asset": "assets/cloth_07.npz",
+      "node_count": 256,
+      "face_count": 450,
+      "mass": 0.0324000005576518,
+      "material": {
+        "model": "StrainLimitingBaraffWitkinShell",
+        "constitution_uid": 819,
+        "youngs_modulus": 12000.0,
+        "poisson_ratio": 0.35,
+        "density": 180.0,
+        "thickness": 0.001,
+        "thickness_semantics": "one-sided libuipc thickness",
+        "full_thickness": 0.002,
+        "bending_stiffness": 0.4,
+        "bending_model": "DiscreteShellBending",
+        "friction": 0.6,
+        "contact_resistance": 10000000.0,
+        "energy_definition": "material_constitutive_law"
+      },
+      "initial_pose": {
+        "position": [
+          0.16,
+          -0.02,
+          0.39
+        ],
+        "euler_degrees": [
+          -0.9,
+          0.0,
+          0.0
+        ]
+      },
+      "self_contact_enabled": true,
+      "independent_entity": true,
+      "quality_reference": {
+        "rest_bbox_diagonal": 0.42426407236301933,
+        "rest_area": 0.09000000154903279,
+        "full_thickness": 0.002,
+        "rest_surface_asset": "assets/cloth_07.npz"
+      }
+    },
+    {
+      "id": 12,
+      "name": "cloth_08",
+      "kind": "shell_deformable",
+      "fixed": false,
+      "rest_asset": "assets/cloth_08.npz",
+      "node_count": 256,
+      "face_count": 450,
+      "mass": 0.03240000076834244,
+      "material": {
+        "model": "StrainLimitingBaraffWitkinShell",
+        "constitution_uid": 819,
+        "youngs_modulus": 12000.0,
+        "poisson_ratio": 0.35,
+        "density": 180.0,
+        "thickness": 0.001,
+        "thickness_semantics": "one-sided libuipc thickness",
+        "full_thickness": 0.002,
+        "bending_stiffness": 0.4,
+        "bending_model": "DiscreteShellBending",
+        "friction": 0.6,
+        "contact_resistance": 10000000.0,
+        "energy_definition": "material_constitutive_law"
+      },
+      "initial_pose": {
+        "position": [
+          0.16,
+          -0.0,
+          0.43
+        ],
+        "euler_degrees": [
+          0.6,
+          0.0,
+          0.0
+        ]
+      },
+      "self_contact_enabled": true,
+      "independent_entity": true,
+      "quality_reference": {
+        "rest_bbox_diagonal": 0.4242640737424272,
+        "rest_area": 0.09000000213428457,
+        "full_thickness": 0.002,
+        "rest_surface_asset": "assets/cloth_08.npz"
+      }
+    },
+    {
+      "id": 13,
+      "name": "cloth_09",
+      "kind": "shell_deformable",
+      "fixed": false,
+      "rest_asset": "assets/cloth_09.npz",
+      "node_count": 256,
+      "face_count": 450,
+      "mass": 0.032400001308723135,
+      "material": {
+        "model": "StrainLimitingBaraffWitkinShell",
+        "constitution_uid": 819,
+        "youngs_modulus": 12000.0,
+        "poisson_ratio": 0.35,
+        "density": 180.0,
+        "thickness": 0.001,
+        "thickness_semantics": "one-sided libuipc thickness",
+        "full_thickness": 0.002,
+        "bending_stiffness": 0.4,
+        "bending_model": "DiscreteShellBending",
+        "friction": 0.6,
+        "contact_resistance": 10000000.0,
+        "energy_definition": "material_constitutive_law"
+      },
+      "initial_pose": {
+        "position": [
+          0.16,
+          0.03,
+          0.47
+        ],
+        "euler_degrees": [
+          -1.1,
+          0.0,
+          0.0
+        ]
+      },
+      "self_contact_enabled": true,
+      "independent_entity": true,
+      "quality_reference": {
+        "rest_bbox_diagonal": 0.42426407728047455,
+        "rest_area": 0.09000000363534202,
+        "full_thickness": 0.002,
+        "rest_surface_asset": "assets/cloth_09.npz"
+      }
+    },
+    {
+      "id": 14,
+      "name": "cloth_10",
+      "kind": "shell_deformable",
+      "fixed": false,
+      "rest_asset": "assets/cloth_10.npz",
+      "node_count": 256,
+      "face_count": 450,
+      "mass": 0.03240000169513338,
+      "material": {
+        "model": "StrainLimitingBaraffWitkinShell",
+        "constitution_uid": 819,
+        "youngs_modulus": 12000.0,
+        "poisson_ratio": 0.35,
+        "density": 180.0,
+        "thickness": 0.001,
+        "thickness_semantics": "one-sided libuipc thickness",
+        "full_thickness": 0.002,
+        "bending_stiffness": 0.4,
+        "bending_model": "DiscreteShellBending",
+        "friction": 0.6,
+        "contact_resistance": 10000000.0,
+        "energy_definition": "material_constitutive_law"
+      },
+      "initial_pose": {
+        "position": [
+          0.16,
+          -0.03,
+          0.51
+        ],
+        "euler_degrees": [
+          0.8,
+          0.0,
+          0.0
+        ]
+      },
+      "self_contact_enabled": true,
+      "independent_entity": true,
+      "quality_reference": {
+        "rest_bbox_diagonal": 0.42426407981039166,
+        "rest_area": 0.09000000470870381,
+        "full_thickness": 0.002,
+        "rest_surface_asset": "assets/cloth_10.npz"
+      }
+    },
+    {
+      "id": 15,
+      "name": "cloth_11",
+      "kind": "shell_deformable",
+      "fixed": false,
+      "rest_asset": "assets/cloth_11.npz",
+      "node_count": 256,
+      "face_count": 450,
+      "mass": 0.032400000300591536,
+      "material": {
+        "model": "StrainLimitingBaraffWitkinShell",
+        "constitution_uid": 819,
+        "youngs_modulus": 12000.0,
+        "poisson_ratio": 0.35,
+        "density": 180.0,
+        "thickness": 0.001,
+        "thickness_semantics": "one-sided libuipc thickness",
+        "full_thickness": 0.002,
+        "bending_stiffness": 0.4,
+        "bending_model": "DiscreteShellBending",
+        "friction": 0.6,
+        "contact_resistance": 10000000.0,
+        "energy_definition": "material_constitutive_law"
+      },
+      "initial_pose": {
+        "position": [
+          0.16,
+          0.01,
+          0.55
+        ],
+        "euler_degrees": [
+          -0.5,
+          0.0,
+          0.0
+        ]
+      },
+      "self_contact_enabled": true,
+      "independent_entity": true,
+      "quality_reference": {
+        "rest_bbox_diagonal": 0.4242640706798784,
+        "rest_area": 0.09000000083497649,
+        "full_thickness": 0.002,
+        "rest_surface_asset": "assets/cloth_11.npz"
+      }
+    }
+  ],
+  "physics": {
+    "friction": 0.3,
+    "tet_resolution": 2,
+    "genesis_precision": "32",
+    "fem_density_default": 1000.0,
+    "fem_density_min": 300.0,
+    "fem_density_max": 3000.0,
+    "fem_youngs_modulus_default": 100000.0,
+    "fem_youngs_modulus_min": 10000.0,
+    "fem_youngs_modulus_max": 5000000.0,
+    "fem_poisson_ratio_default": 0.35,
+    "fem_poisson_ratio_min": 0.0,
+    "fem_poisson_ratio_max": 0.45,
+    "fem_model": "stable_neohookean",
+    "fem_hydroelastic_modulus": 10000000.0,
+    "fem_contact_resistance": null,
+    "fem_hessian_invariant": false,
+    "fem_cloth_enabled": true,
+    "cloth_density_default": 200.0,
+    "cloth_density_min": 50.0,
+    "cloth_density_max": 1000.0,
+    "cloth_youngs_modulus_default": 10000.0,
+    "cloth_youngs_modulus_min": 1000.0,
+    "cloth_youngs_modulus_max": 1000000.0,
+    "cloth_poisson_ratio_default": 0.48,
+    "cloth_poisson_ratio_min": 0.0,
+    "cloth_poisson_ratio_max": 0.499,
+    "cloth_thickness_default": 0.001,
+    "cloth_thickness_min": 0.0002,
+    "cloth_thickness_max": 0.01,
+    "cloth_bending_stiffness_default": 3.0,
+    "cloth_bending_stiffness_min": 0.0,
+    "cloth_bending_stiffness_max": 300.0,
+    "cloth_friction_mu_default": 0.5,
+    "cloth_grid_resolution_default": 20,
+    "cloth_target_edge_length_default": 0.01,
+    "cloth_max_faces": 20000,
+    "enabled": true,
+    "ipc_newton_max_iterations": null,
+    "ipc_newton_min_iterations": 2,
+    "ipc_newton_tolerance": null,
+    "ipc_newton_ccd_tolerance": null,
+    "ipc_newton_use_adaptive_tolerance": true,
+    "ipc_newton_translation_tolerance": null,
+    "ipc_newton_semi_implicit_enable": null,
+    "ipc_newton_semi_implicit_beta_tolerance": null,
+    "ipc_n_linesearch_iterations": null,
+    "ipc_linesearch_report_energy": null,
+    "ipc_linear_system_solver": "fused_pcg",
+    "ipc_linear_system_tolerance": null,
+    "ipc_contact_enable": null,
+    "ipc_contact_d_hat": 0.00032,
+    "ipc_contact_d_hat_adaptive": true,
+    "ipc_contact_friction_enable": true,
+    "ipc_contact_resistance_default": 10000000.0,
+    "ipc_contact_resistance_min": 3000000.0,
+    "ipc_contact_resistance_max": 100000000.0,
+    "ipc_contact_eps_velocity": 0.01,
+    "ipc_contact_constitution": "ipc",
+    "ipc_collision_detection_method": "info_stackless_bvh",
+    "ipc_cfl_enable": true,
+    "ipc_sanity_check_enable": true,
+    "ipc_constraint_strength_translation_default": 30,
+    "ipc_constraint_strength_translation_min": 10,
+    "ipc_constraint_strength_translation_max": 100,
+    "ipc_constraint_strength_rotation_default": 30,
+    "ipc_constraint_strength_rotation_min": 10,
+    "ipc_constraint_strength_rotation_max": 100,
+    "ipc_enable_rigid_ground_contact": false,
+    "ipc_enable_rigid_rigid_contact": true,
+    "ipc_two_way_coupling": true,
+    "ipc_enable_rigid_dofs_sync": true,
+    "ipc_free_base_driven_by_ipc": true,
+    "ipc_contact_resistance": 10000000.0,
+    "ipc_constraint_strength_translation": 30,
+    "ipc_constraint_strength_rotation": 30,
+    "ipc_enabled": true
+  },
+  "gravity": [
+    0.0,
+    0.0,
+    -9.81
+  ],
+  "simulation_time": {
+    "duration": 14.0,
+    "source_dt": 0.01,
+    "source_substeps": 1,
+    "preroll_duration": 2.0,
+    "captured_duration": 12.0,
+    "raw_sample_count": 351,
+    "source_video_times": {
+      "first": 2.04,
+      "last": 14.0,
+      "count": 300,
+      "stride": 0.04
+    }
+  },
+  "rules": [
+    "Preserve every geometry, all 12 separate cloths, rest transforms, materials and bounded controller.",
+    "A full attempt evolves from the frozen rest state at t=0 through t=14, including the physical 2-second ramp.",
+    "No reference motion, ready dynamics implementation or source engine is supplied.",
+    "Numerical discretization/internal steps may change; remap output to every frozen cloth vertex.",
+    "The drum is a finite-inertia driven hinge. Do not prescribe its angle/speed or script cloth motion.",
+    "Retain cloth self-contact, inter-cloth contact and contact with the rotating facets, baffles, rear wall and fixed glass.",
+    "The fixed distant bookkeeping box is excluded from IPC contacts in the original; no active scene collision pair is disabled."
+  ],
+  "controller": {
+    "joint_order": [
+      "drum_hinge"
+    ],
+    "initial_q": [
+      0.0
+    ],
+    "initial_qd": [
+      0.0
+    ],
+    "axis_world": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "hinge_origin_world": [
+      0.0,
+      0.0,
+      0.78
+    ],
+    "driven_body_id": 0,
+    "kp": [
+      0.0
+    ],
+    "kv": [
+      12.0
+    ],
+    "force_limit": [
+      45.0
+    ],
+    "joint_damping": [
+      0.2
+    ],
+    "joint_armature": [
+      0.04
+    ],
+    "reference": "assets/prescribed_controls.py",
+    "command_hold_dt": 0.01,
+    "law": "tau=clip(12*(qd_target-qd),-45,45); separate passive hinge damping torque=-0.20*qd. Retain inertia and armature, gravity and two-way contact reactions.",
+    "phases": [
+      [
+        0.0,
+        2.0,
+        "200-step smoothstep velocity ramp from rest to 1.05 rad/s"
+      ],
+      [
+        2.0,
+        14.0,
+        "constant target velocity 1.05 rad/s, finite torque, cloth-driven loads"
+      ]
+    ],
+    "prohibition": "The target schedule is not the actual angle/velocity. Do not overwrite state or apply forces directly to cloth to create tumbling."
+  },
+  "articulation": {
+    "asset": "assets/articulation.xml",
+    "rotor_body_id": 0,
+    "rotor_geometries": 35,
+    "links": [
+      "dryer_fixed_base",
+      "rotor_link"
+    ],
+    "explicit_rotor_inertia_used": true,
+    "xml_actuator_limits_overridden_by_controller": true,
+    "state_semantics": "The rotor has one COM sample with its actual mass 18 kg. All 35 frozen collision pieces transform rigidly with it. No independently moving facets."
+  },
+  "material_constitutive_law": {
+    "model": "libuipc StrainLimitingBaraffWitkinShell (UID 819), with DiscreteShellBending (UID 17)",
+    "authored_model_label": "FEM.Cloth.model='stable_neohookean' is a compatibility field ignored by this IPC cloth path. The class docstring saying NeoHookeanShell is stale.",
+    "lame_parameters_2d": "lambda=E*nu/((1+nu)*(1-nu)); mu=E/(2*(1+nu))",
+    "lambda": 4786.324786324786,
+    "mu": 4444.444444444444,
+    "strain_rate": 100.0,
+    "reference_frame": "For each rest triangle compute its unit normal n; rotate n to +z by R=I+[n cross ez]_x+[n cross ez]_x^2/(1+n dot ez), then take x/y of the rotated edge vectors as columns of Dm. The source n=-ez branch uses diag(-1,-1,1). Use rest positions, not a per-step material frame.",
+    "deformation_gradient": "F=[x1-x0,x2-x0] @ inverse(Dm), a=F[:,0], b=F[:,1], su=||a||-1, sv=||b||-1",
+    "stretch_shear_density": "psi=lambda*(su^2+sv^2+100*max(su,0)^3+100*max(sv,0)^3)+mu*(a dot b)^2",
+    "membrane_energy": "sum_triangles (2*t*A0)*psi; t=.001 is one-sided thickness; A0 is rest triangle area",
+    "mass_lumping": "m_i=sum_incident_triangles rho*(2*t*A0)/3; use the exported lumped masses, not dummy FEM renderer masses",
+    "bending_energy": "For each interior edge L0 with adjacent rest triangle areas A1,A2: hbar=(A1+A2)/(3*L0), Vbar=(A1+A2)*t, E_bend=kappa*(theta-theta0)^2*(L0/hbar)*Vbar, kappa=.4. No extra 1/2 factor.",
+    "bending_convention": "Signed dihedral angle on the ordered four-vertex stencil, with its matching rest angle. Source sorts the shared edge endpoints and the two opposite vertices; use the same ordering for current and rest angles.",
+    "fem_velocity_damping_effective": 0.0,
+    "fem_velocity_damping_authored_inactive_option": 0.015,
+    "damping_explanation": "FEMOptions.damping is not applied when IPC owns cloth integration. Preserve friction and hinge damping; do not add .015 velocity decay as physical cloth damping."
+  },
+  "contact_material_semantics": {
+    "pair_friction": "sqrt(mu_i*mu_j)",
+    "pair_contact_resistance": "2*kappa_i*kappa_j/(kappa_i+kappa_j)",
+    "contact_resistance": 10000000.0,
+    "contact_d_hat": 0.00032,
+    "friction_eps_velocity": 0.01,
+    "added_restitution": 0.0,
+    "body_friction": {
+      "cloth": 0.6,
+      "rotor": 0.85,
+      "glass": 0.28,
+      "floor": 0.45
+    },
+    "pair_friction_values": {
+      "cloth_cloth": 0.6,
+      "cloth_rotor": 0.714142842854285,
+      "cloth_glass": 0.40987803063838396,
+      "cloth_floor": 0.5196152422706632
+    },
+    "thickness": "Cloth collision thickness is the same one-sided t=.001 on each sheet. Center-surface gap is distinct from clearance after thickness. Distinguish them in diagnostics.",
+    "collision_policy": "All cloth self and cross contacts are enabled. Only remote base bookkeeping geometry is excluded. Keep the 0.0006 m geometric front seam between rotor and glass. Rigid-ground IPC is disabled as in source; cloth-ground is enabled.",
+    "force_reporting": "external_force includes gravity, fixed glass/floor contact and hinge/support forces on the exported dynamic system; interaction_force includes BOTH sides of every cloth-cloth/cloth-rotor internal pair. Include hinge torque and contact torque diagnostics separately."
+  },
+  "containment": {
+    "drum_center": [
+      0.0,
+      0.0,
+      0.78
+    ],
+    "inner_wall_radius": 0.56,
+    "glass_inner_x": -0.3566,
+    "rear_inner_x": 0.344,
+    "front_seam_clearance": 0.0006,
+    "note": "Use the actual 30 facets, rear disk and 4 baffles for contact. The radius only summarizes the envelope, not a replacement smooth drum."
+  },
+  "state_sample_count": 3073
+}

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco model="right_endpoint_twist_clamp">
+  <!-- Angular joint limits and position commands are expressed in radians. -->
+  <compiler angle="radian"/>
+
+  <asset>
+    <material name="right_jaw_satin"
+              rgba="0.92 0.27 0.055 1"
+              specular="0.34"
+              shininess="0.22"/>
+    <material name="right_rotor_metal"
+              rgba="0.18 0.21 0.24 1"
+              specular="0.42"
+              shininess="0.30"/>
+    <material name="right_rail_metal"
+              rgba="0.10 0.13 0.16 1"
+              specular="0.26"
+              shininess="0.16"/>
+    <material name="right_mount_dark"
+              rgba="0.045 0.055 0.065 1"
+              specular="0.10"
+              shininess="0.06"/>
+  </asset>
+
+  <worldbody>
+    <!--
+      Fixed endpoint frame: local -X points inward along the cloth, +Y spans
+      the cloth width, and +Z is the writhe direction. The scene should place
+      this root at the center of the right endpoint patch.
+    -->
+    <body name="right_clamp_fixed_mount_link" pos="0 0 0">
+      <!--
+        Required nonempty fixed parent. This 4 mm cube is collision enabled
+        but remote at the outboard edge of the nominal 1.05 m X envelope.
+      -->
+      <geom name="right_ipc_dummy_mount_geom"
+            type="box"
+            pos="1.028 0 0"
+            size="0.002 0.002 0.002"
+            material="right_mount_dark"
+            mass="0.00001"
+            friction="0.40 0.01 0.001"
+            contype="1"
+            conaffinity="1"/>
+
+      <body name="right_clamp_carriage_link" pos="0 0 0">
+        <joint name="right_approach_slide"
+               type="slide"
+               pos="0 0 0"
+               axis="-1 0 0"
+               limited="true"
+               range="0 0.22"
+               damping="2.4"
+               armature="0.025"
+               frictionloss="0.18"/>
+
+        <!--
+          The approach link carries the visible Z rail 0.78 m outboard of the
+          rotor. Its full 0.22 m motion preserves that separation from the
+          jaws, so this collision geom cannot enter or guide the cloth sweep.
+          The capsule gives the nominal asset its requested 0.36 m Z extent.
+        -->
+        <geom name="right_writhe_rail_geom"
+              type="capsule"
+              fromto="0.78 0 -0.168 0.78 0 0.168"
+              size="0.012"
+              material="right_rail_metal"
+              mass="0.035"
+              friction="0.45 0.01 0.001"
+              contype="1"
+              conaffinity="1"/>
+
+        <body name="right_clamp_writhe_link" pos="0 0 0">
+          <joint name="right_writhe_slide"
+                 type="slide"
+                 pos="0 0 0"
+                 axis="0 0 1"
+                 limited="true"
+                 range="-0.10 0.10"
+                 damping="2.0"
+                 armature="0.018"
+                 frictionloss="0.12"/>
+
+          <!--
+            This visible collision-enabled carriage remains beside, rather
+            than intersecting, the remote rail. It is always 0.83 m outboard
+            of the jaw frame and therefore never contacts the cloth.
+          -->
+          <geom name="right_writhe_carriage_geom"
+                type="box"
+                pos="0.83 0 0"
+                size="0.022 0.030 0.025"
+                material="right_rail_metal"
+                mass="0.045"
+                friction="0.45 0.01 0.001"
+                contype="1"
+                conaffinity="1"/>
+
+          <body name="right_clamp_rotor_link" pos="0 0 0">
+            <joint name="right_twist_hinge"
+                   type="hinge"
+                   pos="0 0 0"
+                   axis="1 0 0"
+                   limited="true"
+                   range="-9 9"
+                   damping="0.10"
+                   armature="0.0025"
+                   frictionloss="0.010"/>
+
+            <!--
+              The short hub starts 0.030 m outboard of the endpoint plane.
+              It is part of the visible driven rotor but stays clear of a
+              cloth strip occupying the inward (negative-X) half-space.
+            -->
+            <geom name="right_rotor_hub_geom"
+                  type="cylinder"
+                  pos="0.08 0 0"
+                  quat="0.707106781 0 0.707106781 0"
+                  size="0.034 0.050"
+                  material="right_rotor_metal"
+                  mass="0.08"
+                  friction="0.55 0.01 0.001"
+                  contype="1"
+                  conaffinity="1"/>
+
+            <!--
+              Each rounded jaw spans exactly 0.42 m across Y. The 0.020 m
+              radii and centers at z=+/-0.028 m leave a 0.016 m clear slot
+              around a thin sheet centered at z=0, avoiding initial contact
+              or penetration while visibly covering the endpoint patch.
+            -->
+            <geom name="right_upper_jaw_geom"
+                  type="capsule"
+                  fromto="0 -0.190 0.028 0 0.190 0.028"
+                  size="0.020"
+                  material="right_jaw_satin"
+                  mass="0.22"
+                  friction="0.82 0.015 0.001"
+                  contype="1"
+                  conaffinity="1"/>
+            <geom name="right_lower_jaw_geom"
+                  type="capsule"
+                  fromto="0 -0.190 -0.028 0 0.190 -0.028"
+                  size="0.020"
+                  material="right_jaw_satin"
+                  mass="0.22"
+                  friction="0.82 0.015 0.001"
+                  contype="1"
+                  conaffinity="1"/>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <!-- Force-limited joint-position targets; command with smooth ramps. -->
+    <position name="right_approach_motor"
+              joint="right_approach_slide"
+              kp="140"
+              kv="15"
+              ctrllimited="true"
+              ctrlrange="0 0.22"
+              forcelimited="true"
+              forcerange="-40 40"/>
+    <position name="right_writhe_motor"
+              joint="right_writhe_slide"
+              kp="110"
+              kv="13"
+              ctrllimited="true"
+              ctrlrange="-0.10 0.10"
+              forcelimited="true"
+              forcerange="-28 28"/>
+    <position name="right_twist_motor"
+              joint="right_twist_hinge"
+              kp="7"
+              kv="0.9"
+              ctrllimited="true"
+              ctrlrange="-9 9"
+              forcelimited="true"
+              forcerange="-6 6"/>
+  </actuator>
+</mujoco>

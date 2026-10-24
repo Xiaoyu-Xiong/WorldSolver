@@ -1,0 +1,244 @@
+{
+  "version": 1,
+  "source_case": "deformable_twisting_shell_strip_clamped_ends",
+  "task_id": "174_text2sim_shell_strip_clamped",
+  "representation": "World-space FEM nodes and rigid geometric-origin samples, orientation xyzw.",
+  "geometry_is_frozen": true,
+  "initial_velocity": "All dynamic actors initially at rest.",
+  "bodies": [
+    {
+      "id": 0,
+      "name": "hyperelastic_shell_ribbon",
+      "kind": "cloth_shell",
+      "fixed": false,
+      "rest_asset": "assets/hyperelastic_shell_ribbon.npz",
+      "node_count": 972,
+      "face_count": 1760,
+      "mass": 0.07680000133514397,
+      "material": {
+        "model": "strain_limiting_baraff_witkin_shell",
+        "youngs_modulus": 20000.0,
+        "poisson_ratio": 0.45,
+        "density": 200.0,
+        "thickness": 0.001,
+        "full_thickness": 0.002,
+        "bending_stiffness": 1.5,
+        "friction": 0.4,
+        "contact_resistance": 10000000.0,
+        "strain_limiting_rate": 100
+      },
+      "endpoint_constraints": {
+        "type": "one_way_finite_strength_kinematic_edge_targets",
+        "nodes": {
+          "left": [
+            0,
+            81,
+            162,
+            243,
+            324,
+            405,
+            486,
+            567,
+            648,
+            729,
+            810,
+            891
+          ],
+          "right": [
+            80,
+            161,
+            242,
+            323,
+            404,
+            485,
+            566,
+            647,
+            728,
+            809,
+            890,
+            971
+          ]
+        },
+        "strength_ratio": 30.0,
+        "source_reference_step_seconds": 0.005,
+        "equivalent_physical_stiffness": "k_i=30*m_i/(0.005^2) N/m; preserve this physical stiffness under internal step changes.",
+        "left_origin": [
+          -0.6000000238418579,
+          0.0,
+          0.0
+        ],
+        "right_origin": [
+          0.6000000238418579,
+          0.0,
+          0.0
+        ],
+        "target_motion": "Prescribed invisible frames are input boundary conditions, not dynamic rigid bodies. No visible/physical clamp, support geometry or endpoint point masses may be added.",
+        "external_reaction": "Include the finite endpoint-penalty forces as external forces in conservation reporting."
+      }
+    }
+  ],
+  "physics": {
+    "friction": 0.3,
+    "tet_resolution": 2,
+    "fem_max_scene_tets": 700000,
+    "genesis_precision": "32",
+    "fem_density_default": 1000.0,
+    "fem_density_min": 300.0,
+    "fem_density_max": 3000.0,
+    "fem_youngs_modulus_default": 100000.0,
+    "fem_youngs_modulus_min": 10000.0,
+    "fem_youngs_modulus_max": 5000000.0,
+    "fem_poisson_ratio_default": 0.35,
+    "fem_poisson_ratio_min": 0.0,
+    "fem_poisson_ratio_max": 0.45,
+    "fem_model": "stable_neohookean",
+    "fem_hydroelastic_modulus": 10000000.0,
+    "fem_contact_resistance": null,
+    "fem_hessian_invariant": false,
+    "fem_cloth_enabled": true,
+    "cloth_density_default": 200.0,
+    "cloth_density_min": 50.0,
+    "cloth_density_max": 1000.0,
+    "cloth_youngs_modulus_default": 10000.0,
+    "cloth_youngs_modulus_min": 1000.0,
+    "cloth_youngs_modulus_max": 1000000.0,
+    "cloth_poisson_ratio_default": 0.48,
+    "cloth_poisson_ratio_min": 0.0,
+    "cloth_poisson_ratio_max": 0.499,
+    "cloth_thickness_default": 0.001,
+    "cloth_thickness_min": 0.0002,
+    "cloth_thickness_max": 0.01,
+    "cloth_bending_stiffness_default": 3.0,
+    "cloth_bending_stiffness_min": 0.0,
+    "cloth_bending_stiffness_max": 300.0,
+    "cloth_friction_mu_default": 0.5,
+    "cloth_grid_resolution_default": 20,
+    "cloth_target_edge_length_default": 0.01,
+    "cloth_max_faces": 20000,
+    "enabled": true,
+    "ipc_newton_max_iterations": null,
+    "ipc_newton_min_iterations": 2,
+    "ipc_newton_tolerance": null,
+    "ipc_newton_ccd_tolerance": null,
+    "ipc_newton_use_adaptive_tolerance": true,
+    "ipc_newton_translation_tolerance": null,
+    "ipc_newton_semi_implicit_enable": null,
+    "ipc_newton_semi_implicit_beta_tolerance": null,
+    "ipc_n_linesearch_iterations": null,
+    "ipc_linesearch_report_energy": null,
+    "ipc_linear_system_solver": "fused_pcg",
+    "ipc_linear_system_tolerance": null,
+    "ipc_contact_enable": null,
+    "ipc_contact_d_hat": 0.002421239352067449,
+    "ipc_contact_d_hat_adaptive": true,
+    "ipc_contact_friction_enable": true,
+    "ipc_contact_resistance_default": 10000000.0,
+    "ipc_contact_resistance_min": 3000000.0,
+    "ipc_contact_resistance_max": 100000000.0,
+    "ipc_contact_eps_velocity": 0.01,
+    "ipc_contact_constitution": "ipc",
+    "ipc_collision_detection_method": "info_stackless_bvh",
+    "ipc_cfl_enable": true,
+    "ipc_sanity_check_enable": true,
+    "ipc_constraint_strength_translation_default": 30,
+    "ipc_constraint_strength_translation_min": 10,
+    "ipc_constraint_strength_translation_max": 100,
+    "ipc_constraint_strength_rotation_default": 30,
+    "ipc_constraint_strength_rotation_min": 10,
+    "ipc_constraint_strength_rotation_max": 100,
+    "ipc_enable_rigid_ground_contact": false,
+    "ipc_enable_rigid_rigid_contact": true,
+    "ipc_two_way_coupling": true,
+    "ipc_enable_rigid_dofs_sync": true,
+    "ipc_free_base_driven_by_ipc": true,
+    "ipc_contact_resistance": 10000000.0,
+    "ipc_constraint_strength_translation": 30,
+    "ipc_constraint_strength_rotation": 30,
+    "ipc_enabled": true
+  },
+  "gravity": [
+    0,
+    0,
+    0
+  ],
+  "simulation_time": {
+    "duration": 10.0,
+    "source_dt": 0.005,
+    "source_substeps": 1
+  },
+  "rules": [
+    "Preserve every physical mesh, shape, actor, mass, material, initial transform and prescribed control schedule.",
+    "Numerical methods and internal step sizes may change; return states on every frozen original vertex.",
+    "Only endpoint patches/edges are constrained. No interior pins, gravity, floor, hidden supports or precomputed motion.",
+    "Implement dynamics independently; neither a source simulator nor an answer trajectory is supplied."
+  ],
+  "material_constitutive_law": {
+    "model": "StrainLimitingBaraffWitkinShell (libuipc UID 819) + DiscreteShellBending (UID 17)",
+    "authored_model_label": "stable_neohookean",
+    "label_caveat": "The public FEM.Cloth model label and docstrings do not select its IPC constitution. The accepted source uses StrainLimitingBaraffWitkinShell, already present in Genesis commit 92e32925 before these July runs.",
+    "lame_parameters": "mu=E/(2*(1+nu)); lambda=E*nu/((1+nu)*(1-nu)) (ElasticModuli2D, plane stress).",
+    "rest_basis": "Rotate each rest triangle normal to +Z by the shortest rotation, then take its XY edge matrix Dm. For these initially flat +Z meshes this is simply Dm=[X1-X0,X2-X0] in XY. Preserve the source material X/Y directions, not an edge-aligned basis.",
+    "deformation_gradient": "F=[x1-x0,x2-x0] @ inverse(Dm), a 3x2 matrix; u=norm(F[:,0]); v=norm(F[:,1]); s=dot(F[:,0],F[:,1]).",
+    "membrane_energy_density": "psi=lambda*((u-1)^2+(v-1)^2+100*max(u-1,0)^3+100*max(v-1,0)^3)+mu*s^2.",
+    "membrane_element_energy": "E_triangle=(2*thickness*rest_area)*psi. The source strain-limiting rate is fixed at 100.",
+    "thickness_semantics": "The supplied thickness=0.001 m is libuipc one-sided thickness/radius; full thickness is 0.002 m. Preserve this source convention despite nominal asset text describing 1 mm.",
+    "mass_lumping": "For each rest triangle add rho*(2*thickness)*rest_area/3 to each incident vertex. Frozen initial_state.npz contains these actual source-convention masses.",
+    "bending_energy": "For an interior edge of rest length L, let A=A1+A2 (sum of incident rest triangle areas), hbar=A/(3*L), Vbar=A*thickness. E_edge=kappa*(theta-theta_rest)^2*L/hbar*Vbar. kappa is the authored bending_stiffness. Do not omit Vbar or add an extra thickness^3 factor.",
+    "bending_rest_angle": "Use the dihedral angle of the frozen mesh, with consistent incident-face winding.",
+    "source_evidence": [
+      "genesis/engine/couplers/ipc_coupler/coupler.py:350-367",
+      "libuipc/src/backends/cuda/finite_element/constitutions/strain_limiting_baraff_witkin_shell_2d.cu",
+      "libuipc/src/backends/cuda/finite_element/constitutions/strain_limiting_baraff_witkin_shell_2d.h",
+      "libuipc/include/uipc/constitution/conversion.h:EP_to_lame_2D",
+      "libuipc/src/backends/cuda/finite_element/constitutions/discrete_shell_bending_function.h",
+      "libuipc/src/backends/cuda/finite_element/constitutions/discrete_shell_bending.cu:242",
+      "libuipc/src/geometry/compute_vertex_volume.cpp:89-98"
+    ]
+  },
+  "fem_damping_authored_option": 0.025,
+  "fem_damping": 0.0,
+  "fem_damping_semantics": "The source FEM integrator is skipped for IPCCoupler; FEMOptions.damping has no effect on these cloth actors. Preserve contact friction and actual joint damping, and disclose numerical damping rather than adding inactive FEM damping.",
+  "contact_material_semantics": {
+    "pair_friction": "sqrt(mu_i*mu_j)",
+    "pair_resistance": "2*kappa_i*kappa_j/(kappa_i+kappa_j)",
+    "thickness_gap": "For nonlocal cloth-cloth distance subtract t_i+t_j=0.002 m; for cloth-rigid subtract t_cloth=0.001 m (rigid thickness is zero). The barrier activation offset is d_hat in addition to those physical thicknesses.",
+    "adjacency": "Exclude topologically local incident primitive pairs from self collision, retaining nonlocal vertex-face and edge-edge surface contact.",
+    "restitution": 0.0
+  },
+  "quality_reference": {
+    "rest_bbox_diagonal_m": 1.2106197228264997,
+    "cloth_full_thickness_m": 0.002,
+    "cloth_area_m2": 0.19200000333785994,
+    "source_contact_activation_offset_m": 0.002421239352067449
+  },
+  "controller": {
+    "type": "prescribed_invisible_kinematic_end_frames",
+    "reference": "assets/prescribed_controls.py:target_at",
+    "sample_dt": 0.005,
+    "sample_timing": "Evaluate targets at k*0.005 before original step [(k-1)*0.005,k*0.005], holding through numerical substeps.",
+    "phases": [
+      [
+        0,
+        0.5,
+        "initial hold"
+      ],
+      [
+        0.5,
+        5,
+        "opposing axial rotations to -3.5pi and +3.5pi"
+      ],
+      [
+        5,
+        6.8,
+        "keep rotations; approach each end 0.12 m and add frozen asymmetric seed offsets"
+      ],
+      [
+        6.8,
+        10,
+        "fixed boundary target hold"
+      ]
+    ],
+    "no_dynamic_clamp": true
+  },
+  "state_sample_count": 972
+}

@@ -1,0 +1,256 @@
+schema_version: 1
+units: meters
+up_axis: z
+objects:
+- id: cloth
+  semantic: cloth
+  motion: dynamic
+  geometry:
+    type: triangle_mesh
+    topology_asset: assets/cloth.npz
+  state_binding:
+    selector: body_id
+    value: 0
+  material_id: cloth
+  collision_enabled: true
+- id: left_ipc_dummy_mount_geom
+  semantic: boundary
+  motion: static
+  geometry:
+    type: sphere
+    radius: 0.01
+  transform:
+    translation:
+    - -1.585
+    - 0.0
+    - 0.5
+    rotation_xyzw:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  material_id: left_ipc_dummy_mount_geom
+  collision_enabled: false
+- id: left_approach_rail_geom
+  semantic: rigid
+  motion: dynamic
+  geometry:
+    type: capsule
+    radius: 0.03
+    height: 0.3
+  transform:
+    translation:
+    - -1.1600000000000001
+    - 0.0
+    - 0.5
+    rotation_xyzw:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  material_id: left_approach_rail_geom
+  collision_enabled: false
+  state_binding:
+    selector: body_id
+    value: 2
+- id: left_writhe_carriage_geom
+  semantic: rigid
+  motion: dynamic
+  geometry:
+    type: box
+    half_extents:
+    - 0.055
+    - 0.04
+    - 0.04
+  transform:
+    translation:
+    - -1.07
+    - 0.0
+    - 0.5
+    rotation_xyzw:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  material_id: left_writhe_carriage_geom
+  collision_enabled: false
+  state_binding:
+    selector: body_id
+    value: 3
+- id: left_upper_jaw_geom
+  semantic: rigid
+  motion: dynamic
+  geometry:
+    type: capsule
+    radius: 0.028
+    height: 0.364
+  transform:
+    translation:
+    - -0.5725000000000001
+    - 0.0
+    - 0.535
+    rotation_xyzw:
+    - -0.7071067811865475
+    - 0.0
+    - 0.0
+    - 0.7071067811865476
+  material_id: left_upper_jaw_geom
+  collision_enabled: true
+  state_binding:
+    selector: body_id
+    value: 4
+- id: left_lower_jaw_geom
+  semantic: rigid
+  motion: dynamic
+  geometry:
+    type: capsule
+    radius: 0.028
+    height: 0.364
+  transform:
+    translation:
+    - -0.5725000000000001
+    - 0.0
+    - 0.46499999999999997
+    rotation_xyzw:
+    - -0.7071067811865475
+    - 0.0
+    - 0.0
+    - 0.7071067811865476
+  material_id: left_lower_jaw_geom
+  collision_enabled: true
+  state_binding:
+    selector: body_id
+    value: 5
+- id: right_ipc_dummy_mount_geom
+  semantic: boundary
+  motion: static
+  geometry:
+    type: box
+    half_extents:
+    - 0.002
+    - 0.002
+    - 0.002
+  transform:
+    translation:
+    - 1.6099999999999999
+    - 0.0
+    - 0.5
+    rotation_xyzw:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  material_id: right_ipc_dummy_mount_geom
+  collision_enabled: false
+- id: right_writhe_rail_geom
+  semantic: rigid
+  motion: dynamic
+  geometry:
+    type: capsule
+    radius: 0.012
+    height: 0.336
+  transform:
+    translation:
+    - 1.362
+    - 0.0
+    - 0.5
+    rotation_xyzw:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  material_id: right_writhe_rail_geom
+  collision_enabled: false
+  state_binding:
+    selector: body_id
+    value: 7
+- id: right_writhe_carriage_geom
+  semantic: rigid
+  motion: dynamic
+  geometry:
+    type: box
+    half_extents:
+    - 0.022
+    - 0.03
+    - 0.025
+  transform:
+    translation:
+    - 1.412
+    - 0.0
+    - 0.5
+    rotation_xyzw:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  material_id: right_writhe_carriage_geom
+  collision_enabled: false
+  state_binding:
+    selector: body_id
+    value: 8
+- id: right_rotor_hub_geom
+  semantic: rigid
+  motion: dynamic
+  geometry:
+    type: cylinder
+    radius: 0.034
+    height: 0.1
+  transform:
+    translation:
+    - 0.6619999999999999
+    - 0.0
+    - 0.5
+    rotation_xyzw:
+    - 0.0
+    - 0.7071067811865476
+    - 0.0
+    - 0.7071067811865476
+  material_id: right_rotor_hub_geom
+  collision_enabled: true
+  state_binding:
+    selector: body_id
+    value: 9
+- id: right_upper_jaw_geom
+  semantic: rigid
+  motion: dynamic
+  geometry:
+    type: capsule
+    radius: 0.02
+    height: 0.38
+  transform:
+    translation:
+    - 0.582
+    - 0.0
+    - 0.528
+    rotation_xyzw:
+    - -0.7071067811865475
+    - 0.0
+    - 0.0
+    - 0.7071067811865476
+  material_id: right_upper_jaw_geom
+  collision_enabled: true
+  state_binding:
+    selector: body_id
+    value: 10
+- id: right_lower_jaw_geom
+  semantic: rigid
+  motion: dynamic
+  geometry:
+    type: capsule
+    radius: 0.02
+    height: 0.38
+  transform:
+    translation:
+    - 0.582
+    - 0.0
+    - 0.472
+    rotation_xyzw:
+    - -0.7071067811865475
+    - 0.0
+    - 0.0
+    - 0.7071067811865476
+  material_id: right_lower_jaw_geom
+  collision_enabled: true
+  state_binding:
+    selector: body_id
+    value: 11

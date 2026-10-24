@@ -1,0 +1,86 @@
+scene_id: 174_text2sim_shell_strip_clamped
+seed: 0
+duration: 10.0
+sample_dt: 0.04
+gravity:
+- 0
+- 0
+- 0
+source_sim_dt: 0.005
+source_sim_substeps: 1
+source_steps: 2000
+camera:
+  position:
+  - 0.5706672844935996
+  - -1.367250864504787
+  - 0.873784393766862
+  look_at:
+  - -3.841519355773926e-05
+  - -0.0579848475754261
+  - 0.0009403824806213379
+  up:
+  - 0.0
+  - 0.0
+  - 1.0
+  yfov_degrees: 40.0
+  width: 640
+  height: 480
+  fps: 25
+  near: 0.8302064534786432
+  far: 4.140877196158913
+extension:
+  origin: Text2Sim
+  published_worldsolver_task: false
+  source_case: deformable_twisting_shell_strip_clamped_ends
+  public_contract: assets/scene_contract.json
+  video_window:
+    start: 0.0
+    end: 9.96
+    source_frame_count: 250
+render_materials:
+  hyperelastic_shell_ribbon:
+    color_rgb:
+    - 0.84
+    - 0.27
+    - 0.16
+    roughness: 0.48
+    double_sided: true
+luisa_lights:
+- name: warm_key
+  pos:
+  - 2.8
+  - -3.2
+  - 3.0
+  radius: 0.55
+  color:
+  - 12.0
+  - 9.4
+  - 6.8
+  intensity: 1.0
+- name: cool_fill
+  pos:
+  - -2.7
+  - -2.2
+  - 1.8
+  radius: 0.65
+  color:
+  - 4.8
+  - 6.8
+  - 9.5
+  intensity: 1.0
+- name: soft_rim
+  pos:
+  - -2.4
+  - 2.8
+  - 2.6
+  radius: 0.5
+  color:
+  - 6.8
+  - 6.5
+  - 5.8
+  intensity: 1.0
+luisa_environment_color:
+- 0.46
+- 0.54
+- 0.63
+physics_contract_reference: assets/scene_contract.json

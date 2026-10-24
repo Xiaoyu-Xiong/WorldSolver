@@ -1,0 +1,152 @@
+scene_id: 173_text2sim_cloth_strip_twist
+seed: 0
+duration: 10.0
+sample_dt: 0.04
+gravity:
+- 0
+- 0
+- 0
+source_sim_dt: 0.01
+source_sim_substeps: 1
+source_steps: 1000
+camera:
+  position:
+  - 1.0291900577963091
+  - -1.789411874732366
+  - 1.5738223550444785
+  look_at:
+  - 0.0
+  - 0.000483877956867218
+  - 0.4998849034309387
+  up:
+  - -0.23002106626196772
+  - 0.40003663697733516
+  - 0.8871645834632778
+  yfov_degrees: 38.0
+  width: 640
+  height: 480
+  fps: 25
+  near: 0.3204209777050533
+  far: 10.0
+extension:
+  origin: Text2Sim
+  published_worldsolver_task: false
+  source_case: soft_cloth_strip_twist_self_contact_deformable
+  public_contract: assets/scene_contract.json
+  video_window:
+    start: 0.04
+    end: 10.0
+    source_frame_count: 250
+render_materials:
+  cloth:
+    color_rgb:
+    - 0.075
+    - 0.47
+    - 0.48
+    roughness: 0.82
+    double_sided: true
+  left_ipc_dummy_mount_geom:
+    color_rgb:
+    - 0.055
+    - 0.07
+    - 0.085
+    roughness: 0.35
+  left_approach_rail_geom:
+    color_rgb:
+    - 0.055
+    - 0.07
+    - 0.085
+    roughness: 0.35
+  left_writhe_carriage_geom:
+    color_rgb:
+    - 0.16
+    - 0.2
+    - 0.24
+    roughness: 0.35
+  left_upper_jaw_geom:
+    color_rgb:
+    - 0.88
+    - 0.22
+    - 0.045
+    roughness: 0.35
+  left_lower_jaw_geom:
+    color_rgb:
+    - 0.88
+    - 0.22
+    - 0.045
+    roughness: 0.35
+  right_ipc_dummy_mount_geom:
+    color_rgb:
+    - 0.045
+    - 0.055
+    - 0.065
+    roughness: 0.35
+  right_writhe_rail_geom:
+    color_rgb:
+    - 0.1
+    - 0.13
+    - 0.16
+    roughness: 0.35
+  right_writhe_carriage_geom:
+    color_rgb:
+    - 0.1
+    - 0.13
+    - 0.16
+    roughness: 0.35
+  right_rotor_hub_geom:
+    color_rgb:
+    - 0.18
+    - 0.21
+    - 0.24
+    roughness: 0.35
+  right_upper_jaw_geom:
+    color_rgb:
+    - 0.92
+    - 0.27
+    - 0.055
+    roughness: 0.35
+  right_lower_jaw_geom:
+    color_rgb:
+    - 0.92
+    - 0.27
+    - 0.055
+    roughness: 0.35
+luisa_lights:
+- name: warm_soft_key
+  pos:
+  - 2.2
+  - -3.4
+  - 4.4
+  color:
+  - 1.0
+  - 0.82
+  - 0.64
+  intensity: 12.0
+  radius: 0.8
+- name: cool_soft_fill
+  pos:
+  - -3.0
+  - 2.5
+  - 3.5
+  color:
+  - 0.62
+  - 0.78
+  - 1.0
+  intensity: 6.0
+  radius: 0.7
+- name: neutral_rim
+  pos:
+  - 0.0
+  - 3.8
+  - 4.1
+  color:
+  - 0.94
+  - 0.97
+  - 1.0
+  intensity: 8.0
+  radius: 0.6
+luisa_environment_color:
+- 0.29
+- 0.35
+- 0.42
+physics_contract_reference: assets/scene_contract.json

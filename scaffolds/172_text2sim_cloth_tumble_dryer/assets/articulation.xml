@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco model="dryer_drum_mjcf">
+  <compiler angle="degree"/>
+
+  <asset>
+    <material name="dryer_grey_metal" rgba="0.38 0.40 0.43 1" specular="0.65" shininess="0.45"/>
+    <material name="bookkeeping_dark" rgba="0.12 0.13 0.14 1" specular="0.15" shininess="0.10"/>
+  </asset>
+
+  <worldbody>
+    <body name="dryer_fixed_base" pos="0 0 0">
+      <!--
+        Minimal nonzero IPC/external-articulation bookkeeping collision.
+        Its nearest face is 2.997 m from the drum center, far outside the
+        approximately +/-0.36 m active axial envelope and all cloth motion.
+      -->
+      <geom name="ipc_remote_base_bookkeeping_geom" type="box"
+            pos="3.0 0 0" size="0.003 0.003 0.003"
+            material="bookkeeping_dark" contype="1" conaffinity="1"
+            condim="3" friction="0.8 0.005 0.0001" mass="0.001"/>
+
+      <body name="rotor_link" pos="0 0 0">
+        <joint name="drum_hinge" type="hinge" pos="0 0 0" axis="1 0 0"
+               limited="false" range="-3600 3600" damping="0.20" armature="0.04"/>
+        <inertial pos="0.03 0 0" mass="18.0" diaginertia="5.0 3.1 3.1"/>
+
+        <!--
+          Thirty tangent boxes form a hollow cylindrical wall. Each facet is
+          0.712 m long along x, 0.016 m thick radially, and 0.118 m wide
+          tangentially. Their inner faces lie at radius 0.560 m.
+        -->
+        <geom name="drum_wall_facet_00" type="box" pos="0 0.568000 0.000000" euler="0 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_01" type="box" pos="0 0.555588 0.118094" euler="12 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_02" type="box" pos="0 0.518894 0.231026" euler="24 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_03" type="box" pos="0 0.459522 0.333862" euler="36 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_04" type="box" pos="0 0.380066 0.422106" euler="48 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_05" type="box" pos="0 0.284000 0.491902" euler="60 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_06" type="box" pos="0 0.175522 0.540200" euler="72 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_07" type="box" pos="0 0.059372 0.564888" euler="84 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_08" type="box" pos="0 -0.059372 0.564888" euler="96 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_09" type="box" pos="0 -0.175522 0.540200" euler="108 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_10" type="box" pos="0 -0.284000 0.491902" euler="120 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_11" type="box" pos="0 -0.380066 0.422106" euler="132 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_12" type="box" pos="0 -0.459522 0.333862" euler="144 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_13" type="box" pos="0 -0.518894 0.231026" euler="156 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_14" type="box" pos="0 -0.555588 0.118094" euler="168 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_15" type="box" pos="0 -0.568000 0.000000" euler="180 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_16" type="box" pos="0 -0.555588 -0.118094" euler="192 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_17" type="box" pos="0 -0.518894 -0.231026" euler="204 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_18" type="box" pos="0 -0.459522 -0.333862" euler="216 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_19" type="box" pos="0 -0.380066 -0.422106" euler="228 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_20" type="box" pos="0 -0.284000 -0.491902" euler="240 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_21" type="box" pos="0 -0.175522 -0.540200" euler="252 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_22" type="box" pos="0 -0.059372 -0.564888" euler="264 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_23" type="box" pos="0 0.059372 -0.564888" euler="276 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_24" type="box" pos="0 0.175522 -0.540200" euler="288 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_25" type="box" pos="0 0.284000 -0.491902" euler="300 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_26" type="box" pos="0 0.380066 -0.422106" euler="312 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_27" type="box" pos="0 0.459522 -0.333862" euler="324 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_28" type="box" pos="0 0.518894 -0.231026" euler="336 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+        <geom name="drum_wall_facet_29" type="box" pos="0 0.555588 -0.118094" euler="348 0 0"
+              size="0.356 0.008 0.059" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+
+        <!-- Thin rear wall: x spans 0.344 m to 0.360 m and overlaps the side facets. -->
+        <geom name="drum_rear_disk" type="cylinder" pos="0.352 0 0" euler="0 90 0"
+              size="0.568 0.008" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="0.9 0.005 0.0001"/>
+
+        <!-- Four 0.62 m longitudinal lifters protrude from r=0.560 m to r=0.490 m. -->
+        <geom name="drum_baffle_0" type="box" pos="0 0.528 0" euler="0 0 0"
+              size="0.310 0.038 0.045" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="1.0 0.005 0.0001"/>
+        <geom name="drum_baffle_1" type="box" pos="0 0 0.528" euler="90 0 0"
+              size="0.310 0.038 0.045" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="1.0 0.005 0.0001"/>
+        <geom name="drum_baffle_2" type="box" pos="0 -0.528 0" euler="180 0 0"
+              size="0.310 0.038 0.045" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="1.0 0.005 0.0001"/>
+        <geom name="drum_baffle_3" type="box" pos="0 0 -0.528" euler="270 0 0"
+              size="0.310 0.038 0.045" material="dryer_grey_metal" contype="1" conaffinity="1"
+              condim="3" friction="1.0 0.005 0.0001"/>
+      </body>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <velocity name="drum_velocity" joint="drum_hinge" kv="12.0"
+              ctrllimited="true" ctrlrange="-2.5 2.5"
+              forcelimited="true" forcerange="-60 60"/>
+  </actuator>
+</mujoco>

@@ -85,6 +85,56 @@ def _scalar_attribute_texture(frame, item, binding, vertex_count):
     return uvs, texture
 
 
+def _cylinder_surface_attributes(vertices, faces, uvs):
+    """Separate planar caps from the radial wall without moving triangles.
+
+    Shared rim vertices otherwise blend cap and wall normals. For a thin glass
+    cylinder this turns its flat faces into a curved lens during refraction.
+    Cylinder primitives are authored along local Z before their object pose.
+    """
+    import trimesh
+
+    triangles = np.asarray(vertices)[faces]
+    face_normals, valid = trimesh.triangles.normals(triangles)
+    if not np.all(valid):
+        raise ValueError("Cylinder contains degenerate triangles")
+    corners = triangles.reshape(-1, 3)
+    normals = np.zeros_like(corners, dtype=float)
+    normals[:, :2] = corners[:, :2]
+    lengths = np.linalg.norm(normals, axis=1, keepdims=True)
+    normals /= np.maximum(lengths, 1e-15)
+    cap_faces = np.abs(face_normals[:, 2]) > 1.0 - 1e-6
+    cap_corners = np.repeat(cap_faces, 3)
+    cap_normals = np.repeat(face_normals, 3, axis=0)
+    normals[cap_corners] = cap_normals[cap_corners]
+    # Retain the original triangle order, winding, vertex positions and UVs.
+    new_uvs = np.asarray(uvs)[faces].reshape(-1, 2) if len(uvs) else uvs
+    return corners, np.arange(len(corners)).reshape(-1, 3), normals, new_uvs
+
+
+def _sharp_rigid_mesh_attributes(vertices, faces, uvs):
+    """Smooth rigid mesh normals within 30-degree patches, preserving corners.
+
+    This handles compound primitive meshes as well as authored rigid meshes.
+    Triangle positions/order/winding remain unchanged; only rendering vertices
+    are duplicated to represent discontinuous normals at a sharp edge.
+    """
+    import trimesh
+
+    source = trimesh.Trimesh(vertices=vertices, faces=faces, process=False)
+    shaded = trimesh.graph.smooth_shade(source, angle=np.deg2rad(30.), facet_minarea=None)
+    components = shaded.metadata.get("original_components")
+    original_indices = np.hstack(components) if components is not None else np.arange(len(faces))
+    triangles = np.asarray(vertices)[faces]
+    if not np.array_equal(shaded.vertices[shaded.faces], triangles[original_indices]):
+        raise ValueError("Sharp-edge shading unexpectedly changed rigid mesh triangles")
+    corner_normals = np.empty_like(triangles, dtype=float)
+    corner_normals[original_indices] = shaded.vertex_normals[shaded.faces]
+    corners = triangles.reshape(-1, 3)
+    new_uvs = np.asarray(uvs)[faces].reshape(-1, 2) if len(uvs) else uvs
+    return corners, np.arange(len(corners)).reshape(-1, 3), corner_normals.reshape(-1, 3), new_uvs
+
+
 class LuisaTrajectoryRenderer:
     def __init__(self, config, spec, geometry, destination):
         from .renderer import _camera_pose
@@ -147,6 +197,7 @@ class LuisaTrajectoryRenderer:
         self.scene.update_camera(self.camera, self.denoise)
         self.shapes = {}
         self.surfaces = {}
+        self.rigid_surface_attributes = {}
         self.warnings = set()
         background = config.get("luisa_environment_color", camera.get("background_rgb", [0.035, 0.05, 0.075]))
         emission = np.asarray(background) if "luisa_environment_color" in config else _linear_rgb(background)
@@ -394,6 +445,19 @@ class LuisaTrajectoryRenderer:
                         uvs = uvs[faces].reshape(-1, 2)
                     vertices = triangles.reshape(-1, 3)
                     faces = np.arange(len(vertices)).reshape(-1, 3)
+                elif item is not None and item.geometry.type == "cylinder":
+                    vertices, faces, normals, uvs = _cylinder_surface_attributes(vertices, faces, uvs)
+                elif (
+                    item is not None
+                    and item.geometry.type == "triangle_mesh"
+                    and binding is not None
+                    and binding.method == "rigid_mesh"
+                ):
+                    # Rigid authoritative asset geometry never changes between
+                    # frames; only its pose does. Split normals once per slot.
+                    if base_name not in self.rigid_surface_attributes:
+                        self.rigid_surface_attributes[base_name] = _sharp_rigid_mesh_attributes(vertices, faces, uvs)
+                    vertices, faces, normals, uvs = self.rigid_surface_attributes[base_name]
                 transforms = [pose] if primitive.poses is None else [pose @ p for p in primitive.poses]
                 color = None
                 if primitive.color_0 is not None and scalar_texture is None:
@@ -441,11 +505,13 @@ class LuisaTrajectoryRenderer:
         self.camera = None
         self.shapes.clear()
         self.surfaces.clear()
+        self.rigid_surface_attributes.clear()
         self.lr.destroy()
 
 
 def render_trajectory_luisa(trajectory, config, destination, *, spec=None, geometry=None, asset_root=None):
     import copy
+    from .time_window import selected_video_frames, video_window
 
     config = copy.deepcopy(config)
     for material in config.get("render_materials", {}).values():
@@ -465,7 +531,7 @@ def render_trajectory_luisa(trajectory, config, destination, *, spec=None, geome
             quality=8,
             macro_block_size=1,
         ) as writer:
-            for frame in TrajectoryReader(trajectory):
+            for frame in selected_video_frames(TrajectoryReader(trajectory), config):
                 image = renderer.render(frame)
                 writer.append_data(image)
                 if frame_count == 0:
@@ -490,6 +556,7 @@ def render_trajectory_luisa(trajectory, config, destination, *, spec=None, geome
         "fps": int(config.get("camera", {}).get("fps", 30)),
         "first_physical_time": first_time,
         "last_physical_time": last_time,
+        "configured_video_window": video_window(config),
         "elapsed_seconds": time.monotonic() - start,
         "geometry_source": "official WorldSolver authoritative mesh builders",
         "timing": "one trajectory state per frame; original benchmark fps preserved",

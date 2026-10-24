@@ -1,0 +1,44 @@
+id: 173_text2sim_cloth_strip_twist
+title: 'Text2Sim: Cloth Strip Twist with Self Contact'
+category: multiphysics
+source:
+  title: 'Text2Sim: Agentic Physics-Based Simulation Generation with Distilled Expertise'
+  url: https://arxiv.org/abs/2609.36593
+  anchor: soft_cloth_strip_twist_self_contact_deformable
+goal: Recreate the full zero-gravity cloth and two finite-force articulated clamp scene with the frozen staged twist/compression/release
+  schedule.
+scene_requirements:
+  required_elements:
+  - cloth
+  - left_ipc_dummy_mount_geom
+  - left_approach_rail_geom
+  - left_writhe_carriage_geom
+  - left_upper_jaw_geom
+  - left_lower_jaw_geom
+  - right_ipc_dummy_mount_geom
+  - right_writhe_rail_geom
+  - right_writhe_carriage_geom
+  - right_rotor_hub_geom
+  - right_upper_jaw_geom
+  - right_lower_jaw_geom
+  initial_state:
+  - Read all frozen input assets and the complete scene_contract.json; initial state is the original undeformed
+    mesh, not a deformed cached frame.
+  required_events:
+  - One initially flat teal 1.20 by 0.40 m cloth and both complete visible three-DOF endpoint clamp assemblies remain
+    present in zero gravity without a floor.
+  - Finite-force opposing twist, axial shortening and alternating small out-of-plane clamp motion create helical
+    folds and repeated nonlocal cloth self-contact/release during the frozen schedule.
+  - Only the two endpoint patches follow actual rotor poses; the interior deforms through membrane elasticity, bending
+    and frictional self-contact without imposed trajectories, deletion or persistent crossings.
+  - The terminal relaxed fixed-control phase allows elastic motion to settle; original jaws, material colors and
+    camera are retained.
+parameter_notes:
+- Independent Text2Sim supplement, outside the original WorldSolver 168 tasks.
+- The actual shell law is StrainLimitingBaraffWitkinShell plus DiscreteShellBending; see the exact public energy
+  and mass/thickness definitions.
+- Preserve physical material, all geometry, actuation and output sampling across quality profiles. Only numerical
+  approximations/internal steps may vary.
+- Report external constraint/actuator reaction forces separately from pairwise balanced internal/contact forces.
+- The provided control function is an input schedule only; it contains no material dynamics or stored answer trajectory.
+- Zero gravity and no floor/support; preserve the original fixed camera pose, field of view, colors and scene contents.

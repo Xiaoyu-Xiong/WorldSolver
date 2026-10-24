@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco model="left_endpoint_twist_clamp">
+  <!-- All angular joint limits and actuator commands are in radians. -->
+  <compiler angle="radian"/>
+
+  <asset>
+    <material name="left_clamp_satin_jaw"
+              rgba="0.88 0.22 0.045 1"
+              specular="0.38"
+              shininess="0.24"/>
+    <material name="left_clamp_brushed_carriage"
+              rgba="0.16 0.20 0.24 1"
+              specular="0.42"
+              shininess="0.30"/>
+    <material name="left_clamp_dark_mount"
+              rgba="0.055 0.070 0.085 1"
+              specular="0.26"
+              shininess="0.18"/>
+  </asset>
+
+  <worldbody>
+    <!--
+      Fixed-base import contract:
+      * place this root so the zero-state rotor origin is at the left cloth end;
+      * local +X points inward along the cloth span;
+      * local Z is the requested out-of-plane writhe direction;
+      * do not scale this asset at import.
+
+      The nominal primitive envelope is approximately 1.05 x 0.42 x 0.36 m.
+      The minimal fixed mount and all rail/carriage geometry are outboard
+      (negative X), beyond the full jaw/cloth sweep.
+    -->
+    <body name="left_clamp_fixed_mount_link" pos="0 0 0">
+      <!-- Tiny bookkeeping collision required by fixed-base IPC import. -->
+      <geom name="left_ipc_dummy_mount_geom"
+            type="sphere"
+            pos="-0.985 0 0"
+            size="0.010"
+            mass="0.015"
+            material="left_clamp_dark_mount"
+            friction="0.45 0.01 0.001"
+            contype="1"
+            conaffinity="1"/>
+
+      <!-- At q=0 this link is 0.50 m outboard; +X travel shortens the span. -->
+      <body name="left_clamp_carriage_link" pos="-0.50 0 0">
+        <joint name="left_approach_slide"
+               type="slide"
+               pos="0 0 0"
+               axis="1 0 0"
+               limited="true"
+               range="0 0.22"
+               damping="3.0"
+               armature="0.040"
+               frictionloss="0.20"/>
+
+        <!--
+          A real collidable parent-link rail, 0.36 m tall at nominal pose.
+          Even at maximum approach its nearest X face is 0.53 m outboard
+          of the rotor axis, so it cannot guide or support the cloth.
+        -->
+        <geom name="left_approach_rail_geom"
+              type="capsule"
+              fromto="-0.060 0 -0.150 -0.060 0 0.150"
+              size="0.030"
+              mass="0.24"
+              material="left_clamp_dark_mount"
+              friction="0.45 0.01 0.001"
+              contype="1"
+              conaffinity="1"/>
+
+        <!-- This prismatic link moves in world/local Z before any rotation. -->
+        <body name="left_clamp_writhe_link" pos="0 0 0">
+          <joint name="left_writhe_slide"
+                 type="slide"
+                 pos="0 0 0"
+                 axis="0 0 1"
+                 limited="true"
+                 range="-0.10 0.10"
+                 damping="2.2"
+                 armature="0.030"
+                 frictionloss="0.14"/>
+
+          <!-- Visible moving carriage; always at least 0.415 m outboard. -->
+          <geom name="left_writhe_carriage_geom"
+                type="box"
+                pos="0.030 0 0"
+                size="0.055 0.040 0.040"
+                mass="0.22"
+                material="left_clamp_brushed_carriage"
+                friction="0.50 0.01 0.001"
+                contype="1"
+                conaffinity="1"/>
+
+          <!--
+            The +0.50 m fixed offset makes this rotor origin coincide with the
+            root origin at neutral. Fixed jaw geoms merge into this retained
+            driven link, left_clamp_rotor_link, during fixed-link processing.
+          -->
+          <body name="left_clamp_rotor_link" pos="0.50 0 0">
+            <joint name="left_twist_hinge"
+                   type="hinge"
+                   pos="0 0 0"
+                   axis="1 0 0"
+                   limited="true"
+                   range="-9 9"
+                   damping="0.10"
+                   armature="0.004"
+                   frictionloss="0.012"/>
+
+            <!--
+              Rounded collision jaws span exactly 0.42 m in Y and cover a
+              0.055 m endpoint patch in X. Their inner faces are at z=+/-0.007,
+              leaving a centered 0.014 m slot. A 0.001 m cloth midsurface at
+              z=0 therefore starts with 0.0065 m clearance per jaw.
+            -->
+            <geom name="left_upper_jaw_geom"
+                  type="capsule"
+                  fromto="0.0275 -0.182 0.035 0.0275 0.182 0.035"
+                  size="0.028"
+                  mass="0.30"
+                  material="left_clamp_satin_jaw"
+                  friction="0.82 0.015 0.001"
+                  contype="1"
+                  conaffinity="1"/>
+            <geom name="left_lower_jaw_geom"
+                  type="capsule"
+                  fromto="0.0275 -0.182 -0.035 0.0275 0.182 -0.035"
+                  size="0.028"
+                  mass="0.30"
+                  material="left_clamp_satin_jaw"
+                  friction="0.82 0.015 0.001"
+                  contype="1"
+                  conaffinity="1"/>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <!-- Conservative, force-bounded joint-space position servos. -->
+    <position name="left_approach_motor"
+              joint="left_approach_slide"
+              kp="160"
+              kv="18"
+              ctrllimited="true"
+              ctrlrange="0 0.22"
+              forcelimited="true"
+              forcerange="-45 45"/>
+    <position name="left_writhe_motor"
+              joint="left_writhe_slide"
+              kp="120"
+              kv="14"
+              ctrllimited="true"
+              ctrlrange="-0.10 0.10"
+              forcelimited="true"
+              forcerange="-30 30"/>
+    <position name="left_twist_motor"
+              joint="left_twist_hinge"
+              kp="6"
+              kv="0.75"
+              ctrllimited="true"
+              ctrlrange="-9 9"
+              forcelimited="true"
+              forcerange="-4 4"/>
+  </actuator>
+</mujoco>
